@@ -70,13 +70,51 @@
                 });
             }
 
-            // Mobile menu toggle
+            // Mobile menu toggle & interactions
             const menuBtn = document.getElementById('menu-btn');
             const mainmenu = document.getElementById('mainmenu');
+            const headerNav = document.querySelector('header.header-nav');
+
             if (menuBtn && mainmenu) {
-                menuBtn.addEventListener('click', function () {
-                    mainmenu.classList.toggle('show-mobile');
-                    menuBtn.classList.toggle('active');
+                function toggleMobileMenu(forceState) {
+                    const isOpen = typeof forceState === 'boolean' ? forceState : !mainmenu.classList.contains('show-mobile');
+                    mainmenu.classList.toggle('show-mobile', isOpen);
+                    menuBtn.classList.toggle('active', isOpen);
+                    menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    if (headerNav) headerNav.classList.toggle('mobile-menu-open', isOpen);
+                }
+
+                menuBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    toggleMobileMenu();
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (mainmenu.classList.contains('show-mobile') && !mainmenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                        toggleMobileMenu(false);
+                    }
+                });
+
+                // Close menu when clicking any menu link
+                mainmenu.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        toggleMobileMenu(false);
+                    });
+                });
+
+                // Close menu on Escape key
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && mainmenu.classList.contains('show-mobile')) {
+                        toggleMobileMenu(false);
+                    }
+                });
+
+                // Close menu on resize to desktop
+                window.addEventListener('resize', function () {
+                    if (window.innerWidth >= 992 && mainmenu.classList.contains('show-mobile')) {
+                        toggleMobileMenu(false);
+                    }
                 });
             }
 
