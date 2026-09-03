@@ -270,7 +270,7 @@ $stClass = [
         </div>
 
         {{-- ── CONTROLS BAR: Legend + Available-Only + View Toggle ── --}}
-        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+        <div class="view-controls-bar mb-4">
             {{-- Legend --}}
             <div class="d-flex align-items-center flex-wrap gap-3" role="list" aria-label="Plot status legend">
                 <div class="d-flex align-items-center gap-2" role="listitem">
@@ -287,98 +287,136 @@ $stClass = [
                 </div>
             </div>
             {{-- Buttons --}}
-            <div class="d-flex align-items-center gap-2 flex-wrap">
+            <div class="view-controls-group">
                 <button id="btn-avail-only" class="layout-avail-btn" onclick="toggleAvailableOnly(this)"
                         aria-pressed="false" title="Show only available plots">
                     <i class="fa-solid fa-filter"></i>
-                    <span class="d-none d-sm-inline">Available Only</span>
+                    <span>Available Only</span>
                 </button>
-                <div role="group" aria-label="View toggle" class="d-flex gap-1">
+                <div role="group" aria-label="View toggle" class="layout-toggle-group">
                     <button id="btn-layout-view" class="layout-toggle-btn active" onclick="switchView('layout')"
                             aria-pressed="true" title="Master Layout Interactive Plan">
                         <i class="fa-solid fa-map"></i>
-                        <span class="d-none d-sm-inline">Master Layout</span>
+                        <span>Master Layout</span>
                     </button>
                     <button id="btn-board-view" class="layout-toggle-btn" onclick="switchView('board')"
                             aria-pressed="false" title="Grid Card View">
                         <i class="fa-solid fa-grip"></i>
-                        <span class="d-none d-sm-inline">Card Grid</span>
+                        <span>Card Grid</span>
                     </button>
                     <button id="btn-list-view" class="layout-toggle-btn" onclick="switchView('list')"
                             aria-pressed="false" title="Table List View">
                         <i class="fa-solid fa-table-list"></i>
-                        <span class="d-none d-sm-inline">List</span>
+                        <span>List</span>
                     </button>
                 </div>
             </div>
         </div>
 
         {{-- ── FILTER STRIP ── --}}
-        <div class="filter-strip p-3 p-md-4 rounded-3 border border-white-10 mb-4" id="filterStrip">
-            <div class="row g-2 align-items-end">
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <label for="filterSearch" class="font-copperplate fs-10 text-white-50 text-uppercase d-block mb-1" style="letter-spacing:.05em;">Plot Number</label>
-                    <div class="relative">
-                        <input type="text" id="filterSearch" class="form-control ps-4" placeholder="e.g. 102, 121, 150..."
+        <div class="filter-strip-card mb-4" id="filterStrip">
+            <div class="filter-grid-layout">
+                {{-- Plot Number Search --}}
+                <div class="filter-item filter-item-search">
+                    <label for="filterSearch" class="filter-label">
+                        <i class="fa-solid fa-magnifying-glass"></i> Plot Number
+                    </label>
+                    <div class="filter-input-wrap">
+                        <input type="text" id="filterSearch" class="filter-control ps-4" placeholder="e.g. 102, 121, 150..."
                                aria-label="Search by plot number" autocomplete="off"/>
-                        <i class="fa-solid fa-magnifying-glass absolute fs-11 text-white-50" style="left:12px;top:50%;transform:translateY(-50%);pointer-events:none;"></i>
+                        <i class="fa-solid fa-magnifying-glass filter-input-icon"></i>
                     </div>
                 </div>
-                <div class="col-6 col-sm-3 col-lg-auto" style="min-width:140px;">
-                    <label for="filterStatus" class="font-copperplate fs-10 text-white-50 text-uppercase d-block mb-1" style="letter-spacing:.05em;">Status</label>
-                    <select id="filterStatus" class="form-control" aria-label="Filter by plot status">
-                        <option value="">All Statuses</option>
-                        <option value="available">Available ({{ $availableCount }})</option>
-                        <option value="reserved">Reserved ({{ $reservedCount }})</option>
-                        <option value="sold">Sold ({{ $soldCount }})</option>
-                    </select>
+
+                {{-- Status --}}
+                <div class="filter-item">
+                    <label for="filterStatus" class="filter-label">
+                        <i class="fa-solid fa-circle-dot"></i> Status
+                    </label>
+                    <div class="filter-select-wrap">
+                        <select id="filterStatus" class="filter-control filter-select" aria-label="Filter by plot status">
+                            <option value="">All Statuses</option>
+                            <option value="available">Available ({{ $availableCount }})</option>
+                            <option value="reserved">Reserved ({{ $reservedCount }})</option>
+                            <option value="sold">Sold ({{ $soldCount }})</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col-6 col-sm-3 col-lg-auto" style="min-width:140px;">
-                    <label for="filterType" class="font-copperplate fs-10 text-white-50 text-uppercase d-block mb-1" style="letter-spacing:.05em;">Type</label>
-                    <select id="filterType" class="form-control" aria-label="Filter by plot type">
-                        <option value="">All Types</option>
-                        @foreach($distinctTypes as $type)
-                            <option value="{{ $type }}">{{ ucfirst($type) }}</option>
-                        @endforeach
-                    </select>
+
+                {{-- Type --}}
+                <div class="filter-item">
+                    <label for="filterType" class="filter-label">
+                        <i class="fa-solid fa-shapes"></i> Type
+                    </label>
+                    <div class="filter-select-wrap">
+                        <select id="filterType" class="filter-control filter-select" aria-label="Filter by plot type">
+                            <option value="">All Types</option>
+                            @foreach($distinctTypes as $type)
+                                <option value="{{ $type }}">{{ ucfirst($type) }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
-                <div class="col-6 col-sm-3 col-lg-auto" style="min-width:140px;">
-                    <label for="filterSize" class="font-copperplate fs-10 text-white-50 text-uppercase d-block mb-1" style="letter-spacing:.05em;">Size</label>
-                    <select id="filterSize" class="form-control" aria-label="Filter by plot size">
-                        <option value="">All Sizes</option>
-                        @foreach($distinctSizes as $sz)
-                            <option value="{{ (int)$sz }}">{{ (int)$sz }} Sq. Yds</option>
-                        @endforeach
-                    </select>
+
+                {{-- Size --}}
+                <div class="filter-item">
+                    <label for="filterSize" class="filter-label">
+                        <i class="fa-solid fa-expand"></i> Size
+                    </label>
+                    <div class="filter-select-wrap">
+                        <select id="filterSize" class="filter-control filter-select" aria-label="Filter by plot size">
+                            <option value="">All Sizes</option>
+                            @foreach($distinctSizes as $sz)
+                                <option value="{{ (int)$sz }}">{{ (int)$sz }} Sq. Yds</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
-                <div class="col-6 col-sm-3 col-lg-auto" style="min-width:140px;">
-                    <label for="filterFacing" class="font-copperplate fs-10 text-white-50 text-uppercase d-block mb-1" style="letter-spacing:.05em;">Facing</label>
-                    <select id="filterFacing" class="form-control" aria-label="Filter by facing direction">
-                        <option value="">All Facings</option>
-                        @foreach($distinctFacings as $f)
-                            <option value="{{ strtolower($f) }}">{{ $f }}</option>
-                        @endforeach
-                    </select>
+
+                {{-- Facing --}}
+                <div class="filter-item">
+                    <label for="filterFacing" class="filter-label">
+                        <i class="fa-solid fa-compass"></i> Facing
+                    </label>
+                    <div class="filter-select-wrap">
+                        <select id="filterFacing" class="filter-control filter-select" aria-label="Filter by facing direction">
+                            <option value="">All Facings</option>
+                            @foreach($distinctFacings as $f)
+                                <option value="{{ strtolower($f) }}">{{ $f }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
-                <div class="col-6 col-sm-3 col-lg-auto" style="min-width:140px;">
-                    <label for="filterRoad" class="font-copperplate fs-10 text-white-50 text-uppercase d-block mb-1" style="letter-spacing:.05em;">Road</label>
-                    <select id="filterRoad" class="form-control" aria-label="Filter by road width">
-                        <option value="">All Roads</option>
-                        @foreach($distinctRoads as $r)
-                            <option value="{{ $r }}">{{ $r }} Ft Road</option>
-                        @endforeach
-                    </select>
+
+                {{-- Road --}}
+                <div class="filter-item">
+                    <label for="filterRoad" class="filter-label">
+                        <i class="fa-solid fa-road"></i> Road
+                    </label>
+                    <div class="filter-select-wrap">
+                        <select id="filterRoad" class="filter-control filter-select" aria-label="Filter by road width">
+                            <option value="">All Roads</option>
+                            @foreach($distinctRoads as $r)
+                                <option value="{{ $r }}">{{ $r }} Ft Road</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
-                <div class="col-sm-auto d-flex align-items-end">
-                    <button id="btnClearFilters" class="btn btn-outline-light font-copperplate fs-11 px-3 py-2 rounded-pill"
+
+                {{-- Clear Button --}}
+                <div class="filter-item filter-item-clear">
+                    <button id="btnClearFilters" class="btn-filter-clear"
                             onclick="clearFilters()" aria-label="Clear all filters">
-                        <i class="fa-solid fa-xmark me-1"></i>Clear
+                        <i class="fa-solid fa-rotate-left"></i> <span>Clear</span>
                     </button>
                 </div>
             </div>
-            <div class="d-flex align-items-center justify-content-between mt-3 pt-2 border-top border-white-10 flex-wrap gap-2">
-                <div class="font-copperplate fs-12 text-white-50">
-                    Showing <strong class="text-white" id="resultCount">{{ $allPlots->count() }}</strong> plots
+
+            {{-- Footer bar --}}
+            <div class="filter-footer-bar">
+                <div class="filter-count-wrap">
+                    <i class="fa-solid fa-layer-group text-brand-secondary"></i>
+                    <span>Showing <strong class="text-white animated-counter" id="resultCount" data-counter-target="{{ $allPlots->count() }}">{{ $allPlots->count() }}</strong> plots matching criteria</span>
                 </div>
                 <div id="activeFilterBadges" class="d-flex flex-wrap gap-1"></div>
             </div>
@@ -574,18 +612,18 @@ $stClass = [
                             role="{{ $isSold ? 'img' : 'button' }}"
                             tabindex="{{ $isSold ? -1 : 0 }}"
                             aria-label="{{ $plot['number'] }}, {{ ucfirst($pst) }}, {{ ucfirst($plot['plot_type'] ?? 'Plot') }}, {{ $psz }} Sq. Yds"/>
-                        <text x="{{ $cx }}" y="{{ $cy - 2 }}" class="plot-cell-text"
+                        <text x="{{ $cx }}" y="{{ $cy - 5 }}" class="plot-cell-text"
                               style="--anim-delay:{{ $delay + 40 }}ms;" aria-hidden="true">{{ $pNum }}</text>
-                        <text x="{{ $cx }}" y="{{ $cy + 8 }}" class="plot-cell-size-text"
+                        <text x="{{ $cx }}" y="{{ $cy + 7 }}" class="plot-cell-size-text"
                               style="--anim-delay:{{ $delay + 60 }}ms;" aria-hidden="true">{{ $psz }}</text>
                         @endforeach
 
                         {{-- ── SCALE / WATERMARK / OFFICIAL APPROVALS ── --}}
-                        <text x="45" y="955" style="font-family:var(--font-heading);font-size:9.5px;fill:rgba(255,255,255,.30);letter-spacing:.08em;" pointer-events="none">
-                            RRR PREKSHITHA ENCLAVE &bull; HMDA FINAL LP NO: 000022/LO/Plg/HMDA/2023 &bull; TSRERA: P02000006695
+                        <text x="45" y="963" class="layout-footer-text-left" style="font-family:var(--font-heading);font-size:15px;font-weight:700;fill:#ffffff;letter-spacing:.05em;" pointer-events="none">
+                            <tspan fill="#86efac" font-weight="800">RRR PREKSHITHA ENCLAVE</tspan> &bull; HMDA FINAL LP NO: <tspan fill="#f59e0b" font-weight="700">000022/LO/Plg/HMDA/2023</tspan> &bull; TSRERA: <tspan fill="#f59e0b" font-weight="700">P02000006695</tspan>
                         </text>
-                        <text x="1555" y="955" text-anchor="end" style="font-family:sans-serif;font-size:8.5px;fill:rgba(255,255,255,.30);" pointer-events="none">
-                            TOTAL EXTENT: 48,272.46 SQ. METERS &bull; 158 HMDA APPROVED PLOTS &bull; 100% VAASTU
+                        <text x="1555" y="963" text-anchor="end" class="layout-footer-text-right" style="font-family:var(--font-heading);font-size:14px;font-weight:700;fill:rgba(255,255,255,.92);letter-spacing:.04em;" pointer-events="none">
+                            TOTAL EXTENT: <tspan fill="#38bdf8" font-weight="800">48,272.46 SQ. METERS</tspan> &bull; <tspan fill="#86efac" font-weight="700">158 HMDA APPROVED PLOTS</tspan> &bull; 100% VAASTU
                         </text>
 
                     </svg>
