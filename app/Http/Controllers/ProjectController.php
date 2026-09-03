@@ -1,0 +1,193 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Plot;
+use Illuminate\Http\Request;
+
+class ProjectController extends Controller
+{
+    /**
+     * Display the dedicated Projects portfolio & Master Plan Overview page.
+     */
+    public function index()
+    {
+        $projects = [
+            [
+                'id' => 'navagruha-commercial-gateway',
+                'name' => 'Navagruha Commercial Gateway',
+                'short_name' => 'Commercial Gateway',
+                'tagline' => 'High-Footfall Highway Commercial Plotted Frontage',
+                'status_key' => 'upcoming commercial',
+                'badge_type' => 'blue',
+                'status_badge' => 'Pre-launch 2026',
+                'category' => 'Commercial / Mixed-Use Plots',
+                'category_overlay' => 'Commercial / Mixed-Use Plots',
+                'overview_stats' => '2 acres &bull; 18 units &bull; 60 ft road',
+                'location' => 'Grand entrance on Bibinagar &ndash; NH-163 main avenue',
+                'total_extent' => '2 Acres',
+                'total_extent_sub' => 'Commercial Frontage',
+                'total_units' => '18 Units',
+                'total_units_sub' => 'High-Yield Commercial',
+                'road_widths' => '60 Ft',
+                'road_widths_sub' => 'Main Boulevard Front',
+                'vaastu' => 'East, North',
+                'vaastu_sub' => 'Commercial Frontage',
+                'plot_sizes' => '300 to 600 Sq. Yards',
+                'approvals' => 'Commercial Layout Approvals in Progress',
+                'launch_year' => '2026 Pre-Launch',
+                'highlights' => [
+                    'Prime 60 ft double road frontage near entrance arch',
+                    'Dedicated customer parking and heavy-load CC pavement',
+                    'Ideal for clinics, diagnostic labs, and supermarkets',
+                    'High rental yield driven by AIIMS daily footfall',
+                ],
+                'image' => asset('venture/photos/16.jpg'),
+                'gallery' => [
+                    asset('venture/photos/16.jpg'),
+                    asset('venture/photos/18.jpg'),
+                    asset('venture/landmarks/National Highway NH - 163.jpg'),
+                ],
+                'docs' => [],
+                'is_featured' => false,
+            ],
+            [
+                'id' => 'navagruha-rrr-meadows',
+                'name' => 'Navagruha RRR Meadows',
+                'short_name' => 'RRR Meadows',
+                'tagline' => 'Mega Plotted Community on the Regional Ring Road Belt',
+                'status_key' => 'upcoming',
+                'badge_type' => 'amber',
+                'status_badge' => 'Proposed 2027',
+                'category' => 'Luxury Gated Plotted Community',
+                'category_overlay' => 'Luxury Gated Plotted Community',
+                'overview_stats' => '25 acres &bull; 300+ units',
+                'location' => 'Adjacent to proposed regional ring road junction',
+                'total_extent' => '25 Acres',
+                'total_extent_sub' => 'Proposed Mega Layout',
+                'total_units' => '300+ Units',
+                'total_units_sub' => 'Master Community',
+                'road_widths' => "60', 40' & 30'",
+                'road_widths_sub' => 'Arterial Road Grid',
+                'vaastu' => '100%',
+                'vaastu_sub' => 'Vaastu Compliant',
+                'plot_sizes' => '200, 267 & 500 Sq. Yards',
+                'approvals' => 'Planning & Land Aggregation Phase',
+                'launch_year' => '2027 Proposed',
+                'highlights' => [
+                    'Sits at the RRR and Hyderabad-Warangal corridor junction',
+                    '15 minutes from ORR exit 9 and Pocharam IT SEZ',
+                    'Clubhouse, pool, sports zone, and children\'s parks planned',
+                    'Final layout approval expected Q2 2027',
+                ],
+                'image' => asset('venture/photos/12.jpg'),
+                'gallery' => [
+                    asset('venture/photos/12.jpg'),
+                    asset('venture/landmarks/National Highway NH - 163.jpg'),
+                    asset('venture/landmarks/Aiims Bibinagar.jpg'),
+                ],
+                'docs' => [],
+                'is_featured' => false,
+            ],
+            [
+                'id' => 'prekshitha-phase-2',
+                'name' => 'Navagruha Prekshitha Enclave (Phase 2)',
+                'short_name' => 'Prekshitha Enclave',
+                'tagline' => 'HMDA Final Approved Gated Residential Plotted Community',
+                'status_key' => 'ongoing',
+                'badge_type' => 'green',
+                'status_badge' => 'Ongoing',
+                'category' => 'Residential Plotted Community',
+                'category_overlay' => 'Residential Plotted Community',
+                'overview_stats' => '12 acres &bull; 150+ plots',
+                'location' => 'AIIMS Bibinagar, Hyderabad-Warangal NH-163 Corridor',
+                'total_extent' => '12 Acres',
+                'total_extent_sub' => '48,272.46 Sq. M HMDA Sanction',
+                'total_units' => '150+ Plots',
+                'total_units_sub' => 'Phase 2 Plotted Inventory',
+                'road_widths' => "40' & 30'",
+                'road_widths_sub' => 'M-25 Concrete Avenues',
+                'vaastu' => '100%',
+                'vaastu_sub' => 'East & West Facing Grid',
+                'plot_sizes' => '167, 200, 220 & 267 Sq. Yards',
+                'approvals' => 'HMDA Final Sanction (LP No. 062715/2024) & TSRERA Form C',
+                'launch_year' => '2024 &ndash; 2026 Active Launch',
+                'highlights' => [
+                    'HMDA Final Approved Layout with immediate spot registration',
+                    '3 Dedicated landscaped thematic parks with gazebos and play areas',
+                    'Underground drainage (UGD), electricity with transformer & tank',
+                    'Grand architectural entrance arch with 24/7 security cabin',
+                ],
+                'image' => asset('venture/photos/01.jpg'),
+                'gallery' => [
+                    asset('venture/photos/01.jpg'),
+                    asset('venture/photos/02.jpg'),
+                    asset('venture/photos/03.jpg'),
+                    asset('venture/photos/04.jpg'),
+                    asset('venture/photos/05.jpg'),
+                    asset('venture/photos/06.jpg'),
+                ],
+                'docs' => [
+                    'layout' => asset('venture/docs/RRR PREKSHITHA ENCLAVE LAYOUT.pdf'),
+                    'hmda' => asset('venture/docs/HMDA FINAL APPROVAL PHASE2.pdf'),
+                    'rera' => asset('venture/docs/RERA APPROVAL PHASE1.pdf'),
+                    'brochure' => asset('venture/docs/RRR PREKSHITHA ENCLAVE BROCHURE.pdf'),
+                ],
+                'video' => asset('data/Site Developments/Site Developments/NAVAGRUHA PREKSHITHA ENCLAVE.mp4'),
+                'is_featured' => true,
+            ],
+            [
+                'id' => 'prekshitha-phase-1',
+                'name' => 'Navagruha Prekshitha Enclave (Phase 1)',
+                'short_name' => 'Prekshitha Enclave (Phase 1)',
+                'tagline' => 'Completed & Successfully Delivered Plotted Landmark',
+                'status_key' => 'completed',
+                'badge_type' => 'green',
+                'status_badge' => 'Delivered',
+                'category' => 'Residential Villa Plots',
+                'category_overlay' => 'Residential Villa Plots',
+                'overview_stats' => '5 acres &bull; 74 plots',
+                'location' => 'Bibinagar Mandal, Yadadri Bhuvanagiri District',
+                'total_extent' => '5 Acres',
+                'total_extent_sub' => 'Phase 1 Delivered Area',
+                'total_units' => '74 Plots',
+                'total_units_sub' => '100% Handed Over',
+                'road_widths' => "40' & 30'",
+                'road_widths_sub' => 'Completed CC Roads',
+                'vaastu' => '100%',
+                'vaastu_sub' => 'Clear Boundary Stones',
+                'plot_sizes' => '150, 167 & 200 Sq. Yards',
+                'approvals' => 'HMDA Approved & TSRERA Registered',
+                'launch_year' => '2022 &ndash; 2024 Completed',
+                'highlights' => [
+                    '100% Handed over with clear marketable titles and sale deeds',
+                    'Full concrete avenue network with complete demarcations',
+                    'Avenue plantations and central park space fully developed',
+                    '100% Bank loan disbursements achieved from SBI, HDFC and ICICI',
+                ],
+                'image' => asset('venture/photos/07.jpg'),
+                'gallery' => [
+                    asset('venture/photos/07.jpg'),
+                    asset('venture/photos/08.jpg'),
+                    asset('venture/photos/09.jpg'),
+                    asset('venture/photos/10.jpg'),
+                ],
+                'docs' => [
+                    'rera' => asset('venture/docs/RERA APPROVAL PHASE1.pdf'),
+                ],
+                'is_featured' => false,
+            ],
+        ];
+
+        $ventureDocs = [
+            'hmda_approval' => asset('venture/docs/HMDA FINAL APPROVAL PHASE2.pdf'),
+            'rera_approval' => asset('venture/docs/RERA APPROVAL PHASE1.pdf'),
+            'master_layout' => asset('venture/docs/RRR PREKSHITHA ENCLAVE LAYOUT.pdf'),
+            'brochure' => asset('venture/docs/RRR PREKSHITHA ENCLAVE BROCHURE.pdf'),
+            'pamphlet' => asset('venture/docs/RRR PREKSHITHA ENCLAVE PAMPHLET.pdf'),
+            'master_video' => asset('data/Site Developments/Site Developments/NAVAGRUHA PREKSHITHA ENCLAVE.mp4'),
+        ];
+
+        return view('projects', compact('projects', 'ventureDocs'));
+    }
+}

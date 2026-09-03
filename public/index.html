@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navagruha Infra Developers — Client Demos & Admin Portal</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #142533;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .container {
+            width: 100%;
+            max-width: 580px;
+            background: #1a3042;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 40px 32px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+            text-align: center;
+        }
+        .logo {
+            max-height: 52px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-family: 'Copperplate', 'Copperplate Gothic Bold', 'Cinzel', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 6px;
+            letter-spacing: 0.04em;
+        }
+        p.subtitle {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-bottom: 28px;
+        }
+        .demo-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .demo-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #142533;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.25s ease;
+        }
+        .demo-item:hover {
+            background: #20394e;
+            border-color: #71b644;
+            box-shadow: 0 6px 20px rgba(113, 182, 68, 0.2);
+            transform: translateY(-2px);
+        }
+        .demo-info {
+            text-align: left;
+        }
+        .demo-name {
+            font-family: 'Copperplate', 'Copperplate Gothic Bold', 'Cinzel', serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .demo-desc {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        .demo-badge {
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 6px;
+            background: rgba(113, 182, 68, 0.2);
+            color: #71b644;
+            border: 1px solid rgba(113, 182, 68, 0.4);
+        }
+        .demo-btn {
+            background: #71b644;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 10px 18px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+            transition: background 0.2s ease;
+        }
+        .demo-item:hover .demo-btn {
+            background: #5c9735;
+        }
+        .footer-text {
+            margin-top: 28px;
+            font-size: 12px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="images/navagruha-logo-white.png" alt="Navagruha Infra Developers" class="logo" onerror="this.onerror=null; this.src='images/navagruha-logo.png';">
+        <h1>Venture Portals &amp; Demos</h1>
+        <p class="subtitle">Finalized Client Brand Direction: <strong>#234159</strong> &bull; <strong>#71b644</strong> &bull; <strong>#dc3526</strong> &bull; <strong>Copperplate</strong></p>
+        
+        <div class="demo-list">
+            <!-- Finalized Demo 1 -->
+            <a href="demo1/" class="demo-item" style="border-color: #71b644; background: rgba(113, 182, 68, 0.08);">
+                <div class="demo-info">
+                    <div class="demo-name">
+                        <span>Demo 1 (Finalized Direction)</span>
+                        <span class="demo-badge">Primary Reference</span>
+                    </div>
+                    <div class="demo-desc">Demo 1 Look & Feel + Demo 3 Plot Details System</div>
+                </div>
+                <div class="demo-btn">
+                    Launch <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- Demo 3 -->
+            <a href="demo3/" class="demo-item">
+                <div class="demo-info">
+                    <div class="demo-name">
+                        <span>Demo 3</span>
+                        <span class="demo-badge" style="background: rgba(35, 65, 89, 0.4); color: #93c5fd; border-color: rgba(147, 197, 253, 0.4);">Details Reference</span>
+                    </div>
+                    <div class="demo-desc">Interactive Plotted Venture Layout &amp; Details</div>
+                </div>
+                <div class="demo-btn" style="background: #234159;">
+                    Open <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- Admin Portal -->
+            <a href="index.php/admin" class="demo-item" style="border-color: rgba(22, 163, 74, 0.4); background: rgba(22, 163, 74, 0.08);">
+                <div class="demo-info">
+                    <div class="demo-name" style="color: #4ade80;">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Admin Portal</span>
+                    </div>
+                    <div class="demo-desc">Dashboard, Plots, Lead Enquiries &amp; Profile</div>
+                </div>
+                <div class="demo-btn" style="background: #16a34a;">
+                    Admin Login <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+
+        <p class="footer-text">Navagruha Infra Developers &bull; AIIMS Bibinagar 17-Acre Venture</p>
+    </div>
+</body>
+</html>

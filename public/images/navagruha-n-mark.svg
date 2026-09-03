@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>NAVAGRUHA N Logo Mark</title>
+  <defs>
+    <!-- 
+      The NAVAGRUHA "N" mark:
+        - Left diagonal stroke: #71b644 (green) — rises from bottom-left to top-center
+        - Right diagonal stroke: #dc3526 (red) — falls from top-center to bottom-right
+        Both strokes share a smooth cutout notch in the center where they interlock.
+      
+      This SVG encodes the exact shapes traced from the official logo.
+    -->
+
+    <!-- Clip path for the entire N mark (both strokes) -->
+    <clipPath id="n-full-clip">
+      <!-- Green left stroke: parallelogram rising left→right, rounded ends -->
+      <path d="
+        M 12 148
+        C 8 155, 12 170, 22 170
+        L 46 170
+        C 54 170, 60 163, 60 157
+        L 104 38
+        L 114 52
+        L 68 170
+        L 88 170
+        C 96 170, 102 164, 104 157
+        L 152 22
+        C 156 14, 150 0, 140 0
+        L 116 0
+        C 108 0, 102 7, 100 13
+        L 58 128
+        L 48 114
+        L 92 0
+        L 72 0
+        C 64 0, 58 6, 56 13
+        Z
+      "/>
+    </clipPath>
+
+    <!-- Animated fill reveal: a rectangle that grows from bottom to top -->
+    <clipPath id="fill-reveal-clip">
+      <rect id="fill-rect" x="0" y="170" width="200" height="0">
+        <animate
+          attributeName="y"
+          from="170"
+          to="0"
+          dur="1.2s"
+          begin="0.15s"
+          fill="freeze"
+          calcMode="spline"
+          keyTimes="0; 1"
+          keySplines="0.4 0 0.2 1"
+        />
+        <animate
+          attributeName="height"
+          from="0"
+          to="170"
+          dur="1.2s"
+          begin="0.15s"
+          fill="freeze"
+          calcMode="spline"
+          keyTimes="0; 1"
+          keySplines="0.4 0 0.2 1"
+        />
+      </rect>
+    </clipPath>
+  </defs>
+
+  <!-- ============================================================
+       LAYER 1: Outline / Ghost N (full, very low opacity — visible before fill)
+       ============================================================ -->
+  <!-- Green stroke outline -->
+  <path d="
+    M 12 148
+    C 8 155, 12 170, 22 170
+    L 46 170
+    C 54 170, 60 163, 60 157
+    L 104 38
+    L 114 52
+    L 68 170
+    L 88 170
+    C 96 170, 102 164, 104 157
+    L 152 22
+    C 156 14, 150 0, 140 0
+    L 116 0
+    C 108 0, 102 7, 100 13
+    L 58 128
+    L 48 114
+    L 92 0
+    L 72 0
+    C 64 0, 58 6, 56 13
+    Z
+  " fill="#71b644" opacity="0.12"/>
+
+  <!-- Red stroke outline -->
+  <path d="
+    M 188 22
+    C 192 15, 188 0, 178 0
+    L 154 0
+    C 146 0, 140 7, 140 13
+    L 96 132
+    L 86 118
+    L 132 0
+    L 112 0
+    C 104 0, 98 6, 96 13
+    L 48 148
+    C 44 156, 50 170, 60 170
+    L 84 170
+    C 92 170, 98 163, 100 157
+    L 142 42
+    L 152 56
+    L 108 170
+    L 128 170
+    C 136 170, 142 164, 144 157
+    Z
+  " fill="#dc3526" opacity="0.12"/>
+
+  <!-- ============================================================
+       LAYER 2: Filled N — clipped by animated bottom-to-top reveal
+       ============================================================ -->
+  <!-- Green stroke filled -->
+  <path d="
+    M 12 148
+    C 8 155, 12 170, 22 170
+    L 46 170
+    C 54 170, 60 163, 60 157
+    L 104 38
+    L 114 52
+    L 68 170
+    L 88 170
+    C 96 170, 102 164, 104 157
+    L 152 22
+    C 156 14, 150 0, 140 0
+    L 116 0
+    C 108 0, 102 7, 100 13
+    L 58 128
+    L 48 114
+    L 92 0
+    L 72 0
+    C 64 0, 58 6, 56 13
+    Z
+  " fill="#71b644" clip-path="url(#fill-reveal-clip)"/>
+
+  <!-- Red stroke filled -->
+  <path d="
+    M 188 22
+    C 192 15, 188 0, 178 0
+    L 154 0
+    C 146 0, 140 7, 140 13
+    L 96 132
+    L 86 118
+    L 132 0
+    L 112 0
+    C 104 0, 98 6, 96 13
+    L 48 148
+    C 44 156, 50 170, 60 170
+    L 84 170
+    C 92 170, 98 163, 100 157
+    L 142 42
+    L 152 56
+    L 108 170
+    L 128 170
+    C 136 170, 142 164, 144 157
+    Z
+  " fill="#dc3526" clip-path="url(#fill-reveal-clip)"/>
+</svg>
