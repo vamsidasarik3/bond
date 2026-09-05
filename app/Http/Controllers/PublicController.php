@@ -48,7 +48,7 @@ class PublicController extends Controller
 
         return response()->json([
             'success' => true,
-            'venture' => 'Navagruha Infra Developers — AIIMS Bibinagar',
+            'venture' => 'Navagruha Infra Developers, AIIMS Bibinagar',
             'total' => $plots->count(),
             'data' => $plots,
         ]);

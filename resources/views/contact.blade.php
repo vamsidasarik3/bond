@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Schedule a Free Site Visit & Contact Us — Navagruha Infra Developers | AIIMS Bibinagar')
-@section('meta_description', 'Book a free guided site visit with complimentary AC cab pickup from Uppal Metro or Ghatkesar ORR to Navagruha 17-Acre Plotted Community at AIIMS Bibinagar.')
+@section('title', 'Contact Us and Schedule a Site Visit, Navagruha Infra Developers')
+@section('meta_description', 'Have questions about plot availability, pricing or the project? Contact our sales team or schedule a visit to RRR Prekshitha Enclave near AIIMS Bibinagar.')
 
 @section('content')
 
@@ -11,13 +11,13 @@
             <div class="row g-4 justify-content-between align-items-center">
                 <div class="col-md-8">
                     <div class="subtitle text-brand-secondary font-copperplate mb-2">
-                        <i class="fa-solid fa-calendar-check me-1"></i> Guided Site Visits Available
+                        <i class="fa-solid fa-calendar-check me-1"></i> Site Visits and Enquiries
                     </div>
                     <h1 class="fs-48 text-white font-copperplate lh-1-1 mb-2">
-                        Schedule Your Guided Site Visit
+                        Contact Us
                     </h1>
                     <p class="text-white-50 fs-16 mb-0">
-                        Experience the 17-Acre master-planned plotted community in person. Submit your contact details below to schedule your visit.
+                        Have questions about plot availability, pricing or the project? Get in touch with our team or schedule a site visit.
                     </p>
                 </div>
                 <div class="col-md-4 text-md-end">
@@ -37,10 +37,10 @@
                 
                 <!-- Left 7-Col: Interactive Schedule & Visit Form -->
                 <div class="col-lg-7">
-                    <div class="subtitle text-brand-secondary font-copperplate mb-1">Online Site Visit Booking</div>
-                    <h2 class="fs-36 text-white font-copperplate mb-3">Reserve Your Free Venture Tour</h2>
+                    <div class="subtitle text-brand-secondary font-copperplate mb-1">Send Us a Message</div>
+                    <h2 class="fs-36 text-white font-copperplate mb-3">Book a Site Visit</h2>
                     <p class="text-white-50 mb-4 fs-15">
-                        Submit your contact details below. Our venture relationship manager will reach out to confirm your visit.
+                        Submit your contact details below. Our team will reach out to confirm your visit and answer any questions.
                     </p>
 
                     @if(session('success'))
@@ -109,7 +109,7 @@
                             <!-- 9. Submit Button -->
                             <div class="col-md-12 pt-2">
                                 <button type="submit" class="btn-main w-100 py-3 font-copperplate fs-14">
-                                    <span><i class="fa-regular fa-calendar-check me-2"></i> Confirm &amp; Schedule Free Site Visit &rarr;</span>
+                                    <span><i class="fa-regular fa-calendar-check me-2"></i> Submit Enquiry &rarr;</span>
                                 </button>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                 <!-- Right 5-Col: Project & Office Details -->
                 <div class="col-lg-5">
                     <div class="p-4.5 rounded-4 bg-brand-card border border-white-10">
-                        <h3 class="fs-22 text-white font-copperplate mb-4">Venture Tour Details</h3>
+                        <h3 class="fs-22 text-white font-copperplate mb-4">Project &amp; Office Details</h3>
 
                         <div class="d-flex align-items-start gap-3 mb-4">
                             <div class="rounded-circle bg-brand-secondary text-white p-3 d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; flex-shrink: 0;">
@@ -135,13 +135,25 @@
 
                         <div class="d-flex align-items-start gap-3 mb-4">
                             <div class="rounded-circle bg-brand-secondary text-white p-3 d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; flex-shrink: 0;">
+                                <i class="fa-solid fa-building fs-18"></i>
+                            </div>
+                            <div>
+                                <h5 class="fs-16 font-copperplate text-white mb-1">Corporate Office</h5>
+                                <p class="text-white-50 fs-13 mb-0">
+                                    {{ $ventureDetails['office_address'] ?? 'Plot No. 109, Shashank Towers, 1st Floor, Uppal Bhagayath, Near Nagole Metro Station, Hyderabad, Telangana 500039.' }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-start gap-3 mb-4">
+                            <div class="rounded-circle bg-brand-secondary text-white p-3 d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; flex-shrink: 0;">
                                  <i class="fa-solid fa-phone fs-18"></i>
                             </div>
                             <div>
                                 <h5 class="fs-16 font-copperplate text-white mb-1">Direct Sales Desk</h5>
                                 <p class="text-white-50 fs-13 mb-0">
                                     <a href="tel:+919617699699" class="text-white text-decoration-none fw-bold">+91 9617 699 699</a><br>
-                                    <a href="mailto:info@navagruha.com" class="text-white text-decoration-none">info@navagruha.com</a> &bull; <a href="https://www.navagruha.com" target="_blank" class="text-white-50 text-decoration-none">www.navagruha.com</a>
+                                    <a href="mailto:info@navagruha.com" class="text-white text-decoration-none">info@navagruha.com</a>, <a href="https://www.navagruha.com" target="_blank" class="text-white-50 text-decoration-none">www.navagruha.com</a>
                                 </p>
                             </div>
                         </div>
@@ -153,8 +165,8 @@
                             <div>
                                 <h5 class="fs-16 font-copperplate text-white mb-1">Approvals &amp; Title</h5>
                                 <p class="text-white-50 fs-13 mb-0">
-                                    HMDA Final Approved &bull; RERA Certified<br>
-                                    <strong class="text-white">Clear Marketable Title &bull; Spot Registration</strong>
+                                    HMDA Final Approved, RERA Certified<br>
+                                    <strong class="text-white">Clear Marketable Title with Spot Registration</strong>
                                 </p>
                             </div>
                         </div>
@@ -166,7 +178,7 @@
                             <div>
                                 <h5 class="fs-16 font-copperplate text-white mb-1">Site Visit Timing</h5>
                                 <p class="text-white-50 fs-13 mb-0">
-                                    {{ $ventureDetails['hours'] ?? 'Mon – Sun: 9:00 AM – 6:30 PM' }}
+                                    Monday to Sunday: 9:00 AM to 6:30 PM
                                 </p>
                             </div>
                         </div>

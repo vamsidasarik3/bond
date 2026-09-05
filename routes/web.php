@@ -3,10 +3,12 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EnquiryController;
 use App\Http\Controllers\Admin\PlotController as AdminPlotController;
+use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\AmenityController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InvestorGuideController;
 use App\Http\Controllers\LocationController;
@@ -23,8 +25,12 @@ use Illuminate\Support\Facades\Route;
 
 // Public Frontend Laravel + Blade Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about-us', [AboutController::class, 'index'])->name('about');
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
-Route::get('/investors-guide', [InvestorGuideController::class, 'index'])->name('investors-guide');
+Route::get('/investor-corner', [InvestorGuideController::class, 'index'])->name('investor.corner');
+Route::get('/investors-guide', function () {
+    return redirect()->route('investor.corner', [], 301);
+})->name('investors-guide');
 Route::get('/plots', [FrontendPlotController::class, 'index'])->name('plots.index');
 Route::post('/plots/unlock-price', [FrontendPlotController::class, 'unlockPrice'])->name('plots.unlock-price');
 Route::get('/plots/{plot}', [FrontendPlotController::class, 'show'])->name('plots.show');
@@ -48,6 +54,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // Dashboard
     Route::get('/', [DashboardController::class, 'index']);
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Projects Portfolio Management
+    Route::get('projects', [AdminProjectController::class, 'index'])->name('projects.index');
 
     // Plot Management
     Route::patch('plots/{plot}/status', [AdminPlotController::class, 'updateStatus'])->name('plots.update-status');

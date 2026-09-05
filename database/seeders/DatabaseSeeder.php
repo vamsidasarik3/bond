@@ -72,7 +72,7 @@ class DatabaseSeeder extends Seeder
                 'boundary_dimensions' => "40'0\" x 45'0\"",
                 'status' => 'available',
                 'is_vaastu_compliant' => true,
-                'notes' => '100% Vaastu compliant, underground drainage line connected.',
+                'notes' => '100% Vaastu Compliance, underground drainage line connected.',
             ],
             [
                 'plot_number' => 'Plot #104',

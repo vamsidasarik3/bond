@@ -1,7 +1,61 @@
 @extends('layouts.app')
 
-@section('title', 'Plot Availability — Interactive Master Layout | RRR Prekshitha Enclave | AIIMS Bibinagar')
-@section('meta_description', 'Explore all 158 residential, commercial, and villa plots at RRR Prekshitha Enclave with our interactive master site plan. Live availability, exact dimensions, 100% Vaastu — HMDA Final Approved near AIIMS Bibinagar.')
+@section('title', 'Plot Availability, RRR Prekshitha Enclave near AIIMS Bibinagar')
+@section('meta_description', 'Explore residential and commercial plots at RRR Prekshitha Enclave with our interactive site plan. View dimensions, facing and availability for this HMDA-approved layout near AIIMS Bibinagar.')
+
+@push('styles')
+<style>
+/* ── Venture Reels & Swiper Carousel Enhancements ── */
+.swiper-infrastructure-showcase {
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 50px !important;
+}
+.swiper-infrastructure-showcase .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+.swiper-infrastructure-showcase .swiper-pagination-bullet-active {
+    background: #71b644 !important;
+    width: 28px;
+    border-radius: 6px;
+}
+.swiper-nav-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(13, 31, 45, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+}
+.swiper-nav-btn:hover {
+    background: #71b644;
+    color: #0d1f2d;
+    border-color: #71b644;
+    transform: scale(1.06);
+}
+.photo-showcase-card {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.photo-showcase-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6) !important;
+    border-color: rgba(113, 182, 68, 0.5) !important;
+}
+.photo-showcase-card:hover img {
+    transform: scale(1.06);
+}
+</style>
+@endpush
 
 @section('content')
 
@@ -221,12 +275,17 @@ $stClass = [
         <div class="row g-3 align-items-center justify-content-between">
             <div class="col-md-8">
                 <div class="subtitle text-brand-secondary font-copperplate mb-2">
-                    <i class="fa-solid fa-map me-1"></i> Interactive Master Layout — Live Availability
+                    <i class="fa-solid fa-circle-dot me-1 text-success"></i> Live Plot Availability, AIIMS Bibinagar
                 </div>
-                <h1 class="fs-48 text-white font-copperplate lh-1-1 mb-2">Find Your Plot</h1>
-                <p class="text-white-50 fs-15 mb-0">
-                    <span class="animated-counter fw-700 text-white font-copperplate" data-counter-target="{{ $totalCount }}">0</span>
-                    plotted units &bull; HMDA Final Approved (LP No: 000022/LO/Plg/HMDA/2023) &bull; RERA Certified &bull; 100% Vaastu Compliant
+                <h1 class="fs-48 text-white font-copperplate lh-1-1 mb-2">RRR Prekshitha Enclave</h1>
+                <p class="text-white-50 fs-15 mb-0 leading-relaxed">
+                    @if($availableCount > 0)
+                        Discover <span class="animated-counter fw-700 text-white font-copperplate" data-counter-target="{{ $availableCount }}">{{ $availableCount }}</span> thoughtfully planned residential plots at RRR Prekshitha Enclave, a HMDA final approved and RERA certified development near AIIMS Bibinagar.
+                    @else
+                        Discover planned residential plots at RRR Prekshitha Enclave, a HMDA final approved and RERA certified development near AIIMS Bibinagar.
+                    @endif
+                    <br>
+                    <span class="fs-13 text-white-50">HMDA Approval: LP No: <strong class="text-white">000022/LO/Plg/HMDA/2023</strong></span>
                 </p>
             </div>
             <div class="col-md-4 text-md-end d-flex flex-column align-items-md-end gap-2">
@@ -293,7 +352,7 @@ $stClass = [
                     <i class="fa-solid fa-filter"></i>
                     <span>Available Only</span>
                 </button>
-                <div role="group" aria-label="View toggle" class="layout-toggle-group">
+                <div role="group" aria-label="View toggle" class="layout-toggle-group d-none" style="display: none !important;">
                     <button id="btn-layout-view" class="layout-toggle-btn active" onclick="switchView('layout')"
                             aria-pressed="true" title="Master Layout Interactive Plan">
                         <i class="fa-solid fa-map"></i>
@@ -477,7 +536,7 @@ $stClass = [
                         <rect x="80" y="480" width="1385" height="48" fill="#102232" class="svg-anim" style="--anim-delay:250ms;"/>
                         <line x1="85" y1="504" x2="1460" y2="504" stroke="#375573" stroke-width="1.5" stroke-dasharray="10,6" class="svg-anim" style="--anim-delay:300ms;"/>
                         <text x="890" y="508" class="road-label-svg" style="font-size:10.5px;letter-spacing:.12em;fill:rgba(255,255,255,.75);" aria-hidden="true">
-                            40 FEET WIDE CC ROAD — CENTRAL SPINE
+                            40 FEET WIDE CENTRAL CC ROAD
                         </text>
 
                         {{-- ── FIVE 30 FT AVENUE ROADS ── --}}
@@ -590,12 +649,12 @@ $stClass = [
                             $cy = $b['y'] + $b['h'] / 2;
                             $delay = 850 + ($pNum * 6);
                         @endphp
-                        <rect
+                        <g
                             class="plot-cell {{ $stClass[$pst] ?? 'status-available' }}"
                             data-id="{{ $plot['id'] }}"
                             data-number="{{ $plot['number'] }}"
                             data-status="{{ $pst }}"
-                            data-type="{{ $plot['plot_type'] ?? 'regular' }}"
+                            data-type="{{ strtolower($plot['plot_type'] ?? 'regular') }}"
                             data-size="{{ $psz }}"
                             data-sqft="{{ $psqft }}"
                             data-facing="{{ strtolower($plot['facing'] ?? 'east') }}"
@@ -605,25 +664,28 @@ $stClass = [
                             data-notes="{{ $pnotes }}"
                             data-vaastu="{{ ($plot['is_vaastu_compliant'] ?? true) ? '1' : '0' }}"
                             @if($isUnlocked && !empty($plot['price'])) data-price="{{ $plot['price'] }}" data-exact="{{ $plot['exact_price'] ?? '' }}" @endif
-                            x="{{ $b['x'] }}" y="{{ $b['y'] }}" width="{{ $b['w'] }}" height="{{ $b['h'] }}" rx="2"
                             style="--anim-delay:{{ $delay }}ms;"
                             @if(!$isSold) onclick="openPlotDrawer(this)"
                             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPlotDrawer(this);}" @endif
                             role="{{ $isSold ? 'img' : 'button' }}"
                             tabindex="{{ $isSold ? -1 : 0 }}"
-                            aria-label="{{ $plot['number'] }}, {{ ucfirst($pst) }}, {{ ucfirst($plot['plot_type'] ?? 'Plot') }}, {{ $psz }} Sq. Yds"/>
-                        <text x="{{ $cx }}" y="{{ $cy - 5 }}" class="plot-cell-text"
-                              style="--anim-delay:{{ $delay + 40 }}ms;" aria-hidden="true">{{ $pNum }}</text>
-                        <text x="{{ $cx }}" y="{{ $cy + 7 }}" class="plot-cell-size-text"
-                              style="--anim-delay:{{ $delay + 60 }}ms;" aria-hidden="true">{{ $psz }}</text>
+                            aria-label="{{ $plot['number'] }}, {{ ucfirst($pst) }}, {{ ucfirst($plot['plot_type'] ?? 'Plot') }}, {{ $psz }} Sq. Yds">
+                            <rect
+                                class="plot-cell-rect"
+                                x="{{ $b['x'] }}" y="{{ $b['y'] }}" width="{{ $b['w'] }}" height="{{ $b['h'] }}" rx="2"/>
+                            <text x="{{ $cx }}" y="{{ $cy - 5 }}" class="plot-cell-text"
+                                  style="--anim-delay:{{ $delay + 40 }}ms;" aria-hidden="true">{{ $pNum }}</text>
+                            <text x="{{ $cx }}" y="{{ $cy + 7 }}" class="plot-cell-size-text"
+                                  style="--anim-delay:{{ $delay + 60 }}ms;" aria-hidden="true">{{ $psz }}</text>
+                        </g>
                         @endforeach
 
                         {{-- ── SCALE / WATERMARK / OFFICIAL APPROVALS ── --}}
                         <text x="45" y="963" class="layout-footer-text-left" style="font-family:var(--font-heading);font-size:15px;font-weight:700;fill:#ffffff;letter-spacing:.05em;" pointer-events="none">
-                            <tspan fill="#86efac" font-weight="800">RRR PREKSHITHA ENCLAVE</tspan> &bull; HMDA FINAL LP NO: <tspan fill="#f59e0b" font-weight="700">000022/LO/Plg/HMDA/2023</tspan> &bull; TSRERA: <tspan fill="#f59e0b" font-weight="700">P02000006695</tspan>
+                            <tspan fill="#86efac" font-weight="800">RRR PREKSHITHA ENCLAVE</tspan>, HMDA FINAL LP NO: <tspan fill="#f59e0b" font-weight="700">000022/LO/Plg/HMDA/2023</tspan>, TSRERA: <tspan fill="#f59e0b" font-weight="700">P02000006695</tspan>
                         </text>
                         <text x="1555" y="963" text-anchor="end" class="layout-footer-text-right" style="font-family:var(--font-heading);font-size:14px;font-weight:700;fill:rgba(255,255,255,.92);letter-spacing:.04em;" pointer-events="none">
-                            TOTAL EXTENT: <tspan fill="#38bdf8" font-weight="800">48,272.46 SQ. METERS</tspan> &bull; <tspan fill="#86efac" font-weight="700">158 HMDA APPROVED PLOTS</tspan> &bull; 100% VAASTU
+                            TOTAL EXTENT: <tspan fill="#38bdf8" font-weight="800">48,272.46 SQ. METERS</tspan>, <tspan fill="#86efac" font-weight="700">158 HMDA APPROVED PLOTS</tspan>, 100% VAASTU
                         </text>
 
                     </svg>
@@ -694,7 +756,7 @@ $stClass = [
                      data-dims="{{ htmlspecialchars($dims) }}"
                      data-notes="{{ htmlspecialchars(Str::limit($notes, 200)) }}"
                      data-vaastu="{{ $plot['is_vaastu_compliant'] ? '1' : '0' }}"
-                     @if($isUnlocked && $priceTxt) data-price="{{ $priceTxt }}" data-exact="{{ $exactTxt }}" @endif
+                     @if($isUnlocked && $priceTxt) data-price="{{ $priceTxt }}" data-exact="{{ $exactTxt }}" data-per-sq-yd="{{ $plot['price_per_sq_yard_formatted'] ?? ('₹ ' . number_format($plot['price_per_sq_yard'] ?? 14999) . ' / Sq. Yard') }}" @endif
                      @if(!$isSold) onclick="openPlotDrawer(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPlotDrawer(this);}" @endif>
                     <span class="plot-tile-strip plot-tile-strip-{{ $stClass2 }}" aria-hidden="true"></span>
                     <div class="plot-tile-number">{{ $plot['number'] }}</div>
@@ -771,7 +833,7 @@ $stClass = [
                                 data-dims="{{ htmlspecialchars($plot['dimensions'] ?? '') }}"
                                 data-notes="{{ htmlspecialchars(Str::limit($plot['description'] ?? '', 200)) }}"
                                 data-vaastu="{{ ($plot['is_vaastu_compliant'] ?? true) ? '1' : '0' }}"
-                                @if($isUnlocked && !empty($plot['price'])) data-price="{{ $plot['price'] }}" data-exact="{{ $plot['exact_price'] ?? '' }}" @endif
+                                @if($isUnlocked && !empty($plot['price'])) data-price="{{ $plot['price'] }}" data-exact="{{ $plot['exact_price'] ?? '' }}" data-per-sq-yd="{{ $plot['price_per_sq_yard_formatted'] ?? ('₹ ' . number_format($plot['price_per_sq_yard'] ?? 14999) . ' / Sq. Yard') }}" @endif
                                 @if(!$sold2) onclick="openPlotDrawer(this)" aria-label="{{ $plot['number'] }}, {{ $stL2 }}" @endif
                                 tabindex="{{ $sold2 ? '-1' : '0' }}"
                                 @if(!$sold2) onkeydown="if(event.key==='Enter'){openPlotDrawer(this);}" @endif>
@@ -804,21 +866,191 @@ $stClass = [
             </div>
         </div>
 
-        {{-- ── CTA ASSURANCE BANNER ── --}}
-        <div class="mt-5 p-4 p-md-5 rounded-4 bg-brand-card border border-white-10">
-            <div class="row g-4 align-items-center justify-content-between">
-                <div class="col-lg-8">
-                    <div class="subtitle text-brand-secondary mb-1">Clear Marketable Title Guaranteed</div>
-                    <h3 class="fs-26 text-white font-copperplate mb-2">100% Vaastu Compliant &bull; Pre-Approved Bank Loans</h3>
-                    <p class="text-white-50 fs-14 mb-0">
-                        HMDA Final LP No: <strong>000022/LO/Plg/HMDA/2023</strong> &bull; TSRERA Reg No: <strong>P02000006695</strong>.
-                        Immediate spot registration at the Bibinagar Sub-Registrar Office.
-                    </p>
+        {{-- ============================================================
+             VENTURE MEDIA SHOWCASE: 4K VIDEO TOUR & REELS PLAYLIST
+             ============================================================ --}}
+        <div class="mt-5 pt-4" id="venture-gallery-video">
+            <div class="row g-4 align-items-start">
+                {{-- Left: 4K Drone Video Walkthrough --}}
+                <div class="col-lg-6 col-12">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div>
+                            <div class="subtitle text-brand-secondary font-copperplate mb-0">
+                                <i class="fa-solid fa-circle-play me-1"></i> Live Site Walkthrough
+                            </div>
+                            <h3 class="fs-24 text-white font-copperplate mb-0">4K Drone &amp; Ground Video Tour</h3>
+                        </div>
+                        <span class="badge bg-brand-primary bg-opacity-25 text-brand-secondary px-3 py-2 rounded-pill font-copperplate fs-12 border border-brand-primary border-opacity-30">
+                            <i class="fa-solid fa-video me-1"></i> Authentic Footage
+                        </span>
+                    </div>
+
+                    <div class="plot-video-wrap mb-3" style="aspect-ratio: 16/9; position: relative; border-radius: 18px; overflow: hidden; background: #000; box-shadow: 0 16px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.12);">
+                        <video id="ventureWalkthroughVideo" class="w-100 h-100 object-fit-cover" controls playsinline preload="metadata" poster="{{ asset('images/projects/rrr-prekshitha/aerial-drone-banner.webp') }}">
+                            <source src="{{ asset('venture/videos/venture-walkthrough.mp4') }}" type="video/mp4">
+                            Your browser does not support HTML5 video.
+                        </video>
+                    </div>
+
+                    {{-- Video Highlights / Chapter Pills --}}
+                    <div class="d-flex flex-wrap gap-2 pt-1">
+                        <span class="video-chapter-pill"><i class="fa-solid fa-archway text-brand-secondary"></i> Grand Entrance Arch</span>
+                        <span class="video-chapter-pill"><i class="fa-solid fa-road text-brand-secondary"></i> 40' Concrete Avenue</span>
+                        <span class="video-chapter-pill"><i class="fa-solid fa-faucet-drip text-brand-secondary"></i> Underground Drainage</span>
+                        <span class="video-chapter-pill"><i class="fa-solid fa-tree text-brand-secondary"></i> Landscaped Thematic Parks</span>
+                        <span class="video-chapter-pill"><i class="fa-solid fa-hospital text-brand-secondary"></i> 05 Mins to AIIMS Bibinagar</span>
+                    </div>
                 </div>
-                <div class="col-lg-4 text-lg-end">
-                    <a href="{{ route('contact') }}" class="btn-main py-3 px-4">
-                        <span>Schedule Guided Site Tour &rarr;</span>
-                    </a>
+
+                {{-- Right: 6 Venture Video Reels --}}
+                <div class="col-lg-6 col-12">
+                    @php
+                        $ventureReels = [
+                            [
+                                'num' => 'Reel 01',
+                                'title' => 'Entrance & Avenue',
+                                'full_title' => 'Grand Entrance & 40ft Main Avenue',
+                                'video' => asset('venture/videos/REEL1.mp4'),
+                                'poster' => asset('images/projects/rrr-prekshitha/entrance-arch-grand.webp')
+                            ],
+                            [
+                                'num' => 'Reel 02',
+                                'title' => 'Site Progress',
+                                'full_title' => 'Underground Utilities & Concrete Roads',
+                                'video' => asset('venture/videos/REEL2.mp4'),
+                                'poster' => asset('images/projects/rrr-prekshitha/concrete-boulevard-40ft.webp')
+                            ],
+                            [
+                                'num' => 'Reel 03',
+                                'title' => 'AIIMS Corridor',
+                                'full_title' => 'AIIMS Bibinagar Location & Highway Connectivity',
+                                'video' => asset('venture/videos/REEL3.mp4'),
+                                'poster' => asset('images/projects/rrr-prekshitha/avenue-plantation-walkway.webp')
+                            ],
+                            [
+                                'num' => 'Reel 04',
+                                'title' => 'Water Infra',
+                                'full_title' => 'Water Infrastructure & Overhead Tank',
+                                'video' => asset('venture/videos/REEL4.mp4'),
+                                'poster' => asset('images/projects/rrr-prekshitha/overhead-water-tank.webp')
+                            ],
+                            [
+                                'num' => 'Reel 05',
+                                'title' => 'Aerial Drone',
+                                'full_title' => 'Aerial Drone Perspective & Site Layout',
+                                'video' => asset('venture/videos/REEL5.mp4'),
+                                'poster' => asset('images/projects/rrr-prekshitha/aerial-drone-banner.webp')
+                            ],
+                            [
+                                'num' => 'Reel 06',
+                                'title' => 'Avenue Plantation',
+                                'full_title' => 'Avenue Plantation & Concrete Works',
+                                'video' => asset('venture/videos/REEL6.mp4'),
+                                'poster' => asset('images/projects/rrr-prekshitha/internal-curbstone-avenue.webp')
+                            ],
+                        ];
+                    @endphp
+
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div>
+                            <div class="subtitle text-brand-secondary font-copperplate mb-0">
+                                <i class="fa-solid fa-film me-1"></i> On-Ground Video Shorts
+                            </div>
+                            <h3 class="fs-24 text-white font-copperplate mb-0">Venture Video Reels</h3>
+                        </div>
+                        <span class="badge bg-brand-primary bg-opacity-25 text-brand-secondary px-3 py-2 rounded-pill font-copperplate fs-12 border border-brand-primary border-opacity-30">
+                            <i class="fa-solid fa-play me-1"></i> 6 Video Tours
+                        </span>
+                    </div>
+
+                    {{-- 6 Video Reels Grid: 2 Rows × 3 Columns --}}
+                    <div class="row g-2 g-md-3">
+                        @foreach($ventureReels as $reel)
+                            <div class="col-4">
+                                <div class="reel-card" onclick="openReelModal('{{ $reel['video'] }}', '{{ addslashes($reel['full_title']) }}')">
+                                    <img src="{{ $reel['poster'] }}" alt="{{ $reel['title'] }}" class="reel-card-poster" loading="lazy">
+                                    <div class="reel-card-gradient"></div>
+                                    <div class="reel-card-content text-center">
+                                        <div class="reel-play-btn mx-auto">
+                                            <i class="fa-solid fa-play"></i>
+                                        </div>
+                                        <span class="reel-tag">{{ $reel['num'] }}</span>
+                                        <div class="reel-title">{{ $reel['title'] }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+            {{-- Full On-Ground Infrastructure Photo Showcase: Swiper Carousel with Pagination --}}
+            @php
+                $showcasePhotos = [
+                    ['url' => asset('images/projects/rrr-prekshitha/entrance-arch-grand.webp'), 'title' => 'Grand Entrance Arch & Security', 'desc' => 'Monumental arch with 24/7 manned security cabin and boom barriers.'],
+                    ['url' => asset('images/projects/rrr-prekshitha/concrete-boulevard-40ft.webp'), 'title' => "40' M-25 Concrete Boulevard", 'desc' => 'Heavy-duty concrete avenues engineered with integrated storm drainage.'],
+                    ['url' => asset('images/projects/rrr-prekshitha/avenue-plantation-walkway.webp'), 'title' => 'Avenue Plantation & Walkways', 'desc' => 'Shaded pedestrian walkways with mature avenue trees along all roads.'],
+                    ['url' => asset('venture/photos/04.jpg'), 'title' => 'Underground Sewage & Drainage', 'desc' => 'Comprehensive underground drainage network preventing waterlogging.'],
+                    ['url' => asset('venture/photos/05.jpg'), 'title' => 'Underground Electricity & Transformers', 'desc' => 'Dedicated transformer, underground power cabling and modern LED lighting.'],
+                    ['url' => asset('images/projects/rrr-prekshitha/layout-parks-broad-view.webp'), 'title' => 'Thematic Landscaped Parks', 'desc' => 'Over 1.5 acres of green park zones with children play areas and gazebos.'],
+                    ['url' => asset('venture/photos/07.jpg'), 'title' => 'Demarcated Plot Boundaries', 'desc' => 'Individual boundary corner stones and physical road alignments in place.'],
+                    ['url' => asset('images/projects/rrr-prekshitha/overhead-water-tank.webp'), 'title' => 'Overhead Water Storage Tank', 'desc' => 'High-capacity water tank with pressurized pipeline to each plot boundary.'],
+                    ['url' => asset('venture/photos/09.jpg'), 'title' => 'Compound Wall & Perimeter', 'desc' => 'Complete layout boundary fencing ensuring privacy and round-the-clock safety.'],
+                    ['url' => asset('venture/photos/10.jpg'), 'title' => 'AIIMS Bibinagar Corridor View', 'desc' => 'Direct 5-minute connectivity to premier national 750-bed medical institute.'],
+                    ['url' => asset('images/projects/rrr-prekshitha/internal-curbstone-avenue.webp'), 'title' => 'Internal Curbstone Avenues', 'desc' => 'Precision curb stones and reflective lane markers along internal 30ft roads.'],
+                    ['url' => asset('images/projects/rrr-prekshitha/aerial-drone-banner.webp'), 'title' => '17-Acre Master Layout', 'desc' => 'HMDA Final Sanctioned layout plan under LP No: 000022/LO/Plg/HMDA/2023.'],
+                    ['url' => asset('images/projects/rrr-prekshitha/high-altitude-site-grid.webp'), 'title' => 'Sector Grid Alignment', 'desc' => '100% Vaastu Compliance plot orientations with wide road frontages.'],
+                    ['url' => asset('images/projects/rrr-prekshitha/ground-development-progress.webp'), 'title' => 'On-Ground Development Progress', 'desc' => 'Ready for immediate villa construction and spot registration at Bibinagar SRO.'],
+                ];
+            @endphp
+
+            <div class="mt-5 pt-3">
+                <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
+                    <div>
+                        <div class="subtitle text-brand-secondary font-copperplate mb-0">
+                            <i class="fa-solid fa-camera-retro me-1"></i> Infrastructure Inspection
+                        </div>
+                        <h4 class="fs-22 text-white font-copperplate mb-0">
+                            On-Ground Venture Infrastructure Showcase
+                        </h4>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="text-white-50 fs-13 font-copperplate d-none d-md-inline">
+                            Actual On-Site Progress &bull; {{ count($showcasePhotos) }} Verified Photos
+                        </span>
+                        {{-- Carousel Navigation Buttons --}}
+                        <div class="d-flex gap-2">
+                            <button class="swiper-nav-btn swiper-infra-prev" aria-label="Previous Slide">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button class="swiper-nav-btn swiper-infra-next" aria-label="Next Slide">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Swiper Infrastructure Carousel --}}
+                <div class="swiper swiper-infrastructure-showcase">
+                    <div class="swiper-wrapper">
+                        @foreach($showcasePhotos as $idx => $item)
+                            <div class="swiper-slide">
+                                <div class="photo-showcase-card rounded-4 overflow-hidden position-relative border border-white-10"
+                                     style="aspect-ratio: 16/11; cursor: pointer; background: #0d1b2a; box-shadow: 0 10px 28px rgba(0,0,0,0.4);"
+                                     onclick="openShowcaseModal({{ $idx }})">
+                                    <img src="{{ $item['url'] }}" alt="{{ $item['title'] }}" class="w-100 h-100 object-fit-cover" style="transition: transform 0.4s ease;" loading="lazy">
+                                    <div class="photo-showcase-overlay position-absolute bottom-0 inset-x-0 p-3" style="background: linear-gradient(transparent, rgba(7,17,28,0.94));">
+                                        <span class="badge bg-brand-primary bg-opacity-25 text-brand-secondary border border-brand-primary border-opacity-30 fs-10 font-copperplate mb-1 px-2 py-0.5">
+                                            <i class="fa-solid fa-camera me-1"></i> Verified
+                                        </span>
+                                        <div class="photo-showcase-caption text-white fs-13 font-copperplate lh-sm fw-bold">{{ $item['title'] }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    {{-- Swiper Pagination --}}
+                    <div class="swiper-pagination swiper-infra-pagination"></div>
                 </div>
             </div>
         </div>
@@ -877,7 +1109,7 @@ $stClass = [
                 <div class="plot-drawer-spec-icon" style="color:#f59e0b;border-color:rgba(245,158,11,.2);background:rgba(245,158,11,.08);">
                     <i class="fa-solid fa-om"></i>
                 </div>
-                <div><div class="plot-drawer-spec-label">Vaastu</div><div class="plot-drawer-spec-value" id="drawerVaastu">100% Compliant</div></div>
+                <div><div class="plot-drawer-spec-label">Vaastu</div><div class="plot-drawer-spec-value" id="drawerVaastu">100% Compliance</div></div>
             </div>
         </div>
 
@@ -887,6 +1119,7 @@ $stClass = [
             <div class="p-3 rounded-3 text-center" style="background:rgba(113,182,68,.08);border:1px solid rgba(113,182,68,.25);">
                 <div class="font-copperplate fs-10 text-white-50 text-uppercase mb-1" style="letter-spacing:.05em;">Total Price</div>
                 <div class="fs-24 fw-800 font-copperplate" style="color:#71b644;" id="drawerPrice">—</div>
+                <div class="fs-13 fw-bold font-copperplate mt-1 text-brand-secondary" id="drawerPerSqYd">—</div>
                 <div class="fs-12 text-white-50 mt-1" id="drawerExactPrice"></div>
             </div>
             @else
@@ -899,7 +1132,7 @@ $stClass = [
                     <span><i class="fa-solid fa-lock-open me-1"></i>Unlock Price &rarr;</span>
                 </button>
                 <div class="text-white-50 fs-11 mt-2">
-                    <i class="fa-solid fa-shield-halved me-1" style="color:#71b644;"></i>Privacy Protected &bull; Direct Developer
+                    <i class="fa-solid fa-shield-halved me-1" style="color:#71b644;"></i>Privacy Protected, Direct Developer Desk
                 </div>
             </div>
             @endif
@@ -929,6 +1162,43 @@ $stClass = [
         </div>
     </div>
 </aside>
+
+{{-- Reel Video Modal Overlay --}}
+<div class="reel-modal-overlay" id="reelModalOverlay" onclick="closeReelModal(event)">
+    <div class="reel-modal-dialog" onclick="event.stopPropagation()">
+        <button class="reel-modal-close" onclick="closeReelModal(event)" aria-label="Close video">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <video id="reelModalVideo" class="reel-modal-video" controls autoplay loop playsinline>
+            <source id="reelVideoSource" src="" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+</div>
+
+{{-- Showcase Lightbox Modal Overlay --}}
+<div class="showcase-modal-overlay" id="showcaseModalOverlay" onclick="closeShowcaseModal(event)">
+    <div class="showcase-modal-dialog" onclick="event.stopPropagation()">
+        <div class="showcase-modal-header">
+            <div>
+                <h4 class="showcase-modal-title text-white font-copperplate fs-18 mb-0" id="showcaseModalTitle"></h4>
+                <div class="showcase-modal-subtitle text-brand-secondary fs-12" id="showcaseModalSubtitle">Authentic Venture Infrastructure</div>
+            </div>
+            <button class="showcase-modal-close" onclick="closeShowcaseModal(event)" aria-label="Close modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="showcase-modal-body text-center position-relative">
+            <button class="showcase-nav-btn showcase-nav-prev" onclick="navigateShowcase(-1)" aria-label="Previous photo">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <img id="showcaseModalImg" src="" alt="Venture Infrastructure Photo" class="showcase-modal-img img-fluid rounded-3" style="max-height: 75vh; object-fit: contain;">
+            <button class="showcase-nav-btn showcase-nav-next" onclick="navigateShowcase(1)" aria-label="Next photo">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
 
 @endsection
 
@@ -1021,16 +1291,17 @@ $stClass = [
         var srch    = f.search.replace(/\s/g, '');
         var srchDig = srch.replace(/\D/g, '');
         if (f.search && !num.includes(srch) && !(srchDig && numDig.includes(srchDig))) return false;
-        var st = el.dataset.status || '';
+        var st = (el.dataset.status || '').toLowerCase();
         if (availOnly && st !== 'available') return false;
         if (f.status) {
-            if (f.status === 'reserved' && st !== 'reserved' && st !== 'booked') return false;
-            if (f.status !== 'reserved' && st !== f.status) return false;
+            var fSt = f.status.toLowerCase();
+            if (fSt === 'reserved' && st !== 'reserved' && st !== 'booked') return false;
+            if (fSt !== 'reserved' && st !== fSt) return false;
         }
-        if (f.type   && el.dataset.type   !== f.type)   return false;
-        if (f.size   && el.dataset.size   !== f.size)   return false;
-        if (f.facing && el.dataset.facing !== f.facing) return false;
-        if (f.road   && el.dataset.road   !== f.road)   return false;
+        if (f.type && (el.dataset.type || '').toLowerCase() !== f.type.toLowerCase()) return false;
+        if (f.size && parseInt(el.dataset.size, 10) !== parseInt(f.size, 10)) return false;
+        if (f.facing && (el.dataset.facing || '').toLowerCase() !== f.facing.toLowerCase()) return false;
+        if (f.road && parseInt(el.dataset.road, 10) !== parseInt(f.road, 10)) return false;
         return true;
     }
 
@@ -1048,9 +1319,11 @@ $stClass = [
     function applyFilters() {
         var f = getFilters();
         var cnt = 0;
+        var isFilteringActive = Boolean(f.search || f.status || f.type || f.size || f.facing || f.road || availOnly);
 
         /* SVG cells */
         if (svgEl) {
+            svgEl.classList.toggle('is-filtering', isFilteringActive);
             svgEl.querySelectorAll('.plot-cell[data-id]').forEach(function (el) {
                 var show = matchEl(el, f);
                 el.classList.toggle('plot-cell-hidden', !show);
@@ -1291,8 +1564,8 @@ $stClass = [
 
         /* Deselect previous SVG cell */
         if (selectedCell) selectedCell.classList.remove('plot-cell-selected');
-        /* Select new if SVG rect */
-        if (el.tagName && el.tagName.toLowerCase() === 'rect') {
+        /* Select new if SVG cell */
+        if (el.classList && el.classList.contains('plot-cell')) {
             el.classList.add('plot-cell-selected');
             selectedCell = el;
         }
@@ -1314,13 +1587,15 @@ $stClass = [
         document.getElementById('drawerFacing').textContent     = cap(el.dataset.facingLabel || el.dataset.facing || '') + ' Facing';
         document.getElementById('drawerRoad').textContent       = (el.dataset.road || 30) + ' Ft Wide Road';
         document.getElementById('drawerDimensions').textContent = el.dataset.dims || 'See plot specifications';
-        document.getElementById('drawerVaastu').textContent     = el.dataset.vaastu === '1' ? '100% Vaastu Compliant' : 'Standard';
+        document.getElementById('drawerVaastu').textContent     = el.dataset.vaastu === '1' ? '100% Vaastu Compliance' : 'Standard';
         document.getElementById('drawerNotes').textContent      = el.dataset.notes || 'Contact us for further details.';
 
         var priceEl = document.getElementById('drawerPrice');
+        var perSqYdEl = document.getElementById('drawerPerSqYd');
         var exactEl = document.getElementById('drawerExactPrice');
         if (priceEl) priceEl.textContent = el.dataset.price || '—';
-        if (exactEl) exactEl.textContent = el.dataset.exact || '';
+        if (perSqYdEl) perSqYdEl.textContent = el.dataset.perSqYd || '';
+        if (exactEl) exactEl.textContent = el.dataset.exact ? ('Exact Total: ' + el.dataset.exact) : '';
 
         var unlBtn = document.getElementById('drawerUnlockBtn');
         if (unlBtn) { unlBtn.dataset.plotId = id; unlBtn.dataset.plotNum = el.dataset.number + ' (' + size + ' Sq. Yds)'; }
@@ -1354,6 +1629,141 @@ $stClass = [
         var btn = document.getElementById('drawerUnlockBtn');
         if (btn && window.openUnlockPriceModal) openUnlockPriceModal(btn.dataset.plotId || '0', btn.dataset.plotNum || 'Plot');
     };
+
+    /* ─────────────────────────────────────────────────────
+       VIDEO REEL MODAL CONTROLLER
+    ───────────────────────────────────────────────────── */
+    window.openReelModal = function (videoUrl, title) {
+        var overlay = document.getElementById('reelModalOverlay');
+        var video = document.getElementById('reelModalVideo');
+        var source = document.getElementById('reelVideoSource');
+        var mainVid = document.getElementById('ventureWalkthroughVideo');
+        if (mainVid && !mainVid.paused) {
+            mainVid.pause();
+        }
+        if (overlay && video && source) {
+            source.src = videoUrl;
+            video.load();
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            video.play().catch(function(e) { console.log('Autoplay handled', e); });
+        }
+    };
+
+    window.closeReelModal = function (event) {
+        var overlay = document.getElementById('reelModalOverlay');
+        var video = document.getElementById('reelModalVideo');
+        if (overlay && video) {
+            video.pause();
+            video.currentTime = 0;
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    };
+
+    /* ─────────────────────────────────────────────────────
+       INFRASTRUCTURE PHOTOS LIGHTBOX MODAL
+    ───────────────────────────────────────────────────── */
+    var showcaseList = @json($showcasePhotos ?? []);
+    var currentShowcaseIndex = 0;
+
+    window.openShowcaseModal = function (index) {
+        if (!showcaseList || !showcaseList.length) return;
+        currentShowcaseIndex = (index >= 0 && index < showcaseList.length) ? index : 0;
+        updateShowcaseModal();
+        var overlay = document.getElementById('showcaseModalOverlay');
+        if (overlay) {
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+
+    function updateShowcaseModal() {
+        var item = showcaseList[currentShowcaseIndex];
+        var img = document.getElementById('showcaseModalImg');
+        var title = document.getElementById('showcaseModalTitle');
+        var subtitle = document.getElementById('showcaseModalSubtitle');
+        if (img && item) {
+            img.style.opacity = '0';
+            setTimeout(function () {
+                img.src = item.url;
+                img.alt = item.title;
+                img.onload = function () { img.style.opacity = '1'; };
+            }, 80);
+        }
+        if (title && item) title.innerHTML = item.title;
+        if (subtitle && item) subtitle.innerHTML = item.desc || 'Authentic Venture Infrastructure';
+    }
+
+    window.navigateShowcase = function (direction) {
+        if (!showcaseList || !showcaseList.length) return;
+        currentShowcaseIndex = (currentShowcaseIndex + direction + showcaseList.length) % showcaseList.length;
+        updateShowcaseModal();
+    };
+
+    window.closeShowcaseModal = function (event) {
+        var overlay = document.getElementById('showcaseModalOverlay');
+        if (overlay) {
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    };
+
+    /* ─────────────────────────────────────────────────────
+       SWIPER INFRASTRUCTURE CAROUSEL INITIALIZER
+    ───────────────────────────────────────────────────── */
+    function initInfraSwiper() {
+        if (typeof Swiper !== 'undefined' && document.querySelector('.swiper-infrastructure-showcase')) {
+            new Swiper('.swiper-infrastructure-showcase', {
+                slidesPerView: 1,
+                spaceBetween: 16,
+                loop: true,
+                grabCursor: true,
+                autoplay: {
+                    delay: 3500,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                pagination: {
+                    el: '.swiper-infra-pagination',
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-infra-next',
+                    prevEl: '.swiper-infra-prev',
+                },
+                breakpoints: {
+                    576: { slidesPerView: 2, spaceBetween: 16 },
+                    768: { slidesPerView: 3, spaceBetween: 20 },
+                    1200: { slidesPerView: 4, spaceBetween: 24 }
+                }
+            });
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initInfraSwiper);
+    } else {
+        initInfraSwiper();
+    }
+
+    /* ─────────────────────────────────────────────────────
+       KEYBOARD SHORTCUTS FOR MODALS
+    ───────────────────────────────────────────────────── */
+    document.addEventListener('keydown', function (e) {
+        var showcaseOverlay = document.getElementById('showcaseModalOverlay');
+        var isShowcaseOpen = showcaseOverlay && showcaseOverlay.classList.contains('open');
+
+        if (e.key === 'Escape') {
+            closeShowcaseModal();
+            closeReelModal();
+        } else if (isShowcaseOpen && e.key === 'ArrowLeft') {
+            navigateShowcase(-1);
+        } else if (isShowcaseOpen && e.key === 'ArrowRight') {
+            navigateShowcase(1);
+        }
+    });
 
 })();
 </script>

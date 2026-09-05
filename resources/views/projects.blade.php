@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'All Projects & Plotted Ventures — Navagruha Infra Developers | Hyderabad')
-@section('meta_description', 'Explore our complete portfolio of HMDA-approved gated communities, delivered residential landmarks, and high-yield commercial frontages by Navagruha Infra Developers.')
+@section('title', 'Projects, Navagruha Infra Developers')
+@section('meta_description', 'Explore our portfolio of HMDA-approved gated communities, delivered residential developments, and commercial properties by Navagruha Infra Developers.')
 
 @push('styles')
 <style>
@@ -193,13 +193,13 @@
             <div class="row g-4 justify-content-between align-items-center">
                 <div class="col-md-8">
                     <div class="subtitle text-brand-secondary font-copperplate mb-2">
-                        <i class="fa-solid fa-city me-1"></i> MASTER PLANNED COMMUNITIES
+                        <i class="fa-solid fa-city me-1"></i> PROJECT PORTFOLIO
                     </div>
                     <h1 class="fs-48 text-white font-copperplate lh-1-1 mb-2">
-                        Our landmark projects
+                        Residential and Commercial Projects
                     </h1>
                     <p class="text-white-50 fs-16 mb-0">
-                        Explore our complete portfolio of HMDA-approved gated communities, delivered residential landmarks, and high-yield commercial frontages.
+                        Explore our residential plotted communities and commercial developments in and around Hyderabad.
                     </p>
                 </div>
                 <div class="col-md-4 text-md-end">
@@ -225,19 +225,13 @@
                 </div>
                 <div class="d-flex flex-wrap gap-2" id="projectFilterButtons">
                     <button type="button" class="btn btn-sm px-3 py-2 rounded-pill font-copperplate fs-12 active-filter-btn" onclick="filterProjects('all', this)" style="background: var(--secondary-color); color: #ffffff; border: none;">
-                        All projects ({{ count($projects) }})
+                        All Projects ({{ count($projects) }})
                     </button>
                     <button type="button" class="btn btn-sm px-3 py-2 rounded-pill font-copperplate fs-12 filter-btn text-white-50" onclick="filterProjects('ongoing', this)" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
-                        Ongoing ventures
+                        Ongoing Ventures (1)
                     </button>
                     <button type="button" class="btn btn-sm px-3 py-2 rounded-pill font-copperplate fs-12 filter-btn text-white-50" onclick="filterProjects('completed', this)" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
-                        Completed and delivered
-                    </button>
-                    <button type="button" class="btn btn-sm px-3 py-2 rounded-pill font-copperplate fs-12 filter-btn text-white-50" onclick="filterProjects('upcoming', this)" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
-                        Upcoming
-                    </button>
-                    <button type="button" class="btn btn-sm px-3 py-2 rounded-pill font-copperplate fs-12 filter-btn text-white-50" onclick="filterProjects('commercial', this)" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
-                        Commercial
+                        Delivered &amp; Handed Over (1)
                     </button>
                 </div>
             </div>
@@ -310,7 +304,6 @@
                                         <!-- Top Header Bar with Standardized Badge (Change 5) -->
                                         <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
                                             <span class="text-white-50 fs-12 font-copperplate text-uppercase">Navagruha Infra Developers</span>
-                                            <span class="text-white-50">&bull;</span>
                                             <span class="project-badge badge-{{ $proj['badge_type'] }}">
                                                 {{ $proj['status_badge'] }}
                                             </span>
@@ -358,7 +351,7 @@
                                                 <div class="stat-tile">
                                                     <i class="fa-solid fa-compass stat-tile-icon"></i>
                                                     <div class="stat-tile-val">{{ $proj['vaastu'] }}</div>
-                                                    <div class="stat-tile-label">Vaastu Compliant</div>
+                                                    <div class="stat-tile-label">Vaastu Compliance</div>
                                                     <div class="stat-tile-sub">{{ $proj['vaastu_sub'] }}</div>
                                                 </div>
                                             </div>
@@ -393,14 +386,14 @@
                                                 @endif
                                             @elseif($proj['status_badge'] === 'Delivered')
                                                 <span class="btn btn-sm btn-outline-light disabled px-3 py-2 rounded-3">
-                                                    <i class="fa-solid fa-lock me-1"></i> Fully Handed Over
+                                                    <i class="fa-solid fa-circle-check text-brand-secondary me-1"></i> Delivered &amp; Handed Over
                                                 </span>
-                                                <a href="{{ route('plots.index') }}" class="btn-secondary-brand">
-                                                    <span>Explore Phase 2 Plots &rarr;</span>
+                                                <a href="{{ route('contact') }}" class="btn-secondary-brand">
+                                                    <span>Enquire / Future Phases &rarr;</span>
                                                 </a>
-                                                @if(!empty($proj['docs']['rera']))
-                                                    <a href="{{ $proj['docs']['rera'] }}" target="_blank" class="btn btn-sm text-brand-secondary border border-white-10 px-3 py-2 rounded-3 text-decoration-none">
-                                                        <i class="fa-solid fa-certificate me-1"></i> RERA Certificate
+                                                @if(!empty($proj['docs']['brochure']))
+                                                    <a href="{{ $proj['docs']['brochure'] }}" target="_blank" class="btn btn-sm text-brand-secondary border border-white-10 px-3 py-2 rounded-3 text-decoration-none hover-scale-btn">
+                                                        <i class="fa-solid fa-file-pdf me-1"></i> Project Brochure
                                                     </a>
                                                 @endif
                                             @else
@@ -419,84 +412,6 @@
                             </div>
                         </div>
                     @endforeach
-                </div>
-            </div>
-
-            <!-- 3. Official Documentation Download Dossier (Change 7: Harmonized styling) -->
-            <div class="mt-80 p-4 p-md-5 rounded-4 bg-brand-card border border-white-10 shadow-xl">
-                <div class="row g-4 align-items-center justify-content-between mb-4">
-                    <div class="col-md-8">
-                        <div class="subtitle text-brand-secondary font-copperplate mb-1 fs-12">Due Diligence Center</div>
-                        <h3 class="fs-28 text-white font-copperplate mb-1">Download Verified Legal Dossier &amp; Blueprints</h3>
-                        <p class="text-white-50 fs-14 mb-0">
-                            Inspect the official HMDA Final Sanction Order, Telangana RERA Registration, and architectural layout blueprint.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="row g-3">
-                    <div class="col-lg-3 col-sm-6 col-12">
-                        <a href="{{ $ventureDocs['master_layout'] }}" target="_blank" class="p-3 rounded-3 bg-brand-dark border border-white-10 d-flex align-items-center gap-3 text-decoration-none hover-scale-btn h-100">
-                            <div class="rounded-circle bg-brand-primary p-2.5 text-brand-secondary d-flex align-items-center justify-content-center flex-shrink-0" style="width: 44px; height: 44px; border: 1px solid rgba(113, 182, 68, 0.3);">
-                                <i class="fa-solid fa-map fs-18"></i>
-                            </div>
-                            <div>
-                                <div class="text-white fs-13 font-copperplate fw-bold">Master Layout Blueprint</div>
-                                <div class="text-brand-secondary fs-11">PDF &bull; 9.7 MB &rarr;</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-12">
-                        <a href="{{ $ventureDocs['hmda_approval'] }}" target="_blank" class="p-3 rounded-3 bg-brand-dark border border-white-10 d-flex align-items-center gap-3 text-decoration-none hover-scale-btn h-100">
-                            <div class="rounded-circle bg-brand-primary p-2.5 text-brand-secondary d-flex align-items-center justify-content-center flex-shrink-0" style="width: 44px; height: 44px; border: 1px solid rgba(113, 182, 68, 0.3);">
-                                <i class="fa-solid fa-certificate fs-18"></i>
-                            </div>
-                            <div>
-                                <div class="text-white fs-13 font-copperplate fw-bold">HMDA Final Approval</div>
-                                <div class="text-brand-secondary fs-11">LP Sanction Order &rarr;</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-12">
-                        <a href="{{ $ventureDocs['rera_approval'] }}" target="_blank" class="p-3 rounded-3 bg-brand-dark border border-white-10 d-flex align-items-center gap-3 text-decoration-none hover-scale-btn h-100">
-                            <div class="rounded-circle bg-brand-primary p-2.5 text-brand-secondary d-flex align-items-center justify-content-center flex-shrink-0" style="width: 44px; height: 44px; border: 1px solid rgba(113, 182, 68, 0.3);">
-                                <i class="fa-solid fa-shield-halved fs-18"></i>
-                            </div>
-                            <div>
-                                <div class="text-white fs-13 font-copperplate fw-bold">TSRERA Certificate</div>
-                                <div class="text-brand-secondary fs-11">Verified Registration &rarr;</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-12">
-                        <a href="{{ $ventureDocs['pamphlet'] }}" target="_blank" class="p-3 rounded-3 bg-brand-dark border border-white-10 d-flex align-items-center gap-3 text-decoration-none hover-scale-btn h-100">
-                            <div class="rounded-circle bg-brand-primary p-2.5 text-brand-secondary d-flex align-items-center justify-content-center flex-shrink-0" style="width: 44px; height: 44px; border: 1px solid rgba(113, 182, 68, 0.3);">
-                                <i class="fa-solid fa-file-lines fs-18"></i>
-                            </div>
-                            <div>
-                                <div class="text-white fs-13 font-copperplate fw-bold">Project Pamphlet</div>
-                                <div class="text-brand-secondary fs-11">Quick Summary PDF &rarr;</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. Drone Video Tour Callout (Change 7: Harmonized styling) -->
-            <div class="mt-80 p-4 p-md-5 rounded-4 bg-brand-card border border-white-10 shadow-xl">
-                <div class="row g-4 align-items-center justify-content-between">
-                    <div class="col-lg-8">
-                        <div class="subtitle text-brand-secondary mb-1 fs-12">4K Aerial Drone Tour</div>
-                        <h3 class="fs-28 text-white font-copperplate mb-2">Watch the Official Video Walkthrough</h3>
-                        <p class="text-white-50 fs-14 mb-0">
-                            Inspect actual on-ground development including the entrance arch, wide concrete avenues, street lighting, and proximity to AIIMS Bibinagar.
-                        </p>
-                    </div>
-                    <div class="col-lg-4 text-lg-end">
-                        <a href="{{ $ventureDocs['master_video'] }}" target="_blank" class="btn-main py-3 px-4">
-                            <span><i class="fa-solid fa-circle-play me-2"></i> Watch 4K Venture Video &rarr;</span>
-                        </a>
-                    </div>
                 </div>
             </div>
 

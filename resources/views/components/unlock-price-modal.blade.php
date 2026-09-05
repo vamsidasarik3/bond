@@ -56,7 +56,7 @@
                     <div class="p-3 rounded-3 bg-dark bg-opacity-50 border border-white-10 mb-3">
                         <div class="d-flex align-items-center gap-2 text-white-50 fs-12">
                             <i class="fa-solid fa-shield-halved text-brand-secondary fs-16"></i>
-                            <span>100% Privacy Protected &bull; Direct Developer Sales Desk</span>
+                            <span>100% Privacy Protected, Direct Developer Sales Desk</span>
                         </div>
                     </div>
 
@@ -75,11 +75,17 @@
                     <p class="text-white-50 fs-13 mb-3" id="unlockSuccessPlotName">Plot Details</p>
 
                     <div class="p-4 rounded-4 bg-dark bg-opacity-75 border border-white-10 mb-4">
-                        <div class="text-white-50 fs-11 font-copperplate text-uppercase">Direct Developer Total Price</div>
+                        <div class="text-white-50 fs-11 font-copperplate text-uppercase" style="letter-spacing: 0.05em;">Direct Developer Total Price</div>
                         <div class="fs-36 fw-800 text-brand-secondary font-copperplate mt-1" id="unlockRevealedPrice"></div>
-                        <div class="text-white-50 fs-12 mt-1">
-                            <span id="unlockRevealedExact"></span> &bull; Spot Registration Ready
+                        
+                        {{-- Per Square Yard Price --}}
+                        <div class="d-inline-flex align-items-center gap-1.5 px-3 py-1.5 rounded-pill bg-brand-primary bg-opacity-25 border border-brand-primary border-opacity-30 mt-2">
+                            <i class="fa-solid fa-tag text-brand-secondary fs-12"></i>
+                            <span class="fs-14 fw-bold text-white font-copperplate" id="unlockRevealedPerSqYd"></span>
                         </div>
+
+                        {{-- Exact Total Price (No onSpot amount) --}}
+                        <div class="text-white-50 fs-12 mt-2" id="unlockRevealedExact"></div>
                     </div>
 
                     <div class="d-flex gap-2 justify-content-center">
@@ -145,32 +151,68 @@
                 document.getElementById('unlockSuccessState').classList.remove('d-none');
                 document.getElementById('unlockSuccessPlotName').textContent = data.plot_number || 'Plot Details';
                 document.getElementById('unlockRevealedPrice').textContent = data.price;
-                document.getElementById('unlockRevealedExact').textContent = data.exact_price;
+                
+                const perSqYdText = data.price_per_sq_yard_formatted || ('₹ ' + Number(data.price_per_sq_yard || 14999).toLocaleString('en-IN') + ' / Sq. Yard');
+                const revealedPerSqYd = document.getElementById('unlockRevealedPerSqYd');
+                if (revealedPerSqYd) revealedPerSqYd.textContent = perSqYdText;
+                const revealedExact = document.getElementById('unlockRevealedExact');
+                if (revealedExact) revealedExact.textContent = data.exact_price ? ('Exact Total: ' + data.exact_price) : '';
 
                 // Update any plot cards on the current page dynamically
                 if (data.all_plots) {
                     data.all_plots.forEach(p => {
+                        const rateStr = p.price_per_sq_yard_formatted || ('₹ ' + Number(p.price_per_sq_yard || 14999).toLocaleString('en-IN') + ' / Sq. Yard');
                         const priceContainer = document.getElementById('plot-price-container-' + p.id);
                         if (priceContainer) {
                             priceContainer.innerHTML = `
                                 <div class="plot-price-label">Calculated Total Price</div>
                                 <div class="plot-price-amount text-brand-secondary">${p.price}</div>
-                                <div class="plot-price-unit text-brand-secondary">Spot Registration &bull; 100% Vaastu</div>
+                                <div class="plot-price-unit text-brand-secondary font-copperplate fw-bold"><i class="fa-solid fa-tag me-1"></i> ${rateStr}</div>
+                                ${p.exact_price ? `<div class="fs-11 text-white-50 mt-0.5">Exact Total: ${p.exact_price}</div>` : ''}
                             `;
+                        }
+
+                        // Also update dataset attributes on plot board tile & list table row so clicking them in drawer shows unlocked prices!
+                        const tileEl = document.querySelector('.plot-tile[data-id="' + p.id + '"]');
+                        if (tileEl) {
+                            tileEl.dataset.price = p.price;
+                            tileEl.dataset.exact = p.exact_price;
+                            tileEl.dataset.perSqYd = rateStr;
+                        }
+                        const rowEl = document.querySelector('tr[data-id="' + p.id + '"]');
+                        if (rowEl) {
+                            rowEl.dataset.price = p.price;
+                            rowEl.dataset.exact = p.exact_price;
+                            rowEl.dataset.perSqYd = rateStr;
                         }
                     });
                 }
 
                 // If on plot show page, update sticky sidebar price
                 const sidebarPriceEl = document.getElementById('sidebarPlotPrice');
+                const sidebarPerSqYdEl = document.getElementById('sidebarPlotPerSqYd');
                 const sidebarExactEl = document.getElementById('sidebarPlotExact');
                 const sidebarLockedBox = document.getElementById('sidebarPriceLockedBox');
                 const sidebarUnlockedBox = document.getElementById('sidebarPriceUnlockedBox');
                 if (sidebarPriceEl && data.price) {
                     sidebarPriceEl.textContent = data.price;
+                    if (sidebarPerSqYdEl) sidebarPerSqYdEl.textContent = perSqYdText;
                     if (sidebarExactEl && data.exact_price) sidebarExactEl.textContent = data.exact_price;
                     if (sidebarLockedBox) sidebarLockedBox.classList.add('d-none');
                     if (sidebarUnlockedBox) sidebarUnlockedBox.classList.remove('d-none');
+                }
+
+                // If on /plots with drawer open, update drawer price block
+                const drawerPriceSection = document.getElementById('drawerPriceSection');
+                if (drawerPriceSection) {
+                    drawerPriceSection.innerHTML = `
+                        <div class="p-3 rounded-3 text-center" style="background:rgba(113,182,68,.08);border:1px solid rgba(113,182,68,.25);">
+                            <div class="font-copperplate fs-10 text-white-50 text-uppercase mb-1" style="letter-spacing:.05em;">Total Price</div>
+                            <div class="fs-24 fw-800 font-copperplate" style="color:#71b644;" id="drawerPrice">${data.price}</div>
+                            <div class="fs-13 fw-bold font-copperplate mt-1 text-brand-secondary" id="drawerPerSqYd">${perSqYdText}</div>
+                            <div class="fs-12 text-white-50 mt-1" id="drawerExactPrice">${data.exact_price ? ('Exact Total: ' + data.exact_price) : ''}</div>
+                        </div>
+                    `;
                 }
 
             } else {

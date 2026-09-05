@@ -11,7 +11,7 @@
             <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha" class="h-10 w-auto" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
         </div>
         <h2 class="text-2xl font-extrabold text-white tracking-tight">Admin Portal</h2>
-        <p class="text-xs text-slate-400 mt-1 font-medium">Navagruha Infra Developers • AIIMS Bibinagar</p>
+        <p class="text-xs text-slate-400 mt-1 font-medium">Navagruha Infra Developers, AIIMS Bibinagar</p>
     </div>
 
     <!-- Flash Alerts -->

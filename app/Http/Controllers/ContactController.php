@@ -16,10 +16,11 @@ class ContactController extends Controller
     {
         $ventureDetails = [
             'address' => 'Near AIIMS 750-Bed Hospital, NH-163 Warangal Expressway, Bibinagar, Telangana 508126.',
+            'office_address' => 'Plot No. 109, Shashank Towers, 1st Floor, Uppal Bhagayath, Near Nagole Metro Station, Hyderabad, Telangana 500039.',
             'phone' => '+91 9617 699 699',
             'email' => 'info@navagruha.com',
             'website' => 'www.navagruha.com',
-            'hours' => 'Mon – Sun: 9:00 AM – 6:30 PM',
+            'hours' => 'Monday to Sunday: 9:00 AM to 6:30 PM',
         ];
 
         $plots = Plot::orderBy('plot_number')->get();

@@ -17,10 +17,7 @@
     <div class="ngl-stage">
         <div class="ngl-mark-wrap">
 
-            {{-- Ghost: mark at low opacity — shows the shape before fill arrives --}}
-            <div class="ngl-ghost" aria-hidden="true"></div>
-
-            {{-- Fill: exact same mark, animated bottom→top via CSS clip-path --}}
+            {{-- Fill: standalone brand mark, animated bottom→top via CSS clip-path --}}
             <div class="ngl-fill" id="ngl-fill" aria-hidden="true"></div>
 
         </div>
@@ -72,9 +69,6 @@
     width: 180px;
     height: 119px;
 
-    /* Gentle ambient green glow — matches the brand mark */
-    filter: drop-shadow(0 0 22px rgba(113, 182, 68, 0.35));
-
     /* Entrance: spring-scale-in */
     animation: ngl-enter 0.45s cubic-bezier(0.34, 1.4, 0.64, 1) both;
 }
@@ -84,8 +78,7 @@
     to   { opacity: 1; transform: scale(1.00); }
 }
 
-/* Both layers share the same background asset — the mark-only PNG */
-#site-loader .ngl-ghost,
+/* Fill layer: brand mark asset, animated bottom→top via CSS clip-path */
 #site-loader .ngl-fill {
     position: absolute;
     inset: 0;
@@ -93,19 +86,6 @@
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
-}
-
-/* Ghost layer: mark at ~10% opacity — the hollow pre-fill outline */
-#site-loader .ngl-ghost {
-    opacity: 0.11;
-}
-
-/* Fill layer: starts fully hidden, fills bottom→top over 2.2s.
-   clip-path: inset(TOP right bottom left)
-   inset(100% 0 0 0) = top-inset 100% → nothing visible
-   inset(0%   0 0 0) = no inset    → full mark visible
-   As top-inset decreases 100%→0%: bottom of mark appears first, then fills upward. */
-#site-loader .ngl-fill {
     clip-path: inset(100% 0 0 0);
     -webkit-clip-path: inset(100% 0 0 0);
     transition:

@@ -17,7 +17,7 @@ class PlotController extends Controller
         $data = [
             'id' => (string) $plot->id,
             'number' => $plot->plot_number,
-            'title' => $plot->title ?? ($plot->plot_number . ' — ' . round($plot->size_sq_yards) . ' Sq. Yds'),
+            'title' => $plot->title ?? ($plot->plot_number . ', ' . round($plot->size_sq_yards) . ' Sq. Yds'),
             'plot_type' => $plot->plot_type ?? 'regular',
             'size_sq_yards' => (float) $plot->size_sq_yards,
             'area' => $plot->area,
@@ -28,7 +28,7 @@ class PlotController extends Controller
             'road_width_ft' => $plot->road_width_ft ?? 40,
             'status' => strtolower($plot->status ?? 'available'),
             'is_vaastu_compliant' => (bool) ($plot->is_vaastu_compliant ?? true),
-            'description' => $plot->notes ?? ('Auspicious ' . ($plot->facing ?? 'East') . '-facing residential villa plot located along the ' . ($plot->road_width ?? '40 Ft Road') . '. 100% Vaastu compliant with underground utility connections, ready for immediate spot registration.'),
+            'description' => $plot->notes ?? ('Auspicious ' . ($plot->facing ?? 'East') . '-facing residential villa plot located along the ' . ($plot->road_width ?? '40 Ft Road') . '. 100% Vaastu Compliance with underground utility connections, ready for immediate spot registration.'),
             'image' => $plot->image_url,
             'gallery' => $plot->gallery,
             'all_venture_photos' => $plot->all_venture_photos,
@@ -40,6 +40,7 @@ class PlotController extends Controller
             $data['price'] = $plot->formatted_price;
             $data['exact_price'] = $plot->formatted_exact_price;
             $data['price_per_sq_yard'] = (float) $plot->price_per_sq_yard;
+            $data['price_per_sq_yard_formatted'] = $plot->formatted_price_per_sq_yard;
         }
 
         return $data;
@@ -219,13 +220,15 @@ class PlotController extends Controller
             $plotModel = Plot::first();
         }
 
+        $notesText = !empty($validated['notes']) ? ', ' . $validated['notes'] : '';
+
         // Save Contact Enquiry lead to database
         $enquiry = ContactEnquiry::create([
             'plot_id' => $plotModel?->id,
             'name' => $validated['name'],
             'phone' => $validated['phone'],
             'email' => $validated['email'],
-            'message' => 'Price Unlock Request for ' . ($plotModel ? $plotModel->plot_number : 'General Inventory') . ($validated['notes'] ? ' — ' . $validated['notes'] : ''),
+            'message' => 'Price Unlock Request for ' . ($plotModel ? $plotModel->plot_number : 'General Inventory') . $notesText,
             'preferred_visit_date' => $validated['preferred_visit_date'] ?? null,
             'status' => 'new',
             'source' => 'unlock_price_modal',
@@ -237,6 +240,22 @@ class PlotController extends Controller
         // Format response
         $price = $plotModel ? $plotModel->formatted_price : '₹25.05 Lakh';
         $exactPrice = $plotModel ? $plotModel->formatted_exact_price : '₹25,04,833';
+        $rate = $plotModel ? (float) $plotModel->price_per_sq_yard : 14999;
+        $rateFormatted = $plotModel ? $plotModel->formatted_price_per_sq_yard : '₹ 14,999 / Sq. Yard';
+
+        // Load all plots formatted for updating client views
+        $allPlotsData = Plot::select(['id', 'plot_number', 'size_sq_yards', 'price_per_sq_yard', 'total_price'])
+            ->get()
+            ->map(function ($p) {
+                return [
+                    'id' => (string) $p->id,
+                    'number' => $p->plot_number,
+                    'price' => $p->formatted_price,
+                    'exact_price' => $p->formatted_exact_price,
+                    'price_per_sq_yard' => (float) $p->price_per_sq_yard,
+                    'price_per_sq_yard_formatted' => $p->formatted_price_per_sq_yard,
+                ];
+            });
 
         return response()->json([
             'success' => true,
@@ -245,7 +264,9 @@ class PlotController extends Controller
             'plot_number' => $plotModel?->plot_number,
             'price' => $price,
             'exact_price' => $exactPrice,
-            'price_per_sq_yard' => $plotModel ? (float) $plotModel->price_per_sq_yard : 14999,
+            'price_per_sq_yard' => $rate,
+            'price_per_sq_yard_formatted' => $rateFormatted,
+            'all_plots' => $allPlotsData,
         ]);
     }
 }

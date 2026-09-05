@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'World-Class Amenities & Infrastructure — Navagruha Infra Developers | AIIMS Bibinagar')
-@section('meta_description', 'Discover 12+ world-class planned amenities at Navagruha 17-Acre Plotted Community including 40ft CC Roads, 3 Thematic Parks, Underground Drainage, and 24/7 Security.')
+@section('title', 'Amenities and Infrastructure, Navagruha Infra Developers, AIIMS Bibinagar')
+@section('meta_description', 'Explore planned infrastructure at RRR Prekshitha Enclave near AIIMS Bibinagar, including concrete roads, landscaped parks, underground drainage, and round-the-clock security.')
 
 @section('content')
 
@@ -11,13 +11,13 @@
             <div class="row g-4 justify-content-between align-items-center">
                 <div class="col-md-8">
                     <div class="subtitle text-brand-secondary font-copperplate mb-2">
-                        <i class="fa-solid fa-tree me-1"></i> Superior Living Standards
+                        <i class="fa-solid fa-tree me-1"></i> Infrastructure and Amenities
                     </div>
                     <h1 class="fs-48 text-white font-copperplate lh-1-1 mb-2">
                         Venture Amenities &amp; Facilities
                     </h1>
                     <p class="text-white-50 fs-16 mb-0">
-                        Engineered with premium quality infrastructure to ensure long-term value appreciation, pristine green living, and unmatched convenience.
+                        Planned infrastructure designed for comfortable everyday living, green open spaces, and long-term convenience.
                     </p>
                 </div>
                 <div class="col-md-4 text-md-end">
@@ -69,7 +69,7 @@
                 <div class="row g-4">
                     <div class="col-md-4 col-12">
                         <div class="gallery-showcase-item">
-                            <img src="{{ asset('venture/renders/Arch_Image_.png') }}" alt="Grand Entrance Arch">
+                            <img src="{{ asset('images/projects/rrr-prekshitha/entrance-arch-grand.webp') }}" alt="Grand Entrance Arch">
                             <div class="gallery-showcase-overlay"></div>
                             <div class="gallery-showcase-content">
                                 <div class="gallery-showcase-subtitle">Venture Entrance</div>
@@ -79,7 +79,7 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="gallery-showcase-item">
-                            <img src="{{ asset('venture/renders/RRR ROAD.jpg') }}" alt="Heavy-Duty CC Roads">
+                            <img src="{{ asset('images/projects/rrr-prekshitha/concrete-boulevard-40ft.webp') }}" alt="Heavy-Duty CC Roads">
                             <div class="gallery-showcase-overlay"></div>
                             <div class="gallery-showcase-content">
                                 <div class="gallery-showcase-subtitle">Heavy-Duty Roads</div>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="gallery-showcase-item">
-                            <img src="{{ asset('venture/renders/WALK.png') }}" alt="Thematic Parks">
+                            <img src="{{ asset('images/projects/rrr-prekshitha/avenue-plantation-walkway.webp') }}" alt="Thematic Parks">
                             <div class="gallery-showcase-overlay"></div>
                             <div class="gallery-showcase-content">
                                 <div class="gallery-showcase-subtitle">Greenery &amp; Parks</div>
@@ -99,7 +99,7 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="gallery-showcase-item">
-                            <img src="{{ asset('venture/renders/tank.png') }}" alt="Overhead Water Tank">
+                            <img src="{{ asset('images/projects/rrr-prekshitha/overhead-water-tank.webp') }}" alt="Overhead Water Tank">
                             <div class="gallery-showcase-overlay"></div>
                             <div class="gallery-showcase-content">
                                 <div class="gallery-showcase-subtitle">Water Supply</div>
@@ -109,7 +109,7 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="gallery-showcase-item">
-                            <img src="{{ asset('venture/renders/WAY.png') }}" alt="Pedestrian Walkways">
+                            <img src="{{ asset('images/projects/rrr-prekshitha/internal-curbstone-avenue.webp') }}" alt="Pedestrian Walkways">
                             <div class="gallery-showcase-overlay"></div>
                             <div class="gallery-showcase-content">
                                 <div class="gallery-showcase-subtitle">Avenue Plantation</div>
@@ -119,7 +119,7 @@
                     </div>
                     <div class="col-md-4 col-12">
                         <div class="gallery-showcase-item">
-                            <img src="{{ asset('venture/renders/RRR 008.jpg') }}" alt="Master Layout">
+                            <img src="{{ asset('images/projects/rrr-prekshitha/master-layout-aerial.webp') }}" alt="Master Layout">
                             <div class="gallery-showcase-overlay"></div>
                             <div class="gallery-showcase-content">
                                 <div class="gallery-showcase-subtitle">HMDA Final Sanction</div>

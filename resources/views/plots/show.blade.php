@@ -19,125 +19,18 @@
         default => 'fa-circle-check',
     };
     $isUnlocked = $plot['is_price_unlocked'] ?? session('prices_unlocked', false);
-    $galleryPhotos = !empty($plot['gallery']) ? $plot['gallery'] : [
-        asset('venture/photos/01.jpg'),
-        asset('venture/photos/02.jpg'),
-        asset('venture/photos/03.jpg'),
-        asset('venture/photos/04.jpg'),
-    ];
-    $venturePhotos = !empty($plot['all_venture_photos']) ? $plot['all_venture_photos'] : [];
 @endphp
 
-@section('title', ($plot['number'] ?? 'Plot Details') . ' (' . ($plot['area'] ?? '167 Sq. Yds') . ') — Photos, Video Tour & Specifications | NAVAGRUHA')
-@section('meta_description', 'Watch 4K drone video walkthrough, inspect on-ground photographs, and view technical dimensional layout for ' . ($plot['number'] ?? 'Plot') . ' at Navagruha Prekshitha Enclave, AIIMS Bibinagar.')
+@section('title', ($plot['number'] ?? 'Plot Details') . ', ' . ($plot['area'] ?? '167 Sq. Yards') . ', RRR Prekshitha Enclave')
+@section('meta_description', 'View layout, dimensions, specifications, and approvals for ' . ($plot['number'] ?? 'Plot') . ' at RRR Prekshitha Enclave near AIIMS Bibinagar.')
 
-@push('styles')
-<style>
-    .plot-main-gallery-wrap {
-        position: relative;
-        border-radius: 18px;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
-        background: #0d1721;
-    }
-    .gallery-main-img {
-        width: 100%;
-        height: clamp(280px, 48vw, 480px);
-        object-fit: cover;
-        display: block;
-        transition: transform 0.4s ease, opacity 0.25s ease;
-    }
-    .gallery-thumb-item {
-        height: clamp(65px, 12vw, 90px);
-        width: 100%;
-        object-fit: cover;
-        border-radius: 10px;
-        cursor: pointer;
-        border: 2px solid transparent;
-        opacity: 0.65;
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        background: #0d1721;
-    }
-    .gallery-thumb-item:hover, .gallery-thumb-item.active {
-        opacity: 1;
-        border-color: var(--secondary-color);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 14px rgba(113, 182, 68, 0.35);
-    }
-    .plot-video-wrap {
-        position: relative;
-        border-radius: 18px;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        background: #09121a;
-        aspect-ratio: 16 / 9;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
-    }
-    .plot-video-wrap iframe {
-        width: 100%;
-        height: 100%;
-        border: 0;
-        display: block;
-    }
-    .photo-showcase-card {
-        position: relative;
-        border-radius: 14px;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        background: #0d1721;
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .photo-showcase-card img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        transition: transform 0.4s ease;
-    }
-    .photo-showcase-card:hover {
-        transform: translateY(-4px);
-        border-color: rgba(113, 182, 68, 0.4);
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
-    }
-    .photo-showcase-card:hover img {
-        transform: scale(1.05);
-    }
-    .photo-showcase-overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, transparent 40%, rgba(13, 23, 33, 0.95) 100%);
-        display: flex;
-        align-items: flex-end;
-        padding: 14px;
-    }
-    .photo-showcase-caption {
-        font-family: var(--font-heading) !important;
-        font-size: 11px;
-        color: #ffffff;
-        font-weight: 700;
-        line-height: 1.25;
-    }
-    .video-chapter-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        color: rgba(255, 255, 255, 0.85);
-        border-radius: 20px;
-        padding: 6px 14px;
-        font-size: 12px;
-        font-family: var(--font-heading) !important;
-    }
-</style>
-@endpush
+
 
 @section('content')
 
     {{-- Top Plot Heading & Breadcrumb Banner --}}
     <section class="section-dark text-light relative overflow-hidden py-5 border-bottom border-white-10 bg-brand-pattern"
-        style="background: linear-gradient(135deg, rgba(14, 26, 36, 0.93) 0%, rgba(20, 37, 51, 0.85) 50%, rgba(35, 65, 89, 0.90) 100%), url('{{ $galleryPhotos[0] ?? asset('venture/photos/02.jpg') }}') center/cover no-repeat;">
+        style="background: linear-gradient(135deg, rgba(14, 26, 36, 0.96) 0%, rgba(20, 37, 51, 0.92) 50%, rgba(35, 65, 89, 0.95) 100%);">
         <div class="wm-hero-watermark" style="opacity: 0.06;">{{ $plot['number'] ?? 'NAVAGRUHA' }}</div>
         <div class="container relative z-2">
             <div class="row align-items-center justify-content-between g-3">
@@ -148,15 +41,13 @@
                         <li class="list-inline-item active text-brand-secondary">{{ $plot['number'] ?? 'Plot Details' }}</li>
                     </ul>
                     <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
-                        <span class="text-white-50 font-copperplate fs-12">NAVAGRUHA PREKSHITHA ENCLAVE</span>
-                        <span class="text-white-50">&bull;</span>
-                        <span class="brand-tagline fs-10 mb-0">AIIMS BIBINAGAR</span>
+                        <span class="text-white-50 font-copperplate fs-12">NAVAGRUHA PREKSHITHA ENCLAVE, AIIMS BIBINAGAR</span>
                     </div>
                     <h1 class="fs-36 text-white font-copperplate lh-1-1 mb-1">
-                        {{ $plot['number'] ?? 'Plot Details' }} &mdash; {{ $plot['area'] ?? '167 Sq. Yards' }}
+                        {{ $plot['number'] ?? 'Plot Details' }}, {{ $plot['area'] ?? '167 Sq. Yards' }}
                     </h1>
                     <p class="text-white-50 fs-14 mb-0">
-                        {{ $plot['facing'] ?? 'East' }} Facing &bull; {{ $plot['road_width'] ?? '40 Ft Road' }} &bull; HMDA LP No. 000085/LO/Plg/HMDA/2024 &bull; RERA Approved
+                        {{ $plot['facing'] ?? 'East' }} facing plot on a {{ $plot['road_width'] ?? '40 Ft Road' }}, HMDA approved and RERA certified.
                     </p>
                 </div>
                 <div class="col-md-4 text-md-end d-flex flex-column align-items-md-end gap-2">
@@ -177,85 +68,15 @@
         <div class="container">
             <div class="row g-4 g-lg-5">
                 
-                {{-- Left 8-Col: Photos, Video, Overview, Specs, Amenities, Location --}}
+                {{-- Left 8-Col: Overview, Specs, Amenities, Location --}}
                 <div class="col-lg-8">
                     
-                    {{-- 1. Interactive Multi-Photo Gallery --}}
-                    <div class="mb-5">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <div>
-                                <div class="subtitle text-brand-secondary font-copperplate mb-0">
-                                    <i class="fa-solid fa-camera me-1"></i> On-Ground Photos
-                                </div>
-                                <h2 class="fs-24 text-white font-copperplate mb-0">Plot &amp; Venture Photo Gallery</h2>
-                            </div>
-                            <span class="fs-12 text-white-50 font-copperplate">
-                                <i class="fa-solid fa-images text-brand-secondary me-1"></i> {{ count($galleryPhotos) }} Photos
-                            </span>
-                        </div>
-
-                        <div class="plot-main-gallery-wrap mb-3">
-                            <img id="mainGalleryImg" src="{{ $galleryPhotos[0] ?? asset('venture/photos/01.jpg') }}" alt="{{ $plot['number'] }}" class="gallery-main-img">
-                            <div class="position-absolute bottom-0 start-0 m-3 px-3 py-1.5 rounded-pill bg-brand-dark bg-opacity-75 backdrop-blur border border-white-10 fs-12 font-copperplate text-white">
-                                <i class="fa-solid fa-camera me-1 text-brand-secondary"></i> On-Ground Actual Site Photo
-                            </div>
-                        </div>
-
-                        @if(!empty($galleryPhotos))
-                            <div class="row g-2">
-                                @foreach($galleryPhotos as $index => $imgUrl)
-                                    <div class="col-3 col-md-2 col-lg-2">
-                                        <img src="{{ $imgUrl }}" class="gallery-thumb-item {{ $index === 0 ? 'active' : '' }}"
-                                             onclick="switchPlotImage('{{ $imgUrl }}', this)" alt="Thumbnail {{ $index + 1 }}">
-                                    </div>
-                                @endforeach
-                            </div>
-                        @endif
-                    </div>
-
-                    {{-- 2. Video Tour Section --}}
-                    <div class="mb-5" id="video-tour">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <div>
-                                <h2 class="fs-24 text-white font-copperplate mb-0">
-                                    <i class="fa-solid fa-circle-play text-brand-secondary me-2"></i>Video Tour
-                                </h2>
-                            </div>
-                        </div>
-
-                        <div class="plot-video-wrap mb-3" style="aspect-ratio: 16/9; position: relative; border-radius: 18px; overflow: hidden; background: #000; box-shadow: 0 16px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.12);">
-                            <video id="plotDetailVideo" class="w-100 h-100 object-fit-cover" controls playsinline preload="metadata" poster="{{ asset('venture/renders/Web Banner 05.jpg') }}">
-                                <source src="{{ asset('venture/videos/venture-walkthrough.mp4') }}" type="video/mp4">
-                                Your browser does not support HTML5 video.
-                            </video>
-                        </div>
-
-                        {{-- Video Highlights --}}
-                        <div class="d-flex flex-wrap gap-2 pt-1">
-                            <span class="video-chapter-pill">
-                                <i class="fa-solid fa-archway text-brand-secondary"></i> Grand Entrance Arch
-                            </span>
-                            <span class="video-chapter-pill">
-                                <i class="fa-solid fa-road text-brand-secondary"></i> 40' Concrete Avenue
-                            </span>
-                            <span class="video-chapter-pill">
-                                <i class="fa-solid fa-faucet-drip text-brand-secondary"></i> Underground Drainage
-                            </span>
-                            <span class="video-chapter-pill">
-                                <i class="fa-solid fa-tree text-brand-secondary"></i> Landscaped Thematic Parks
-                            </span>
-                            <span class="video-chapter-pill">
-                                <i class="fa-solid fa-hospital text-brand-secondary"></i> 05 Mins to AIIMS Bibinagar
-                            </span>
-                        </div>
-                    </div>
-
-                    {{-- 3. Property Overview & Description --}}
+                    {{-- 1. Property Overview & Description --}}
                     <div class="mb-5">
                         <div class="subtitle text-brand-secondary font-copperplate mb-1">Layout Overview</div>
                         <h2 class="fs-24 text-white font-copperplate mb-3">Property Overview</h2>
                         <p class="fs-15 text-white-50 leading-relaxed mb-0">
-                            {{ $plot['description'] ?? 'Auspicious residential plot located along the 40-foot main venture concrete avenue. 100% Vaastu compliant with underground utility connections, ready for immediate spot registration.' }}
+                            {{ $plot['description'] ?? 'Residential plot located along the 40-foot concrete avenue. 100% Vaastu Compliance with underground utility connections, ready for immediate spot registration.' }}
                         </p>
                     </div>
 
@@ -284,7 +105,7 @@
                                 <div class="spec-card">
                                     <div class="text-white-50 fs-11 text-uppercase font-copperplate">Facing Direction</div>
                                     <div class="fs-18 fw-700 text-white font-copperplate mt-1">{{ $plot['facing'] ?? 'East' }} Facing</div>
-                                    <div class="text-brand-secondary fs-11"><i class="fa-solid fa-compass me-1"></i> 100% Vaastu Compliant</div>
+                                    <div class="text-brand-secondary fs-11"><i class="fa-solid fa-compass me-1"></i> 100% Vaastu Compliance</div>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-12">
@@ -311,27 +132,7 @@
                         </div>
                     </div>
 
-                    {{-- 5. On-Ground Photo Showcase Grid --}}
-                    @if(!empty($venturePhotos))
-                    <div class="mb-5">
-                        <div class="subtitle text-brand-secondary font-copperplate mb-1">Site Progress &amp; Reality</div>
-                        <h3 class="fs-24 text-white font-copperplate mb-3">
-                            <i class="fa-solid fa-camera-retro text-brand-secondary me-2"></i> On-Ground Venture Infrastructure Showcase
-                        </h3>
-                        <div class="row g-3">
-                            @foreach($venturePhotos as $item)
-                                <div class="col-sm-6 col-md-4">
-                                    <div class="photo-showcase-card" onclick="switchPlotImage('{{ $item['url'] }}', null); window.scrollTo({top: 250, behavior: 'smooth'});">
-                                        <img src="{{ $item['url'] }}" alt="{{ $item['caption'] }}" loading="lazy">
-                                        <div class="photo-showcase-overlay">
-                                            <div class="photo-showcase-caption">{{ $item['caption'] }}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                    @endif
+
 
                     {{-- 6. Venture Amenities & Infrastructure --}}
                     <div class="mb-5">
@@ -353,7 +154,7 @@
 
                     {{-- 7. Strategic Connectivity --}}
                     <div>
-                        <div class="subtitle text-brand-secondary font-copperplate mb-1">Strategic Location</div>
+                        <div class="subtitle text-brand-secondary font-copperplate mb-1">Location and Connectivity</div>
                         <h3 class="fs-24 text-white font-copperplate mb-3">
                             <i class="fa-solid fa-location-crosshairs text-brand-secondary me-2"></i> Commute Highlights
                         </h3>
@@ -408,7 +209,7 @@
                                         </span>
                                     </div>
                                     <h3 class="fs-20 text-white font-copperplate mt-2 mb-1">
-                                        Price Protected &bull; Locked
+                                        Price Protected, Direct Developer
                                     </h3>
                                     <p class="text-white-50 fs-12 mb-0">
                                         Submit your contact details below to instantly reveal the official plot price &amp; payment breakdown.
@@ -418,12 +219,19 @@
 
                             {{-- Unlocked State Display --}}
                             <div id="sidebarPriceUnlockedBox" class="{{ $isUnlocked ? '' : 'd-none' }}">
-                                <div class="text-white-50 fs-11 font-copperplate text-uppercase">Direct Developer Total Price</div>
+                                <div class="text-white-50 fs-11 font-copperplate text-uppercase" style="letter-spacing: 0.05em;">Direct Developer Total Price</div>
                                 <div class="fs-36 fw-800 text-brand-secondary font-copperplate mt-1" id="sidebarPlotPrice">
                                     {{ $plot['price'] ?? 'Price Available' }}
                                 </div>
-                                <div class="text-white-50 fs-12 mb-3">
-                                    <span id="sidebarPlotExact">{{ $plot['exact_price'] ?? 'Verified Title' }}</span> &bull; Spot Registration Ready
+                                {{-- Per Square Yard Price --}}
+                                <div class="d-inline-flex align-items-center gap-1.5 px-3 py-1.5 rounded-pill bg-brand-primary bg-opacity-25 border border-brand-primary border-opacity-30 mt-2">
+                                    <i class="fa-solid fa-tag text-brand-secondary fs-12"></i>
+                                    <span class="fs-14 fw-bold text-white font-copperplate" id="sidebarPlotPerSqYd">
+                                        {{ $plot['price_per_sq_yard_formatted'] ?? ('₹ ' . number_format($plot['price_per_sq_yard'] ?? 14999) . ' / Sq. Yard') }}
+                                    </span>
+                                </div>
+                                <div class="text-white-50 fs-12 mt-2 mb-3">
+                                    Exact Total: <span id="sidebarPlotExact">{{ $plot['exact_price'] ?? '' }}</span>
                                 </div>
                             </div>
 
@@ -509,10 +317,10 @@
                                         <a href="{{ route('plots.show', $other['id']) }}" class="d-flex justify-content-between align-items-center p-3 rounded-3 bg-brand-dark border border-white-10 text-decoration-none hover-scale-btn {{ $otherStatusNorm === 'sold' ? 'opacity-85' : '' }}" style="transition: all 0.25s ease;">
                                             <div>
                                                 <div class="text-white fs-14 font-copperplate fw-bold mb-0.5">
-                                                    {{ $other['number'] }} &bull; {{ $other['area'] }}
+                                                    {{ $other['number'] }}, {{ $other['area'] }}
                                                 </div>
                                                 <div class="text-white-50 fs-11">
-                                                    <i class="fa-solid fa-compass me-1 text-brand-secondary"></i> {{ $other['facing'] }} Facing &bull; {{ $other['road_width'] ?? '40 Ft Road' }}
+                                                    <i class="fa-solid fa-compass me-1 text-brand-secondary"></i> {{ $other['facing'] }} Facing, {{ $other['road_width'] ?? '40 Ft Road' }}
                                                 </div>
                                             </div>
                                             <div class="text-end ps-2">
@@ -537,19 +345,6 @@
 
 @push('scripts')
 <script>
-    function switchPlotImage(src, element) {
-        const main = document.getElementById('mainGalleryImg');
-        if (main) {
-            main.style.opacity = '0.4';
-            setTimeout(() => {
-                main.src = src;
-                main.style.opacity = '1';
-            }, 120);
-        }
-        document.querySelectorAll('.gallery-thumb-item').forEach(t => t.classList.remove('active'));
-        if (element) element.classList.add('active');
-    }
-
     async function handleSidebarPriceUnlock(event) {
         event.preventDefault();
         const form = event.target;
@@ -581,12 +376,15 @@
 
             if (response.ok && data.success) {
                 const sidebarPriceEl = document.getElementById('sidebarPlotPrice');
+                const sidebarPerSqYdEl = document.getElementById('sidebarPlotPerSqYd');
                 const sidebarExactEl = document.getElementById('sidebarPlotExact');
                 const sidebarLockedBox = document.getElementById('sidebarPriceLockedBox');
                 const sidebarUnlockedBox = document.getElementById('sidebarPriceUnlockedBox');
 
                 if (sidebarPriceEl && data.price) {
                     sidebarPriceEl.textContent = data.price;
+                    const perSqYdText = data.price_per_sq_yard_formatted || ('₹ ' + Number(data.price_per_sq_yard || 14999).toLocaleString('en-IN') + ' / Sq. Yard');
+                    if (sidebarPerSqYdEl) sidebarPerSqYdEl.textContent = perSqYdText;
                     if (sidebarExactEl && data.exact_price) sidebarExactEl.textContent = data.exact_price;
                     if (sidebarLockedBox) sidebarLockedBox.classList.add('d-none');
                     if (sidebarUnlockedBox) sidebarUnlockedBox.classList.remove('d-none');

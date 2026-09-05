@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Strategic Location & Connectivity — Navagruha Prekshitha Enclave | AIIMS Bibinagar')
-@section('meta_description', 'Explore strategic location advantages of Navagruha Prekshitha Enclave near 750-Bed AIIMS Bibinagar, NH-163 Warangal Expressway, Ghatkesar ORR Exit 9, and Infosys Pocharam SEZ.')
+@section('title', 'Location and Connectivity, Navagruha Prekshitha Enclave near AIIMS Bibinagar')
+@section('meta_description', 'Explore location advantages of Navagruha Prekshitha Enclave near 750-Bed AIIMS Bibinagar, NH-163 Warangal highway, Ghatkesar ORR Exit 9, and Infosys Pocharam SEZ.')
 
 @section('content')
 
@@ -12,13 +12,13 @@
             <div class="row g-4 justify-content-between align-items-center">
                 <div class="col-md-8">
                     <div class="subtitle text-brand-secondary font-copperplate mb-2">
-                        <i class="fa-solid fa-map-location-dot me-1"></i> Booming Growth Corridor
+                        <i class="fa-solid fa-map-location-dot me-1"></i> Regional Connectivity
                     </div>
                     <h1 class="fs-48 text-white font-copperplate lh-1-1 mb-2">
-                        Strategic Location Advantage
+                        Location and Connectivity
                     </h1>
                     <p class="text-white-50 fs-16 mb-0">
-                        Situated at the epicenter of East Hyderabad's highest appreciation belt — AIIMS Bibinagar &amp; Hyderabad-Warangal Industrial Expressway.
+                        Located near AIIMS Bibinagar on the Hyderabad to Warangal highway (NH-163).
                     </p>
                 </div>
                 <div class="col-md-4 text-md-end">
@@ -89,7 +89,7 @@
                             <div class="gallery-showcase-overlay"></div>
                             <div class="gallery-showcase-content">
                                 <h4 class="gallery-showcase-title">AIIMS Bibinagar</h4>
-                                <div class="gallery-showcase-subtitle">750-Bed National Hospital &bull; 05 Mins</div>
+                                <div class="gallery-showcase-subtitle">750-Bed Hospital, 5 Minutes Away</div>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                             <div class="gallery-showcase-overlay"></div>
                             <div class="gallery-showcase-content">
                                 <h4 class="gallery-showcase-title">NH-163 Expressway</h4>
-                                <div class="gallery-showcase-subtitle">6-Lane Industrial Growth Corridor &bull; 05 Mins</div>
+                                <div class="gallery-showcase-subtitle">6-Lane Highway Corridor, 5 Minutes Away</div>
                             </div>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                             <div class="gallery-showcase-overlay"></div>
                             <div class="gallery-showcase-content">
                                 <h4 class="gallery-showcase-title">Bibinagar MMTS Railway</h4>
-                                <div class="gallery-showcase-subtitle">Suburban Metro Rail Hub &bull; 05 Mins</div>
+                                <div class="gallery-showcase-subtitle">Suburban Rail Station, 5 Minutes Away</div>
                             </div>
                         </div>
                     </div>

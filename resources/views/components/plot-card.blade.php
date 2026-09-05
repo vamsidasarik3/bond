@@ -37,7 +37,7 @@
             {{ $plot['number'] ?? 'Plot #' . $plot['id'] }}
         </h3>
         <p class="plot-card-meta">
-            {{ $plot['area'] ?? ($plot['size_sq_yards'] . ' Sq. Yards') }} &bull; {{ $plot['dimensions'] ?? 'Standard Layout' }}
+            {{ $plot['area'] ?? ($plot['size_sq_yards'] . ' Sq. Yards') }}, {{ $plot['dimensions'] ?? 'Standard Layout' }}
         </p>
 
         <!-- Price Details Box (Secure Server-Side Locked / Unlocked Container) -->
@@ -47,9 +47,12 @@
                 <div class="plot-price-amount text-brand-secondary">
                     {{ $plot['price'] }}
                 </div>
-                <div class="plot-price-unit text-brand-secondary">
-                    <i class="fa-solid fa-file-shield me-1"></i> Spot Registration &bull; 100% Vaastu
+                <div class="plot-price-unit text-brand-secondary font-copperplate fw-bold">
+                    <i class="fa-solid fa-tag me-1"></i> {{ $plot['price_per_sq_yard_formatted'] ?? ('₹ ' . number_format($plot['price_per_sq_yard'] ?? 14999) . ' / Sq. Yard') }}
                 </div>
+                @if(!empty($plot['exact_price']))
+                    <div class="fs-11 text-white-50 mt-0.5">Exact: {{ $plot['exact_price'] }}</div>
+                @endif
             @else
                 <div class="d-flex justify-content-between align-items-center mb-1">
                     <span class="fs-12 text-white-50 font-copperplate">

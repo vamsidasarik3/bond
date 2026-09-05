@@ -23,7 +23,7 @@ class HomeController extends Controller
             $data = [
                 'id' => (string) $plot->id,
                 'number' => $plot->plot_number,
-                'title' => $plot->title ?? ($plot->plot_number . ' — ' . round($plot->size_sq_yards) . ' Sq. Yds'),
+                'title' => $plot->title ?? ($plot->plot_number . ', ' . round($plot->size_sq_yards) . ' Sq. Yds'),
                 'size_sq_yards' => (float) $plot->size_sq_yards,
                 'area' => $plot->area,
                 'dimensions' => $plot->boundary_dimensions ?? "36'0\" × 45'0\"",

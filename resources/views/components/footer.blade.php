@@ -8,11 +8,11 @@
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="pe-lg-3">
                     <a href="{{ route('home') }}" class="d-inline-block mb-3">
-                        <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha Infra Developers" style="height: 48px; width: auto;" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
+                        <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha Infra Developers" class="brand-footer-logo" style="height: 80px; width: auto; max-width: 290px; object-fit: contain;" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
                     </a>
                     <div class="brand-tagline mb-3">REDEFINING REALITY</div>
                     <p class="text-white-50 fs-13 mb-4 leading-relaxed">
-                        Navagruha Infra Developers is committed to delivering landmark residential plotted communities engineered with world-class concrete infrastructure, clear legal titles, and maximum capital growth.
+                        Navagruha Infra Developers develops residential plotted communities with durable concrete infrastructure, clear legal titles, and planned amenities.
                     </p>
 
                     <!-- Social Icons -->
@@ -30,8 +30,9 @@
                 <div class="footer-widget-title">Quick Links</div>
                 <ul class="footer-link-list">
                     <li><a href="{{ route('home') }}"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+                    <li><a href="{{ route('about') }}"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
                     <li><a href="{{ route('projects') }}"><i class="fa-solid fa-chevron-right"></i> Projects</a></li>
-                    <li><a href="{{ route('investors-guide') }}"><i class="fa-solid fa-chevron-right"></i> Investors Guide</a></li>
+                    <li><a href="{{ route('investor.corner') }}"><i class="fa-solid fa-chevron-right"></i> Investor Corner</a></li>
                     <li><a href="{{ route('plots.index') }}"><i class="fa-solid fa-chevron-right"></i> Plots Catalog</a></li>
                     <li><a href="{{ route('amenities') }}"><i class="fa-solid fa-chevron-right"></i> Amenities</a></li>
                     <li><a href="{{ route('location') }}"><i class="fa-solid fa-chevron-right"></i> Location</a></li>
@@ -58,7 +59,7 @@
                             <i class="fa-solid fa-file-pdf text-danger fs-14"></i>
                             <div>
                                 <div class="fs-11 text-white font-copperplate fw-bold lh-1">HMDA Final Approval</div>
-                                <div class="fs-10 text-white-50">Phase 2 Sanction PDF &bull; LP No. 000085</div>
+                                <div class="fs-10 text-white-50">Phase 2 Sanction PDF, LP No. 000085</div>
                             </div>
                         </div>
                         <i class="fa-solid fa-arrow-up-right-from-square fs-10 text-brand-secondary"></i>
@@ -71,7 +72,7 @@
                             <i class="fa-solid fa-file-pdf text-danger fs-14"></i>
                             <div>
                                 <div class="fs-11 text-white font-copperplate fw-bold lh-1">TSRERA Registration</div>
-                                <div class="fs-10 text-white-50">Phase 1 Approved &bull; Reg. P02000007812</div>
+                                <div class="fs-10 text-white-50">Phase 1 Approved, Reg. P02000007812</div>
                             </div>
                         </div>
                         <i class="fa-solid fa-arrow-up-right-from-square fs-10 text-brand-secondary"></i>
@@ -98,11 +99,11 @@
                 
                 <div class="footer-contact-item">
                     <div class="footer-contact-icon">
-                        <i class="fa-solid fa-location-dot"></i>
+                        <i class="fa-solid fa-building"></i>
                     </div>
                     <div>
-                        <strong class="text-white d-block font-copperplate fs-12">Venture Address</strong>
-                        Near AIIMS 750-Bed Hospital, NH-163 Warangal Expressway, Bibinagar, Telangana 508126.
+                        <strong class="text-white d-block font-copperplate fs-12">Office Address</strong>
+                        Plot No. 109, Shashank Towers, 1st Floor, Uppal Bhagayath, Near Nagole Metro Station, Hyderabad, Telangana 500039.
                     </div>
                 </div>
 
@@ -132,7 +133,7 @@
                     </div>
                     <div>
                         <strong class="text-white d-block font-copperplate fs-12">Site Visit Timings</strong>
-                        Mon – Sun: 9:00 AM – 6:30 PM
+                        Monday to Sunday: 9:00 AM to 6:30 PM
                     </div>
                 </div>
             </div>
@@ -149,7 +150,7 @@
                     &copy; {{ date('Y') }} NAVAGRUHA INFRA DEVELOPERS. All rights reserved.
                 </div>
                 <div class="col-md-6 text-center text-md-end text-white-50 fs-11">
-                    HMDA Final Sanction &bull; Telangana RERA &bull; Redefining Reality
+                    HMDA Final Sanction, Telangana RERA Certified
                 </div>
             </div>
         </div>
