@@ -1,7 +1,31 @@
 @extends('layouts.app')
 
-@section('title', 'Navagruha Infra Developers, Residential Plots near AIIMS Bibinagar')
-@section('meta_description', '17-Acre HMDA and RERA approved residential plotted layout at AIIMS Bibinagar, Telangana. Spot registration and bank loan assistance available.')
+@section('title', 'Plots for Sale in Hyderabad — Navagruha Infra Developers')
+@section('meta_description', 'Discover premium plots for sale in Hyderabad with Navagruha Infra Developers. Offering HMDA approved open plots in Hyderabad, villa plots in Hyderabad, and gated community plots in Hyderabad.')
+@section('og_title', 'Plots for Sale in Hyderabad — Navagruha Infra Developers')
+@section('og_description', 'Discover premium plots for sale in Hyderabad with Navagruha Infra Developers. Offering HMDA approved open plots in Hyderabad, villa plots in Hyderabad, and gated community plots in Hyderabad.')
+@section('meta_keywords', 'Plots for Sale in Hyderabad, Open Plots in Hyderabad, Villa Plots in Hyderabad, Residential Plots in Hyderabad, Gated Community Plots in Hyderabad')
+@section('canonical_url', route('home'))
+
+@section('structured_data')
+<script type="application/ld+json">
+{
+  "{{ '@' }}context": "https://schema.org",
+  "{{ '@' }}type": "RealEstateAgent",
+  "name": "Navagruha Infra Developers",
+  "url": "{{ route('home') }}",
+  "logo": "{{ asset('images/navagruha-logo-white.png') }}",
+  "description": "Discover premium plots for sale in Hyderabad with Navagruha Infra Developers. Offering HMDA approved open plots in Hyderabad, villa plots in Hyderabad, and gated community plots in Hyderabad.",
+  "telephone": "+919617699699",
+  "address": {
+    "{{ '@' }}type": "PostalAddress",
+    "addressLocality": "Hyderabad",
+    "addressRegion": "Telangana",
+    "addressCountry": "IN"
+  }
+}
+</script>
+@endsection
 
 @section('content')
 
@@ -45,6 +69,10 @@
                                         <a href="{{ route('contact') }}" class="btn-primary-brand">
                                             <span>Book Site Visit &rarr;</span>
                                         </a>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2 mt-3 text-white-50 fs-13">
+                                        <i class="fa-solid fa-circle-check text-brand-secondary"></i>
+                                        <span>Spot Registration assistance provided &bull; Bank loan facility available</span>
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +185,7 @@
                 {{-- Item 1: Grand Entrance Arch --}}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(0)">
-                        <img src="{{ asset('images/projects/rrr-prekshitha/entrance-arch-grand.webp') }}" alt="Grand Entrance Arch">
+                        <img src="{{ asset('images/projects/rrr-prekshitha/entrance-arch-grand.webp') }}" alt="Plots for Sale in Hyderabad — Grand Entrance Arch">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
                             <h4 class="gallery-showcase-title">Grand Entrance Arch</h4>
@@ -172,7 +200,7 @@
                 {{-- Item 2: 40ft CC Roads --}}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(1)">
-                        <img src="{{ asset('images/projects/rrr-prekshitha/concrete-boulevard-40ft.webp') }}" alt="40ft CC Concrete Roads">
+                        <img src="{{ asset('images/projects/rrr-prekshitha/concrete-boulevard-40ft.webp') }}" alt="Gated Community Plots in Hyderabad — 40ft CC Concrete Roads">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
                             <h4 class="gallery-showcase-title">40' &amp; 30' CC Roads</h4>
@@ -184,14 +212,14 @@
                     </div>
                 </div>
 
-                {{-- Item 3: 3 Landscaped Parks --}}
+                {{-- Item 3: 3 Landscaped Parks & Play Area --}}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(2)">
-                        <img src="{{ asset('images/projects/rrr-prekshitha/avenue-plantation-walkway.webp') }}" alt="3 Landscaped Parks & Avenue">
+                        <img src="{{ asset('images/projects/rrr-prekshitha/layout-parks-broad-view.webp') }}" alt="Villa Plots in Hyderabad — 3 Landscaped Theme Parks & Children Play Area">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
                             <h4 class="gallery-showcase-title">3 Landscaped Theme Parks</h4>
-                            <div class="gallery-showcase-subtitle">Walking Track &amp; Gazebo</div>
+                            <div class="gallery-showcase-subtitle">Children's Play Area &amp; Walking Tracks</div>
                         </div>
                         <div class="gallery-showcase-hover-btn">
                             <span><i class="fa-solid fa-expand me-1"></i> View Greenery</span>
@@ -202,7 +230,7 @@
                 {{-- Item 4: Overhead Water Tank --}}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(3)">
-                        <img src="{{ asset('images/projects/rrr-prekshitha/overhead-water-tank.webp') }}" alt="Overhead Water Tank">
+                        <img src="{{ asset('images/projects/rrr-prekshitha/overhead-water-tank.webp') }}" alt="Residential Plots in Hyderabad — Overhead Water Tank">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
                             <h4 class="gallery-showcase-title">Overhead Water Storage</h4>
@@ -217,7 +245,7 @@
                 {{-- Item 5: Pedestrian Walkways & Greenery --}}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(4)">
-                        <img src="{{ asset('images/projects/rrr-prekshitha/internal-curbstone-avenue.webp') }}" alt="Pedestrian Walkway & Greenery">
+                        <img src="{{ asset('images/Walk_33.png') }}" alt="Open Plots in Hyderabad — Pedestrian Walkways & Greenery">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
                             <h4 class="gallery-showcase-title">Avenue Plantations &amp; Walkways</h4>
@@ -232,7 +260,7 @@
                 {{-- Item 6: Aerial Master View --}}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(5)">
-                        <img src="{{ asset('images/projects/rrr-prekshitha/master-layout-aerial.webp') }}" alt="17-Acre Master Layout Aerial View">
+                        <img src="{{ asset('images/projects/rrr-prekshitha/master-layout-aerial.webp') }}" alt="Plots for Sale in Hyderabad — Master Layout Aerial View">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
                             <h4 class="gallery-showcase-title">17-Acre Master Layout</h4>
@@ -327,7 +355,7 @@
                 {{-- Left 6-Col: One Main Venture Video --}}
                 <div class="col-lg-6 col-12">
                     <div class="plot-video-wrap mb-3" style="aspect-ratio: 16/9; position: relative; border-radius: 18px; overflow: hidden; background: #000; box-shadow: 0 16px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.12);">
-                        <video id="mainVentureVideo" class="w-100 h-100 object-fit-cover" controls playsinline preload="metadata" poster="{{ asset('images/projects/rrr-prekshitha/aerial-drone-banner.webp') }}">
+                        <video id="mainVentureVideo" class="w-100 h-100 object-fit-cover" controls playsinline preload="metadata" poster="{{ asset('images/Walk_22.png') }}">
                             <source src="{{ asset('venture/videos/venture-walkthrough.mp4') }}" type="video/mp4">
                             Your browser does not support HTML5 video.
                         </video>
@@ -353,7 +381,7 @@
                         {{-- Row 1 - Video 1 --}}
                         <div class="col-4">
                             <div class="reel-card" onclick="openReelModal('{{ asset('venture/videos/REEL1.mp4') }}', 'Grand Entrance & 40ft Main Avenue')">
-                                <img src="{{ asset('images/projects/rrr-prekshitha/entrance-arch-grand.webp') }}" alt="Reel 1 Poster" class="reel-card-poster">
+                                <img src="{{ asset('images/projects/rrr-prekshitha/entrance-arch-portrait.webp') }}" alt="Reel 1 Poster" class="reel-card-poster">
                                 <div class="reel-card-gradient"></div>
                                 <div class="reel-card-content text-center">
                                     <div class="reel-play-btn mx-auto">
@@ -515,6 +543,78 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Highway Corridor Billboard Campaign -->
+                <div class="mt-5 pt-4 border-top border-white-10">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4">
+                        <div>
+                            <div class="subtitle text-brand-secondary font-copperplate mb-1">Official Corridor Campaign</div>
+                            <h3 class="fs-28 text-white font-copperplate mb-0">Highway Outdoor Billboards</h3>
+                        </div>
+                        <div>
+                            <a href="{{ route('location') }}" class="btn-outline-brand font-copperplate fs-12 px-3 py-1.5 rounded-pill">
+                                <span>Explore Full Corridor &rarr;</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <!-- Creative 3: AIIMS Bibinagar 5 Mins -->
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative3.jpeg') }}', 'Reach AIIMS Bibinagar in 5 Minutes', '750-Bed Premier Medical Institute & Hospital')">
+                                <div class="creative-img-wrap">
+                                    <img src="{{ asset('data/creatives/creative3.jpeg') }}" alt="AIIMS Bibinagar Highway Billboard" class="creative-img" loading="lazy">
+                                    <div class="creative-badge">05 MINS</div>
+                                    <div class="creative-zoom-overlay">
+                                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                        <span>Click to Inspect Billboard</span>
+                                    </div>
+                                </div>
+                                <div class="creative-caption">
+                                    <h4 class="fs-16 text-white font-copperplate mb-1">AIIMS Bibinagar</h4>
+                                    <p class="text-white-50 fs-12 mb-0">750-Bed Central Hospital &bull; 5 Mins Away</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Creative 2: Bibinagar MMTS 5 Mins -->
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative2.jpeg') }}', 'Reach Bibinagar MMTS in 5 Minutes', 'Direct Suburban Railway to Secunderabad & Hyderabad Central')">
+                                <div class="creative-img-wrap">
+                                    <img src="{{ asset('data/creatives/creative2.jpeg') }}" alt="Bibinagar MMTS Highway Billboard" class="creative-img" loading="lazy">
+                                    <div class="creative-badge">05 MINS</div>
+                                    <div class="creative-zoom-overlay">
+                                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                        <span>Click to Inspect Billboard</span>
+                                    </div>
+                                </div>
+                                <div class="creative-caption">
+                                    <h4 class="fs-16 text-white font-copperplate mb-1">Bibinagar MMTS Station</h4>
+                                    <p class="text-white-50 fs-12 mb-0">Direct Suburban Rail Transit &bull; 5 Mins Away</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Creative 1: National Highway NH-163 5 Mins -->
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative1.jpeg') }}', 'Reach National Highway NH-163 in 5 Minutes', 'HMDA Approved Layout LP No: 000085/LO/Plg/HMDA/2024 & TG RERA: P02200008537')">
+                                <div class="creative-img-wrap">
+                                    <img src="{{ asset('data/creatives/creative1.jpeg') }}" alt="NH-163 Highway Billboard" class="creative-img" loading="lazy">
+                                    <div class="creative-badge">05 MINS</div>
+                                    <div class="creative-zoom-overlay">
+                                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                        <span>Click to Inspect Billboard</span>
+                                    </div>
+                                </div>
+                                <div class="creative-caption">
+                                    <h4 class="fs-16 text-white font-copperplate mb-1">NH-163 Growth Corridor</h4>
+                                    <p class="text-white-50 fs-12 mb-0">6-Lane National Expressway &bull; 5 Mins Away</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -560,7 +660,7 @@
             <div class="showcase-modal-header">
                 <div>
                     <h4 class="showcase-modal-title" id="showcaseModalTitle">Grand Entrance Arch</h4>
-                    <div class="showcase-modal-subtitle" id="showcaseModalSubtitle">24/7 Security Cabin &amp; Boom Barrier</div>
+                    <div class="showcase-modal-subtitle" id="showcaseModalSubtitle">Entire Site Compound Wall &amp; 24/7 Security Cabin</div>
                 </div>
                 <button class="showcase-modal-close" onclick="closeShowcaseModal(event)" aria-label="Close modal">
                     <i class="fa-solid fa-xmark"></i>
@@ -587,7 +687,7 @@
         {
             src: "{{ asset('images/projects/rrr-prekshitha/entrance-arch-grand.webp') }}",
             title: "Grand Entrance Arch",
-            subtitle: "24/7 Security Cabin & Boom Barrier Access"
+            subtitle: "Entire Site Compound Wall & 24/7 Security Cabin"
         },
         {
             src: "{{ asset('images/projects/rrr-prekshitha/concrete-boulevard-40ft.webp') }}",
@@ -595,9 +695,9 @@
             subtitle: "Heavy-Duty M-25 Grade Concrete Avenues"
         },
         {
-            src: "{{ asset('images/projects/rrr-prekshitha/avenue-plantation-walkway.webp') }}",
+            src: "{{ asset('images/projects/rrr-prekshitha/layout-parks-broad-view.webp') }}",
             title: "3 Landscaped Theme Parks",
-            subtitle: "Walking Track & Gazebo Recreation Zones"
+            subtitle: "Children's Play Area & Walking Tracks"
         },
         {
             src: "{{ asset('images/projects/rrr-prekshitha/overhead-water-tank.webp') }}",
@@ -605,7 +705,7 @@
             subtitle: "Pressurized 24/7 Water Supply Network"
         },
         {
-            src: "{{ asset('images/projects/rrr-prekshitha/internal-curbstone-avenue.webp') }}",
+            src: "{{ asset('images/Walk_33.png') }}",
             title: "Avenue Plantations & Walkways",
             subtitle: "Curb Stones & Modern LED Street Lighting"
         },

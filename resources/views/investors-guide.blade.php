@@ -817,10 +817,10 @@
                     <div class="ng-hero__content">
                         <div class="ng-eyebrow">INVESTOR CORNER</div>
                         <h1 class="ng-hero__h1">
-                            Invest With Clarity.<br><em>Build With Confidence</em>
+                            Where Strategic Location Meets Long-Term Value.
                         </h1>
                         <p class="ng-hero__sub">
-                            A strategically planned plotted residential development near AIIMS Bibinagar on the NH-163 Warangal corridor, backed by final HMDA layout approvals, TSRERA registration, clear marketable titles, and immediate spot registration.
+                            Located in one of Hyderabad's fastest-growing investment corridors near AIIMS Bibinagar and the NH-163 Warangal Highway, Navagruha offers a strategically planned residential plotted development designed for long-term value appreciation. Backed by HMDA-approved layouts, TSRERA registration, clear and marketable titles, and immediate spot registration, the project provides a secure, transparent, and future-ready real estate investment opportunity for both homebuyers and investors.
                         </p>
                         <div class="ng-hero__btn-group">
                             <a href="#why-invest" class="ng-btn-primary">
@@ -861,7 +861,7 @@
                 <div class="ng-eyebrow ng-eyebrow--green ng-reveal justify-content-center">WHAT SETS US APART</div>
                 <h2 class="ng-section-title ng-reveal">Why Invest with Navagruha</h2>
                 <p class="ng-section-sub mx-auto ng-reveal">
-                    Our developments focus on strategic location selection, HMDA town planning standards, verified documentation, and long-term asset value.
+                    At Navagruha, we combine strategic location selection, regulatory compliance, quality infrastructure, and transparent processes to deliver secure real estate investments with long-term growth potential. Every development is designed to provide lasting value, peace of mind, and a superior ownership experience.
                 </p>
             </div>
 
@@ -876,7 +876,7 @@
                                     </div>
                                     <span class="ng-pillar-card__num">{{ $item['number'] }}</span>
                                 </div>
-                                <h3 class="ng-pillar-card__title">{{ $item['title'] }}</h3>
+                                <h3 class="ng-pillar-card__title">{{ $item['number'] }} {{ $item['title'] }}</h3>
                                 <p class="ng-pillar-card__desc">{{ $item['desc'] }}</p>
                             </div>
                             <div class="ng-pillar-card__border-bar"></div>
@@ -898,9 +898,6 @@
                     <div class="ng-reveal-left">
                         <div class="ng-eyebrow">{{ $hyderabadStory['eyebrow'] }}</div>
                         <h2 class="ng-section-title">{{ $hyderabadStory['headline'] }}</h2>
-                        <div class="ng-story-lead">
-                            "{{ $hyderabadStory['lead'] }}"
-                        </div>
                         @foreach($hyderabadStory['paragraphs'] as $para)
                             <p class="ng-story-p">{{ $para }}</p>
                         @endforeach
@@ -955,9 +952,9 @@
         <div class="container relative z-2">
             <div class="text-center max-w-700 mx-auto mb-5">
                 <div class="ng-eyebrow ng-reveal justify-content-center">BUYER'S GUIDE &amp; PRINCIPLES</div>
-                <h2 class="ng-section-title ng-section-title--light ng-reveal">The Four Pillars of Confident Investing</h2>
+                <h2 class="ng-section-title ng-section-title--light ng-reveal">The Four Pillars of Smart Real Estate Investing</h2>
                 <p class="ng-section-sub ng-section-sub--light mx-auto ng-reveal">
-                    Clear principles that protect your capital, guarantee on-ground quality, and ensure seamless, transparent land ownership.
+                    A successful real estate investment is built on more than location alone. It requires legal clarity, quality infrastructure, growth potential, and complete transparency. These four principles help buyers make informed decisions, protect their investment, and ensure long-term value creation.
                 </p>
             </div>
 
@@ -970,7 +967,7 @@
                                     <span class="ng-pillar-box__tag">{{ $pillar['tagline'] }}</span>
                                     <span class="ng-pillar-box__num">{{ $pillar['number'] }}</span>
                                 </div>
-                                <h3 class="ng-pillar-box__title">{{ $pillar['title'] }}</h3>
+                                <h3 class="ng-pillar-box__title">{{ $pillar['number'] }} {{ $pillar['title'] }}</h3>
                                 <p class="ng-pillar-box__desc">{{ $pillar['desc'] }}</p>
                             </div>
                             <div class="ng-pillar-box__takeaway">
@@ -1034,26 +1031,37 @@
                 <div class="col-lg-6">
                     <div class="ng-reveal-left">
                         <div class="ng-eyebrow">EXPERIENCE IT IN PERSON</div>
-                        <h2 class="ng-section-title ng-section-title--light">Explore the Opportunity in Person</h2>
-                        <p class="ng-hero__sub">
-                            Visit the project, understand the location, review the details and make an informed decision. Walk through the layout, inspect individual plot boundaries, and examine original documentation.
+                        <h2 class="ng-section-title ng-section-title--light">See the Location. Verify the Details. Invest with Confidence.</h2>
+                        <p class="ng-hero__sub mb-3">
+                            A site visit is the best way to understand the true value of a real estate investment. We invite you to experience the project firsthand, explore the surrounding growth corridor, inspect individual plot locations, and review all project details before making your decision.
+                        </p>
+                        <p class="ng-hero__sub mb-4">
+                            Our team provides a guided project orientation, helping you evaluate the layout, infrastructure, connectivity, and investment potential with complete clarity and transparency.
                         </p>
 
                         <!-- Key Benefits List -->
                         <div class="mb-4">
                             <div class="d-flex align-items-start gap-3 mb-3 text-white-50 fs-14">
                                 <i class="fa-solid fa-circle-check text-green mt-1"></i>
-                                <span>Complimentary cab pickup available from Uppal Metro Station and Ghatkesar ORR Exit 9.</span>
+                                <span>Complimentary pickup and drop service available from Uppal Metro Station and Ghatkesar ORR Exit 9.</span>
                             </div>
                             <div class="d-flex align-items-start gap-3 mb-3 text-white-50 fs-14">
                                 <i class="fa-solid fa-circle-check text-green mt-1"></i>
-                                <span>Dedicated layout orientation with physical boundary pegs and facing verification.</span>
+                                <span>Guided layout walkthroughs with plot identification, boundary peg verification, and facing confirmation.</span>
                             </div>
                             <div class="d-flex align-items-start gap-3 mb-3 text-white-50 fs-14">
                                 <i class="fa-solid fa-circle-check text-green mt-1"></i>
-                                <span>Original government sanction orders and link title documents available for on-site inspection.</span>
+                                <span>On-site documentation review, including HMDA approvals, TSRERA registration, title records, and relevant project documents.</span>
+                            </div>
+                            <div class="d-flex align-items-start gap-3 mb-3 text-white-50 fs-14">
+                                <i class="fa-solid fa-circle-check text-green mt-1"></i>
+                                <span>Personalized investment consultation to help you select the plot best suited to your requirements and long-term goals.</span>
                             </div>
                         </div>
+
+                        <p class="text-white-50 fs-14 mb-4">
+                            At Navagruha, we believe informed decisions create confident investors. That's why we encourage every buyer to verify, evaluate, and experience the project before investing.
+                        </p>
 
                         <!-- Direct Contact Badges -->
                         <div class="row g-3">

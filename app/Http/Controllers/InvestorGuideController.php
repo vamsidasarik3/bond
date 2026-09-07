@@ -26,39 +26,39 @@ class InvestorGuideController extends Controller
 
         $whyInvest = [
             [
-                'number' => '01',
+                'number' => '01.',
                 'icon'   => 'fa-map-location-dot',
-                'title'  => 'Strategic Growth Corridors',
-                'desc'   => 'Located along major arterial growth corridors like the NH-163 6-lane expressway, adjacent to national infrastructure anchors including AIIMS Bibinagar and the planned Regional Ring Road (RRR).',
+                'title'  => 'Strategic Growth Locations',
+                'desc'   => 'Our projects are positioned within high-potential growth corridors, benefiting from expanding infrastructure, enhanced connectivity, and proximity to major economic and institutional landmarks such as AIIMS Bibinagar, the NH-163 Warangal Highway, and the proposed Regional Ring Road (RRR).',
             ],
             [
-                'number' => '02',
+                'number' => '02.',
                 'icon'   => 'fa-drafting-compass',
-                'title'  => 'Planned Gated Infrastructure',
-                'desc'   => 'HMDA-sanctioned residential layouts engineered with 40-foot and 30-foot heavy-duty M-25 concrete avenues, underground drainage, overhead water storage, and landscaped recreation parks.',
+                'title'  => 'Planned Infrastructure & Development',
+                'desc'   => 'Developed in accordance with HMDA planning standards, our communities feature well-designed layouts, wide concrete roads, underground drainage systems, water management infrastructure, landscaped open spaces, and recreational amenities that support a modern and sustainable lifestyle.',
             ],
             [
-                'number' => '03',
+                'number' => '03.',
                 'icon'   => 'fa-shield-halved',
-                'title'  => 'Transparent Documentation',
-                'desc'   => 'Clear marketable titles with verified HMDA final layout sanctions, TSRERA registration, unbroken link document chains, and immediate spot registration at the local Sub-Registrar Office.',
+                'title'  => 'Transparency & Legal Assurance',
+                'desc'   => 'We prioritize complete transparency through HMDA-approved layouts, TSRERA registration, clear and marketable land titles, verified documentation, and immediate registration processes. Every investment is backed by legal clarity and regulatory compliance.',
             ],
             [
-                'number' => '04',
+                'number' => '04.',
                 'icon'   => 'fa-chart-line',
-                'title'  => 'Accessible Value & Growth',
-                'desc'   => 'Delivering upscale plotted communities at accessible, modest pricing without hidden charges — providing buyers and families with enduring asset value and solid appreciation potential.',
+                'title'  => 'Long-Term Value Creation',
+                'desc'   => 'Our developments are designed to offer an optimal balance of affordability, quality, and future appreciation potential. By focusing on emerging growth corridors and planned infrastructure, we create investment opportunities that deliver enduring value for homeowners and investors alike.',
             ],
         ];
 
         $hyderabadStory = [
             'eyebrow'    => 'WHERE INVESTMENTS FLOURISH',
-            'headline'   => 'Hyderabad — A Thriving Hub for Real Estate',
-            'lead'       => 'Once celebrated as the City of Pearls, Hyderabad has transformed into one of India’s most dynamic and resilient real estate powerhouses.',
+            'headline'   => "Hyderabad - One of India's Fastest-Growing Real Estate Destinations",
             'paragraphs' => [
-                'Driven by world-class infrastructure, seamless connectivity, stable governance, and an expanding economic base of IT corridors, pharmaceutical clusters, and premier educational institutions, the city is a primary destination for both long-term investors and families building custom homes.',
-                'With major national healthcare institutions like AIIMS Bibinagar, the 6-lane NH-163 expressway, and the upcoming Regional Ring Road (RRR), the eastern growth corridor represents one of Hyderabad’s most balanced and infrastructure-backed growth paths.',
-                'What sets plotted land apart is 100% direct land ownership without depreciating super-built-up structures, consistent capital appreciation, and the freedom to build on your own schedule with complete peace of mind.',
+                "Once known as the City of Pearls, Hyderabad has evolved into one of India's most dynamic real estate and investment hubs. Backed by robust infrastructure, progressive urban planning, strong economic growth, and a business-friendly ecosystem, the city continues to attract homebuyers, investors, and global enterprises alike.",
+                "Driven by thriving IT and technology corridors, leading pharmaceutical and life sciences clusters, premier educational institutions, and large-scale infrastructure developments, Hyderabad offers a compelling foundation for long-term real estate appreciation. Its well-planned road networks, expanding metro connectivity, and strategic growth initiatives have further strengthened its position as one of the country's most sought-after property markets.",
+                "Among the city's emerging investment zones, the eastern growth corridor stands out for its balanced development and future potential. Supported by landmark infrastructure projects such as AIIMS Bibinagar, the NH-163 Warangal Highway, and the proposed Regional Ring Road (RRR), the region is rapidly transforming into a preferred destination for residential and investment-driven developments.",
+                "For investors seeking stability and long-term value, residential plots remain one of the most attractive asset classes. Unlike built-up properties, plotted developments offer direct land ownership, greater flexibility, lower maintenance obligations, and the potential for sustained capital appreciation, making them a secure and future-ready investment choice.",
             ],
         ];
 
@@ -115,36 +115,36 @@ class InvestorGuideController extends Controller
 
         $buyersGuide = [
             [
-                'number'  => '01',
-                'title'   => 'Priced for Potential',
-                'tagline' => 'Transparent Pricing Structure',
+                'number'  => '01.',
+                'title'   => 'Transparent Pricing',
+                'tagline' => 'Priced for Long-Term Value',
                 'icon'    => 'fa-tags',
-                'desc'    => 'We are committed to offering residential plots at accessible pricing that delivers exceptional asset value without compromise. Our transparent pricing structure, completely free from hidden charges, ensures you know exactly what you invest in. With developments located in active growth corridors, your land is positioned for long-term appreciation from day one.',
-                'takeaway'=> 'Our focus is on helping you make a smart, secure, and rewarding investment decision.',
+                'desc'    => 'We believe real estate investments should be straightforward, transparent, and rewarding. Our pricing structure is designed to offer exceptional value without hidden charges, ensuring complete clarity from enquiry to registration. By developing projects in high-growth corridors with strong infrastructure potential, we enable buyers to benefit from both affordability today and long-term appreciation tomorrow.',
+                'takeaway'=> 'Every investment is backed by transparency, confidence, and value-driven decision-making.',
             ],
             [
-                'number'  => '02',
-                'title'   => 'Mastery in Execution',
-                'tagline' => 'Rigorous On-Ground Quality',
+                'number'  => '02.',
+                'title'   => 'Quality Infrastructure',
+                'tagline' => 'Excellence in Every Detail',
                 'icon'    => 'fa-screwdriver-wrench',
-                'desc'    => 'Impeccable execution is at the heart of every project we deliver. From detailed civil planning to on-ground implementation, our team follows a streamlined process driven by precision and professionalism. Wide concrete avenues, engineered underground drainage, and durable utility networks are built strictly to municipal standards.',
-                'takeaway'=> 'We don’t just promise quality — we consistently deliver it on the ground.',
+                'desc'    => 'Quality is embedded into every stage of development. From master planning and engineering to on-ground execution, our projects are developed in accordance with HMDA planning standards and industry best practices. Wide concrete roads, efficient drainage systems, water infrastructure, and thoughtfully planned open spaces are designed to deliver lasting functionality and value.',
+                'takeaway'=> 'Our commitment extends beyond development—we build communities designed for sustainable growth and enduring quality.',
             ],
             [
-                'number'  => '03',
-                'title'   => 'Service with Integrity',
-                'tagline' => 'Customer-Centric Advisory',
+                'number'  => '03.',
+                'title'   => 'Customer-First Approach',
+                'tagline' => 'Service Built on Trust',
                 'icon'    => 'fa-handshake-angle',
-                'desc'    => 'Customer-centric service is our core operating philosophy. We prioritize your needs at every step — helping you select the right plot, reviewing legal documentation in clear terms, coordinating bank loan verification with leading lenders, and providing dedicated on-ground registration support.',
-                'takeaway'=> 'Trust is built through genuine care, accessible documentation, and consistent support.',
+                'desc'    => 'At Navagruha, every customer relationship is built on transparency, accessibility, and professional guidance. From project selection and documentation review to financing assistance and registration support, our team provides end-to-end assistance throughout the investment journey.',
+                'takeaway'=> 'We believe trust is earned through clear communication, reliable support, and a commitment to helping every buyer make informed decisions.',
             ],
             [
-                'number'  => '04',
-                'title'   => 'Project Orientation',
-                'tagline' => 'Dry Run Experience on Ground',
+                'number'  => '04.',
+                'title'   => 'Complete Project Transparency',
+                'tagline' => 'Experience Before You Invest',
                 'icon'    => 'fa-compass',
-                'desc'    => 'We understand the importance of making informed decisions. That is why we provide a complete project orientation experience: walk through the layout in person, inspect individual plot boundaries, observe completed amenities, and verify documentation before making any commitment.',
-                'takeaway'=> 'Complete clarity and confidence at every step of your buying journey.',
+                'desc'    => 'We encourage every buyer to evaluate a project with complete confidence. Through detailed site visits, layout walkthroughs, plot identification, infrastructure inspections, and documentation verification, we provide a comprehensive understanding of the investment before any commitment is made.',
+                'takeaway'=> 'Because informed decisions are the foundation of secure and successful real estate ownership.',
             ],
         ];
 

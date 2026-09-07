@@ -1,7 +1,34 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Us and Schedule a Site Visit, Navagruha Infra Developers')
-@section('meta_description', 'Have questions about plot availability, pricing or the project? Contact our sales team or schedule a visit to RRR Prekshitha Enclave near AIIMS Bibinagar.')
+@section('title', 'Navagruha Infra Developers — Contact Us')
+@section('meta_description', 'Contact Navagruha Infra Developers in Hyderabad. Connect with our real estate developers in Hyderabad for site visits and enquiries regarding plots for sale in Hyderabad.')
+@section('meta_keywords', 'Navagruha Infra Developers, Real Estate Developers in Hyderabad, Plots for Sale in Hyderabad, Navagruha Hyderabad')
+@section('canonical_url', route('contact'))
+
+@section('structured_data')
+<script type="application/ld+json">
+{
+  "{{ '@' }}context": "https://schema.org",
+  "{{ '@' }}type": "ContactPage",
+  "name": "Contact Navagruha Infra Developers",
+  "description": "Contact Navagruha Infra Developers in Hyderabad. Connect with our real estate developers in Hyderabad for site visits and enquiries regarding plots for sale in Hyderabad.",
+  "url": "{{ route('contact') }}",
+  "mainEntity": {
+    "{{ '@' }}type": "Organization",
+    "name": "Navagruha Infra Developers",
+    "url": "{{ route('home') }}",
+    "telephone": "+919617699699",
+    "email": "info@navagruha.com",
+    "address": {
+      "{{ '@' }}type": "PostalAddress",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "addressCountry": "IN"
+    }
+  }
+}
+</script>
+@endsection
 
 @section('content')
 
@@ -55,7 +82,7 @@
                                         {{ session('success') }}
                                     </p>
                                     <div class="fs-12 text-white-50">
-                                        Need immediate assistance? Call our sales desk directly at <a href="tel:+919617699699" class="text-white fw-bold text-decoration-none">+91 9617 699 699</a>.
+                                        Need immediate assistance? Call our Corporate Office directly at <a href="tel:+919617699699" class="text-white fw-bold text-decoration-none">+91 9617 699 699</a>.
                                     </div>
                                 </div>
                             </div>
@@ -150,7 +177,7 @@
                                  <i class="fa-solid fa-phone fs-18"></i>
                             </div>
                             <div>
-                                <h5 class="fs-16 font-copperplate text-white mb-1">Direct Sales Desk</h5>
+                                <h5 class="fs-16 font-copperplate text-white mb-1">Corporate Office</h5>
                                 <p class="text-white-50 fs-13 mb-0">
                                     <a href="tel:+919617699699" class="text-white text-decoration-none fw-bold">+91 9617 699 699</a><br>
                                     <a href="mailto:info@navagruha.com" class="text-white text-decoration-none">info@navagruha.com</a>, <a href="https://www.navagruha.com" target="_blank" class="text-white-50 text-decoration-none">www.navagruha.com</a>

@@ -1,12 +1,34 @@
 @extends('layouts.app')
 
-@section('title', 'Location and Connectivity, Navagruha Prekshitha Enclave near AIIMS Bibinagar')
-@section('meta_description', 'Explore location advantages of Navagruha Prekshitha Enclave near 750-Bed AIIMS Bibinagar, NH-163 Warangal highway, Ghatkesar ORR Exit 9, and Infosys Pocharam SEZ.')
+@section('title', 'Plots Near AIIMS Bibinagar — Location & Connectivity | Navagruha')
+@section('meta_description', 'Explore plots near AIIMS Bibinagar along the NH-163 Warangal Highway corridor. High-growth villa plots near AIIMS Bibinagar, residential plots, and investment plots in Bibinagar.')
+@section('meta_keywords', 'Plots Near AIIMS Bibinagar, Villa Plots Near AIIMS Bibinagar, Residential Plots Near AIIMS Bibinagar, Investment Plots in Bibinagar')
+@section('canonical_url', route('location'))
+
+@section('structured_data')
+<script type="application/ld+json">
+{
+  "{{ '@' }}context": "https://schema.org",
+  "{{ '@' }}type": "Place",
+  "name": "Plots Near AIIMS Bibinagar — Navagruha Prekshitha Enclave Location",
+  "description": "Explore plots near AIIMS Bibinagar along the NH-163 Warangal Highway corridor. High-growth villa plots near AIIMS Bibinagar, residential plots, and investment plots in Bibinagar.",
+  "url": "{{ route('location') }}",
+  "address": {
+    "{{ '@' }}type": "PostalAddress",
+    "streetAddress": "Opposite AIIMS Medical Campus, NH-163 Warangal Highway",
+    "addressLocality": "Bibinagar",
+    "addressRegion": "Telangana",
+    "postalCode": "508126",
+    "addressCountry": "IN"
+  }
+}
+</script>
+@endsection
 
 @section('content')
 
     <!-- Hero / Breadcrumb Banner with Real Venture Background -->
-    <section class="section-dark text-light relative overflow-hidden py-5 border-bottom border-white-10 bg-brand-pattern" style="background: linear-gradient(135deg, rgba(14, 26, 36, 0.93) 0%, rgba(20, 37, 51, 0.85) 50%, rgba(35, 65, 89, 0.90) 100%), url('{{ asset('venture/landmarks/Aiims Bibinagar.jpg') }}') center/cover no-repeat;">
+    <section class="section-dark text-light relative overflow-hidden py-5 border-bottom border-white-10" style="background: linear-gradient(135deg, rgba(14, 26, 36, 0.93) 0%, rgba(20, 37, 51, 0.85) 50%, rgba(35, 65, 89, 0.90) 100%), url('{{ asset('venture/landmarks/Aiims Bibinagar.jpg') }}') center/cover no-repeat;">
         <div class="wm-hero-watermark" style="opacity: 0.05;">BIBINAGAR</div>
         <div class="container relative z-2">
             <div class="row g-4 justify-content-between align-items-center">
@@ -110,6 +132,97 @@
                             <div class="gallery-showcase-content">
                                 <h4 class="gallery-showcase-title">Bibinagar MMTS Railway</h4>
                                 <div class="gallery-showcase-subtitle">Suburban Rail Station, 5 Minutes Away</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Official Highway Billboard & Connectivity Campaign -->
+            <div class="mb-5">
+                <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                    <div>
+                        <div class="subtitle text-brand-secondary font-copperplate mb-1">Active Outdoor Campaign</div>
+                        <h2 class="fs-28 text-white font-copperplate mb-0">
+                            Official Highway Corridor Billboards
+                        </h2>
+                    </div>
+                    <div>
+                        <span class="badge bg-brand-primary bg-opacity-30 border border-brand-primary border-opacity-40 text-brand-secondary font-copperplate fs-12 px-3 py-2 rounded-pill">
+                            <i class="fa-solid fa-bullhorn me-1"></i> NH-163 Outdoor Campaign
+                        </span>
+                    </div>
+                </div>
+                <p class="text-white-50 fs-14 mb-4">
+                    Active highway hoardings on the Hyderabad to Warangal growth corridor demonstrating verified proximity to AIIMS, Bibinagar MMTS, and NH-163. Click any billboard to inspect high-resolution details and official approval numbers.
+                </p>
+
+                <div class="row g-4">
+                    <!-- Creative 3: AIIMS Bibinagar 5 Mins -->
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative3.jpeg') }}', 'Reach AIIMS Bibinagar in 5 Minutes', 'Premier 750-Bed Central Medical Institute & Hospital Corridor')">
+                            <div class="creative-img-wrap">
+                                <img src="{{ asset('data/creatives/creative3.jpeg') }}" alt="Plots Near AIIMS Bibinagar — AIIMS Bibinagar Corridor Billboard" class="creative-img" loading="lazy">
+                                <div class="creative-badge">05 MINS</div>
+                                <div class="creative-zoom-overlay">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                    <span>Click to View Full Billboard</span>
+                                </div>
+                            </div>
+                            <div class="creative-caption">
+                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                    <h4 class="fs-16 text-white font-copperplate mb-0">AIIMS Bibinagar</h4>
+                                    <span class="badge bg-dark text-brand-secondary font-copperplate fs-10 px-2 py-0.5 rounded border border-white-10">5 Mins Away</span>
+                                </div>
+                                <div class="text-white-50 fs-12">
+                                    750-bed premier super-specialty medical institute with fast accessibility from RRR Prekshitha Enclave.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Creative 2: Bibinagar MMTS 5 Mins -->
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative2.jpeg') }}', 'Reach Bibinagar MMTS in 5 Minutes', 'Rapid Suburban Rail Transit to Secunderabad & Hyderabad Central')">
+                            <div class="creative-img-wrap">
+                                <img src="{{ asset('data/creatives/creative2.jpeg') }}" alt="Investment Plots in Bibinagar — Bibinagar MMTS Station Billboard" class="creative-img" loading="lazy">
+                                <div class="creative-badge">05 MINS</div>
+                                <div class="creative-zoom-overlay">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                    <span>Click to View Full Billboard</span>
+                                </div>
+                            </div>
+                            <div class="creative-caption">
+                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                    <h4 class="fs-16 text-white font-copperplate mb-0">Bibinagar MMTS Station</h4>
+                                    <span class="badge bg-dark text-brand-secondary font-copperplate fs-10 px-2 py-0.5 rounded border border-white-10">5 Mins Away</span>
+                                </div>
+                                <div class="text-white-50 fs-12">
+                                    Direct suburban commuter railway line connecting daily passengers seamlessly to Secunderabad junction.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Creative 1: National Highway NH-163 5 Mins -->
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative1.jpeg') }}', 'Reach National Highway NH-163 in 5 Minutes', 'HMDA Approved Layout LP No: 000085/LO/Plg/HMDA/2024 & TG RERA: P02200008537')">
+                            <div class="creative-img-wrap">
+                                <img src="{{ asset('data/creatives/creative1.jpeg') }}" alt="Villa Plots Near AIIMS Bibinagar — NH-163 National Highway Billboard" class="creative-img" loading="lazy">
+                                <div class="creative-badge">05 MINS</div>
+                                <div class="creative-zoom-overlay">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                    <span>Click to View Full Billboard</span>
+                                </div>
+                            </div>
+                            <div class="creative-caption">
+                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                    <h4 class="fs-16 text-white font-copperplate mb-0">NH-163 Growth Corridor</h4>
+                                    <span class="badge bg-dark text-brand-secondary font-copperplate fs-10 px-2 py-0.5 rounded border border-white-10">5 Mins Away</span>
+                                </div>
+                                <div class="text-white-50 fs-12">
+                                    6-lane industrial highway corridor facing proposed 100-ft road with spot registration and bank loan approvals.
+                                </div>
                             </div>
                         </div>
                     </div>

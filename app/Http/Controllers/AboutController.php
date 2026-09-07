@@ -11,74 +11,51 @@ class AboutController extends Controller
      */
     public function index()
     {
+        $companyName = 'Navagruha Infra Developers';
+
         $leadership = [
             [
-                'name'  => 'Srinivasa Rao Narravula',
-                'title' => 'Managing Director',
+                'name'  => 'Mr. Srinivasa Rao Narravula',
+                'title' => 'Founder and Managing Director',
                 'photo' => 'images/srinivasa-rao-narravula.jpg',
-                'bio'   => 'Mr. Srinivasa Rao Narravula is the founding Managing Director of Navagruha Infra Developers. Raised in an agrarian family, he channeled his early values of integrity and perseverance into a successful entrepreneurial career. Beginning in the seafood industry, he expanded into residential plotted development, completing his first HMDA-approved layout in the early 2000s. Today, he leads the company with a philosophy built on transparent documentation, planned infrastructure, and customer-first commitments.',
+                'paragraphs' => [
+                    'Mr. Srinivasa Rao Narravula, Founder and Managing Director of Navagruha Infra Developers, is an entrepreneur driven by the values of integrity, perseverance, and customer trust. Coming from an agrarian family background, he built a successful business career before expanding into real estate development.',
+                    'Today, he leads Navagruha with a clear vision of delivering well-planned residential communities backed by transparent documentation, quality infrastructure, and a customer-first approach, creating lasting value for homebuyers and investors.',
+                ],
             ],
             [
                 'name'  => 'Manoj Kumar Narravula',
-                'title' => 'Director, Business Development',
+                'title' => 'Director – Business Development',
                 'photo' => 'images/manoj-kumar-narravula.jpg',
-                'bio'   => "Manoj Kumar Narravula leads business development and project acquisition at Navagruha Infra Developers. He focuses on identifying high-growth corridors, regulatory due diligence, and building partnerships with financial institutions to provide buyers with bank loan accessibility. He plays a key role in expansion planning and customer engagement across the company's active and upcoming projects.",
+                'paragraphs' => [
+                    "Manoj Kumar Narravula serves as Director – Business Development at Navagruha Infra Developers, leading the company's growth strategy, project acquisitions, and business expansion initiatives. He oversees the identification and evaluation of high-potential development opportunities, regulatory due diligence, and strategic planning across the organization's project portfolio.",
+                    "He also plays a key role in establishing partnerships with financial institutions and industry stakeholders to enhance customer accessibility and support seamless financing solutions. Through his strategic approach and market insight, he contributes significantly to the company's expansion, operational growth, and long-term development objectives.",
+                ],
             ],
         ];
 
         $coreValues = [
             [
-                'number' => '01',
+                'number' => '01.',
                 'title'  => 'Transparency',
-                'desc'   => 'Every project begins with fully verified approvals, clear title documentation, and accessible legal records. Buyers can inspect every document before committing.',
+                'desc'   => 'We uphold the highest standards of transparency through verified approvals, clear land titles, and comprehensive documentation. Every customer is provided with complete access to project information, enabling informed and confident investment decisions.',
             ],
             [
-                'number' => '02',
+                'number' => '02.',
                 'title'  => 'Quality',
-                'desc'   => 'Our layouts are built to HMDA town planning standards — wide concrete roads, underground drainage, dedicated water storage, and green park zones.',
+                'desc'   => 'Quality is embedded in every stage of development. Our projects are designed in accordance with HMDA planning standards and feature well-engineered infrastructure, including wide internal roads, underground drainage systems, water management facilities, and thoughtfully planned open spaces.',
             ],
             [
-                'number' => '03',
+                'number' => '03.',
                 'title'  => 'Customer Commitment',
-                'desc'   => 'From first site visit through bank loan facilitation and spot registration, we provide complete end-to-end guidance so every buyer proceeds with confidence.',
+                'desc'   => 'We are committed to delivering a seamless customer experience from enquiry to registration. Through dedicated support, financing assistance, and end-to-end guidance, we ensure every customer receives the confidence and clarity needed throughout their investment journey.',
             ],
-        ];
-
-        $milestones = [
-            [
-                'year'  => '2004',
-                'event' => 'First HMDA-Approved Layout',
-            ],
-            [
-                'year'  => '2020',
-                'event' => 'Phase 1 — 74 Plots Delivered',
-            ],
-            [
-                'year'  => '2023',
-                'event' => 'HMDA Final Sanction — Phase 2',
-            ],
-            [
-                'year'  => '2024',
-                'event' => 'TSRERA Certified & Infrastructure Complete',
-            ],
-            [
-                'year'  => '2025',
-                'event' => 'Phase 2 Active Registrations',
-            ],
-        ];
-
-        $stats = [
-            ['value' => '3+',    'label' => 'Projects'],
-            ['value' => '400+',  'label' => 'Plots Delivered'],
-            ['value' => '17+',   'label' => 'Acres Developed'],
-            ['value' => '2004',  'label' => 'Since'],
         ];
 
         return view('about', compact(
+            'companyName',
             'leadership',
-            'coreValues',
-            'milestones',
-            'stats'
+            'coreValues'
         ));
     }
 }

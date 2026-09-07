@@ -52,7 +52,7 @@ class AmenityController extends Controller
                 ],
                 [
                     'icon' => 'fa-umbrella-beach',
-                    'title' => 'Pergolas & Senior Citizen Gazebo',
+                    'title' => 'Pergolas & Senior Citizen Seating',
                     'desc' => 'Shaded sitting alcoves with stone benches designed for relaxation and community bonding.',
                 ],
             ],

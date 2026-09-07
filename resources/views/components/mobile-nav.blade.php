@@ -105,14 +105,6 @@
                     </a>
                 </li>
 
-                <!-- Investor Corner -->
-                <li class="mobile-nav-item">
-                    <a href="{{ route('investor.corner') }}" class="mobile-nav-link {{ request()->routeIs('investor.corner', 'investors-guide') ? 'active' : '' }}">
-                        <span class="mobile-nav-link-text"><i class="fa-solid fa-chart-line me-2 text-brand-secondary fs-13"></i> Investor Corner</span>
-                        <i class="fa-solid fa-chevron-right mobile-nav-arrow"></i>
-                    </a>
-                </li>
-
                 <!-- Amenities -->
                 <li class="mobile-nav-item">
                     <a href="{{ route('amenities') }}" class="mobile-nav-link {{ request()->routeIs('amenities') ? 'active' : '' }}">
@@ -156,7 +148,7 @@
         <div class="mobile-nav-quick-enquiry">
             <div class="mobile-quick-enquiry-header">
                 <h4 class="mobile-quick-enquiry-title">Interested in this project?</h4>
-                <p class="mobile-quick-enquiry-subtitle">Get plot availability, pricing, and project brochure.</p>
+                <p class="mobile-quick-enquiry-subtitle">Get plot availability, pricing, and project details.</p>
             </div>
             
             <form id="mobileDrawerEnquiryForm" class="mobile-drawer-form" novalidate>
@@ -195,7 +187,7 @@
                 <i class="fa-brands fa-whatsapp"></i>
                 <span>WhatsApp</span>
             </a>
-            <a href="tel:+919617699699" class="mobile-action-btn mobile-action-call" aria-label="Call Navagruha sales desk">
+            <a href="tel:+919617699699" class="mobile-action-btn mobile-action-call" aria-label="Call Navagruha Corporate Office">
                 <i class="fa-solid fa-phone"></i>
                 <span>Call Us</span>
             </a>

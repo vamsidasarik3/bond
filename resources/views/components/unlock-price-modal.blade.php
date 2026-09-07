@@ -56,7 +56,7 @@
                     <div class="p-3 rounded-3 bg-dark bg-opacity-50 border border-white-10 mb-3">
                         <div class="d-flex align-items-center gap-2 text-white-50 fs-12">
                             <i class="fa-solid fa-shield-halved text-brand-secondary fs-16"></i>
-                            <span>100% Privacy Protected, Direct Developer Sales Desk</span>
+                            <span>100% Privacy Protected, Direct Developer Corporate Office</span>
                         </div>
                     </div>
 

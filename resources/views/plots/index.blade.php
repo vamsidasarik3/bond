@@ -1,7 +1,31 @@
 @extends('layouts.app')
 
-@section('title', 'Plot Availability, RRR Prekshitha Enclave near AIIMS Bibinagar')
-@section('meta_description', 'Explore residential and commercial plots at RRR Prekshitha Enclave with our interactive site plan. View dimensions, facing and availability for this HMDA-approved layout near AIIMS Bibinagar.')
+@section('title', 'Villa Plots in Bibinagar — RRR Prekshitha Enclave')
+@section('meta_description', 'Explore villa plots in Bibinagar at RRR Prekshitha Enclave. Offering HMDA final approved plots in AIIMS Bibinagar and RERA approved plots in AIIMS Bibinagar with clear titles and spot registration.')
+@section('meta_keywords', 'Villa Plots in Bibinagar, Plots for Sale in AIIMS Bibinagar, HMDA Final Approved Plots in AIIMS Bibinagar, RERA Approved Plots in AIIMS Bibinagar, Gated Community Plots in AIIMS Bibinagar, Premium Villa Plots in AIIMS Bibinagar')
+@section('canonical_url', route('plots.index'))
+
+@section('structured_data')
+<script type="application/ld+json">
+{
+  "{{ '@' }}context": "https://schema.org",
+  "{{ '@' }}type": "RealEstateListing",
+  "name": "RRR Prekshitha Enclave — Villa Plots in Bibinagar",
+  "description": "Explore villa plots in Bibinagar at RRR Prekshitha Enclave. Offering HMDA final approved plots in AIIMS Bibinagar and RERA approved plots in AIIMS Bibinagar with clear titles and spot registration.",
+  "url": "{{ route('plots.index') }}",
+  "image": "{{ asset('images/projects/rrr-prekshitha/entrance-arch-grand.webp') }}",
+  "address": {
+    "{{ '@' }}type": "PostalAddress",
+    "streetAddress": "Opposite AIIMS Medical Campus, NH-163 Corridor",
+    "addressLocality": "Bibinagar",
+    "addressRegion": "Telangana",
+    "postalCode": "508126",
+    "addressCountry": "IN"
+  },
+  "telephone": "+919617699699"
+}
+</script>
+@endsection
 
 @push('styles')
 <style>
@@ -267,7 +291,7 @@ $stClass = [
 {{-- ============================================================
      HERO BREADCRUMB BANNER
      ============================================================ --}}
-<section class="section-dark text-light relative overflow-hidden py-5 border-bottom border-white-10 bg-brand-pattern"
+<section class="section-dark text-light relative overflow-hidden py-5 border-bottom border-white-10"
     style="background: linear-gradient(135deg, rgba(14,26,36,.93) 0%, rgba(20,37,51,.85) 50%, rgba(35,65,89,.90) 100%),
            url('{{ asset('venture/photos/02.jpg') }}') center/cover no-repeat;">
     <div class="wm-hero-watermark" style="opacity:.04;">PLOTS</div>
@@ -590,7 +614,7 @@ $stClass = [
                             <circle cx="1350" cy="125" r="16" fill="#1b6938" stroke="rgba(134,239,172,.45)" stroke-width="1"/>
                             <rect x="1310" y="113" width="80" height="24" rx="12" fill="#15803d" stroke="#86efac" stroke-width="1.2"/>
                             <text x="1350" y="129" fill="#ffffff" font-family="var(--font-heading)" font-size="11px" font-weight="700" text-anchor="middle" letter-spacing="0.08em">PARK-1</text>
-                            <text x="1350" y="156" fill="#86efac" font-size="8px" font-family="sans-serif" text-anchor="middle">Landscaped Park &amp; Gazebo</text>
+                            <text x="1350" y="156" fill="#86efac" font-size="8px" font-family="sans-serif" text-anchor="middle">Landscaped Park &amp; Seating Zones</text>
                         </g>
 
                         {{-- ── PARK-2 (South-Center) ── --}}
@@ -992,7 +1016,7 @@ $stClass = [
                     ['url' => asset('images/projects/rrr-prekshitha/avenue-plantation-walkway.webp'), 'title' => 'Avenue Plantation & Walkways', 'desc' => 'Shaded pedestrian walkways with mature avenue trees along all roads.'],
                     ['url' => asset('venture/photos/04.jpg'), 'title' => 'Underground Sewage & Drainage', 'desc' => 'Comprehensive underground drainage network preventing waterlogging.'],
                     ['url' => asset('venture/photos/05.jpg'), 'title' => 'Underground Electricity & Transformers', 'desc' => 'Dedicated transformer, underground power cabling and modern LED lighting.'],
-                    ['url' => asset('images/projects/rrr-prekshitha/layout-parks-broad-view.webp'), 'title' => 'Thematic Landscaped Parks', 'desc' => 'Over 1.5 acres of green park zones with children play areas and gazebos.'],
+                    ['url' => asset('images/projects/rrr-prekshitha/layout-parks-broad-view.webp'), 'title' => 'Thematic Landscaped Parks', 'desc' => 'Over 1.5 acres of green park zones with children play areas and seating zones.'],
                     ['url' => asset('venture/photos/07.jpg'), 'title' => 'Demarcated Plot Boundaries', 'desc' => 'Individual boundary corner stones and physical road alignments in place.'],
                     ['url' => asset('images/projects/rrr-prekshitha/overhead-water-tank.webp'), 'title' => 'Overhead Water Storage Tank', 'desc' => 'High-capacity water tank with pressurized pipeline to each plot boundary.'],
                     ['url' => asset('venture/photos/09.jpg'), 'title' => 'Compound Wall & Perimeter', 'desc' => 'Complete layout boundary fencing ensuring privacy and round-the-clock safety.'],

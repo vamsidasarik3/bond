@@ -8,7 +8,7 @@
                     <div class="de-flex-col">
                         <div id="logo">
                             <a href="{{ route('home') }}" class="d-inline-flex align-items-center">
-                                <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha Infra Developers" class="brand-header-logo" style="height: 72px; width: auto; max-width: 270px; object-fit: contain;" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
+                                <img src="{{ asset('images/navagruha-logo-white-optimized.svg') }}" alt="Navagruha Infra Developers" class="brand-header-logo" style="height: 64px; width: auto; max-width: 250px; object-fit: contain;" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo-white.png') }}';">
                             </a>
                         </div>
                     </div>
@@ -29,11 +29,6 @@
                             <li>
                                 <a class="menu-item {{ request()->routeIs('projects') ? 'active' : '' }}" href="{{ route('projects') }}">
                                     <span>Projects</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="menu-item {{ request()->routeIs('investor.corner', 'investors-guide') ? 'active' : '' }}" href="{{ route('investor.corner') }}">
-                                    <span>Investor Corner</span>
                                 </a>
                             </li>
                             <li>

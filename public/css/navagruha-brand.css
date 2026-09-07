@@ -1697,12 +1697,17 @@ select.form-control:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(20, 37, 51, 0.50) 0%, rgba(20, 37, 51, 0.30) 50%, rgba(35, 65, 89, 0.45) 100%),
-              url('../../images/navagruha-pattern.svg');
-  background-size: cover, 500px 333px;
-  background-repeat: no-repeat, repeat;
+  background: 
+    /* Top sky dampener to decrease bright sky intensity */
+    linear-gradient(180deg, rgba(10, 18, 26, 0.72) 0%, rgba(13, 23, 33, 0.45) 35%, rgba(20, 37, 51, 0.18) 65%, rgba(10, 18, 26, 0.65) 100%),
+    /* Directional gradient for crystal clear text readability */
+    linear-gradient(90deg, rgba(13, 23, 33, 0.82) 0%, rgba(13, 23, 33, 0.52) 48%, rgba(13, 23, 33, 0.15) 100%);
   z-index: 2;
   pointer-events: none;
+}
+
+.swiper-home-auto .swiper-inner {
+  filter: contrast(1.03) brightness(0.94);
 }
 
 .hero-title {
@@ -3558,5 +3563,190 @@ rect.plot-cell.plot-cell-selected.status-reserved  { stroke: #fbbf24 !important;
     font-size: 2.25rem;
   }
 }
+
+/* ==============================================================
+   HIGHWAY CORRIDOR CAMPAIGN BILLBOARDS (Creatives Showcase)
+   ============================================================== */
+.creative-billboard-card {
+  background: #0d1a24;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.creative-billboard-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(113, 182, 68, 0.6);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.5), 0 0 24px rgba(113, 182, 68, 0.2);
+}
+
+.creative-img-wrap {
+  position: relative;
+  width: 100%;
+  background: #071018;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.creative-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.creative-billboard-card:hover .creative-img {
+  transform: scale(1.05);
+}
+
+.creative-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #71b644;
+  color: #0b151f;
+  font-family: var(--font-heading) !important;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.creative-zoom-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 21, 31, 0.65);
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
+
+.creative-zoom-overlay i {
+  font-size: 24px;
+  color: #71b644;
+}
+
+.creative-zoom-overlay span {
+  font-family: var(--font-heading) !important;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.creative-billboard-card:hover .creative-zoom-overlay {
+  opacity: 1;
+}
+
+.creative-caption {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background: linear-gradient(180deg, rgba(20, 37, 51, 0.4) 0%, rgba(13, 26, 36, 0.9) 100%);
+}
+
+/* Lightbox Modal for Billboard Creatives */
+.creative-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 13, 19, 0.88);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.creative-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.creative-modal-content {
+  background: #0f1d2a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  max-width: 960px;
+  width: 100%;
+  max-height: 92vh;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.creative-modal.active .creative-modal-content {
+  transform: scale(1);
+}
+
+.creative-modal-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #142533;
+}
+
+.creative-modal-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.creative-modal-close:hover {
+  background: #dc3526;
+  border-color: #dc3526;
+  transform: scale(1.08);
+}
+
+.creative-modal-body {
+  padding: 16px;
+  overflow-y: auto;
+  text-align: center;
+  background: #09121a;
+}
+
+.creative-modal-img {
+  width: 100%;
+  height: auto;
+  max-height: 72vh;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 
 

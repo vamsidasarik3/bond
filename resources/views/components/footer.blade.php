@@ -8,7 +8,7 @@
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="pe-lg-3">
                     <a href="{{ route('home') }}" class="d-inline-block mb-3">
-                        <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha Infra Developers" class="brand-footer-logo" style="height: 80px; width: auto; max-width: 290px; object-fit: contain;" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
+                        <img src="{{ asset('images/navagruha-logo-white-optimized.svg') }}" alt="Navagruha Infra Developers" class="brand-footer-logo" style="height: 72px; width: auto; max-width: 270px; object-fit: contain;" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo-white.png') }}';">
                     </a>
                     <div class="brand-tagline mb-3">REDEFINING REALITY</div>
                     <p class="text-white-50 fs-13 mb-4 leading-relaxed">
@@ -32,7 +32,6 @@
                     <li><a href="{{ route('home') }}"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
                     <li><a href="{{ route('about') }}"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
                     <li><a href="{{ route('projects') }}"><i class="fa-solid fa-chevron-right"></i> Projects</a></li>
-                    <li><a href="{{ route('investor.corner') }}"><i class="fa-solid fa-chevron-right"></i> Investor Corner</a></li>
                     <li><a href="{{ route('plots.index') }}"><i class="fa-solid fa-chevron-right"></i> Plots Catalog</a></li>
                     <li><a href="{{ route('amenities') }}"><i class="fa-solid fa-chevron-right"></i> Amenities</a></li>
                     <li><a href="{{ route('location') }}"><i class="fa-solid fa-chevron-right"></i> Location</a></li>
@@ -77,25 +76,12 @@
                         </div>
                         <i class="fa-solid fa-arrow-up-right-from-square fs-10 text-brand-secondary"></i>
                     </a>
-
-                    <a href="{{ asset('venture/docs/RRR PREKSHITHA ENCLAVE BROCHURE.pdf') }}" target="_blank" rel="noopener"
-                       class="d-flex align-items-center justify-content-between p-2 rounded-2 bg-dark bg-opacity-50 border border-white-10 text-decoration-none text-white-50"
-                       style="transition: all 0.2s ease;">
-                        <div class="d-flex align-items-center gap-2">
-                            <i class="fa-solid fa-file-pdf text-danger fs-14"></i>
-                            <div>
-                                <div class="fs-11 text-white font-copperplate fw-bold lh-1">Official Brochure</div>
-                                <div class="fs-10 text-white-50">Master Layout &amp; Project Guide</div>
-                            </div>
-                        </div>
-                        <i class="fa-solid fa-download fs-10 text-brand-secondary"></i>
-                    </a>
                 </div>
             </div>
 
-            <!-- Col 4: Sales Desk & Address -->
+            <!-- Col 4: Corporate Office & Address -->
             <div class="col-lg-3 col-md-6 col-12">
-                <div class="footer-widget-title">Sales Desk</div>
+                <div class="footer-widget-title">Corporate Office</div>
                 
                 <div class="footer-contact-item">
                     <div class="footer-contact-icon">

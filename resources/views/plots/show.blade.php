@@ -29,7 +29,7 @@
 @section('content')
 
     {{-- Top Plot Heading & Breadcrumb Banner --}}
-    <section class="section-dark text-light relative overflow-hidden py-5 border-bottom border-white-10 bg-brand-pattern"
+    <section class="section-dark text-light relative overflow-hidden py-5 border-bottom border-white-10"
         style="background: linear-gradient(135deg, rgba(14, 26, 36, 0.96) 0%, rgba(20, 37, 51, 0.92) 50%, rgba(35, 65, 89, 0.95) 100%);">
         <div class="wm-hero-watermark" style="opacity: 0.06;">{{ $plot['number'] ?? 'NAVAGRUHA' }}</div>
         <div class="container relative z-2">
@@ -183,6 +183,63 @@
                                 <div class="col-md-6 col-12 d-flex align-items-center gap-2">
                                     <i class="fa-solid fa-train-subway text-brand-secondary flex-shrink-0"></i>
                                     <span><strong>30 Mins:</strong> Uppal Metro Station, Hyderabad</span>
+                                </div>
+                        </div>
+
+                        <!-- Official Corridor Highway Billboards -->
+                        <div class="mt-4 p-4 rounded-4 bg-brand-card border border-white-10">
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                                <div>
+                                    <div class="text-white-50 fs-11 font-copperplate text-uppercase">
+                                        <i class="fa-solid fa-bullhorn text-brand-secondary me-1"></i> Official Highway Outdoor Campaign
+                                    </div>
+                                    <h4 class="fs-16 text-white font-copperplate mb-0 mt-0.5">Corridor Connectivity Billboards</h4>
+                                </div>
+                                <span class="text-brand-secondary fs-11 font-copperplate">Click to View Full Size</span>
+                            </div>
+
+                            <div class="row g-2 g-md-3">
+                                <div class="col-4">
+                                    <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative3.jpeg') }}', 'Reach AIIMS Bibinagar in 5 Minutes', 'Premier 750-Bed Central Medical Institute & Hospital Corridor')">
+                                        <div class="creative-img-wrap" style="aspect-ratio: 16/10;">
+                                            <img src="{{ asset('data/creatives/creative3.jpeg') }}" alt="AIIMS Bibinagar Billboard" class="creative-img" loading="lazy">
+                                            <div class="creative-badge fs-10 px-2 py-0.5">5 MINS</div>
+                                            <div class="creative-zoom-overlay">
+                                                <i class="fa-solid fa-expand fs-14"></i>
+                                            </div>
+                                        </div>
+                                        <div class="p-2 text-center bg-dark bg-opacity-50">
+                                            <div class="text-white font-copperplate fs-11 text-truncate">AIIMS Bibinagar</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative2.jpeg') }}', 'Reach Bibinagar MMTS in 3 Minutes', 'Direct Suburban Railway Connectivity')">
+                                        <div class="creative-img-wrap" style="aspect-ratio: 16/10;">
+                                            <img src="{{ asset('data/creatives/creative2.jpeg') }}" alt="Bibinagar MMTS Billboard" class="creative-img" loading="lazy">
+                                            <div class="creative-badge fs-10 px-2 py-0.5">3 MINS</div>
+                                            <div class="creative-zoom-overlay">
+                                                <i class="fa-solid fa-expand fs-14"></i>
+                                            </div>
+                                        </div>
+                                        <div class="p-2 text-center bg-dark bg-opacity-50">
+                                            <div class="text-white font-copperplate fs-11 text-truncate">Bibinagar MMTS</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative1.jpeg') }}', 'Reach National Highway NH-163 in 5 Minutes', 'HMDA Approved Layout LP No: 000085/LO/Plg/HMDA/2024 & TG RERA: P02200008537')">
+                                        <div class="creative-img-wrap" style="aspect-ratio: 16/10;">
+                                            <img src="{{ asset('data/creatives/creative1.jpeg') }}" alt="NH-163 Highway Billboard" class="creative-img" loading="lazy">
+                                            <div class="creative-badge fs-10 px-2 py-0.5">5 MINS</div>
+                                            <div class="creative-zoom-overlay">
+                                                <i class="fa-solid fa-expand fs-14"></i>
+                                            </div>
+                                        </div>
+                                        <div class="p-2 text-center bg-dark bg-opacity-50">
+                                            <div class="text-white font-copperplate fs-11 text-truncate">NH-163 Highway</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

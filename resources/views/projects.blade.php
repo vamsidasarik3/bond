@@ -1,7 +1,36 @@
 @extends('layouts.app')
 
-@section('title', 'Projects, Navagruha Infra Developers')
-@section('meta_description', 'Explore our portfolio of HMDA-approved gated communities, delivered residential developments, and commercial properties by Navagruha Infra Developers.')
+@section('title', 'Residential Plots in Hyderabad — Navagruha Infra Developers')
+@section('meta_description', 'Explore verified residential plots in Hyderabad by Navagruha Infra Developers. Featuring open plots in Hyderabad, villa plots in Hyderabad, and investment plots in Hyderabad within gated community plots.')
+@section('meta_keywords', 'Residential Plots in Hyderabad, Open Plots in Hyderabad, Villa Plots in Hyderabad, Investment Plots in Hyderabad, Gated Community Plots')
+@section('canonical_url', route('projects'))
+
+@section('structured_data')
+<script type="application/ld+json">
+{
+  "{{ '@' }}context": "https://schema.org",
+  "{{ '@' }}type": "ItemList",
+  "name": "Residential Plots in Hyderabad — Projects Portfolio",
+  "description": "Explore verified residential plots in Hyderabad by Navagruha Infra Developers. Featuring open plots in Hyderabad, villa plots in Hyderabad, and investment plots in Hyderabad within gated community plots.",
+  "itemListElement": [
+    {
+      "{{ '@' }}type": "ListItem",
+      "position": 1,
+      "name": "Navagruha Prekshitha Enclave",
+      "description": "Villa Plots in Bibinagar, HMDA and RERA Approved Residential Plotted Community",
+      "url": "{{ route('plots.index') }}"
+    },
+    {
+      "{{ '@' }}type": "ListItem",
+      "position": 2,
+      "name": "Navagruha Golden Farms",
+      "description": "Plots for Sale Near Patancheru, Farmland and Residential Plotted Community",
+      "url": "{{ route('projects') }}#project-golden-farms"
+    }
+  ]
+}
+</script>
+@endsection
 
 @push('styles')
 <style>
@@ -186,20 +215,20 @@
 
 @section('content')
 
-    <!-- Hero / Breadcrumb Banner with Real Venture Background (Unchanged) -->
-    <section class="section-dark text-light relative overflow-hidden py-5 border-bottom border-white-10 bg-brand-pattern" style="background: linear-gradient(135deg, rgba(14, 26, 36, 0.93) 0%, rgba(20, 37, 51, 0.85) 50%, rgba(35, 65, 89, 0.90) 100%), url('{{ asset('venture/photos/01.jpg') }}') center/cover no-repeat;">
-        <div class="wm-hero-watermark" style="opacity: 0.05;">PORTFOLIO</div>
+    <!-- Hero / Breadcrumb Banner with Clean Photographic Background (No Striped Lines) -->
+    <section class="section-dark text-light relative overflow-hidden py-5 border-bottom border-white-10" style="background: linear-gradient(135deg, rgba(14, 26, 36, 0.93) 0%, rgba(20, 37, 51, 0.85) 50%, rgba(35, 65, 89, 0.90) 100%), url('{{ asset('venture/photos/01.jpg') }}') center/cover no-repeat;">
+        <div class="wm-hero-watermark" style="opacity: 0.05;">PROJECTS</div>
         <div class="container relative z-2">
             <div class="row g-4 justify-content-between align-items-center">
                 <div class="col-md-8">
                     <div class="subtitle text-brand-secondary font-copperplate mb-2">
-                        <i class="fa-solid fa-city me-1"></i> PROJECT PORTFOLIO
+                        <i class="fa-solid fa-city me-1"></i> RESIDENTIAL &amp; CONCEPTUAL PROJECTS
                     </div>
                     <h1 class="fs-48 text-white font-copperplate lh-1-1 mb-2">
-                        Residential and Commercial Projects
+                        Residential &amp; Conceptual Projects
                     </h1>
                     <p class="text-white-50 fs-16 mb-0">
-                        Explore our residential plotted communities and commercial developments in and around Hyderabad.
+                        Explore our residential plotted communities and future conceptual developments in strategically selected growth corridors.
                     </p>
                 </div>
                 <div class="col-md-4 text-md-end">
@@ -216,7 +245,7 @@
     <section class="bg-brand-dark text-light py-80">
         <div class="container">
 
-            <!-- Filter Status Bar -->
+            <!-- Filter Status Bar (No 'All Projects' tab) -->
             <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-5 pb-3 border-bottom border-white-10">
                 <div>
                     <span class="text-white-50 fs-12 text-uppercase font-copperplate tracking-wider">
@@ -224,10 +253,7 @@
                     </span>
                 </div>
                 <div class="d-flex flex-wrap gap-2" id="projectFilterButtons">
-                    <button type="button" class="btn btn-sm px-3 py-2 rounded-pill font-copperplate fs-12 active-filter-btn" onclick="filterProjects('all', this)" style="background: var(--secondary-color); color: #ffffff; border: none;">
-                        All Projects ({{ count($projects) }})
-                    </button>
-                    <button type="button" class="btn btn-sm px-3 py-2 rounded-pill font-copperplate fs-12 filter-btn text-white-50" onclick="filterProjects('ongoing', this)" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
+                    <button type="button" class="btn btn-sm px-3 py-2 rounded-pill font-copperplate fs-12 active-filter-btn" onclick="filterProjects('ongoing', this)" style="background: var(--secondary-color); color: #ffffff; border: none;">
                         Ongoing Ventures (1)
                     </button>
                     <button type="button" class="btn btn-sm px-3 py-2 rounded-pill font-copperplate fs-12 filter-btn text-white-50" onclick="filterProjects('completed', this)" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
@@ -277,8 +303,30 @@
                                             <!-- Slides -->
                                             <div class="carousel-inner h-100">
                                                 @foreach($proj['gallery'] ?? [$proj['image']] as $idx => $img)
+                                                    @php
+                                                        if (($proj['id'] ?? '') === 'golden-farms') {
+                                                            $altTexts = [
+                                                                0 => 'Plots for Sale Near Patancheru — Navagruha Golden Farms',
+                                                                1 => 'Open Plots Near Patancheru — Gated Farmland Community',
+                                                                2 => 'Villa Plots Near Patancheru — Wide Road Boulevard',
+                                                                3 => 'Residential Plots Near Patancheru — Landscaped Layout',
+                                                                4 => 'Investment Plots Near Patancheru — Clear Title Plots',
+                                                            ];
+                                                            $slideAlt = $altTexts[$idx] ?? 'Plots for Sale Near Patancheru — Golden Farms';
+                                                        } else {
+                                                            $altTexts = [
+                                                                0 => 'Villa Plots in Bibinagar — Grand Entrance Arch',
+                                                                1 => 'Plots for Sale in AIIMS Bibinagar — Master Layout Aerial',
+                                                                2 => 'HMDA Final Approved Plots in AIIMS Bibinagar — 40ft Boulevard',
+                                                                3 => 'RERA Approved Plots in AIIMS Bibinagar — Aerial View',
+                                                                4 => 'Premium Villa Plots in AIIMS Bibinagar — Avenue Plantation',
+                                                                5 => 'Gated Community Plots in AIIMS Bibinagar — Overhead Water Tank',
+                                                            ];
+                                                            $slideAlt = $altTexts[$idx] ?? ($proj['name'] . ' - Slide ' . ($idx + 1));
+                                                        }
+                                                    @endphp
                                                     <div class="carousel-item h-100 {{ $idx === 0 ? 'active' : '' }}" data-bs-interval="3500">
-                                                        <img src="{{ $img }}" class="d-block w-100 h-100 object-fit-cover" alt="{{ $proj['name'] }} - Slide {{ $idx + 1 }}">
+                                                        <img src="{{ $img }}" class="d-block w-100 h-100 object-fit-cover" alt="{{ $slideAlt }}">
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -391,20 +439,68 @@
                                                 <a href="{{ route('contact') }}" class="btn-secondary-brand">
                                                     <span>Enquire / Future Phases &rarr;</span>
                                                 </a>
-                                                @if(!empty($proj['docs']['brochure']))
-                                                    <a href="{{ $proj['docs']['brochure'] }}" target="_blank" class="btn btn-sm text-brand-secondary border border-white-10 px-3 py-2 rounded-3 text-decoration-none hover-scale-btn">
-                                                        <i class="fa-solid fa-file-pdf me-1"></i> Project Brochure
-                                                    </a>
-                                                @endif
                                             @else
                                                 <a href="{{ route('contact') }}" class="btn-main">
                                                     <span>Register Pre-Launch Interest &rarr;</span>
                                                 </a>
-                                                <a href="{{ route('contact') }}" class="btn-secondary-brand">
-                                                    <span>Request Brochure</span>
-                                                </a>
                                             @endif
                                         </div>
+
+                                        @if(($proj['id'] ?? '') === 'rrr-prekshitha-enclave' || ($proj['status_badge'] ?? '') === 'Ongoing')
+                                            <!-- Official Corridor Campaign Billboards -->
+                                            <div class="mt-4 pt-3 border-top border-white-10">
+                                                <div class="d-flex align-items-center justify-content-between mb-3">
+                                                    <span class="text-white-50 fs-11 font-copperplate text-uppercase">
+                                                        <i class="fa-solid fa-bullhorn text-brand-secondary me-1"></i> Highway Corridor Outdoor Campaign:
+                                                    </span>
+                                                    <span class="text-brand-secondary fs-11 font-copperplate">Click to View High-Res</span>
+                                                </div>
+                                                <div class="row g-2">
+                                                    <div class="col-4">
+                                                        <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative3.jpeg') }}', 'Reach AIIMS Bibinagar in 5 Minutes', '750-Bed Premier Medical Institute & Hospital Corridor')">
+                                                            <div class="creative-img-wrap" style="aspect-ratio: 16/10;">
+                                                                <img src="{{ asset('data/creatives/creative3.jpeg') }}" alt="AIIMS Bibinagar Billboard" class="creative-img" loading="lazy">
+                                                                <div class="creative-badge fs-10 px-2 py-0.5">5 MINS</div>
+                                                                <div class="creative-zoom-overlay">
+                                                                    <i class="fa-solid fa-expand fs-14"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="p-2 text-center bg-dark bg-opacity-50">
+                                                                <div class="text-white font-copperplate fs-11 text-truncate">AIIMS Bibinagar</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative2.jpeg') }}', 'Reach Bibinagar MMTS in 3 Minutes', 'Direct Suburban Railway to Secunderabad & Hyderabad Central')">
+                                                            <div class="creative-img-wrap" style="aspect-ratio: 16/10;">
+                                                                <img src="{{ asset('data/creatives/creative2.jpeg') }}" alt="Bibinagar MMTS Billboard" class="creative-img" loading="lazy">
+                                                                <div class="creative-badge fs-10 px-2 py-0.5">3 MINS</div>
+                                                                <div class="creative-zoom-overlay">
+                                                                    <i class="fa-solid fa-expand fs-14"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="p-2 text-center bg-dark bg-opacity-50">
+                                                                <div class="text-white font-copperplate fs-11 text-truncate">Bibinagar MMTS</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative1.jpeg') }}', 'Reach National Highway NH-163 in 5 Minutes', 'HMDA Approved Layout LP No: 000085/LO/Plg/HMDA/2024 & TG RERA: P02200008537')">
+                                                            <div class="creative-img-wrap" style="aspect-ratio: 16/10;">
+                                                                <img src="{{ asset('data/creatives/creative1.jpeg') }}" alt="NH-163 Highway Billboard" class="creative-img" loading="lazy">
+                                                                <div class="creative-badge fs-10 px-2 py-0.5">5 MINS</div>
+                                                                <div class="creative-zoom-overlay">
+                                                                    <i class="fa-solid fa-expand fs-14"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="p-2 text-center bg-dark bg-opacity-50">
+                                                                <div class="text-white font-copperplate fs-11 text-truncate">NH-163 Highway</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
 
                                     </div>
 
@@ -429,9 +525,11 @@
                 btn.style.color = 'rgba(255,255,255,0.6)';
                 btn.style.border = '1px solid rgba(255,255,255,0.1)';
             });
-            btnElement.style.background = 'var(--secondary-color)';
-            btnElement.style.color = '#ffffff';
-            btnElement.style.border = 'none';
+            if (btnElement) {
+                btnElement.style.background = 'var(--secondary-color)';
+                btnElement.style.color = '#ffffff';
+                btnElement.style.border = 'none';
+            }
 
             // Filter detailed project cards
             const detailItems = document.querySelectorAll('.project-card-item');
@@ -444,6 +542,17 @@
                 }
             });
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const hash = window.location.hash;
+            if (hash && hash.includes('golden-farms')) {
+                const delBtn = document.querySelectorAll('#projectFilterButtons button')[1];
+                if (delBtn) filterProjects('completed', delBtn);
+            } else {
+                const onBtn = document.querySelectorAll('#projectFilterButtons button')[0];
+                if (onBtn) filterProjects('ongoing', onBtn);
+            }
+        });
     </script>
     @endpush
 

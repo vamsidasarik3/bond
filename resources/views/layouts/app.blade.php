@@ -3,8 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Navagruha Infra Developers, Residential Plots near AIIMS Bibinagar')</title>
-    <meta name="description" content="@yield('meta_description', 'HMDA final approved and RERA certified 17-acre residential plotted layout near AIIMS Bibinagar and NH-163 Warangal highway.')">
+    <title>{{ $__env->yieldContent('title', 'Plots for Sale in Hyderabad — Navagruha Infra Developers') }}</title>
+    <meta name="description" content="{{ $__env->yieldContent('meta_description', 'Discover premium plots for sale in Hyderabad by Navagruha Infra Developers. Explore HMDA approved open plots, residential plots, and gated community plots in high-growth corridors.') }}">
+    @hasSection('meta_keywords')
+    <meta name="keywords" content="@yield('meta_keywords')">
+    @endif
+    <link rel="canonical" href="{{ $__env->yieldContent('canonical_url', url()->current()) }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="Navagruha Infra Developers">
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:title" content="{{ $__env->yieldContent('og_title') ?: $__env->yieldContent('title', 'Plots for Sale in Hyderabad — Navagruha Infra Developers') }}">
+    <meta property="og:description" content="{{ $__env->yieldContent('og_description') ?: $__env->yieldContent('meta_description', 'Discover premium plots for sale in Hyderabad by Navagruha Infra Developers. Explore HMDA approved open plots, residential plots, and gated community plots in high-growth corridors.') }}">
+    <meta property="og:url" content="@yield('og_url', url()->current())">
+    <meta property="og:image" content="@yield('og_image', asset('images/projects/rrr-prekshitha/entrance-arch-grand.webp'))">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $__env->yieldContent('og_title') ?: $__env->yieldContent('title', 'Plots for Sale in Hyderabad — Navagruha Infra Developers') }}">
+    <meta name="twitter:description" content="{{ $__env->yieldContent('og_description') ?: $__env->yieldContent('meta_description', 'Discover premium plots for sale in Hyderabad by Navagruha Infra Developers. Explore HMDA approved open plots, residential plots, and gated community plots in high-growth corridors.') }}">
+    <meta name="twitter:image" content="@yield('og_image', asset('images/projects/rrr-prekshitha/entrance-arch-grand.webp'))">
+
+    @yield('structured_data')
+
     <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/png">
 
     <!-- Web Fonts (Copperplate fallback with Cinzel & Plus Jakarta Sans) -->
@@ -42,6 +63,9 @@
 
     <!-- 5. Global Unlock Price Lead Capture Modal -->
     <x-unlock-price-modal />
+
+    <!-- 5b. Global Creative Billboard Lightbox Modal -->
+    <x-creative-billboard-modal />
 
     <!-- 6. Mobile Off-Canvas Navigation Drawer & Floating WhatsApp -->
     <x-mobile-nav />
