@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" fill="none" width="100%" height="100%">
+  <!-- Outer Glow & Shield Base -->
+  <defs>
+    <linearGradient id="reraBgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#142533"/>
+      <stop offset="100%" stop-color="#0d1923"/>
+    </linearGradient>
+    <linearGradient id="reraGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fcd34d"/>
+      <stop offset="50%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="reraGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#86efac"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+    <filter id="reraDrop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Container Badge -->
+  <rect x="2" y="2" width="416" height="116" rx="16" fill="url(#reraBgGrad)" stroke="rgba(217, 119, 6, 0.4)" stroke-width="1.5" filter="url(#reraDrop)"/>
+
+  <!-- Circular Emblem Left -->
+  <g transform="translate(18, 14)">
+    <!-- Outer gold ring -->
+    <circle cx="46" cy="46" r="44" fill="#09141c" stroke="url(#reraGold)" stroke-width="2"/>
+    <circle cx="46" cy="46" r="38" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="3 2"/>
+
+    <!-- Scales of Justice / Pillar Emblem -->
+    <!-- Central Pillar -->
+    <rect x="44" y="28" width="4" height="38" rx="1" fill="url(#reraGold)"/>
+    <rect x="36" y="66" width="20" height="4" rx="1" fill="url(#reraGold)"/>
+    <polygon points="46,22 41,28 51,28" fill="url(#reraGold)"/>
+    <!-- Beam -->
+    <line x1="26" y1="36" x2="66" y2="36" stroke="url(#reraGold)" stroke-width="2.5"/>
+    <!-- Left Scale -->
+    <line x1="28" y1="36" x2="22" y2="48" stroke="#ffffff" stroke-width="1.2" opacity="0.8"/>
+    <line x1="28" y1="36" x2="34" y2="48" stroke="#ffffff" stroke-width="1.2" opacity="0.8"/>
+    <path d="M 20 48 Q 28 54 36 48 Z" fill="url(#reraGreen)"/>
+    <!-- Right Scale -->
+    <line x1="64" y1="36" x2="58" y2="48" stroke="#ffffff" stroke-width="1.2" opacity="0.8"/>
+    <line x1="64" y1="36" x2="70" y2="48" stroke="#ffffff" stroke-width="1.2" opacity="0.8"/>
+    <path d="M 56 48 Q 64 54 72 48 Z" fill="url(#reraGreen)"/>
+  </g>
+
+  <!-- Divider line -->
+  <line x1="126" y1="20" x2="126" y2="100" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+  <!-- Typography Right -->
+  <g transform="translate(142, 0)">
+    <!-- TG-RERA Acronym -->
+    <text x="0" y="48" font-family="'Copperplate', 'Cinzel', serif, sans-serif" font-size="32" font-weight="900" letter-spacing="2.5" fill="url(#reraGold)">
+      TG-RERA
+    </text>
+
+    <!-- Authority Title -->
+    <text x="0" y="70" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#ffffff">
+      TELANGANA REAL ESTATE
+    </text>
+    <text x="0" y="85" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.8" fill="rgba(255,255,255,0.75)">
+      REGULATORY AUTHORITY
+    </text>
+
+    <!-- Verified Registration Pill -->
+    <g transform="translate(0, 93)">
+      <rect x="0" y="0" width="168" height="16" rx="8" fill="rgba(245, 158, 11, 0.18)" stroke="rgba(245, 158, 11, 0.45)" stroke-width="0.8"/>
+      <circle cx="8" cy="8" r="3" fill="#f59e0b"/>
+      <text x="16" y="11.5" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="8.5" font-weight="700" letter-spacing="0.6" fill="#fcd34d">
+        CERTIFIED PROJECT
+      </text>
+    </g>
+  </g>
+</svg>
