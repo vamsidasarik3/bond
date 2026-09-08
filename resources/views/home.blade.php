@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Plots for Sale in Hyderabad — Navagruha Infra Developers')
-@section('meta_description', 'Discover premium plots for sale in Hyderabad with Navagruha Infra Developers. Offering HMDA approved open plots in Hyderabad, villa plots in Hyderabad, and gated community plots in Hyderabad.')
-@section('og_title', 'Plots for Sale in Hyderabad — Navagruha Infra Developers')
-@section('og_description', 'Discover premium plots for sale in Hyderabad with Navagruha Infra Developers. Offering HMDA approved open plots in Hyderabad, villa plots in Hyderabad, and gated community plots in Hyderabad.')
+@section('title', 'Plots for Sale in Hyderabad | Navagruha Infra')
+@section('meta_description', 'Explore HMDA-approved plots for sale in Hyderabad with Navagruha. Discover gated community, residential and villa plots in high-growth locations with transparent documentation.')
+@section('og_title', 'Plots for Sale in Hyderabad | Navagruha Infra')
+@section('og_description', 'Explore HMDA-approved plots for sale in Hyderabad with Navagruha. Discover gated community, residential and villa plots in high-growth locations with transparent documentation.')
 @section('meta_keywords', 'Plots for Sale in Hyderabad, Open Plots in Hyderabad, Villa Plots in Hyderabad, Residential Plots in Hyderabad, Gated Community Plots in Hyderabad')
 @section('canonical_url', route('home'))
 
@@ -15,7 +15,7 @@
   "name": "Navagruha Infra Developers",
   "url": "{{ route('home') }}",
   "logo": "{{ asset('images/navagruha-logo-white.png') }}",
-  "description": "Discover premium plots for sale in Hyderabad with Navagruha Infra Developers. Offering HMDA approved open plots in Hyderabad, villa plots in Hyderabad, and gated community plots in Hyderabad.",
+  "description": "Explore HMDA-approved plots for sale in Hyderabad with Navagruha. Discover gated community, residential and villa plots in high-growth locations with transparent documentation.",
   "telephone": "+919617699699",
   "address": {
     "{{ '@' }}type": "PostalAddress",
@@ -46,10 +46,6 @@
                         <div class="container position-relative z-3">
                             <div class="row align-items-center">
                                 <div class="col-lg-9 col-xl-8">
-                                    <div class="hero-brand-pill mb-3">
-                                        <span class="text-white font-copperplate fs-11">NAVAGRUHA INFRA DEVELOPERS</span>
-                                    </div>
-                                    
                                     <h1 class="hero-title mb-2">
                                         Residential Plots near AIIMS Bibinagar
                                     </h1>
@@ -89,10 +85,6 @@
                         <div class="container position-relative z-3">
                             <div class="row align-items-center">
                                 <div class="col-lg-9 col-xl-8">
-                                    <div class="hero-brand-pill mb-3">
-                                        <span class="text-white font-copperplate fs-11">HMDA APPROVED LAYOUT WITH SPOT REGISTRATION</span>
-                                    </div>
-                                    
                                     <h1 class="hero-title mb-2">
                                         Built for Better Living
                                     </h1>
@@ -128,10 +120,6 @@
                         <div class="container position-relative z-3">
                             <div class="row align-items-center">
                                 <div class="col-lg-9 col-xl-8">
-                                    <div class="hero-brand-pill mb-3">
-                                        <span class="text-white font-copperplate fs-11">THREE LANDSCAPED PARKS AND GREEN SPACES</span>
-                                    </div>
-                                    
                                     <h1 class="hero-title mb-2">
                                         Parks, Walking Tracks and Green Open Spaces
                                     </h1>

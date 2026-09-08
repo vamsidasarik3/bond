@@ -8,7 +8,7 @@
     <!-- Brand Header -->
     <div class="text-center mb-8">
         <div class="inline-flex p-3 rounded-2xl bg-corporate-950/80 border border-slate-800/80 shadow-inner mb-4">
-            <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha" class="h-10 w-auto" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
+            <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha" class="h-14 w-auto" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
         </div>
         <h2 class="text-2xl font-extrabold text-white tracking-tight">Admin Portal</h2>
         <p class="text-xs text-slate-400 mt-1 font-medium">Navagruha Infra Developers, AIIMS Bibinagar</p>

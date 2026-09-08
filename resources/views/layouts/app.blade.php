@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $__env->yieldContent('title', 'Plots for Sale in Hyderabad — Navagruha Infra Developers') }}</title>
-    <meta name="description" content="{{ $__env->yieldContent('meta_description', 'Discover premium plots for sale in Hyderabad by Navagruha Infra Developers. Explore HMDA approved open plots, residential plots, and gated community plots in high-growth corridors.') }}">
+    <title>{{ $__env->yieldContent('title', 'Plots for Sale in Hyderabad | Navagruha Infra') }}</title>
+    <meta name="description" content="{{ $__env->yieldContent('meta_description', 'Explore HMDA-approved plots for sale in Hyderabad with Navagruha. Discover gated community, residential and villa plots in high-growth locations with transparent documentation.') }}">
     @hasSection('meta_keywords')
     <meta name="keywords" content="@yield('meta_keywords')">
     @endif
@@ -13,16 +13,30 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:site_name" content="Navagruha Infra Developers">
     <meta property="og:type" content="@yield('og_type', 'website')">
-    <meta property="og:title" content="{{ $__env->yieldContent('og_title') ?: $__env->yieldContent('title', 'Plots for Sale in Hyderabad — Navagruha Infra Developers') }}">
-    <meta property="og:description" content="{{ $__env->yieldContent('og_description') ?: $__env->yieldContent('meta_description', 'Discover premium plots for sale in Hyderabad by Navagruha Infra Developers. Explore HMDA approved open plots, residential plots, and gated community plots in high-growth corridors.') }}">
+    <meta property="og:title" content="{{ $__env->yieldContent('og_title') ?: $__env->yieldContent('title', 'Plots for Sale in Hyderabad | Navagruha Infra') }}">
+    <meta property="og:description" content="{{ $__env->yieldContent('og_description') ?: $__env->yieldContent('meta_description', 'Explore HMDA-approved plots for sale in Hyderabad with Navagruha. Discover gated community, residential and villa plots in high-growth locations with transparent documentation.') }}">
     <meta property="og:url" content="@yield('og_url', url()->current())">
     <meta property="og:image" content="@yield('og_image', asset('images/projects/rrr-prekshitha/entrance-arch-grand.webp'))">
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ $__env->yieldContent('og_title') ?: $__env->yieldContent('title', 'Plots for Sale in Hyderabad — Navagruha Infra Developers') }}">
-    <meta name="twitter:description" content="{{ $__env->yieldContent('og_description') ?: $__env->yieldContent('meta_description', 'Discover premium plots for sale in Hyderabad by Navagruha Infra Developers. Explore HMDA approved open plots, residential plots, and gated community plots in high-growth corridors.') }}">
+    <meta name="twitter:title" content="{{ $__env->yieldContent('og_title') ?: $__env->yieldContent('title', 'Plots for Sale in Hyderabad | Navagruha Infra') }}">
+    <meta name="twitter:description" content="{{ $__env->yieldContent('og_description') ?: $__env->yieldContent('meta_description', 'Explore HMDA-approved plots for sale in Hyderabad with Navagruha. Discover gated community, residential and villa plots in high-growth locations with transparent documentation.') }}">
     <meta name="twitter:image" content="@yield('og_image', asset('images/projects/rrr-prekshitha/entrance-arch-grand.webp'))">
+
+    @php
+        $ga4Id = config('services.google.analytics_id') ?: env('GA4_MEASUREMENT_ID');
+    @endphp
+    @if(!empty($ga4Id))
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ $ga4Id }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ $ga4Id }}');
+    </script>
+    @endif
 
     @yield('structured_data')
 

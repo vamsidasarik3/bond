@@ -8,7 +8,7 @@
             <div class="col-lg-4 col-md-6 col-12">
                 <div class="pe-lg-3">
                     <a href="{{ route('home') }}" class="d-inline-block mb-3">
-                        <img src="{{ asset('images/navagruha-logo-white-optimized.svg') }}" alt="Navagruha Infra Developers" class="brand-footer-logo" style="height: 72px; width: auto; max-width: 270px; object-fit: contain;" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo-white.png') }}';">
+                        <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha Infra Developers" class="brand-footer-logo" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
                     </a>
                     <div class="brand-tagline mb-3">REDEFINING REALITY</div>
                     <p class="text-white-50 fs-13 mb-4 leading-relaxed">
@@ -39,44 +39,18 @@
                 </ul>
             </div>
 
-            <!-- Col 3: Legal Approvals & Official Documents -->
+            <!-- Col 3: Legal Approvals & Certifications -->
             <div class="col-lg-3 col-md-6 col-12">
-                <div class="footer-widget-title">Legal Approvals &amp; Docs</div>
+                <div class="footer-widget-title">Legal Approvals</div>
                 <div class="d-flex flex-wrap gap-1 mb-3">
                     <span class="footer-approval-badge"><i class="fa-solid fa-certificate text-brand-secondary"></i> HMDA Approved</span>
                     <span class="footer-approval-badge"><i class="fa-solid fa-shield-halved text-brand-secondary"></i> RERA Certified</span>
                     <span class="footer-approval-badge"><i class="fa-solid fa-compass text-brand-secondary"></i> 100% Vaastu</span>
                     <span class="footer-approval-badge"><i class="fa-solid fa-file-shield text-brand-secondary"></i> Spot Registration</span>
                 </div>
-
-                {{-- Direct Official PDF Download Links --}}
-                <div class="d-flex flex-column gap-2">
-                    <a href="{{ asset('venture/docs/HMDA FINAL APPROVAL PHASE2.pdf') }}" target="_blank" rel="noopener"
-                       class="d-flex align-items-center justify-content-between p-2 rounded-2 bg-dark bg-opacity-50 border border-white-10 text-decoration-none text-white-50"
-                       style="transition: all 0.2s ease;">
-                        <div class="d-flex align-items-center gap-2">
-                            <i class="fa-solid fa-file-pdf text-danger fs-14"></i>
-                            <div>
-                                <div class="fs-11 text-white font-copperplate fw-bold lh-1">HMDA Final Approval</div>
-                                <div class="fs-10 text-white-50">Phase 2 Sanction PDF, LP No. 000085</div>
-                            </div>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square fs-10 text-brand-secondary"></i>
-                    </a>
-
-                    <a href="{{ asset('venture/docs/RERA APPROVAL PHASE1.pdf') }}" target="_blank" rel="noopener"
-                       class="d-flex align-items-center justify-content-between p-2 rounded-2 bg-dark bg-opacity-50 border border-white-10 text-decoration-none text-white-50"
-                       style="transition: all 0.2s ease;">
-                        <div class="d-flex align-items-center gap-2">
-                            <i class="fa-solid fa-file-pdf text-danger fs-14"></i>
-                            <div>
-                                <div class="fs-11 text-white font-copperplate fw-bold lh-1">TSRERA Registration</div>
-                                <div class="fs-10 text-white-50">Phase 1 Approved, Reg. P02000007812</div>
-                            </div>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square fs-10 text-brand-secondary"></i>
-                    </a>
-                </div>
+                <p class="text-white-50 fs-13 mb-0 leading-relaxed">
+                    HMDA Final Sanction layout with Telangana RERA registration. Clear marketable title with bank loan facilities and spot registration assistance.
+                </p>
             </div>
 
             <!-- Col 4: Corporate Office & Address -->

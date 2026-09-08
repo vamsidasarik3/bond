@@ -180,15 +180,16 @@ header.site-header.scrolled {
   flex-shrink: 0;
 }
 .brand-header-logo {
-  height: 72px;
+  height: 96px;
   width: auto;
-  max-width: 270px;
+  max-width: 350px;
   object-fit: contain;
   transition: all 0.25s ease;
+  image-rendering: -webkit-optimize-contrast;
 }
 header.site-header.scrolled .brand-header-logo {
-  height: 60px;
-  max-width: 230px;
+  height: 80px;
+  max-width: 300px;
 }
 
 .studio-nav {
