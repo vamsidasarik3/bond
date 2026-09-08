@@ -40,11 +40,17 @@
             <!-- Col 3: Legal Approvals & Certifications -->
             <div class="col-lg-3 col-md-6 col-12">
                 <div class="footer-widget-title">Legal Approvals</div>
+                <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+                    <div style="height: 38px; display: inline-flex; align-items: center; background: #ffffff; border: 1px solid rgba(255,255,255,0.8); border-radius: 6px; padding: 4px 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
+                        <img src="{{ asset('images/HMDA_logo.jpg') }}" alt="HMDA Final Approval" style="height: 28px; width: auto; object-fit: contain;">
+                    </div>
+                    <div style="height: 38px; display: inline-flex; align-items: center; background: #ffffff; border: 1px solid rgba(255,255,255,0.8); border-radius: 6px; padding: 4px 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
+                        <img src="{{ asset('images/rera_logo.png') }}" alt="TG RERA Registered" style="height: 28px; width: auto; object-fit: contain;">
+                    </div>
+                </div>
                 <div class="d-flex flex-wrap gap-1 mb-0">
                     <span class="footer-approval-badge"><i class="fa-solid fa-certificate text-brand-secondary"></i> HMDA Approved</span>
                     <span class="footer-approval-badge"><i class="fa-solid fa-shield-halved text-brand-secondary"></i> RERA Certified</span>
-                    <span class="footer-approval-badge"><i class="fa-solid fa-compass text-brand-secondary"></i> 100% Vaastu</span>
-                    <span class="footer-approval-badge"><i class="fa-solid fa-file-shield text-brand-secondary"></i> Spot Registration</span>
                 </div>
             </div>
 

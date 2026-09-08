@@ -1182,7 +1182,6 @@ $stClass = [
         <div class="d-flex gap-2 justify-content-center flex-wrap mt-4 pt-3 border-top border-white-10">
             <span class="font-copperplate fs-10 text-white-50 d-inline-flex align-items-center gap-1"><i class="fa-solid fa-file-shield text-brand-secondary"></i> HMDA Approved</span>
             <span class="font-copperplate fs-10 text-white-50 d-inline-flex align-items-center gap-1"><i class="fa-solid fa-file-shield text-brand-secondary"></i> RERA Certified</span>
-            <span class="font-copperplate fs-10 text-white-50 d-inline-flex align-items-center gap-1"><i class="fa-solid fa-rotate-right text-brand-secondary"></i> Spot Registration</span>
         </div>
     </div>
 </aside>
