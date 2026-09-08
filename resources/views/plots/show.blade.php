@@ -23,6 +23,8 @@
 
 @section('title', ($plot['number'] ?? 'Plot Details') . ', ' . ($plot['area'] ?? '167 Sq. Yards') . ', RRR Prekshitha Enclave')
 @section('meta_description', 'View layout, dimensions, specifications, and approvals for ' . ($plot['number'] ?? 'Plot') . ' at RRR Prekshitha Enclave near AIIMS Bibinagar.')
+@section('meta_keywords', 'Villa Plots in Bibinagar, Plots for Sale in AIIMS Bibinagar, HMDA Final Approved Plots in AIIMS Bibinagar, RERA Approved Plots in AIIMS Bibinagar, Gated Community Plots in AIIMS Bibinagar, Premium Villa Plots in AIIMS Bibinagar')
+@section('canonical_url', route('plots.show', $plot['id'] ?? 101))
 
 
 

@@ -19,18 +19,18 @@ class AboutController extends Controller
                 'title' => 'Founder and Managing Director',
                 'photo' => 'images/srinivasa-rao-narravula.jpg',
                 'paragraphs' => [
-                    'Mr. Srinivasa Rao Narravula, Founder and Managing Director of Navagruha Infra Developers, is an entrepreneur driven by the values of integrity, perseverance, and customer trust. Coming from an agrarian family background, he built a successful business career before expanding into real estate development.',
-                    'Today, he leads Navagruha with a clear vision of delivering well-planned residential communities backed by transparent documentation, quality infrastructure, and a customer-first approach, creating lasting value for homebuyers and investors.',
+                    'Mr. Srinivasa Rao Narravula, Founder and Managing Director of Navagruha Infra Developers, is a real estate professional driven by the values of integrity, perseverance, and customer trust. Coming from an agrarian family background, he built a successful business with a clear vision of delivering well planned residential communities backed by transparent documentation, quality infrastructure, and a customer first approach.',
                 ],
+                'quote' => 'Our journey is rooted in trust, and our goal is to create lasting value for homebuyers and investors.',
             ],
             [
                 'name'  => 'Manoj Kumar Narravula',
-                'title' => 'Director – Business Development',
+                'title' => 'Director, Business Development',
                 'photo' => 'images/manoj-kumar-narravula.jpg',
                 'paragraphs' => [
-                    "Manoj Kumar Narravula serves as Director – Business Development at Navagruha Infra Developers, leading the company's growth strategy, project acquisitions, and business expansion initiatives. He oversees the identification and evaluation of high-potential development opportunities, regulatory due diligence, and strategic planning across the organization's project portfolio.",
-                    "He also plays a key role in establishing partnerships with financial institutions and industry stakeholders to enhance customer accessibility and support seamless financing solutions. Through his strategic approach and market insight, he contributes significantly to the company's expansion, operational growth, and long-term development objectives.",
+                    "Manoj Kumar Narravula serves as Director, Business Development at Navagruha Infra Developers, leading the company's growth strategy, project execution, and business expansion initiatives. He oversees the identification and evaluation of high potential development opportunities, regulatory due diligence, and strategic planning across the organisation's project portfolio.",
                 ],
+                'quote' => 'We focus on creating well planned communities that enhance lifestyles and deliver long term growth.',
             ],
         ];
 
@@ -43,12 +43,12 @@ class AboutController extends Controller
             [
                 'number' => '02.',
                 'title'  => 'Quality',
-                'desc'   => 'Quality is embedded in every stage of development. Our projects are designed in accordance with HMDA planning standards and feature well-engineered infrastructure, including wide internal roads, underground drainage systems, water management facilities, and thoughtfully planned open spaces.',
+                'desc'   => 'Quality is embedded in every stage of development. Our projects are designed in accordance with HMDA planning standards and feature well engineered infrastructure, including wide internal roads, underground drainage systems, water management facilities, and thoughtfully planned open spaces.',
             ],
             [
                 'number' => '03.',
                 'title'  => 'Customer Commitment',
-                'desc'   => 'We are committed to delivering a seamless customer experience from enquiry to registration. Through dedicated support, financing assistance, and end-to-end guidance, we ensure every customer receives the confidence and clarity needed throughout their investment journey.',
+                'desc'   => 'We are committed to delivering a seamless customer experience from enquiry to registration. Through dedicated support, financing assistance, and end to end guidance, we ensure every customer receives the confidence and clarity needed throughout their investment journey.',
             ],
         ];
 

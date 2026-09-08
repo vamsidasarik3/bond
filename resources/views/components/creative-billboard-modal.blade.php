@@ -11,9 +11,9 @@
                     </span>
                     <span class="text-white-50 fs-11 font-copperplate">NH-163 CORRIDOR</span>
                 </div>
-                <h4 id="creativeBillboardModalTitle" class="text-white font-copperplate fs-18 mb-0">
+                <div id="creativeBillboardModalTitle" class="text-white font-copperplate fs-18 mb-0">
                     AIIMS Bibinagar - 5 Minutes Away
-                </h4>
+                </div>
                 <div id="creativeBillboardModalSubtitle" class="text-white-50 fs-12 mt-0.5">
                     Official corridor marketing hoarding for RRR Prekshitha Enclave
                 </div>

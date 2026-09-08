@@ -12,7 +12,52 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = [
+        $projects = $this->getProjects();
+        $ventureDocs = $this->getVentureDocs();
+
+        return view('projects', compact('projects', 'ventureDocs'));
+    }
+
+    /**
+     * Display a specific project with dedicated meta keywords and SEO.
+     */
+    public function show(string $slug)
+    {
+        $allProjects = $this->getProjects();
+        $project = collect($allProjects)->firstWhere('id', $slug);
+
+        if (!$project) {
+            abort(404);
+        }
+
+        $seoConfig = [
+            'golden-farms' => [
+                'title' => 'Plots for Sale Near Patancheru — Navagruha Golden Farms',
+                'meta_description' => 'Explore plots for sale near Patancheru at Navagruha Golden Farms. Featuring open plots near Patancheru, villa plots near Patancheru, residential plots near Patancheru, and investment plots near Patancheru with clear marketable titles.',
+                'meta_keywords' => 'Plots for Sale Near Patancheru, Open Plots Near Patancheru, Villa Plots Near Patancheru, Residential Plots Near Patancheru, Investment Plots Near Patancheru',
+                'canonical' => route('projects.show', 'golden-farms'),
+            ],
+            'rrr-prekshitha-enclave' => [
+                'title' => 'Villa Plots in Bibinagar — Navagruha Prekshitha Enclave',
+                'meta_description' => 'Explore villa plots in Bibinagar at RRR Prekshitha Enclave near AIIMS Bibinagar. Offering plots for sale in AIIMS Bibinagar, HMDA final approved plots in AIIMS Bibinagar, and RERA approved plots in AIIMS Bibinagar.',
+                'meta_keywords' => 'Villa Plots in Bibinagar, Plots for Sale in AIIMS Bibinagar, HMDA Final Approved Plots in AIIMS Bibinagar, RERA Approved Plots in AIIMS Bibinagar, Gated Community Plots in AIIMS Bibinagar, Premium Villa Plots in AIIMS Bibinagar',
+                'canonical' => route('projects.show', 'rrr-prekshitha-enclave'),
+            ],
+        ];
+
+        $seo = $seoConfig[$slug] ?? null;
+        $projects = $allProjects;
+        $ventureDocs = $this->getVentureDocs();
+
+        return view('projects', compact('projects', 'ventureDocs', 'seo', 'slug'));
+    }
+
+    /**
+     * Helper to retrieve all active project data.
+     */
+    private function getProjects(): array
+    {
+        return [
             [
                 'id' => 'rrr-prekshitha-enclave',
                 'name' => 'Navagruha Prekshitha Enclave',
@@ -113,8 +158,14 @@ class ProjectController extends Controller
                 'is_featured' => false,
             ],
         ];
+    }
 
-        $ventureDocs = [
+    /**
+     * Helper to retrieve venture documentation URLs.
+     */
+    private function getVentureDocs(): array
+    {
+        return [
             'hmda_approval' => asset('venture/docs/HMDA FINAL APPROVAL PHASE2.pdf'),
             'rera_approval' => asset('venture/docs/RERA APPROVAL PHASE1.pdf'),
             'master_layout' => asset('venture/docs/RRR PREKSHITHA ENCLAVE LAYOUT.pdf'),
@@ -122,7 +173,5 @@ class ProjectController extends Controller
             'pamphlet' => asset('venture/docs/RRR PREKSHITHA ENCLAVE PAMPHLET.pdf'),
             'master_video' => asset('data/Site Developments/Site Developments/NAVAGRUHA PREKSHITHA ENCLAVE.mp4'),
         ];
-
-        return view('projects', compact('projects', 'ventureDocs'));
     }
 }

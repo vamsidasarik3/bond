@@ -1,9 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Residential Plots in Hyderabad — Navagruha Infra Developers')
-@section('meta_description', 'Explore verified residential plots in Hyderabad by Navagruha Infra Developers. Featuring open plots in Hyderabad, villa plots in Hyderabad, and investment plots in Hyderabad within gated community plots.')
-@section('meta_keywords', 'Residential Plots in Hyderabad, Open Plots in Hyderabad, Villa Plots in Hyderabad, Investment Plots in Hyderabad, Gated Community Plots')
-@section('canonical_url', route('projects'))
+@php
+    $pageTitle = $seo['title'] ?? 'Residential Plots in Hyderabad — Navagruha Infra Developers';
+    $pageDesc = $seo['meta_description'] ?? 'Explore verified residential plots in Hyderabad by Navagruha Infra Developers. Featuring open plots in Hyderabad, villa plots in Hyderabad, and investment plots in Hyderabad within gated community plots.';
+    $pageKeywords = $seo['meta_keywords'] ?? 'Residential Plots in Hyderabad, Open Plots in Hyderabad, Villa Plots in Hyderabad, Investment Plots in Hyderabad, Gated Community Plots';
+    $canonicalUrl = $seo['canonical'] ?? route('projects');
+@endphp
+
+@section('title', $pageTitle)
+@section('meta_description', $pageDesc)
+@section('meta_keywords', $pageKeywords)
+@section('canonical_url', $canonicalUrl)
 
 @section('structured_data')
 <script type="application/ld+json">
@@ -544,10 +551,15 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
+            const currentSlug = '{{ $slug ?? '' }}';
             const hash = window.location.hash;
-            if (hash && hash.includes('golden-farms')) {
+            if (currentSlug === 'golden-farms' || (hash && hash.includes('golden-farms'))) {
                 const delBtn = document.querySelectorAll('#projectFilterButtons button')[1];
                 if (delBtn) filterProjects('completed', delBtn);
+                const el = document.getElementById('project-golden-farms');
+                if (el && currentSlug === 'golden-farms') {
+                    setTimeout(() => { el.scrollIntoView({ behavior: 'smooth' }); }, 150);
+                }
             } else {
                 const onBtn = document.querySelectorAll('#projectFilterButtons button')[0];
                 if (onBtn) filterProjects('ongoing', onBtn);

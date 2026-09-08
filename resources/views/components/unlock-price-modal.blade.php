@@ -13,9 +13,9 @@
                         <span class="status-available fs-10 mb-1">
                             DIRECT DEVELOPER PRICE
                         </span>
-                        <h3 class="modal-title fs-18 font-copperplate text-white mb-0" id="unlockPriceModalLabel">
+                        <div class="modal-title fs-18 font-copperplate text-white mb-0" id="unlockPriceModalLabel">
                             Unlock Plot Price
-                        </h3>
+                        </div>
                         <p class="text-white-50 fs-12 mb-0" id="unlockModalPlotMeta">
                             Selected: <span class="text-brand-secondary fw-bold" id="unlockModalPlotName">Plot Inventory</span>
                         </p>
@@ -71,7 +71,7 @@
                     <div class="rounded-circle bg-brand-primary text-brand-secondary p-3 d-inline-flex align-items-center justify-content-center mb-3" style="width: 64px; height: 64px; border: 2px solid #71b644;">
                         <i class="fa-solid fa-check fs-28"></i>
                     </div>
-                    <h4 class="text-white font-copperplate fs-20 mb-1">Price Successfully Unlocked!</h4>
+                    <div class="text-white font-copperplate fs-20 mb-1">Price Successfully Unlocked!</div>
                     <p class="text-white-50 fs-13 mb-3" id="unlockSuccessPlotName">Plot Details</p>
 
                     <div class="p-4 rounded-4 bg-dark bg-opacity-75 border border-white-10 mb-4">

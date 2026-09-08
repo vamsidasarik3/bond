@@ -105,6 +105,14 @@
                     </a>
                 </li>
 
+                <!-- Investor Corner -->
+                <li class="mobile-nav-item">
+                    <a href="{{ route('investor.corner') }}" class="mobile-nav-link {{ request()->routeIs('investor.corner') ? 'active' : '' }}">
+                        <span class="mobile-nav-link-text"><i class="fa-solid fa-chart-line me-2 text-brand-secondary fs-13"></i> Investor Corner</span>
+                        <i class="fa-solid fa-chevron-right mobile-nav-arrow"></i>
+                    </a>
+                </li>
+
                 <!-- Amenities -->
                 <li class="mobile-nav-item">
                     <a href="{{ route('amenities') }}" class="mobile-nav-link {{ request()->routeIs('amenities') ? 'active' : '' }}">
@@ -147,7 +155,7 @@
         <!-- Quick Lead Enquiry Area -->
         <div class="mobile-nav-quick-enquiry">
             <div class="mobile-quick-enquiry-header">
-                <h4 class="mobile-quick-enquiry-title">Interested in this project?</h4>
+                <div class="mobile-quick-enquiry-title">Interested in this project?</div>
                 <p class="mobile-quick-enquiry-subtitle">Get plot availability, pricing, and project details.</p>
             </div>
             

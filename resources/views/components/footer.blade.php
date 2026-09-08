@@ -10,10 +10,7 @@
                     <a href="{{ route('home') }}" class="d-inline-block mb-3">
                         <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha Infra Developers" class="brand-footer-logo" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
                     </a>
-                    <div class="brand-tagline mb-3">REDEFINING REALITY</div>
-                    <p class="text-white-50 fs-13 mb-4 leading-relaxed">
-                        Navagruha Infra Developers develops residential plotted communities with durable concrete infrastructure, clear legal titles, and planned amenities.
-                    </p>
+                    <div class="brand-tagline mb-4">REDEFINING REALITY</div>
 
                     <!-- Social Icons -->
                     <div class="d-flex align-items-center gap-2">
@@ -33,6 +30,7 @@
                     <li><a href="{{ route('about') }}"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
                     <li><a href="{{ route('projects') }}"><i class="fa-solid fa-chevron-right"></i> Projects</a></li>
                     <li><a href="{{ route('plots.index') }}"><i class="fa-solid fa-chevron-right"></i> Plots Catalog</a></li>
+                    <li><a href="{{ route('investor.corner') }}"><i class="fa-solid fa-chevron-right"></i> Investor Corner</a></li>
                     <li><a href="{{ route('amenities') }}"><i class="fa-solid fa-chevron-right"></i> Amenities</a></li>
                     <li><a href="{{ route('location') }}"><i class="fa-solid fa-chevron-right"></i> Location</a></li>
                     <li><a href="{{ route('contact') }}"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li>
@@ -42,15 +40,12 @@
             <!-- Col 3: Legal Approvals & Certifications -->
             <div class="col-lg-3 col-md-6 col-12">
                 <div class="footer-widget-title">Legal Approvals</div>
-                <div class="d-flex flex-wrap gap-1 mb-3">
+                <div class="d-flex flex-wrap gap-1 mb-0">
                     <span class="footer-approval-badge"><i class="fa-solid fa-certificate text-brand-secondary"></i> HMDA Approved</span>
                     <span class="footer-approval-badge"><i class="fa-solid fa-shield-halved text-brand-secondary"></i> RERA Certified</span>
                     <span class="footer-approval-badge"><i class="fa-solid fa-compass text-brand-secondary"></i> 100% Vaastu</span>
                     <span class="footer-approval-badge"><i class="fa-solid fa-file-shield text-brand-secondary"></i> Spot Registration</span>
                 </div>
-                <p class="text-white-50 fs-13 mb-0 leading-relaxed">
-                    HMDA Final Sanction layout with Telangana RERA registration. Clear marketable title with bank loan facilities and spot registration assistance.
-                </p>
             </div>
 
             <!-- Col 4: Corporate Office & Address -->

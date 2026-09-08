@@ -27,6 +27,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [AboutController::class, 'index'])->name('about');
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
+Route::get('/projects/golden-farms', function () {
+    return app(ProjectController::class)->show('golden-farms');
+})->name('projects.golden-farms');
+Route::get('/projects/rrr-prekshitha-enclave', function () {
+    return app(ProjectController::class)->show('rrr-prekshitha-enclave');
+})->name('projects.rrr-prekshitha-enclave');
+Route::get('/projects/{slug}', [ProjectController::class, 'show'])->name('projects.show');
+Route::get('/golden-farms', function () {
+    return redirect()->route('projects.golden-farms', [], 301);
+})->name('golden-farms');
+Route::get('/rrr-prekshitha-enclave', function () {
+    return redirect()->route('projects.rrr-prekshitha-enclave', [], 301);
+})->name('rrr-prekshitha-enclave');
 Route::get('/investor-corner', [InvestorGuideController::class, 'index'])->name('investor.corner');
 Route::get('/investors-guide', function () {
     return redirect()->route('investor.corner', [], 301);
