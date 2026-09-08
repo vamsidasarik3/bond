@@ -22,7 +22,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Font Awesome 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css?v=2.2">
 
   <script type="application/ld+json">
   {
@@ -286,24 +289,26 @@
 
         <!-- Contemporary Leadership Cards -->
         <div class="founders-contemporary-block reveal">
-          <div class="about-head-wrap">
-            <span class="m-kicker">--- Driven by Vision, Built on Trust ---</span>
-            <h3 class="m-heading" style="font-size: 2.2rem;">Leader Ship</h3>
+          <div class="founders-leadership-header about-head-wrap">
+            <span class="founders-leadership-eyebrow">Our Leadership</span>
+            <h3 class="founders-leadership-heading">Leadership That Drives Vision</h3>
+            <p class="founders-leadership-subtext">Driven by values of integrity, transparency, and a customer-first commitment.</p>
           </div>
 
           <div class="founders-contemporary-grid">
             <!-- Srinivasa Rao Narravula -->
             <article class="founder-contemporary-card">
               <div class="founder-contemporary-avatar">
-                <img src="images/srinivasa-rao-narravula.jpg" alt="Mr. Srinivasa Rao Narravula, Founder and Managing Director" class="founder-contemporary-photo" loading="lazy" width="400" height="500">
+                <img src="images/srinivasa-rao-narravula.jpg" alt="Mr. Srinivasa Rao Narravula, Founder and Managing Director" class="founder-contemporary-photo" loading="lazy" width="200" height="300">
               </div>
               <div class="founder-contemporary-info">
                 <span class="founder-role-tag">Founder and Managing Director</span>
                 <h4 class="founder-contemporary-name">Mr. Srinivasa Rao Narravula</h4>
+                <div class="founder-name-divider"></div>
                 <p class="founder-contemporary-bio">
                   Mr. Srinivasa Rao Narravula, Founder and Managing Director of Navagruha Infra Developers, is an entrepreneur driven by the values of integrity, perseverance, and customer trust. Coming from an agrarian family background, he built a successful business career before expanding into real estate development.
                 </p>
-                <p class="founder-contemporary-bio" style="margin-top: 8px;">
+                <p class="founder-contemporary-bio">
                   Today, he leads Navagruha with a clear vision of delivering well-planned residential communities backed by transparent documentation, quality infrastructure, and a customer-first approach, creating lasting value for homebuyers and investors.
                 </p>
               </div>
@@ -312,15 +317,16 @@
             <!-- Manoj Kumar Narravula -->
             <article class="founder-contemporary-card">
               <div class="founder-contemporary-avatar">
-                <img src="images/manoj-kumar-narravula.jpg" alt="Manoj Kumar Narravula, Director – Business Development" class="founder-contemporary-photo" loading="lazy" width="400" height="500">
+                <img src="images/manoj-kumar-narravula.jpg" alt="Manoj Kumar Narravula, Director – Business Development" class="founder-contemporary-photo" loading="lazy" width="200" height="300">
               </div>
               <div class="founder-contemporary-info">
                 <span class="founder-role-tag">Director – Business Development</span>
                 <h4 class="founder-contemporary-name">Manoj Kumar Narravula</h4>
+                <div class="founder-name-divider"></div>
                 <p class="founder-contemporary-bio">
                   Manoj Kumar Narravula serves as Director – Business Development at Navagruha Infra Developers, leading the company's growth strategy, project acquisitions, and business expansion initiatives. He oversees the identification and evaluation of high-potential development opportunities, regulatory due diligence, and strategic planning across the organization's project portfolio.
                 </p>
-                <p class="founder-contemporary-bio" style="margin-top: 8px;">
+                <p class="founder-contemporary-bio">
                   He also plays a key role in establishing partnerships with financial institutions and industry stakeholders to enhance customer accessibility and support seamless financing solutions. Through his strategic approach and market insight, he contributes significantly to the company's expansion, operational growth, and long-term development objectives.
                 </p>
               </div>
@@ -624,51 +630,123 @@
 
   </main>
 
-  <!-- ==================== FOOTER — MIDNIGHT NAVY ==================== -->
-  <footer class="m-footer">
-    <div class="m-footer-container">
-      <div class="m-footer-grid">
-        <div class="m-footer-brand">
-          <img src="images/navagruha-logo-white.png" onerror="this.onerror=null; this.src='images/logo-white.png';" alt="Navagruha Infra Developers" class="m-footer-logo" width="200" height="60">
-          <p class="m-footer-desc">
-            HMDA approved 17-acre plotted development in Bibinagar near AIIMS. Clear titles, wide concrete roads, and complete physical infrastructure.
-          </p>
-        </div>
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container pt-5 pb-4">
+      
+      <!-- Main 4-Column Footer Grid -->
+      <div class="row g-4 justify-content-between mb-5">
+        
+        <!-- Col 1: Brand & Identity -->
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="pe-lg-3">
+            <a href="/" class="d-inline-block mb-3">
+              <img src="images/navagruha-logo-white.png" alt="Navagruha Infra Developers" class="brand-footer-logo" onerror="this.onerror=null; this.src='images/navagruha-logo.png';">
+            </a>
+            <div class="brand-tagline mb-4">REDEFINING REALITY</div>
 
-        <div>
-          <h4 class="m-footer-title">Navigation</h4>
-          <div class="m-footer-links">
-            <a href="#about">Project</a>
-            <a href="#about-us">About Us</a>
-            <a href="#layout">Master Plan</a>
-            <a href="#location">Location</a>
-            <a href="#amenities">Amenities</a>
+            <!-- Social Icons -->
+            <div class="d-flex align-items-center gap-2">
+              <a href="#" class="footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="footer-social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="https://wa.me/919617699699" target="_blank" class="footer-social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
           </div>
         </div>
 
-        <div>
-          <h4 class="m-footer-title">Approvals</h4>
-          <div class="m-footer-links">
-            <a href="#highlights">HMDA Final Approved</a>
-            <a href="#highlights">TS RERA Registered</a>
-            <a href="#highlights">Bank Loan Tie-ups</a>
+        <!-- Col 2: Quick Links Navigation -->
+        <div class="col-lg-2 col-md-6 col-6">
+          <div class="footer-widget-title">Quick Links</div>
+          <ul class="footer-link-list">
+            <li><a href="/"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+            <li><a href="/about-us"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+            <li><a href="/projects"><i class="fa-solid fa-chevron-right"></i> Projects</a></li>
+            <li><a href="/plots"><i class="fa-solid fa-chevron-right"></i> Plots Catalog</a></li>
+            <li><a href="/investor-corner"><i class="fa-solid fa-chevron-right"></i> Investor Corner</a></li>
+            <li><a href="/amenities"><i class="fa-solid fa-chevron-right"></i> Amenities</a></li>
+            <li><a href="/location"><i class="fa-solid fa-chevron-right"></i> Location</a></li>
+            <li><a href="/contact"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Legal Approvals & Certifications -->
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="footer-widget-title">Legal Approvals</div>
+          <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+            <div style="height: 38px; display: inline-flex; align-items: center; background: #ffffff; border: 1px solid rgba(255,255,255,0.8); border-radius: 6px; padding: 4px 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
+              <img src="images/HMDA_logo.jpg" alt="HMDA Final Approval" style="height: 28px; width: auto; object-fit: contain;">
+            </div>
+            <div style="height: 38px; display: inline-flex; align-items: center; background: #ffffff; border: 1px solid rgba(255,255,255,0.8); border-radius: 6px; padding: 4px 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
+              <img src="images/rera_logo.png" alt="TG RERA Registered" style="height: 28px; width: auto; object-fit: contain;">
+            </div>
+          </div>
+          <div class="d-flex flex-wrap gap-1 mb-0">
+            <span class="footer-approval-badge"><i class="fa-solid fa-certificate text-brand-secondary"></i> HMDA Approved</span>
+            <span class="footer-approval-badge"><i class="fa-solid fa-shield-halved text-brand-secondary"></i> RERA Certified</span>
           </div>
         </div>
 
-        <div>
-          <h4 class="m-footer-title">Contact</h4>
-          <div class="m-footer-contact">
-            <p><strong>Site:</strong> Near AIIMS Medical Campus, Bibinagar, NH 163, Hyderabad</p>
-            <p><strong>Phone:</strong> +91 9617 699 699</p>
-            <p><strong>Developer:</strong> Navagruha Infra Developers Pvt Ltd</p>
-            <p><strong>Approvals:</strong> HMDA LP No: 062715/LT/GHT/FLT/U6/HMDA/27052024 &bull; TSRERA Form C Approved</p>
+        <!-- Col 4: Corporate Office & Address -->
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="footer-widget-title">Corporate Office</div>
+          
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <i class="fa-solid fa-building"></i>
+            </div>
+            <div>
+              <strong class="text-white d-block font-copperplate fs-12">Office Address</strong>
+              Plot No. 109, Shashank Towers, 1st Floor, Uppal Bhagayath, Near Nagole Metro Station, Hyderabad, Telangana 500039.
+            </div>
+          </div>
+
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div>
+              <strong class="text-white d-block font-copperplate fs-12">Direct Inquiries</strong>
+              <a href="tel:+919617699699" class="text-white fw-bold text-decoration-none">+91 9617 699 699</a>
+            </div>
+          </div>
+
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <strong class="text-white d-block font-copperplate fs-12">Email Support</strong>
+              <a href="mailto:info@navagruha.com" class="text-white-50 text-decoration-none">info@navagruha.com</a>
+            </div>
+          </div>
+
+          <div class="footer-contact-item mb-0">
+            <div class="footer-contact-icon">
+              <i class="fa-regular fa-clock"></i>
+            </div>
+            <div>
+              <strong class="text-white d-block font-copperplate fs-12">Site Visit Timings</strong>
+              Monday to Sunday: 9:00 AM to 6:30 PM
+            </div>
           </div>
         </div>
+
       </div>
 
-      <div class="m-footer-bottom">
-        <span>© 2026 Navagruha Infra Developers Pvt Ltd. All rights reserved.</span>
-        <span>HMDA LP No: 062715/LT/GHT/FLT/U6/HMDA/27052024</span>
+    </div>
+
+    <!-- 3. Bottom Subfooter Bar -->
+    <div class="subfooter-bar">
+      <div class="container">
+        <div class="row align-items-center g-2">
+          <div class="col-md-6 text-center text-md-start font-copperplate">
+            &copy; 2026 NAVAGRUHA INFRA DEVELOPERS. All rights reserved.
+          </div>
+          <div class="col-md-6 text-center text-md-end text-white-50 fs-11">
+            HMDA Final Sanction, Telangana RERA Certified
+          </div>
+        </div>
       </div>
     </div>
   </footer>

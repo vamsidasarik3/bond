@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2.2">
 
   <script type="application/ld+json">
   {
@@ -273,23 +273,25 @@
 
         <!-- Leadership Presentation Block -->
         <div class="leadership-header-block reveal">
-          <div class="subtitle-copperplate">--- Driven by Vision, Built on Trust ---</div>
-          <h3 class="section-title" style="font-size: clamp(1.6rem, 2.8vw, 2.2rem);">Leader Ship</h3>
+          <span class="leadership-eyebrow">Our Leadership</span>
+          <h3 class="leadership-heading">Leadership That Drives Vision</h3>
+          <p class="leadership-subtext">Driven by values of integrity, transparency, and a customer-first commitment.</p>
         </div>
 
         <div class="leadership-cards-grid reveal">
           <!-- Leader 1: Srinivasa Rao Narravula -->
           <article class="leader-card-box">
             <div class="leader-avatar-frame">
-              <img src="images/srinivasa-rao-narravula.jpg" alt="Mr. Srinivasa Rao Narravula, Founder and Managing Director" loading="lazy" width="170" height="220">
+              <img src="images/srinivasa-rao-narravula.jpg" alt="Mr. Srinivasa Rao Narravula, Founder and Managing Director" loading="lazy" width="200" height="300">
             </div>
             <div class="leader-info-content">
               <span class="leader-role-tag">Founder and Managing Director</span>
               <h4 class="leader-full-name">Mr. Srinivasa Rao Narravula</h4>
+              <div class="leader-name-divider"></div>
               <p class="leader-bio-text">
                 Mr. Srinivasa Rao Narravula, Founder and Managing Director of Navagruha Infra Developers, is an entrepreneur driven by the values of integrity, perseverance, and customer trust. Coming from an agrarian family background, he built a successful business career before expanding into real estate development.
               </p>
-              <p class="leader-bio-text" style="margin-top: 8px;">
+              <p class="leader-bio-text">
                 Today, he leads Navagruha with a clear vision of delivering well-planned residential communities backed by transparent documentation, quality infrastructure, and a customer-first approach, creating lasting value for homebuyers and investors.
               </p>
             </div>
@@ -298,15 +300,16 @@
           <!-- Leader 2: Manoj Kumar Narravula -->
           <article class="leader-card-box">
             <div class="leader-avatar-frame">
-              <img src="images/manoj-kumar-narravula.jpg" alt="Manoj Kumar Narravula, Director – Business Development" loading="lazy" width="170" height="220">
+              <img src="images/manoj-kumar-narravula.jpg" alt="Manoj Kumar Narravula, Director – Business Development" loading="lazy" width="200" height="300">
             </div>
             <div class="leader-info-content">
               <span class="leader-role-tag">Director – Business Development</span>
               <h4 class="leader-full-name">Manoj Kumar Narravula</h4>
+              <div class="leader-name-divider"></div>
               <p class="leader-bio-text">
                 Manoj Kumar Narravula serves as Director – Business Development at Navagruha Infra Developers, leading the company's growth strategy, project acquisitions, and business expansion initiatives. He oversees the identification and evaluation of high-potential development opportunities, regulatory due diligence, and strategic planning across the organization's project portfolio.
               </p>
-              <p class="leader-bio-text" style="margin-top: 8px;">
+              <p class="leader-bio-text">
                 He also plays a key role in establishing partnerships with financial institutions and industry stakeholders to enhance customer accessibility and support seamless financing solutions. Through his strategic approach and market insight, he contributes significantly to the company's expansion, operational growth, and long-term development objectives.
               </p>
             </div>
@@ -611,62 +614,122 @@
   </main>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="site-footer" style="background: #0d1a24; border-top: 1px solid var(--dark-border); padding: 70px 0 30px;">
-    <div style="max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad);">
-      <div style="display: grid; grid-template-columns: 2fr 1.2fr 1.5fr 1.5fr; gap: 40px; margin-bottom: 50px;">
+  <footer class="site-footer">
+    <div class="container pt-5 pb-4">
+      
+      <!-- Main 4-Column Footer Grid -->
+      <div class="row g-4 justify-content-between mb-5">
         
-        <div>
-          <img src="images/navagruha-logo-white.png" onerror="this.onerror=null; this.src='images/logo-white.png';" alt="Navagruha Infra Developers" style="height: 64px; width: auto; margin-bottom: 16px; display: block;">
-          <span style="font-family: var(--font-heading); font-size: 0.75rem; color: var(--secondary-color); letter-spacing: 0.05em;">
-            HMDA FINAL LP: 062715/LT/GHT/FLT/U6/HMDA/27052024
-          </span>
+        <!-- Col 1: Brand & Identity -->
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="pe-lg-3">
+            <a href="/" class="d-inline-block mb-3">
+              <img src="images/navagruha-logo-white.png" alt="Navagruha Infra Developers" class="brand-footer-logo" onerror="this.onerror=null; this.src='images/navagruha-logo.png';">
+            </a>
+            <div class="brand-tagline mb-4">REDEFINING REALITY</div>
+
+            <!-- Social Icons -->
+            <div class="d-flex align-items-center gap-2">
+              <a href="#" class="footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="footer-social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="https://wa.me/919617699699" target="_blank" class="footer-social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+          </div>
         </div>
 
-        <div>
-          <h4 style="font-family: var(--font-heading); font-size: 0.95rem; color: #fff; margin-bottom: 18px; letter-spacing: 0.08em;">NAVIGATION</h4>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; padding: 0;">
-            <li><a href="#about-us" style="color: #94a3b8; font-size: 0.88rem;">About Us</a></li>
-            <li><a href="#showcase" style="color: #94a3b8; font-size: 0.88rem;">Showcase</a></li>
-            <li><a href="#layout" style="color: #94a3b8; font-size: 0.88rem;">Master Plan</a></li>
-            <li><a href="#location" style="color: #94a3b8; font-size: 0.88rem;">Location</a></li>
-            <li><a href="#amenities" style="color: #94a3b8; font-size: 0.88rem;">Amenities</a></li>
-            <li><a href="#schedule-visit" style="color: #94a3b8; font-size: 0.88rem;">Schedule Visit</a></li>
+        <!-- Col 2: Quick Links Navigation -->
+        <div class="col-lg-2 col-md-6 col-6">
+          <div class="footer-widget-title">Quick Links</div>
+          <ul class="footer-link-list">
+            <li><a href="/"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+            <li><a href="/about-us"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+            <li><a href="/projects"><i class="fa-solid fa-chevron-right"></i> Projects</a></li>
+            <li><a href="/plots"><i class="fa-solid fa-chevron-right"></i> Plots Catalog</a></li>
+            <li><a href="/investor-corner"><i class="fa-solid fa-chevron-right"></i> Investor Corner</a></li>
+            <li><a href="/amenities"><i class="fa-solid fa-chevron-right"></i> Amenities</a></li>
+            <li><a href="/location"><i class="fa-solid fa-chevron-right"></i> Location</a></li>
+            <li><a href="/contact"><i class="fa-solid fa-chevron-right"></i> Contact Us</a></li>
           </ul>
         </div>
 
-        <div>
-          <h4 style="font-family: var(--font-heading); font-size: 0.95rem; color: #fff; margin-bottom: 18px; letter-spacing: 0.08em;">PROJECT SITE</h4>
-          <address style="font-style: normal; color: #94a3b8; font-size: 0.88rem; line-height: 1.65; margin-bottom: 14px;">
-            Near AIIMS Medical Campus,<br>
-            Bibinagar, Yadadri Bhuvanagiri District,<br>
-            Hyderabad, Telangana 508126
-          </address>
-          <a href="https://maps.google.com/?q=Bibinagar,+Near+AIIMS,+Telangana" target="_blank" rel="noopener noreferrer" style="color: var(--secondary-color); font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
-            <i class="fa-solid fa-map-location-dot"></i> Open in Google Maps
-          </a>
+        <!-- Col 3: Legal Approvals & Certifications -->
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="footer-widget-title">Legal Approvals</div>
+          <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+            <div style="height: 38px; display: inline-flex; align-items: center; background: #ffffff; border: 1px solid rgba(255,255,255,0.8); border-radius: 6px; padding: 4px 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
+              <img src="images/HMDA_logo.jpg" alt="HMDA Final Approval" style="height: 28px; width: auto; object-fit: contain;">
+            </div>
+            <div style="height: 38px; display: inline-flex; align-items: center; background: #ffffff; border: 1px solid rgba(255,255,255,0.8); border-radius: 6px; padding: 4px 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
+              <img src="images/rera_logo.png" alt="TG RERA Registered" style="height: 28px; width: auto; object-fit: contain;">
+            </div>
+          </div>
+          <div class="d-flex flex-wrap gap-1 mb-0">
+            <span class="footer-approval-badge"><i class="fa-solid fa-certificate text-brand-secondary"></i> HMDA Approved</span>
+            <span class="footer-approval-badge"><i class="fa-solid fa-shield-halved text-brand-secondary"></i> RERA Certified</span>
+          </div>
         </div>
 
-        <div>
-          <h4 style="font-family: var(--font-heading); font-size: 0.95rem; color: #fff; margin-bottom: 18px; letter-spacing: 0.08em;">CONTACT</h4>
-          <div style="display: flex; flex-direction: column; gap: 12px;">
-            <a href="tel:+919617699699" style="color: #cbd5e1; font-size: 0.9rem; display: flex; align-items: center; gap: 8px;">
-              <i class="fa-solid fa-phone text-brand-secondary"></i> +91 9617 699 699
-            </a>
-            <a href="mailto:info@navagruha.com" style="color: #cbd5e1; font-size: 0.9rem; display: flex; align-items: center; gap: 8px;">
-              <i class="fa-solid fa-envelope text-brand-secondary"></i> info@navagruha.com
-            </a>
-            <a href="https://wa.me/919617699699?text=Hello%2C%20I%20am%20interested%20in%20Navagruha%20RRR%20Prekshitha%20Enclave%20plots%20near%20AIIMS%20Bibinagar.%20Please%20share%20the%20details." target="_blank" rel="noopener noreferrer" class="btn-primary-brand" style="padding: 10px 18px; font-size: 0.8rem; margin-top: 6px; width: fit-content;">
-              <i class="fa-brands fa-whatsapp me-2"></i> WhatsApp Sales
-            </a>
+        <!-- Col 4: Corporate Office & Address -->
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="footer-widget-title">Corporate Office</div>
+          
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <i class="fa-solid fa-building"></i>
+            </div>
+            <div>
+              <strong class="text-white d-block font-copperplate fs-12">Office Address</strong>
+              Plot No. 109, Shashank Towers, 1st Floor, Uppal Bhagayath, Near Nagole Metro Station, Hyderabad, Telangana 500039.
+            </div>
+          </div>
+
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div>
+              <strong class="text-white d-block font-copperplate fs-12">Direct Inquiries</strong>
+              <a href="tel:+919617699699" class="text-white fw-bold text-decoration-none">+91 9617 699 699</a>
+            </div>
+          </div>
+
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <strong class="text-white d-block font-copperplate fs-12">Email Support</strong>
+              <a href="mailto:info@navagruha.com" class="text-white-50 text-decoration-none">info@navagruha.com</a>
+            </div>
+          </div>
+
+          <div class="footer-contact-item mb-0">
+            <div class="footer-contact-icon">
+              <i class="fa-regular fa-clock"></i>
+            </div>
+            <div>
+              <strong class="text-white d-block font-copperplate fs-12">Site Visit Timings</strong>
+              Monday to Sunday: 9:00 AM to 6:30 PM
+            </div>
           </div>
         </div>
 
       </div>
 
-      <div style="border-top: 1px solid var(--dark-border); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: 0.82rem; color: #64748b;">
-        <p>&copy; 2026 Navagruha Infra Developers. All rights reserved.</p>
-        <p>Disclaimer: Layout plans and specifications are subject to statutory HMDA approvals.</p>
-        <a href="#hero" style="color: var(--secondary-color); font-weight: 600;">Back to Top ↑</a>
+    </div>
+
+    <!-- 3. Bottom Subfooter Bar -->
+    <div class="subfooter-bar">
+      <div class="container">
+        <div class="row align-items-center g-2">
+          <div class="col-md-6 text-center text-md-start font-copperplate">
+            &copy; 2026 NAVAGRUHA INFRA DEVELOPERS. All rights reserved.
+          </div>
+          <div class="col-md-6 text-center text-md-end text-white-50 fs-11">
+            HMDA Final Sanction, Telangana RERA Certified
+          </div>
+        </div>
       </div>
     </div>
   </footer>
