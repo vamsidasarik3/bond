@@ -17,7 +17,7 @@ class AboutController extends Controller
             [
                 'name'  => 'Mr. Srinivasa Rao Narravula',
                 'title' => 'Founder and Managing Director',
-                'photo' => 'images/srinivasa-rao-narravula.jpg',
+                'photo' => 'images/srinivasa-rao-narravula.jpg?v=3.1',
                 'paragraphs' => [
                     'Mr. Srinivasa Rao Narravula, Founder and Managing Director of Navagruha Infra Developers, is a real estate professional driven by the values of integrity, perseverance, and customer trust. Coming from an agrarian family background, he built a successful business with a clear vision of delivering well planned residential communities backed by transparent documentation, quality infrastructure, and a customer first approach.',
                 ],

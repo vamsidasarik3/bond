@@ -712,22 +712,24 @@ header.site-header.scrolled .brand-header-logo {
   line-height: 1.65;
 }
 .leadership-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 1060px;
+  margin: 0 auto;
 }
 
-/* Premium Leader Card */
+/* Premium Executive Leader Card */
 .leader-card-box {
-  background: var(--dark-surface);
+  background: linear-gradient(135deg, rgba(26, 48, 66, 0.95) 0%, rgba(20, 37, 51, 0.98) 100%);
   border: 1px solid var(--dark-border);
   border-radius: var(--radius-lg);
   display: flex;
   gap: 0;
   align-items: stretch;
   overflow: hidden;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
-  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   position: relative;
 }
 .leader-card-box::before {
@@ -736,18 +738,34 @@ header.site-header.scrolled .brand-header-logo {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 3px;
+  width: 4px;
   background: linear-gradient(180deg, var(--secondary-color) 0%, rgba(113,182,68,0.15) 100%);
   border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  z-index: 2;
 }
 .leader-card-box:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.55);
+  transform: translateY(-4px);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
+  border-color: rgba(113, 182, 68, 0.4);
+}
+
+/* Alternating Reverse Layout */
+.leader-card-box.reverse-layout {
+  flex-direction: row-reverse;
+}
+.leader-card-box.reverse-layout .leader-avatar-frame {
+  border-right: none;
+  border-left: 1px solid var(--dark-border);
+}
+.leader-card-box.reverse-layout::before {
+  left: auto;
+  right: 0;
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
 }
 
 .leader-avatar-frame {
-  width: 200px;
-  min-height: 300px;
+  width: 320px;
+  min-height: 380px;
   flex-shrink: 0;
   overflow: hidden;
   background: #0c1620;
@@ -762,9 +780,9 @@ header.site-header.scrolled .brand-header-logo {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(12, 22, 32, 0.15) 0%,
-    rgba(12, 22, 32, 0.02) 40%,
-    rgba(12, 22, 32, 0.6) 100%
+    rgba(12, 22, 32, 0.1) 0%,
+    rgba(12, 22, 32, 0.0) 35%,
+    rgba(12, 22, 32, 0.65) 100%
   );
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -776,66 +794,86 @@ header.site-header.scrolled .brand-header-logo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 15%;
+  object-position: center 18%;
   display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.leader-card-box:hover .leader-avatar-frame img {
+  transform: scale(1.03);
 }
 
 .leader-info-content {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 36px 32px;
+  padding: 44px 48px;
   flex: 1;
 }
 .leader-role-tag {
+  display: inline-block;
   font-family: var(--font-heading);
-  font-size: 0.7rem;
+  font-size: 0.74rem;
   font-weight: 700;
   color: var(--secondary-color);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   margin-bottom: 8px;
 }
 .leader-full-name {
   font-family: var(--font-heading) !important;
-  font-size: clamp(1.3rem, 1.8vw, 1.65rem);
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 4px;
   line-height: 1.2;
 }
 .leader-name-divider {
-  width: 36px;
-  height: 2px;
-  background: var(--secondary-color);
-  margin: 12px 0 16px;
+  width: 44px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--secondary-color), rgba(113, 182, 68, 0.2));
+  margin: 12px 0 18px;
   border-radius: 2px;
 }
 .leader-bio-text {
-  font-size: 0.9rem;
-  line-height: 1.72;
+  font-size: 0.95rem;
+  line-height: 1.78;
   color: #cbd5e1;
   margin-bottom: 0;
 }
 .leader-bio-text + .leader-bio-text {
-  margin-top: 10px;
+  margin-top: 12px;
 }
-.leader-verified-pill {
+
+/* Strategic Focus / Pillar Badges */
+.leader-pillars-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.leader-pillar-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.73rem;
-  font-weight: 600;
-  color: #ffffff;
-  background: rgba(35, 65, 89, 0.6);
-  border: 1px solid rgba(113, 182, 68, 0.3);
-  padding: 5px 14px;
+  gap: 7px;
+  padding: 6px 14px;
+  background: rgba(113, 182, 68, 0.08);
+  border: 1px solid rgba(113, 182, 68, 0.25);
   border-radius: var(--radius-pill);
-  align-self: flex-start;
-  margin-top: 16px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
 }
-.leader-verified-pill i {
+.leader-pillar-pill i {
   color: var(--secondary-color);
+  font-size: 0.75rem;
+}
+.leader-card-box:hover .leader-pillar-pill {
+  background: rgba(113, 182, 68, 0.15);
+  border-color: rgba(113, 182, 68, 0.45);
 }
 
 /* ==============================================================
@@ -1674,35 +1712,37 @@ header.site-header.scrolled .brand-header-logo {
     border-bottom: 1px solid var(--dark-border);
     padding-bottom: 16px;
   }
-  .leader-card-box {
-    flex-direction: column;
-    text-align: center;
+  .leader-card-box,
+  .leader-card-box.reverse-layout {
+    flex-direction: column !important;
+    text-align: left;
   }
-  .leader-card-box::before {
+  .leader-card-box::before,
+  .leader-card-box.reverse-layout::before {
     width: 100%;
     height: 3px;
     top: 0;
     left: 0;
+    right: 0;
     bottom: auto;
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
-  .leader-avatar-frame {
+  .leader-avatar-frame,
+  .leader-card-box.reverse-layout .leader-avatar-frame {
     width: 100%;
-    min-height: 260px;
+    min-height: 280px;
     border-right: none;
+    border-left: none;
     border-bottom: 1px solid var(--dark-border);
   }
   .leader-avatar-frame img {
-    object-position: center 10%;
+    object-position: center 12%;
   }
   .leader-info-content {
-    padding: 28px 24px;
+    padding: 32px 24px;
   }
   .leader-name-divider {
-    margin: 12px auto 16px;
-  }
-  .leader-verified-pill {
-    align-self: center;
+    margin: 12px 0 16px;
   }
   .tour-card-banner {
     flex-direction: column;

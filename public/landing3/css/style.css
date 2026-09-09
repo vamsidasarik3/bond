@@ -812,12 +812,14 @@ button {
   line-height: 1.65;
 }
 .founders-contemporary-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 1060px;
+  margin: 0 auto;
 }
 
-/* Premium Founder Card */
+/* Premium Contemporary Executive Card */
 .founder-contemporary-card {
   background: var(--slate-card);
   border: 1px solid var(--slate-border);
@@ -827,8 +829,8 @@ button {
   gap: 0;
   align-items: stretch;
   overflow: hidden;
-  box-shadow: 0 16px 48px rgba(5, 11, 20, 0.55);
-  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  box-shadow: 0 20px 60px rgba(5, 11, 20, 0.55);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   position: relative;
 }
 .founder-contemporary-card::before {
@@ -837,18 +839,34 @@ button {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 3px;
-  background: linear-gradient(180deg, var(--champagne) 0%, rgba(214,192,138,0.12) 100%);
+  width: 4px;
+  background: linear-gradient(180deg, var(--champagne) 0%, rgba(214,192,138,0.15) 100%);
   border-radius: var(--radius-md) 0 0 var(--radius-md);
-  z-index: 1;
+  z-index: 2;
 }
 .founder-contemporary-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 28px 60px rgba(5, 11, 20, 0.7);
+  transform: translateY(-4px);
+  box-shadow: 0 28px 70px rgba(5, 11, 20, 0.7);
+  border-color: rgba(214, 192, 138, 0.4);
 }
+
+/* Alternating Reverse Layout */
+.founder-contemporary-card.reverse-layout {
+  flex-direction: row-reverse;
+}
+.founder-contemporary-card.reverse-layout .founder-contemporary-avatar {
+  border-right: none;
+  border-left: 1px solid var(--slate-border);
+}
+.founder-contemporary-card.reverse-layout::before {
+  left: auto;
+  right: 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
 .founder-contemporary-avatar {
-  width: 200px;
-  min-height: 300px;
+  width: 320px;
+  min-height: 380px;
   flex-shrink: 0;
   overflow: hidden;
   border-right: 1px solid var(--slate-border);
@@ -863,9 +881,9 @@ button {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(5, 11, 20, 0.15) 0%,
-    rgba(5, 11, 20, 0.02) 40%,
-    rgba(5, 11, 20, 0.6) 100%
+    rgba(5, 11, 20, 0.1) 0%,
+    rgba(5, 11, 20, 0.0) 35%,
+    rgba(5, 11, 20, 0.65) 100%
   );
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -877,61 +895,84 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 15%;
+  object-position: center 18%;
   display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+.founder-contemporary-card:hover .founder-contemporary-photo {
+  transform: scale(1.03);
+}
+
 .founder-contemporary-info {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 36px 32px;
+  padding: 44px 48px;
   flex: 1;
 }
 .founder-role-tag {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--champagne);
   margin-bottom: 8px;
 }
 .founder-contemporary-name {
-  font-size: clamp(1.3rem, 1.8vw, 1.65rem);
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
   font-weight: 800;
   color: var(--text-white);
-  margin-bottom: 4px;
+  margin: 0 0 4px;
   line-height: 1.2;
 }
 .founder-name-divider {
-  width: 36px;
-  height: 2px;
-  background: var(--champagne);
-  margin: 12px 0 16px;
+  width: 44px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--champagne), rgba(214, 192, 138, 0.2));
+  margin: 12px 0 18px;
   border-radius: 2px;
 }
 .founder-contemporary-bio {
-  font-size: 0.9rem;
-  line-height: 1.72;
+  font-size: 0.95rem;
+  line-height: 1.78;
   color: var(--text-grey);
   margin-bottom: 0;
 }
 .founder-contemporary-bio + .founder-contemporary-bio {
-  margin-top: 10px;
+  margin-top: 12px;
 }
-.founder-credential-pill {
+
+/* Strategic Pillars Row */
+.founder-pillars-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.founder-pillar-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.73rem;
-  font-weight: 600;
-  color: var(--text-light);
-  background: rgba(74, 107, 130, 0.25);
+  gap: 7px;
+  padding: 6px 14px;
+  background: rgba(214, 192, 138, 0.08);
   border: 1px solid rgba(214, 192, 138, 0.25);
-  padding: 5px 12px;
-  border-radius: 50px;
-  align-self: flex-start;
-  margin-top: 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+.founder-pillar-pill i {
+  color: var(--champagne);
+  font-size: 0.75rem;
+}
+.founder-contemporary-card:hover .founder-pillar-pill {
+  background: rgba(214, 192, 138, 0.15);
+  border-color: rgba(214, 192, 138, 0.45);
 }
 
 /* Values */
@@ -1757,35 +1798,37 @@ button {
   .highlights-modular-container {
     grid-template-columns: 1fr;
   }
-  .founder-contemporary-card {
-    flex-direction: column;
-    text-align: center;
+  .founder-contemporary-card,
+  .founder-contemporary-card.reverse-layout {
+    flex-direction: column !important;
+    text-align: left;
   }
-  .founder-contemporary-card::before {
+  .founder-contemporary-card::before,
+  .founder-contemporary-card.reverse-layout::before {
     width: 100%;
     height: 3px;
     top: 0;
     left: 0;
+    right: 0;
     bottom: auto;
     border-radius: var(--radius-md) var(--radius-md) 0 0;
   }
-  .founder-contemporary-avatar {
+  .founder-contemporary-avatar,
+  .founder-contemporary-card.reverse-layout .founder-contemporary-avatar {
     width: 100%;
-    min-height: 260px;
+    min-height: 280px;
     border-right: none;
+    border-left: none;
     border-bottom: 1px solid var(--slate-border);
   }
   .founder-contemporary-photo {
-    object-position: center 10%;
+    object-position: center 12%;
   }
   .founder-contemporary-info {
-    padding: 28px 24px;
+    padding: 32px 24px;
   }
   .founder-name-divider {
-    margin: 12px auto 16px;
-  }
-  .founder-credential-pill {
-    align-self: center;
+    margin: 12px 0 16px;
   }
   .location-grid-layout, .amenities-modular-grid, .values-digital-grid, .layout-specs-summary {
     grid-template-columns: 1fr;
