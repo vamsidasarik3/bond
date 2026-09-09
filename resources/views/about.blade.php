@@ -236,105 +236,222 @@
     border-radius: 2px;
 }
 
-/* ── 3. Leadership Section (Equal Height, True Photo Framing) ── */
+/* ── 3. Leadership Section (One-by-One Contemporary Executive Layout) ── */
 .ng-leadership-section {
     background: #060e15;
     padding: 110px 0;
     border-bottom: 1px solid var(--about-border);
 }
+
+.ng-leaders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
 .ng-leader-card {
     background: var(--about-navy-card);
     border: 1px solid var(--about-border);
     border-radius: 20px;
-    overflow: hidden;
-    height: 100%;
+    backdrop-filter: blur(14px);
     display: flex;
-    flex-direction: column;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 0;
+    align-items: stretch;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s ease;
+    position: relative;
 }
+
+.ng-leader-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--about-green) 0%, rgba(113, 182, 68, 0.15) 100%);
+    border-radius: 20px 0 0 20px;
+    z-index: 2;
+}
+
 .ng-leader-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(113, 182, 68, 0.35);
-    box-shadow: 0 24px 55px rgba(0, 0, 0, 0.55);
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.65);
+    border-color: rgba(113, 182, 68, 0.4);
 }
-.ng-leader-grid {
-    display: grid;
-    grid-template-columns: 44% 56%;
-    height: 100%;
+
+/* Alternating Reverse Layout */
+.ng-leader-card.reverse-layout {
+    flex-direction: row-reverse;
 }
-.ng-leader-photo-col {
-    position: relative;
-    height: 100%;
-    min-height: 410px;
-    background: #0a151e;
+
+.ng-leader-card.reverse-layout .ng-leader-avatar {
+    border-right: none;
+    border-left: 1px solid var(--about-border);
+}
+
+.ng-leader-card.reverse-layout::before {
+    left: auto;
+    right: 0;
+    border-radius: 0 20px 20px 0;
+}
+
+.ng-leader-avatar {
+    width: 340px;
+    min-height: 400px;
+    flex-shrink: 0;
     overflow: hidden;
+    border-right: 1px solid var(--about-border);
+    display: flex;
+    align-items: stretch;
+    background: #0a151e;
+    position: relative;
 }
+
+.ng-leader-avatar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(5, 11, 20, 0.05) 0%,
+        rgba(5, 11, 20, 0.0) 35%,
+        rgba(5, 11, 20, 0.65) 100%
+    );
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.ng-leader-card:hover .ng-leader-avatar::after {
+    opacity: 0.85;
+}
+
 .ng-leader-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center 18%;
     display: block;
-    transition: transform 0.6s ease;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+
 .ng-leader-card:hover .ng-leader-photo {
     transform: scale(1.03);
 }
-.ng-leader-info-col {
-    padding: 34px 30px;
+
+.ng-leader-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+    justify-content: flex-start;
+    padding: 42px 46px;
+    flex: 1;
 }
+
+.ng-leader-role {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--about-green);
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
 .ng-leader-name {
     font-family: var(--font-heading);
-    font-size: 20px;
+    font-size: clamp(22px, 2.2vw, 28px);
     font-weight: 800;
     color: #ffffff;
     letter-spacing: 0.02em;
-    margin-bottom: 6px;
-    line-height: 1.25;
+    margin: 0 0 4px;
+    line-height: 1.2;
     text-transform: uppercase;
 }
-.ng-leader-role {
-    font-family: var(--font-heading);
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--about-green);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 18px;
-    line-height: 1.3;
+
+.ng-leader-divider {
+    width: 44px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--about-green), rgba(113, 182, 68, 0.2));
+    margin: 12px 0 18px;
+    border-radius: 2px;
 }
+
 .ng-leader-bio-wrap {
-    flex-grow: 1;
+    margin-bottom: 0;
 }
+
 .ng-leader-bio {
-    font-size: 13.2px;
-    line-height: 1.72;
+    font-size: 14px;
+    line-height: 1.78;
     color: var(--about-text-mute);
-    margin-bottom: 12px;
+    margin-bottom: 0;
 }
+
+.ng-leader-bio + .ng-leader-bio {
+    margin-top: 12px;
+}
+
+/* Strategic Pillars Row */
+.ng-leader-pillars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ng-leader-pillar-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    background: rgba(113, 182, 68, 0.08);
+    border: 1px solid rgba(113, 182, 68, 0.25);
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #e2e8f0;
+    letter-spacing: 0.02em;
+    transition: all 0.25s ease;
+}
+
+.ng-leader-pillar-pill i {
+    color: var(--about-green);
+    font-size: 12px;
+}
+
+.ng-leader-card:hover .ng-leader-pillar-pill {
+    background: rgba(113, 182, 68, 0.16);
+    border-color: rgba(113, 182, 68, 0.45);
+}
+
 .ng-leader-quote-box {
-    margin-top: 18px;
-    padding: 14px 16px;
+    margin-top: 20px;
+    padding: 14px 18px;
     background: rgba(255, 255, 255, 0.03);
-    border-left: 2px solid var(--about-green);
+    border-left: 2.5px solid var(--about-green);
     border-radius: 0 10px 10px 0;
     display: flex;
-    gap: 8px;
+    align-items: flex-start;
+    gap: 10px;
 }
+
 .ng-leader-quote-mark {
     font-family: var(--font-heading);
-    font-size: 22px;
+    font-size: 24px;
     color: var(--about-green);
     line-height: 1;
     flex-shrink: 0;
 }
+
 .ng-leader-quote-text {
-    font-size: 12.5px;
+    font-size: 13px;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.88);
     font-style: italic;
@@ -509,12 +626,6 @@
 
 /* ── Responsive Rules ── */
 @media (max-width: 1199px) {
-    .ng-leader-grid {
-        grid-template-columns: 42% 58%;
-    }
-    .ng-leader-info-col {
-        padding: 26px 22px;
-    }
     .ng-cta-script-signature {
         position: relative;
         right: auto;
@@ -533,12 +644,38 @@
     .ng-about-hero__visual-img {
         height: 380px;
     }
-    .ng-leader-grid {
-        grid-template-columns: 1fr;
+    .ng-leaders-list {
+        gap: 36px;
     }
-    .ng-leader-photo-col {
-        height: 360px;
-        min-height: auto;
+    .ng-leader-card,
+    .ng-leader-card.reverse-layout {
+        flex-direction: column !important;
+        text-align: left;
+    }
+    .ng-leader-card::before,
+    .ng-leader-card.reverse-layout::before {
+        width: 100%;
+        height: 3px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        border-radius: 20px 20px 0 0;
+    }
+    .ng-leader-avatar,
+    .ng-leader-card.reverse-layout .ng-leader-avatar {
+        width: 100%;
+        min-height: 320px;
+        max-height: 440px;
+        border-right: none;
+        border-left: none;
+        border-bottom: 1px solid var(--about-border);
+    }
+    .ng-leader-photo {
+        object-position: center 12%;
+    }
+    .ng-leader-info {
+        padding: 32px 24px;
     }
 }
 @media (max-width: 575px) {
@@ -549,11 +686,22 @@
     .ng-identity-card-img {
         min-height: 320px;
     }
-    .ng-leader-photo-col {
-        height: 300px;
+    .ng-leader-avatar,
+    .ng-leader-card.reverse-layout .ng-leader-avatar {
+        min-height: 280px;
     }
-    .ng-leader-info-col {
-        padding: 22px 18px;
+    .ng-leader-info {
+        padding: 24px 18px;
+    }
+    .ng-leader-name {
+        font-size: 20px;
+    }
+    .ng-leader-bio {
+        font-size: 13.5px;
+    }
+    .ng-leader-pillar-pill {
+        font-size: 11.5px;
+        padding: 5px 11px;
     }
 }
 </style>
@@ -670,7 +818,7 @@
 
 
 {{-- ============================================================
-     3. LEADERSHIP SECTION (Equal Height Cards, True Photo Framing)
+     3. LEADERSHIP SECTION (One-by-One Contemporary Executive Layout)
      ============================================================ --}}
 <section class="ng-leadership-section" id="leadership" aria-label="Our Leadership">
     <div class="container">
@@ -684,58 +832,61 @@
                 LEADERSHIP THAT DRIVES VISION
             </h2>
             <div class="text-brand-secondary font-copperplate fs-14">
-                Guided by Experience. Committed to Your Future.
+                Guided by Experience &bull; Committed to Your Future
             </div>
         </div>
 
-        <!-- Two Equal-Height Leadership Profile Cards -->
-        <div class="row g-4 justify-content-center align-items-stretch">
-            
+        <!-- Contemporary Leadership Profile Cards (Stacked One-by-One) -->
+        <div class="ng-leaders-list">
             @foreach($leadership as $person)
-                <div class="col-xl-6 col-12 d-flex">
-                    <div class="ng-leader-card w-100">
-                        <div class="ng-leader-grid">
-                            
-                            <!-- Left: Dedicated Photo Column (Original Photographs Kept Intact) -->
-                            <div class="ng-leader-photo-col">
-                                <img
-                                    src="{{ asset($person['photo']) }}"
-                                    alt="{{ $person['name'] }}, {{ $person['title'] }}"
-                                    class="ng-leader-photo"
-                                    loading="lazy"
-                                >
-                            </div>
-
-                            <!-- Right: Professional Information -->
-                            <div class="ng-leader-info-col">
-                                <div>
-                                    <div class="ng-leader-name">{{ $person['name'] }}</div>
-                                    <div class="ng-leader-role">{{ $person['title'] }}</div>
-
-                                    <div class="ng-leader-bio-wrap">
-                                        @foreach($person['paragraphs'] as $p)
-                                            <p class="ng-leader-bio">
-                                                {{ $p }}
-                                            </p>
-                                        @endforeach
-                                    </div>
-                                </div>
-
-                                @if(!empty($person['quote']))
-                                    <div class="ng-leader-quote-box">
-                                        <span class="ng-leader-quote-mark">“</span>
-                                        <p class="ng-leader-quote-text">
-                                            {{ $person['quote'] }}
-                                        </p>
-                                    </div>
-                                @endif
-                            </div>
-
-                        </div>
+                <article class="ng-leader-card {{ $loop->even ? 'reverse-layout' : '' }}">
+                    <!-- Profile Avatar Column with Subtle Lighting Overlay -->
+                    <div class="ng-leader-avatar">
+                        <img
+                            src="{{ asset($person['photo']) }}"
+                            alt="{{ $person['name'] }}, {{ $person['title'] }}"
+                            class="ng-leader-photo"
+                            loading="lazy"
+                            width="340"
+                            height="420"
+                        >
                     </div>
-                </div>
-            @endforeach
 
+                    <!-- Leadership Profile Information -->
+                    <div class="ng-leader-info">
+                        <span class="ng-leader-role">{{ $person['title'] }}</span>
+                        <h3 class="ng-leader-name">{{ $person['name'] }}</h3>
+                        <div class="ng-leader-divider"></div>
+
+                        <div class="ng-leader-bio-wrap">
+                            @foreach($person['paragraphs'] as $p)
+                                <p class="ng-leader-bio">
+                                    {{ $p }}
+                                </p>
+                            @endforeach
+                        </div>
+
+                        @if(!empty($person['pillars']))
+                            <div class="ng-leader-pillars">
+                                @foreach($person['pillars'] as $pillar)
+                                    <span class="ng-leader-pillar-pill">
+                                        <i class="fa-solid {{ $pillar['icon'] }}"></i> {{ $pillar['label'] }}
+                                    </span>
+                                @endforeach
+                            </div>
+                        @endif
+
+                        @if(!empty($person['quote']))
+                            <div class="ng-leader-quote-box">
+                                <span class="ng-leader-quote-mark">“</span>
+                                <p class="ng-leader-quote-text">
+                                    {{ $person['quote'] }}
+                                </p>
+                            </div>
+                        @endif
+                    </div>
+                </article>
+            @endforeach
         </div>
 
     </div>

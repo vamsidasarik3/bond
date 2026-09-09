@@ -254,7 +254,7 @@
                         <img src="{{ asset('images/projects/rrr-prekshitha/master-layout-aerial.webp') }}" alt="17-acre HMDA approved master layout aerial view near AIIMS Bibinagar">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
-                            <h3 class="gallery-showcase-title">17-Acre Master Layout</h3>
+                            <h3 class="gallery-showcase-title">17 Acre Master Layout</h3>
                             <div class="gallery-showcase-subtitle">HMDA LP No. 000085/LO/Plg/HMDA/2024</div>
                         </div>
                         <div class="gallery-showcase-hover-btn">
@@ -702,7 +702,7 @@
         },
         {
             src: "{{ asset('images/projects/rrr-prekshitha/master-layout-aerial.webp') }}",
-            title: "17-Acre Master Layout",
+            title: "17 Acre Master Layout",
             subtitle: "HMDA Final Sanction, LP No. 000085/LO/Plg/HMDA/2024"
         }
     ];
