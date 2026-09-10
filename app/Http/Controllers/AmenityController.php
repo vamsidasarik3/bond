@@ -15,7 +15,7 @@ class AmenityController extends Controller
             'Roads & Infrastructure' => [
                 [
                     'icon' => 'fa-road',
-                    'title' => "40' & 30' M-25 CC Roads",
+                    'title' => "30' & 40' M-25 CC Roads",
                     'desc' => 'High-grade heavy-duty concrete roads designed for heavy vehicle transit, with curbs and side drains.',
                 ],
                 [

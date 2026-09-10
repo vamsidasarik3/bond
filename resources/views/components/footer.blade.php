@@ -4,20 +4,39 @@
         <!-- Main 4-Column Footer Grid -->
         <div class="row g-4 justify-content-between mb-5">
             
-            <!-- Col 1: Brand & Identity -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="pe-lg-3">
+            <!-- Col 1: Brand & Identity & Approvals -->
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="pe-lg-2">
                     <a href="{{ route('home') }}" class="d-inline-block mb-3">
                         <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha Infra Developers" class="brand-footer-logo" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
                     </a>
-                    <div class="brand-tagline mb-4">REDEFINING REALITY</div>
+                    <div class="brand-tagline mb-3">REDEFINING REALITY</div>
 
                     <!-- Social Icons -->
-                    <div class="d-flex align-items-center gap-2">
-                        <a href="#" class="footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="footer-social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="https://wa.me/919617699699" target="_blank" class="footer-social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <div class="d-flex align-items-center gap-2 flex-wrap mb-4">
+                        <a href="https://www.facebook.com/profile.php?id=61576325499836" target="_blank" rel="noopener noreferrer" class="footer-social-btn facebook" aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/navagruha_infra_developers/" target="_blank" rel="noopener noreferrer" class="footer-social-btn instagram" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@Navagruha" target="_blank" rel="noopener noreferrer" class="footer-social-btn youtube" aria-label="YouTube" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer" class="footer-social-btn linkedin" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://x.com/navagruha61767" target="_blank" rel="noopener noreferrer" class="footer-social-btn twitter" aria-label="Twitter / X" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://wa.me/919617699699" target="_blank" rel="noopener noreferrer" class="footer-social-btn whatsapp" aria-label="WhatsApp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+
+                    <!-- Statutory Approvals Badges -->
+                    <div class="footer-approvals-box pt-1">
+                        <div class="text-white-50 fs-11 font-copperplate text-uppercase mb-2" style="letter-spacing: 0.05em;">Statutory Approvals</div>
+                        <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
+                            <div style="height: 36px; display: inline-flex; align-items: center; background: #ffffff; border: 1px solid rgba(255,255,255,0.8); border-radius: 6px; padding: 4px 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
+                                <img src="{{ asset('images/HMDA_logo.jpg') }}" alt="HMDA Final Approval" style="height: 26px; width: auto; object-fit: contain;">
+                            </div>
+                            <div style="height: 36px; display: inline-flex; align-items: center; background: #ffffff; border: 1px solid rgba(255,255,255,0.8); border-radius: 6px; padding: 4px 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
+                                <img src="{{ asset('images/rera_logo.png') }}" alt="TG RERA Registered" style="height: 26px; width: auto; object-fit: contain;">
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="footer-approval-badge mb-1"><i class="fa-solid fa-certificate text-brand-secondary"></i> HMDA Approved</span>
+                            <span class="footer-approval-badge mb-1"><i class="fa-solid fa-shield-halved text-brand-secondary"></i> RERA Certified</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -37,54 +56,24 @@
                 </ul>
             </div>
 
-            <!-- Col 3: Legal Approvals & Certifications -->
+            <!-- Col 3: Venture Location - RRR Prekshitha Enclave -->
             <div class="col-lg-3 col-md-6 col-12">
-                <div class="footer-widget-title">Legal Approvals</div>
-                <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
-                    <div style="height: 38px; display: inline-flex; align-items: center; background: #ffffff; border: 1px solid rgba(255,255,255,0.8); border-radius: 6px; padding: 4px 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
-                        <img src="{{ asset('images/HMDA_logo.jpg') }}" alt="HMDA Final Approval" style="height: 28px; width: auto; object-fit: contain;">
-                    </div>
-                    <div style="height: 38px; display: inline-flex; align-items: center; background: #ffffff; border: 1px solid rgba(255,255,255,0.8); border-radius: 6px; padding: 4px 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
-                        <img src="{{ asset('images/rera_logo.png') }}" alt="TG RERA Registered" style="height: 28px; width: auto; object-fit: contain;">
-                    </div>
-                </div>
-                <div class="d-flex flex-wrap gap-1 mb-0">
-                    <span class="footer-approval-badge"><i class="fa-solid fa-certificate text-brand-secondary"></i> HMDA Approved</span>
-                    <span class="footer-approval-badge"><i class="fa-solid fa-shield-halved text-brand-secondary"></i> RERA Certified</span>
-                </div>
-            </div>
-
-            <!-- Col 4: Corporate Office & Address -->
-            <div class="col-lg-3 col-md-6 col-12">
-                <div class="footer-widget-title">Corporate Office</div>
+                <div class="footer-widget-title">Venture Location</div>
                 
-                <div class="footer-contact-item">
+                <div class="footer-contact-item mb-3">
                     <div class="footer-contact-icon">
-                        <i class="fa-solid fa-building"></i>
+                        <i class="fa-solid fa-map-location-dot"></i>
                     </div>
                     <div>
-                        <strong class="text-white d-block font-copperplate fs-12">Office Address</strong>
-                        Plot No. 109, Shashank Towers, 1st Floor, Uppal Bhagayath, Near Nagole Metro Station, Hyderabad, Telangana 500039.
-                    </div>
-                </div>
-
-                <div class="footer-contact-item">
-                    <div class="footer-contact-icon">
-                        <i class="fa-solid fa-phone"></i>
-                    </div>
-                    <div>
-                        <strong class="text-white d-block font-copperplate fs-12">Direct Inquiries</strong>
-                        <a href="tel:+919617699699" class="text-white fw-bold text-decoration-none">+91 9617 699 699</a>
-                    </div>
-                </div>
-
-                <div class="footer-contact-item">
-                    <div class="footer-contact-icon">
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <div>
-                        <strong class="text-white d-block font-copperplate fs-12">Email Support</strong>
-                        <a href="mailto:info@navagruha.com" class="text-white-50 text-decoration-none">info@navagruha.com</a>
+                        <strong class="text-white d-block font-copperplate fs-12 mb-1">RRR Prekshitha Enclave</strong>
+                        <span class="text-white-50 fs-12 lh-base d-block mb-2">
+                            Near AIIMS Bibinagar, NH-163 Warangal Highway, Bibinagar, Yadadri Bhuvanagiri Dist, Telangana 508126.
+                        </span>
+                        <a href="https://maps.app.goo.gl/jTyRs8yxpdLZE6pd7" target="_blank" rel="noopener noreferrer" class="footer-map-btn">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Open in Google Maps</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -93,8 +82,50 @@
                         <i class="fa-regular fa-clock"></i>
                     </div>
                     <div>
-                        <strong class="text-white d-block font-copperplate fs-12">Site Visit Timings</strong>
-                        Monday to Sunday: 9:00 AM to 6:30 PM
+                        <strong class="text-white d-block font-copperplate fs-12 mb-0.5">Site Visit Timings</strong>
+                        <span class="text-white-50 fs-12">Monday to Sunday: 9:00 AM to 6:30 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Col 4: Corporate Office & Address -->
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="footer-widget-title">Corporate Office</div>
+                
+                <div class="footer-contact-item mb-3">
+                    <div class="footer-contact-icon">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div>
+                        <strong class="text-white d-block font-copperplate fs-12 mb-1">Corporate Headquarters</strong>
+                        <span class="text-white-50 fs-12 lh-base d-block mb-2">
+                            Plot No. 109, Shashank Towers, 1st Floor, Uppal Bhagayath, Near Nagole Metro Station, Hyderabad, Telangana 500039.
+                        </span>
+                        <a href="https://maps.app.goo.gl/nzWu5MLr211ptnJ46" target="_blank" rel="noopener noreferrer" class="footer-map-btn">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Open in Google Maps</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-contact-item mb-2">
+                    <div class="footer-contact-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <strong class="text-white d-block font-copperplate fs-12 mb-0.5">Direct Inquiries</strong>
+                        <a href="tel:+919617699699" class="text-white fw-bold text-decoration-none fs-13">+91 9617 699 699</a>
+                    </div>
+                </div>
+
+                <div class="footer-contact-item mb-0">
+                    <div class="footer-contact-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div>
+                        <strong class="text-white d-block font-copperplate fs-12 mb-0.5">Email Support</strong>
+                        <a href="mailto:info@navagruha.com" class="text-white-50 text-decoration-none fs-12">info@navagruha.com</a>
                     </div>
                 </div>
             </div>

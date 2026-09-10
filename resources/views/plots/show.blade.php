@@ -144,7 +144,7 @@
                         </h3>
                         <div class="row g-2">
                             <div class="col-md-6 col-12"><div class="amenity-chip"><i class="fa-solid fa-archway"></i> Grand Entrance Arch &amp; Boom Barrier</div></div>
-                            <div class="col-md-6 col-12"><div class="amenity-chip"><i class="fa-solid fa-road"></i> 40' &amp; 30' M-25 Grade CC Roads</div></div>
+                            <div class="col-md-6 col-12"><div class="amenity-chip"><i class="fa-solid fa-road"></i> 30' &amp; 40' M-25 Grade CC Roads</div></div>
                             <div class="col-md-6 col-12"><div class="amenity-chip"><i class="fa-solid fa-faucet-drip"></i> Underground Drainage &amp; Sewage</div></div>
                             <div class="col-md-6 col-12"><div class="amenity-chip"><i class="fa-solid fa-tower-broadcast"></i> Underground Electricity &amp; Cables</div></div>
                             <div class="col-md-6 col-12"><div class="amenity-chip"><i class="fa-solid fa-water"></i> Overhead Water Tank &amp; Tap Lines</div></div>
@@ -449,6 +449,13 @@
                     if (sidebarUnlockedBox) sidebarUnlockedBox.classList.remove('d-none');
                 }
 
+                try {
+                    localStorage.setItem('navagruha_prices_unlocked', '1');
+                    if (data.all_plots) {
+                        localStorage.setItem('navagruha_unlocked_plots', JSON.stringify(data.all_plots));
+                    }
+                } catch (e) {}
+
                 successBox.classList.remove('d-none');
                 btnText.innerHTML = '<i class="fa-solid fa-calendar-check me-1"></i> Site Tour Confirmed &rarr;';
             } else {
@@ -468,5 +475,20 @@
             btnSpinner.classList.add('d-none');
         }
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        try {
+            if (localStorage.getItem('navagruha_prices_unlocked') === '1') {
+                const sidebarLockedBox = document.getElementById('sidebarPriceLockedBox');
+                const sidebarUnlockedBox = document.getElementById('sidebarPriceUnlockedBox');
+                if (sidebarLockedBox) sidebarLockedBox.classList.add('d-none');
+                if (sidebarUnlockedBox) sidebarUnlockedBox.classList.remove('d-none');
+                const btnText = document.getElementById('sidebarBtnText');
+                if (btnText && btnText.innerHTML.includes('Unlock Price')) {
+                    btnText.innerHTML = '<i class="fa-solid fa-calendar-check me-1"></i> Schedule Free Site Visit &rarr;';
+                }
+            }
+        } catch (e) {}
+    });
 </script>
 @endpush

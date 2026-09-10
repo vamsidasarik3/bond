@@ -926,11 +926,18 @@ header.site-header.scrolled .brand-header-logo {
   border-radius: var(--radius-md);
   overflow: hidden;
   background: #000;
+  scroll-margin-top: 96px;
 }
 .layout-preview-img {
   width: 100%;
   height: auto;
   display: block;
+  cursor: pointer;
+  scroll-margin-top: 96px;
+  transition: opacity 0.2s ease;
+}
+.layout-preview-img:hover {
+  opacity: 0.96;
 }
 .layout-zoom-trigger {
   position: absolute;
@@ -1468,47 +1475,76 @@ header.site-header.scrolled .brand-header-logo {
   letter-spacing: 0.04em;
 }
 
+.site-footer {
+  background: #060d06 !important;
+  color: #cbd5e1;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer .container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
 .site-footer .row {
   display: flex;
   flex-wrap: wrap;
-}
-
-.site-footer .row.g-4 {
   margin-left: -15px;
   margin-right: -15px;
 }
-.site-footer .row.g-4 > * {
+
+.site-footer .row > * {
+  box-sizing: border-box;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.site-footer .row.g-4 > * {
   margin-top: 1.5rem;
 }
 
-.site-footer .row.g-2 {
-  margin-left: -8px;
-  margin-right: -8px;
-}
-.site-footer .row.g-2 > * {
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-.site-footer .col-lg-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
-.site-footer .col-lg-2 { flex: 0 0 17%; max-width: 17%; }
-.site-footer .col-lg-3 { flex: 0 0 24.8%; max-width: 24.8%; }
-
+/* Desktop Grid (min-width: 992px): Balanced 4 Columns */
 @media (min-width: 992px) {
-  .site-footer .pe-lg-3 { padding-right: 1.5rem !important; }
+  .site-footer .col-lg-3.footer-col-brand { flex: 0 0 28% !important; max-width: 28% !important; }
+  .site-footer .col-lg-2.footer-col-links { flex: 0 0 16% !important; max-width: 16% !important; }
+  .site-footer .col-lg-3.footer-col-venture { flex: 0 0 27% !important; max-width: 27% !important; }
+  .site-footer .col-lg-4.footer-col-corp { flex: 0 0 29% !important; max-width: 29% !important; }
+  .site-footer .pe-lg-2 { padding-right: 1rem !important; }
 }
 
-@media (max-width: 991px) and (min-width: 768px) {
-  .site-footer .col-md-6 { flex: 0 0 50% !important; max-width: 50% !important; }
+/* Tablet Grid (650px to 991px): Clean 2x2 Grid */
+@media (max-width: 991px) and (min-width: 650px) {
+  .site-footer .row.g-4 > * {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    margin-bottom: 2rem;
+  }
 }
 
-@media (max-width: 767px) {
-  .site-footer .col-12 { flex: 0 0 100% !important; max-width: 100% !important; }
-  .site-footer .col-6 { flex: 0 0 50% !important; max-width: 50% !important; }
-  .site-footer .col-lg-4, .site-footer .col-lg-3, .site-footer .col-lg-2 { flex: 0 0 100% !important; max-width: 100% !important; }
-  .site-footer .text-md-start, .site-footer .text-md-end { text-align: center !important; }
+/* Mobile Grid (under 650px): Clean Single Column */
+@media (max-width: 649px) {
+  .site-footer {
+    padding-bottom: 85px !important; /* clearance for mobile sticky bar */
+  }
+  .site-footer .row.g-4 > * {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 1.75rem;
+  }
+  .site-footer .text-md-start, 
+  .site-footer .text-md-end { 
+    text-align: center !important; 
+  }
+}
+
+/* Hide floating WhatsApp widget on screens <= 768px to prevent overlap with sticky bar */
+@media (max-width: 768px) {
+  .whatsapp-float-pill {
+    display: none !important;
+  }
 }
 
 .brand-footer-logo {
@@ -1605,6 +1641,78 @@ header.site-header.scrolled .brand-header-logo {
   box-shadow: 0 6px 16px rgba(113, 182, 68, 0.4);
 }
 
+/* Official Brand Social Icon Buttons with Authentic Colors */
+.footer-social-btn.facebook {
+  background: #1877f2 !important;
+  border-color: #1877f2 !important;
+  color: #ffffff !important;
+}
+.footer-social-btn.facebook:hover {
+  background: #166fe5 !important;
+  border-color: #166fe5 !important;
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 6px 18px rgba(24, 119, 242, 0.6);
+}
+
+.footer-social-btn.instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%) !important;
+  border-color: transparent !important;
+  color: #ffffff !important;
+}
+.footer-social-btn.instagram:hover {
+  filter: brightness(1.15);
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 6px 18px rgba(225, 48, 108, 0.6);
+}
+
+.footer-social-btn.youtube {
+  background: #ff0000 !important;
+  border-color: #ff0000 !important;
+  color: #ffffff !important;
+}
+.footer-social-btn.youtube:hover {
+  background: #cc0000 !important;
+  border-color: #cc0000 !important;
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 6px 18px rgba(255, 0, 0, 0.6);
+}
+
+.footer-social-btn.linkedin {
+  background: #0a66c2 !important;
+  border-color: #0a66c2 !important;
+  color: #ffffff !important;
+}
+.footer-social-btn.linkedin:hover {
+  background: #084e96 !important;
+  border-color: #084e96 !important;
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 6px 18px rgba(10, 102, 194, 0.6);
+}
+
+.footer-social-btn.twitter {
+  background: #000000 !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #ffffff !important;
+}
+.footer-social-btn.twitter:hover {
+  background: #111111 !important;
+  border-color: #ffffff !important;
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.4);
+}
+
+.footer-social-btn.whatsapp {
+  background: #25d366 !important;
+  border-color: #25d366 !important;
+  color: #ffffff !important;
+}
+.footer-social-btn.whatsapp:hover {
+  background: #20ba5a !important;
+  border-color: #20ba5a !important;
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.6);
+}
+
 .footer-contact-item {
   display: flex;
   align-items: flex-start;
@@ -1642,6 +1750,47 @@ header.site-header.scrolled .brand-header-logo {
   margin-bottom: 8px;
   margin-right: 6px;
   font-family: var(--font-heading);
+}
+
+.footer-map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 4px 12px;
+  font-size: 10.5px;
+  font-family: var(--font-heading, 'Cinzel');
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--secondary-color, #71b644) !important;
+  background: rgba(113, 182, 68, 0.1);
+  border: 1px solid rgba(113, 182, 68, 0.35);
+  border-radius: 20px;
+  text-decoration: none !important;
+  transition: all 0.25s ease;
+}
+
+.footer-map-btn i.fa-location-dot {
+  color: #ea4335;
+  font-size: 11px;
+}
+
+.footer-map-btn .fa-arrow-up-right-from-square {
+  font-size: 9px;
+  opacity: 0.8;
+}
+
+.footer-map-btn:hover {
+  background: var(--secondary-color, #71b644);
+  border-color: var(--secondary-color, #71b644);
+  color: #060d06 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(113, 182, 68, 0.35);
+}
+
+.footer-map-btn:hover i.fa-location-dot {
+  color: #060d06;
 }
 
 .subfooter-bar {

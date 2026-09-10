@@ -90,7 +90,7 @@
                                     </div>
 
                                     <div class="hero-subtitle-location mb-3">
-                                        <i class="fa-solid fa-road me-2 text-brand-secondary"></i>40' &amp; 30' M-25 Grade Concrete Roads
+                                        <i class="fa-solid fa-road me-2 text-brand-secondary"></i>30' &amp; 40' M-25 Grade Concrete Roads
                                     </div>
                                     
                                     <p class="hero-lead mb-4">
@@ -188,13 +188,13 @@
                     </div>
                 </div>
 
-                {{-- Item 2: 40ft CC Roads --}}
+                {{-- Item 2: 30ft & 40ft CC Roads --}}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(1)">
-                        <img src="{{ asset('images/projects/rrr-prekshitha/concrete-boulevard-40ft.webp') }}" alt="40-foot and 30-foot heavy-duty concrete roads in residential venture">
+                        <img src="{{ asset('images/projects/rrr-prekshitha/concrete-boulevard-40ft.webp') }}" alt="30-foot and 40-foot heavy-duty concrete roads in residential venture">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
-                            <h3 class="gallery-showcase-title">40' &amp; 30' CC Roads</h3>
+                            <h3 class="gallery-showcase-title">30' &amp; 40' CC Roads</h3>
                             <div class="gallery-showcase-subtitle">Heavy-Duty Concrete Avenues</div>
                         </div>
                         <div class="gallery-showcase-hover-btn">
@@ -293,9 +293,9 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="amenity-feature-card">
                         <div class="d-flex align-items-center justify-content-center mb-3 rounded-3 overflow-hidden" style="height: 140px; background: #0c1620;">
-                            <img src="{{ asset('images/projects/rrr-prekshitha/concrete-boulevard-40ft.webp') }}" alt="Wide 40-foot and 30-foot cement concrete avenues inside plotted development" class="w-100 h-100 object-fit-cover">
+                            <img src="{{ asset('images/projects/rrr-prekshitha/concrete-boulevard-40ft.webp') }}" alt="Wide 30-foot and 40-foot cement concrete avenues inside plotted development" class="w-100 h-100 object-fit-cover">
                         </div>
-                        <h3 class="fs-18 text-white font-copperplate mb-2">40' &amp; 30' CC Roads</h3>
+                        <h3 class="fs-18 text-white font-copperplate mb-2">30' &amp; 40' CC Roads</h3>
                         <p class="text-white-50 fs-13 mb-0">Heavy-duty M-25 grade concrete roads built with kerbing and pedestrian pathways.</p>
                     </div>
                 </div>
@@ -682,7 +682,7 @@
         },
         {
             src: "{{ asset('images/projects/rrr-prekshitha/concrete-boulevard-40ft.webp') }}",
-            title: "40' & 30' CC Roads",
+            title: "30' & 40' CC Roads",
             subtitle: "Heavy-Duty M-25 Grade Concrete Avenues"
         },
         {

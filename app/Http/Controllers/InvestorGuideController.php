@@ -159,7 +159,7 @@ class InvestorGuideController extends Controller
                 'extent'       => '17 Acres (Phase 2 Sanction)',
                 'units'        => '150+ Plotted Units',
                 'plot_sizes'   => '167, 200, 220 & 267 Sq. Yards',
-                'road_widths'  => "40' & 30' M-25 Concrete Roads",
+                'road_widths'  => "30' & 40' M-25 Concrete Roads",
                 'approvals'    => 'HMDA LP No: 000022/LO/Plg/HMDA/2023 & TSRERA Form C',
                 'amenities'    => '3 Landscaped Theme Parks, Underground Drainage, Overhead Water Tank, LED Lighting, Security Cabin',
                 'image'        => asset('images/projects/rrr-prekshitha/entrance-arch-grand.webp'),
@@ -239,7 +239,7 @@ class InvestorGuideController extends Controller
 
         $infrastructureStatus = [
             [
-                'title'  => "40' & 30' M-25 Concrete Roads",
+                'title'  => "30' & 40' M-25 Concrete Roads",
                 'status' => 'Completed',
                 'desc'   => 'Heavy-duty concrete avenues built for long-term durability, with integrated side kerbing and storm drainage.',
                 'image'  => asset('images/projects/rrr-prekshitha/concrete-boulevard-40ft.webp'),

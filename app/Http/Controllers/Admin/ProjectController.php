@@ -31,7 +31,7 @@ class ProjectController extends Controller
                 'available_units'=> $availablePlots,
                 'reserved_units' => $reservedPlots,
                 'sold_units'     => $soldPlots,
-                'road_widths'    => "40' & 30' Concrete Roads",
+                'road_widths'    => "30' & 40' Concrete Roads",
                 'approvals'      => 'HMDA Final LP & TG RERA Approved',
                 'status'         => 'Ongoing',
                 'status_class'   => 'bg-emerald-50 text-emerald-700 border-emerald-200',

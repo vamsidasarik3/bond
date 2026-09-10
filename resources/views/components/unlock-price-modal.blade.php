@@ -158,10 +158,29 @@
                 const revealedExact = document.getElementById('unlockRevealedExact');
                 if (revealedExact) revealedExact.textContent = data.exact_price ? ('Exact Total: ' + data.exact_price) : '';
 
-                // Update any plot cards on the current page dynamically
+                // Persist unlock state & full inventory price map in localStorage
+                try {
+                    localStorage.setItem('navagruha_prices_unlocked', '1');
+                    if (data.all_plots) {
+                        localStorage.setItem('navagruha_unlocked_plots', JSON.stringify(data.all_plots));
+                    }
+                } catch (e) {
+                    console.warn('localStorage access failed:', e);
+                }
+                window.pricesAreUnlocked = true;
+
+                // Update any plot cards and all layout elements on the current page dynamically
                 if (data.all_plots) {
+                    window.unlockedPlotsMap = {};
                     data.all_plots.forEach(p => {
                         const rateStr = p.price_per_sq_yard_formatted || ('₹ ' + Number(p.price_per_sq_yard || 14999).toLocaleString('en-IN') + ' / Sq. Yard');
+                        window.unlockedPlotsMap[String(p.id)] = {
+                            price: p.price,
+                            exact_price: p.exact_price,
+                            per_sq_yd: rateStr
+                        };
+                        window.unlockedPlotsMap[String(p.number)] = window.unlockedPlotsMap[String(p.id)];
+
                         const priceContainer = document.getElementById('plot-price-container-' + p.id);
                         if (priceContainer) {
                             priceContainer.innerHTML = `
@@ -172,19 +191,26 @@
                             `;
                         }
 
-                        // Also update dataset attributes on plot board tile & list table row so clicking them in drawer shows unlocked prices!
-                        const tileEl = document.querySelector('.plot-tile[data-id="' + p.id + '"]');
-                        if (tileEl) {
-                            tileEl.dataset.price = p.price;
-                            tileEl.dataset.exact = p.exact_price;
-                            tileEl.dataset.perSqYd = rateStr;
-                        }
-                        const rowEl = document.querySelector('tr[data-id="' + p.id + '"]');
-                        if (rowEl) {
-                            rowEl.dataset.price = p.price;
-                            rowEl.dataset.exact = p.exact_price;
-                            rowEl.dataset.perSqYd = rateStr;
-                        }
+                        // 1. Update interactive SVG plot cells on Master Layout
+                        document.querySelectorAll('.plot-cell[data-id="' + p.id + '"], .plot-cell[data-number="' + p.number + '"]').forEach(cell => {
+                            cell.dataset.price = p.price;
+                            cell.dataset.exact = p.exact_price || '';
+                            cell.dataset.perSqYd = rateStr;
+                        });
+
+                        // 2. Update plot board grid tiles
+                        document.querySelectorAll('.plot-tile[data-id="' + p.id + '"], .plot-tile[data-number="' + p.number + '"]').forEach(tile => {
+                            tile.dataset.price = p.price;
+                            tile.dataset.exact = p.exact_price || '';
+                            tile.dataset.perSqYd = rateStr;
+                        });
+
+                        // 3. Update list table rows
+                        document.querySelectorAll('tr[data-id="' + p.id + '"], tr[data-number="' + p.number + '"]').forEach(row => {
+                            row.dataset.price = p.price;
+                            row.dataset.exact = p.exact_price || '';
+                            row.dataset.perSqYd = rateStr;
+                        });
                     });
                 }
 
@@ -210,10 +236,13 @@
                             <div class="font-copperplate fs-10 text-white-50 text-uppercase mb-1" style="letter-spacing:.05em;">Total Price</div>
                             <div class="fs-24 fw-800 font-copperplate" style="color:#71b644;" id="drawerPrice">${data.price}</div>
                             <div class="fs-13 fw-bold font-copperplate mt-1 text-brand-secondary" id="drawerPerSqYd">${perSqYdText}</div>
-                            <div class="fs-12 text-white-50 mt-1" id="drawerExactPrice">${data.exact_price ? ('Exact Total: ' + data.exact_price) : ''}</div>
+                            ${data.exact_price ? `<div class="fs-12 text-white-50 mt-1" id="drawerExactPrice">Exact Total: ${data.exact_price}</div>` : '<div class="fs-12 text-white-50 mt-1" id="drawerExactPrice"></div>'}
                         </div>
                     `;
                 }
+
+                // Dispatch global event for other listeners
+                window.dispatchEvent(new CustomEvent('navagruhaPricesUnlocked', { detail: data }));
 
             } else {
                 let errorMsg = data.message || 'Please verify your information and try again.';

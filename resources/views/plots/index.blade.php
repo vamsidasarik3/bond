@@ -687,12 +687,16 @@ $stClass = [
                             data-dims="{{ $pdims }}"
                             data-notes="{{ $pnotes }}"
                             data-vaastu="{{ ($plot['is_vaastu_compliant'] ?? true) ? '1' : '0' }}"
-                            @if($isUnlocked && !empty($plot['price'])) data-price="{{ $plot['price'] }}" data-exact="{{ $plot['exact_price'] ?? '' }}" @endif
+                            @if($isUnlocked && !empty($plot['price']))
+                                data-price="{{ $plot['price'] }}"
+                                data-exact="{{ $plot['exact_price'] ?? '' }}"
+                                data-per-sq-yd="{{ $plot['price_per_sq_yard_formatted'] ?? ('₹ ' . number_format($plot['price_per_sq_yard'] ?? 14999) . ' / Sq. Yard') }}"
+                            @endif
                             style="--anim-delay:{{ $delay }}ms;"
-                            @if(!$isSold) onclick="openPlotDrawer(this)"
-                            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPlotDrawer(this);}" @endif
-                            role="{{ $isSold ? 'img' : 'button' }}"
-                            tabindex="{{ $isSold ? -1 : 0 }}"
+                            onclick="openPlotDrawer(this)"
+                            onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openPlotDrawer(this);}"
+                            role="button"
+                            tabindex="0"
                             aria-label="{{ $plot['number'] }}, {{ ucfirst($pst) }}, {{ ucfirst($plot['plot_type'] ?? 'Plot') }}, {{ $psz }} Sq. Yds">
                             <rect
                                 class="plot-cell-rect"
@@ -1583,7 +1587,7 @@ $stClass = [
     window.openPlotDrawer = function (el) {
         if (clickMoved) { clickMoved = false; return; }
         var status = el.dataset.status || '';
-        if (status === 'sold') return;
+        var isSoldPlot = status === 'sold';
 
         /* Deselect previous SVG cell */
         if (selectedCell) selectedCell.classList.remove('plot-cell-selected');
@@ -1599,9 +1603,9 @@ $stClass = [
 
         document.getElementById('drawerPlotNumber').textContent = el.dataset.number || '—';
 
-        var stCls   = status === 'reserved' ? 'reserved' : 'available';
-        var stLabel = status === 'reserved' ? 'Reserved'  : 'Available';
-        var stIcon  = status === 'reserved' ? 'fa-clock'  : 'fa-circle-check';
+        var stCls   = isSoldPlot ? 'sold' : (status === 'reserved' ? 'reserved' : 'available');
+        var stLabel = isSoldPlot ? 'Sold Out' : (status === 'reserved' ? 'Reserved'  : 'Available');
+        var stIcon  = isSoldPlot ? 'fa-circle-xmark' : (status === 'reserved' ? 'fa-clock'  : 'fa-circle-check');
         document.getElementById('drawerStatusBadge').innerHTML =
             '<span class="plot-tile-status plot-tile-status-' + stCls + '"><i class="fa-solid ' + stIcon + '" style="font-size:7px;"></i> ' + stLabel + '</span>';
 
@@ -1613,15 +1617,64 @@ $stClass = [
         document.getElementById('drawerVaastu').textContent     = el.dataset.vaastu === '1' ? '100% Vaastu Compliance' : 'Standard';
         document.getElementById('drawerNotes').textContent      = el.dataset.notes || 'Contact us for further details.';
 
-        var priceEl = document.getElementById('drawerPrice');
-        var perSqYdEl = document.getElementById('drawerPerSqYd');
-        var exactEl = document.getElementById('drawerExactPrice');
-        if (priceEl) priceEl.textContent = el.dataset.price || '—';
-        if (perSqYdEl) perSqYdEl.textContent = el.dataset.perSqYd || '';
-        if (exactEl) exactEl.textContent = el.dataset.exact ? ('Exact Total: ' + el.dataset.exact) : '';
+        // Dynamic Drawer Price & Lock Management
+        var priceSection = document.getElementById('drawerPriceSection');
+        if (priceSection) {
+            if (isSoldPlot) {
+                priceSection.innerHTML = `
+                    <div class="p-3 rounded-3 text-center" style="background:rgba(220,53,38,.08);border:1px solid rgba(220,53,38,.25);">
+                        <div class="fs-15 fw-bold font-copperplate text-danger"><i class="fa-solid fa-circle-xmark me-1"></i> Plot Sold Out</div>
+                        <div class="fs-12 text-white-50 mt-1">This inventory parcel has been registered. Explore available plots below.</div>
+                    </div>
+                `;
+            } else {
+                var price = el.dataset.price;
+                var exact = el.dataset.exact;
+                var perSqYd = el.dataset.perSqYd;
 
-        var unlBtn = document.getElementById('drawerUnlockBtn');
-        if (unlBtn) { unlBtn.dataset.plotId = id; unlBtn.dataset.plotNum = el.dataset.number + ' (' + size + ' Sq. Yds)'; }
+                // Fallback check against client-side cached price map
+                if ((!price || price === '—') && window.unlockedPlotsMap) {
+                    var cached = window.unlockedPlotsMap[String(id)] || window.unlockedPlotsMap[String(el.dataset.number)];
+                    if (cached) {
+                        price = cached.price;
+                        exact = cached.exact_price;
+                        perSqYd = cached.per_sq_yd;
+                        el.dataset.price = price;
+                        el.dataset.exact = exact || '';
+                        el.dataset.perSqYd = perSqYd || '';
+                    }
+                }
+
+                if (price && price !== '—') {
+                    // Price is Unlocked: Show price details
+                    priceSection.innerHTML = `
+                        <div class="p-3 rounded-3 text-center" style="background:rgba(113,182,68,.08);border:1px solid rgba(113,182,68,.25);">
+                            <div class="font-copperplate fs-10 text-white-50 text-uppercase mb-1" style="letter-spacing:.05em;">Total Price</div>
+                            <div class="fs-24 fw-800 font-copperplate" style="color:#71b644;" id="drawerPrice">${price}</div>
+                            <div class="fs-13 fw-bold font-copperplate mt-1 text-brand-secondary" id="drawerPerSqYd">${perSqYd || ''}</div>
+                            ${exact ? `<div class="fs-12 text-white-50 mt-1" id="drawerExactPrice">Exact Total: ${exact}</div>` : '<div class="fs-12 text-white-50 mt-1" id="drawerExactPrice"></div>'}
+                        </div>
+                    `;
+                } else {
+                    // Price is Locked: ALWAYS render lock UI with button so visitor is never left without price or lock!
+                    priceSection.innerHTML = `
+                        <div class="plot-drawer-price-locked">
+                            <div class="text-white-50 fs-12 mb-2 font-copperplate">
+                                <i class="fa-solid fa-lock me-1 text-brand-secondary"></i>Official Developer Price
+                            </div>
+                            <button id="drawerUnlockBtn" class="btn-secondary-brand w-100 py-2 fs-13 font-copperplate"
+                                    data-plot-id="${id}" data-plot-num="${el.dataset.number || 'Plot'} (${size} Sq. Yds)"
+                                    onclick="triggerDrawerUnlock()">
+                                <span><i class="fa-solid fa-lock-open me-1"></i>Unlock Price &rarr;</span>
+                            </button>
+                            <div class="text-white-50 fs-11 mt-2">
+                                <i class="fa-solid fa-shield-halved me-1" style="color:#71b644;"></i>Privacy Protected, Direct Developer Desk
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+        }
 
         var viewBtn = document.getElementById('drawerViewBtn');
         if (viewBtn) viewBtn.href = plotsBaseUrl + '/' + id;
@@ -1786,6 +1839,60 @@ $stClass = [
         } else if (isShowcaseOpen && e.key === 'ArrowRight') {
             navigateShowcase(1);
         }
+    });
+
+    /* ─────────────────────────────────────────────────────
+       CLIENT-SIDE PRICE HYDRATION FROM LOCALSTORAGE
+    ───────────────────────────────────────────────────── */
+    function hydrateUnlockedPrices() {
+        try {
+            if (localStorage.getItem('navagruha_prices_unlocked') === '1') {
+                window.pricesAreUnlocked = true;
+                var storedPlots = localStorage.getItem('navagruha_unlocked_plots');
+                if (storedPlots) {
+                    var plotsList = JSON.parse(storedPlots);
+                    window.unlockedPlotsMap = window.unlockedPlotsMap || {};
+                    plotsList.forEach(function(p) {
+                        var rateStr = p.price_per_sq_yard_formatted || ('₹ ' + Number(p.price_per_sq_yard || 14999).toLocaleString('en-IN') + ' / Sq. Yard');
+                        window.unlockedPlotsMap[String(p.id)] = {
+                            price: p.price,
+                            exact_price: p.exact_price,
+                            per_sq_yd: rateStr
+                        };
+                        window.unlockedPlotsMap[String(p.number)] = window.unlockedPlotsMap[String(p.id)];
+
+                        document.querySelectorAll('.plot-cell[data-id="' + p.id + '"], .plot-cell[data-number="' + p.number + '"]').forEach(function(c) {
+                            c.dataset.price = p.price;
+                            c.dataset.exact = p.exact_price || '';
+                            c.dataset.perSqYd = rateStr;
+                        });
+                        document.querySelectorAll('.plot-tile[data-id="' + p.id + '"], .plot-tile[data-number="' + p.number + '"]').forEach(function(t) {
+                            t.dataset.price = p.price;
+                            t.dataset.exact = p.exact_price || '';
+                            t.dataset.perSqYd = rateStr;
+                        });
+                        document.querySelectorAll('tr[data-id="' + p.id + '"], tr[data-number="' + p.number + '"]').forEach(function(r) {
+                            r.dataset.price = p.price;
+                            r.dataset.exact = p.exact_price || '';
+                            r.dataset.perSqYd = rateStr;
+                        });
+                    });
+                }
+            }
+        } catch (e) {
+            console.warn('Could not restore unlocked prices from localStorage:', e);
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', hydrateUnlockedPrices);
+    } else {
+        hydrateUnlockedPrices();
+    }
+
+    window.addEventListener('navagruhaPricesUnlocked', function() {
+        window.pricesAreUnlocked = true;
+        hydrateUnlockedPrices();
     });
 
 })();

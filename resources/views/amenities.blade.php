@@ -83,7 +83,7 @@
                             <div class="gallery-showcase-overlay"></div>
                             <div class="gallery-showcase-content">
                                 <div class="gallery-showcase-subtitle">Heavy-Duty Roads</div>
-                                <h4 class="gallery-showcase-title fs-18">40' &amp; 30' M-25 Concrete Roads</h4>
+                                <h4 class="gallery-showcase-title fs-18">30' &amp; 40' M-25 Concrete Roads</h4>
                             </div>
                         </div>
                     </div>

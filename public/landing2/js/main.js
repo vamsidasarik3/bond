@@ -138,7 +138,10 @@ document.addEventListener('DOMContentLoaded', () => {
     renderTransform();
   }
 
+  const masterLayoutImg = document.getElementById('masterLayoutImg');
+
   viewFullLayoutBtn?.addEventListener('click', openViewer);
+  masterLayoutImg?.addEventListener('click', openViewer);
   closeModalBtn?.addEventListener('click', closeViewer);
   zoomInBtn?.addEventListener('click', zoomIn);
   zoomOutBtn?.addEventListener('click', zoomOut);
@@ -273,21 +276,52 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- 6. SMOOTH ANCHOR SCROLLING ---
+  function getHeaderOffset() {
+    const headerEl = document.getElementById('siteHeader');
+    return (headerEl ? headerEl.offsetHeight : 75) + 12;
+  }
+
+  function scrollToTarget(targetEl) {
+    if (!targetEl) return;
+    const headerH = getHeaderOffset();
+    const pos = targetEl.getBoundingClientRect().top + window.pageYOffset - headerH;
+    window.scrollTo({
+      top: Math.max(0, pos),
+      behavior: 'smooth'
+    });
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {
-      const id = this.getAttribute('href');
+      let id = this.getAttribute('href');
       if (!id || id === '#') return;
+
+      // When clicking Master Plan links, ensure we go directly to the layout plan image
+      const text = (this.textContent || '').toLowerCase();
+      if ((id === '#layout' || id === '#masterLayoutImg' || id === '#masterLayoutCanvas') && 
+          (text.includes('master plan') || text.includes('explore'))) {
+        id = '#masterLayoutImg';
+      }
 
       const target = document.querySelector(id);
       if (target) {
         e.preventDefault();
-        const headerH = 70;
-        const pos = target.getBoundingClientRect().top + window.pageYOffset - headerH;
-        window.scrollTo({
-          top: pos,
-          behavior: 'smooth'
-        });
+        scrollToTarget(target);
+
+        if (history.pushState) {
+          history.pushState(null, null, id);
+        }
       }
     });
   });
+
+  // Handle direct hash on page load
+  if (window.location.hash === '#masterLayoutImg' || window.location.hash === '#masterLayoutCanvas' || window.location.hash === '#layout') {
+    setTimeout(() => {
+      const imgTarget = document.getElementById('masterLayoutImg');
+      if (imgTarget) {
+        scrollToTarget(imgTarget);
+      }
+    }, 350);
+  }
 });

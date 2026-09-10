@@ -234,8 +234,13 @@ class PlotController extends Controller
             'source' => 'unlock_price_modal',
         ]);
 
-        // Unlock price in visitor session
-        session(['prices_unlocked' => true]);
+        // Unlock price in visitor session and store contact context
+        session([
+            'prices_unlocked' => true,
+            'visitor_name' => $validated['name'],
+            'visitor_phone' => $validated['phone'],
+            'visitor_email' => $validated['email'],
+        ]);
 
         // Format response
         $price = $plotModel ? $plotModel->formatted_price : '₹25.05 Lakh';
