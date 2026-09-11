@@ -15,18 +15,25 @@
 /auth.json
 /node_modules
 /public/build
+/public_html/build
 /public/fonts-manifest.dev.json
+/public_html/fonts-manifest.dev.json
 /public/hot
+/public_html/hot
 /public/storage
+/public_html/storage
 /public/data/
-/public/demo1/
-/public/demo2/
-/public/demo3/
-/public/demo4/
+/public_html/data/
+public/data/
+public_html/data/
+/public/demo*/
+/public_html/demo*/
 /public_bk/
 login.txt
 /public/venture/videos/
+/public_html/venture/videos/
 /public/venture/docs/RRR PREKSHITHA ENCLAVE BROCHURE.pdf
+/public_html/venture/docs/RRR PREKSHITHA ENCLAVE BROCHURE.pdf
 /storage/*.key
 /storage/pail
 /vendor
