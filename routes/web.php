@@ -23,8 +23,14 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-// Public Frontend Laravel + Blade Routes
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Public Frontend — Default to Landing Page 2 (as requested by client)
+Route::get('/', function (\Illuminate\Http\Request $request) {
+    $queryString = $request->getQueryString();
+    return redirect('/landing2/' . ($queryString ? '?' . $queryString : ''));
+})->name('home');
+
+// Main Web Application Home (preserved at /app)
+Route::get('/app', [HomeController::class, 'index'])->name('home.app');
 Route::get('/about-us', [AboutController::class, 'index'])->name('about');
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
 Route::get('/projects/golden-farms', function () {
