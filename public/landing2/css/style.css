@@ -1813,12 +1813,20 @@ header.site-header.scrolled .brand-header-logo {
   grid-template-columns: 1fr 1fr;
   gap: 14px;
   margin-bottom: 20px;
+  align-items: start;
 }
 .modal-field-group {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 .modal-field-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 22px;
+  min-height: 22px;
+  max-height: 22px;
   font-family: var(--font-heading);
   font-size: 0.74rem;
   font-weight: 700;
@@ -1826,6 +1834,10 @@ header.site-header.scrolled .brand-header-logo {
   margin-bottom: 6px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
+  line-height: 22px;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 .modal-field-label .req-star {
   color: #ef4444;
@@ -1840,14 +1852,21 @@ header.site-header.scrolled .brand-header-logo {
 }
 .modal-input {
   width: 100%;
-  padding: 11px 14px;
+  height: 46px;
+  min-height: 46px;
+  max-height: 46px;
+  box-sizing: border-box;
+  padding: 10px 14px;
   background: rgba(14, 25, 36, 0.88);
   border: 1px solid var(--dark-border);
   border-radius: 8px;
   color: #ffffff;
   font-family: var(--font-sans);
   font-size: 0.88rem;
+  line-height: 24px;
   outline: none;
+  margin: 0;
+  vertical-align: middle;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 .modal-input:focus {
@@ -1855,8 +1874,30 @@ header.site-header.scrolled .brand-header-logo {
   background: rgba(18, 32, 46, 0.95);
   box-shadow: 0 0 0 3px rgba(214, 192, 138, 0.18);
 }
-.modal-input.date-input {
+.modal-input.date-input,
+input[type="date"].modal-input {
   color-scheme: dark;
+  -webkit-appearance: none;
+  appearance: none;
+  display: flex;
+  align-items: center;
+  height: 46px;
+  min-height: 46px;
+  max-height: 46px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 10px 14px;
+  line-height: 24px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+}
+.modal-input.date-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.8) sepia(0.3) saturate(3) hue-rotate(5deg);
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+  padding: 4px;
+  margin-left: auto;
 }
 .modal-field-error {
   display: none;
