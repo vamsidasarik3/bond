@@ -52,6 +52,10 @@ Route::get('/location', [LocationController::class, 'index'])->name('location');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
+// Public API Routes (Drawer quick enquiries, landing pages, plot inventory)
+Route::post('/api/enquiries', [PublicController::class, 'submitEnquiry'])->name('api.enquiries');
+Route::get('/api/plots', [PublicController::class, 'getPlotsApi'])->name('api.plots');
+
 
 
 // Authentication Routes

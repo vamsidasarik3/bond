@@ -259,7 +259,7 @@
                         || drawerEnquiryForm.querySelector('input[name="_token"]')?.value;
 
                     try {
-                        const response = await fetch('{{ route('api.enquiries') }}', {
+                        const response = await fetch('{{ url('/api/enquiries') }}', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
