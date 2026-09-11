@@ -52,9 +52,7 @@ Route::get('/location', [LocationController::class, 'index'])->name('location');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
-// Public Dynamic API Endpoints
-Route::get('/api/plots', [PublicController::class, 'getPlotsApi'])->name('api.plots');
-Route::post('/api/enquiries', [PublicController::class, 'submitEnquiry'])->name('api.enquiries');
+
 
 // Authentication Routes
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -72,13 +70,16 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::get('projects', [AdminProjectController::class, 'index'])->name('projects.index');
 
     // Plot Management
+    Route::get('plots/export', [AdminPlotController::class, 'exportCsv'])->name('plots.export');
     Route::patch('plots/{plot}/status', [AdminPlotController::class, 'updateStatus'])->name('plots.update-status');
     Route::resource('plots', AdminPlotController::class);
 
     // Contact Enquiry Management
+    Route::get('enquiries/export', [EnquiryController::class, 'exportCsv'])->name('enquiries.export');
     Route::get('enquiries', [EnquiryController::class, 'index'])->name('enquiries.index');
     Route::get('enquiries/{enquiry}', [EnquiryController::class, 'show'])->name('enquiries.show');
     Route::put('enquiries/{enquiry}', [EnquiryController::class, 'update'])->name('enquiries.update');
+    Route::post('enquiries/{enquiry}/notes', [EnquiryController::class, 'storeNote'])->name('enquiries.notes.store');
     Route::delete('enquiries/{enquiry}', [EnquiryController::class, 'destroy'])->name('enquiries.destroy');
 
     // Admin Profile

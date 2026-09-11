@@ -115,4 +115,16 @@ return [
         'name' => env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel')),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Client Notification Recipient
+    |--------------------------------------------------------------------------
+    |
+    | Destination email address for internal notifications when a new lead
+    | is submitted from the website or landing pages.
+    |
+    */
+    'client_notification_email' => env('CLIENT_NOTIFICATION_EMAIL', 'info@navagruha.com'),
+
 ];
+

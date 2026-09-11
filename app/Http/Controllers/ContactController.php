@@ -82,11 +82,20 @@ class ContactController extends Controller
             'subject' => $subject,
             'message' => $fullMessage,
             'preferred_visit_date' => $visitDate,
+            'project' => 'RRR Prekshitha Enclave',
+            'landing_page' => '/contact',
+            'source' => 'Contact Page Form',
             'status' => 'new',
             'admin_notes' => !empty($extraDetails) ? implode(', ', $extraDetails) : null,
         ]);
 
+        try {
+            app(\App\Services\LeadNotificationService::class)->sendLeadNotifications($enquiry);
+        } catch (\Throwable $e) {
+            \Illuminate\Support\Facades\Log::error('ContactController: Notification service error: ' . $e->getMessage());
+        }
+
         return redirect()->route('contact')
-            ->with('success', 'Your site visit request has been scheduled successfully! Booking ID: #' . str_pad($enquiry->id, 5, '0', STR_PAD_LEFT) . '. Our venture coordinator will call you to confirm your visit.');
+            ->with('success', 'Your site visit request has been scheduled successfully! Reference: ' . $enquiry->lead_number . '. Our venture coordinator will call you to confirm your visit.');
     }
 }

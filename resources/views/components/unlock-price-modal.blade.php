@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="fs-12 text-white-50 font-copperplate mb-1">Preferred Site Visit Date (Optional)</label>
+                        <label class="fs-12 text-white-50 font-copperplate mb-1">Schedule Your Visit (Optional)</label>
                         <input type="date" name="preferred_visit_date" id="unlockDate" class="form-control" min="{{ date('Y-m-d') }}">
                     </div>
 

@@ -323,7 +323,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="fs-12 text-white-50 font-copperplate mb-1">Preferred Visit Date (Optional)</label>
+                                    <label class="fs-12 text-white-50 font-copperplate mb-1">Schedule Your Visit (Optional)</label>
                                     <input type="date" name="preferred_visit_date" class="form-control" value="{{ date('Y-m-d', strtotime('+1 day')) }}" min="{{ date('Y-m-d') }}">
                                 </div>
 

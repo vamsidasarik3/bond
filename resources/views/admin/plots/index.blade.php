@@ -30,11 +30,19 @@
             </a>
         </div>
 
-        <!-- Add Plot CTA Button -->
-        <a href="{{ route('admin.plots.create') }}" class="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold rounded-xl shadow-xs shadow-brand-600/25 transition-all shrink-0 w-full sm:w-auto">
-            <i class="fa-solid fa-plus text-xs"></i>
-            <span>Add New Plot</span>
-        </a>
+        <!-- Action Buttons: Export CSV & Add Plot -->
+        <div class="flex items-center gap-2.5 w-full sm:w-auto">
+            <a href="{{ route('admin.plots.export', request()->query()) }}" 
+               class="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-xl shadow-xs shadow-emerald-600/20 transition-all shrink-0 w-full sm:w-auto">
+                <i class="fa-solid fa-file-csv text-sm"></i>
+                <span>Export Plots CSV</span>
+            </a>
+
+            <a href="{{ route('admin.plots.create') }}" class="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold rounded-xl shadow-xs shadow-brand-600/25 transition-all shrink-0 w-full sm:w-auto">
+                <i class="fa-solid fa-plus text-xs"></i>
+                <span>Add New Plot</span>
+            </a>
+        </div>
     </div>
 
     <!-- Search & Filter Bar -->

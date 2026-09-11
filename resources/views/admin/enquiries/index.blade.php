@@ -7,27 +7,37 @@
 @section('content')
 <div class="space-y-6">
 
-    <!-- Top Status Filter Tabs -->
-    <div class="flex items-center gap-1.5 p-1 bg-white border border-slate-200/80 rounded-2xl shadow-card overflow-x-auto scrollbar-none w-full sm:w-auto">
-        <a href="{{ route('admin.enquiries.index') }}" 
-           class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 {{ !request('status') ? 'bg-brand-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50' }}">
-            All Leads ({{ $counts['all'] }})
-        </a>
-        <a href="{{ route('admin.enquiries.index', array_merge(request()->query(), ['status' => 'new'])) }}" 
-           class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 {{ request('status') === 'new' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50' }}">
-            New ({{ $counts['new'] }})
-        </a>
-        <a href="{{ route('admin.enquiries.index', array_merge(request()->query(), ['status' => 'contacted'])) }}" 
-           class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 {{ request('status') === 'contacted' ? 'bg-purple-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50' }}">
-            Contacted ({{ $counts['contacted'] }})
-        </a>
-        <a href="{{ route('admin.enquiries.index', array_merge(request()->query(), ['status' => 'in_progress'])) }}" 
-           class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 {{ request('status') === 'in_progress' ? 'bg-amber-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50' }}">
-            In Progress ({{ $counts['in_progress'] }})
-        </a>
-        <a href="{{ route('admin.enquiries.index', array_merge(request()->query(), ['status' => 'closed'])) }}" 
-           class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 {{ request('status') === 'closed' ? 'bg-emerald-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50' }}">
-            Closed ({{ $counts['closed'] }})
+    <!-- Top Controls: Status Filter Tabs & CSV Export Action -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <!-- Status Tabs -->
+        <div class="flex items-center gap-1.5 p-1 bg-white border border-slate-200/80 rounded-2xl shadow-card overflow-x-auto scrollbar-none w-full sm:w-auto">
+            <a href="{{ route('admin.enquiries.index') }}" 
+               class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 {{ !request('status') ? 'bg-brand-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50' }}">
+                All Leads ({{ $counts['all'] }})
+            </a>
+            <a href="{{ route('admin.enquiries.index', array_merge(request()->query(), ['status' => 'new'])) }}" 
+               class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 {{ request('status') === 'new' ? 'bg-blue-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50' }}">
+                New ({{ $counts['new'] }})
+            </a>
+            <a href="{{ route('admin.enquiries.index', array_merge(request()->query(), ['status' => 'contacted'])) }}" 
+               class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 {{ request('status') === 'contacted' ? 'bg-purple-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50' }}">
+                Contacted ({{ $counts['contacted'] }})
+            </a>
+            <a href="{{ route('admin.enquiries.index', array_merge(request()->query(), ['status' => 'in_progress'])) }}" 
+               class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 {{ request('status') === 'in_progress' ? 'bg-amber-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50' }}">
+                In Progress ({{ $counts['in_progress'] }})
+            </a>
+            <a href="{{ route('admin.enquiries.index', array_merge(request()->query(), ['status' => 'closed'])) }}" 
+               class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 {{ request('status') === 'closed' ? 'bg-emerald-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50' }}">
+                Closed ({{ $counts['closed'] }})
+            </a>
+        </div>
+
+        <!-- Export CSV Button -->
+        <a href="{{ route('admin.enquiries.export', request()->query()) }}" 
+           class="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-xl shadow-xs shadow-emerald-600/20 transition-all shrink-0 w-full sm:w-auto">
+            <i class="fa-solid fa-file-csv text-sm"></i>
+            <span>Export Leads CSV</span>
         </a>
     </div>
 
@@ -97,8 +107,16 @@
                     @forelse($enquiries as $enquiry)
                         <tr class="hover:bg-slate-50/70 transition-colors group">
                             
-                            <!-- Customer Name & Plot Chip -->
+                            <!-- Customer Name, Lead Number & Plot Chip -->
                             <td class="py-4 px-6 whitespace-nowrap">
+                                <div class="mb-1">
+                                    <span class="font-mono text-[10px] font-extrabold px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-700 tracking-wider">
+                                        {{ $enquiry->lead_number ?: 'LEAD-#' . $enquiry->id }}
+                                    </span>
+                                    @if($enquiry->project)
+                                        <span class="text-[10px] text-slate-400 ml-1">• {{ $enquiry->project }}</span>
+                                    @endif
+                                </div>
                                 <a href="{{ route('admin.enquiries.show', $enquiry) }}" class="font-extrabold text-sm text-slate-900 group-hover:text-brand-600 transition-colors block">
                                     {{ $enquiry->name }}
                                 </a>
@@ -199,9 +217,17 @@
         @forelse($enquiries as $enquiry)
             <div class="bg-white rounded-3xl border border-slate-200/80 p-4 shadow-card space-y-3">
                 
-                <!-- Header: Customer Name & Status Badge -->
+                <!-- Header: Customer Name, Lead Number & Status Badge -->
                 <div class="flex items-start justify-between gap-3 pb-3 border-b border-slate-100">
                     <div>
+                        <div class="mb-1">
+                            <span class="font-mono text-[10px] font-extrabold px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-700 tracking-wider">
+                                {{ $enquiry->lead_number ?: 'LEAD-#' . $enquiry->id }}
+                            </span>
+                            @if($enquiry->project)
+                                <span class="text-[10px] text-slate-400 ml-1">• {{ $enquiry->project }}</span>
+                            @endif
+                        </div>
                         <a href="{{ route('admin.enquiries.show', $enquiry) }}" class="font-extrabold text-base text-slate-900 hover:text-brand-600 transition-colors">
                             {{ $enquiry->name }}
                         </a>

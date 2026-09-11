@@ -1129,7 +1129,7 @@
                                 </div>
 
                                 <div class="col-md-6 col-12 ng-form-group">
-                                    <label class="ng-form-label" for="preferred_visit_date">Preferred Date</label>
+                                    <label class="ng-form-label" for="preferred_visit_date">Schedule Your Visit</label>
                                     <input type="date" id="preferred_visit_date" name="preferred_visit_date" class="ng-form-control" min="{{ date('Y-m-d') }}" value="{{ old('preferred_visit_date', date('Y-m-d', strtotime('+1 day'))) }}">
                                 </div>
                                 <div class="col-md-6 col-12 ng-form-group">

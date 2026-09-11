@@ -11,9 +11,9 @@ use Illuminate\Validation\Rule;
 class PlotController extends Controller
 {
     /**
-     * Display a listing of plots with search, filtering, and pagination.
+     * Build the filtered and sorted plot query based on request parameters.
      */
-    public function index(Request $request)
+    protected function buildPlotQuery(Request $request)
     {
         $query = Plot::query();
 
@@ -56,6 +56,16 @@ class PlotController extends Controller
             $query->orderBy('plot_number', 'asc');
         }
 
+        return $query;
+    }
+
+    /**
+     * Display a listing of plots with search, filtering, and pagination.
+     */
+    public function index(Request $request)
+    {
+        $query = $this->buildPlotQuery($request);
+
         $plots = $query->paginate(10)->withQueryString();
 
         // Status counts for filter tabs
@@ -67,6 +77,76 @@ class PlotController extends Controller
         ];
 
         return view('admin.plots.index', compact('plots', 'counts'));
+    }
+
+    /**
+     * Export plot inventory to a downloadable CSV file.
+     */
+    public function exportCsv(Request $request)
+    {
+        $query = $this->buildPlotQuery($request);
+
+        $filename = 'plots-inventory-export-' . now()->format('Y-m-d_His') . '.csv';
+
+        $headers = [
+            'Content-Type' => 'text/csv; charset=UTF-8',
+            'Content-Disposition' => "attachment; filename=\"{$filename}\"",
+            'Pragma' => 'no-cache',
+            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+            'Expires' => '0',
+        ];
+
+        $columns = [
+            'Plot Number',
+            'Title',
+            'Status',
+            'Plot Type',
+            'Size (Sq. Yards)',
+            'Facing',
+            'Road Width',
+            'Boundary Dimensions',
+            'Price Per Sq. Yard (INR)',
+            'Total Price (INR)',
+            'Vaastu Compliant',
+            'Notes',
+            'Created At',
+            'Last Updated',
+        ];
+
+        $callback = function () use ($query, $columns) {
+            $handle = fopen('php://output', 'w');
+
+            // UTF-8 BOM for Microsoft Excel compatibility
+            fputs($handle, "\xEF\xBB\xBF");
+
+            // Write CSV column headers
+            fputcsv($handle, $columns);
+
+            $query->chunk(200, function ($plots) use ($handle) {
+                foreach ($plots as $plot) {
+                    fputcsv($handle, [
+                        $plot->plot_number,
+                        $plot->title ?? '',
+                        ucfirst($plot->status),
+                        $plot->plot_type ? ucfirst(str_replace('_', ' ', $plot->plot_type)) : 'Standard',
+                        $plot->size_sq_yards,
+                        $plot->facing ?? 'N/A',
+                        $plot->road_width_ft ? $plot->road_width_ft . " ft" : '',
+                        $plot->boundary_dimensions ?? '',
+                        $plot->price_per_sq_yard,
+                        $plot->total_price,
+                        $plot->is_vaastu_compliant ? 'Yes' : 'No',
+                        $plot->notes ?? '',
+                        $plot->created_at ? $plot->created_at->format('Y-m-d H:i:s') : '',
+                        $plot->updated_at ? $plot->updated_at->format('Y-m-d H:i:s') : '',
+                    ]);
+                }
+            });
+
+            fclose($handle);
+        };
+
+        return response()->stream($callback, 200, $headers);
     }
 
     /**

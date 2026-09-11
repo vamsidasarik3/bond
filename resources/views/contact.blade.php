@@ -121,9 +121,9 @@
                                 <input type="email" name="email" class="form-control" placeholder="name@example.com" value="{{ old('email') }}">
                             </div>
 
-                            <!-- 4. Preferred Visit Date (Optional) -->
+                            <!-- 4. Schedule Your Visit (Optional) -->
                             <div class="col-md-6">
-                                <label class="fs-12 text-white-50 font-copperplate mb-1">Preferred Visit Date (Optional)</label>
+                                <label class="fs-12 text-white-50 font-copperplate mb-1">Schedule Your Visit (Optional)</label>
                                 <input type="date" name="preferred_visit_date" class="form-control" min="{{ date('Y-m-d') }}" value="{{ old('preferred_visit_date') }}">
                             </div>
 
