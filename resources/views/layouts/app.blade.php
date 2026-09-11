@@ -53,7 +53,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Official NAVAGRUHA Design System -->
-    <link href="{{ asset('css/navagruha-brand.css') }}?v={{ filemtime(public_path('css/navagruha-brand.css')) }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/navagruha-brand.css') }}?v={{ file_exists(public_path('css/navagruha-brand.css')) ? filemtime(public_path('css/navagruha-brand.css')) : '1.0' }}" rel="stylesheet" type="text/css">
 
     @stack('styles')
 </head>
