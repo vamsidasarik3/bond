@@ -1541,14 +1541,82 @@ select.form-control:focus {
    8. MODERN RESPONSIVE FOOTER DESIGN SYSTEM
    ============================================================== */
 .site-footer {
-  background: #0d1721 !important;
-  background-image: linear-gradient(to bottom, rgba(13, 23, 33, 0.95), rgba(10, 18, 26, 0.98)), url('../../images/navagruha-pattern.svg');
-  background-size: cover, 500px 333px;
-  background-repeat: no-repeat, repeat;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: #060d06 !important;
   color: #94a3b8 !important;
   position: relative;
   overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Bulletproof Footer Grid (Desktop: 4 Columns, Tablet: 2x2, Mobile: 1 Col) */
+.site-footer .footer-main-row {
+  display: grid !important;
+  grid-template-columns: 1.35fr 0.75fr 1.35fr 1.35fr !important;
+  gap: 36px 28px !important;
+  margin-bottom: 40px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+}
+
+.site-footer .footer-main-row > * {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Tablet Grid (650px to 991px): Clean 2x2 Grid */
+@media (max-width: 991px) and (min-width: 650px) {
+  .site-footer .footer-main-row {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 36px 28px !important;
+  }
+}
+
+/* Mobile Grid (under 650px): Clean Single Column */
+@media (max-width: 649px) {
+  .site-footer {
+    padding-bottom: 85px !important;
+  }
+  .site-footer .footer-main-row {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .site-footer .text-md-start, 
+  .site-footer .text-md-end { 
+    text-align: center !important; 
+  }
+}
+
+.footer-brand-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 240px;
+  width: 100%;
+}
+
+.brand-footer-logo {
+  height: 86px;
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-tagline {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  color: var(--secondary-color, #71b644);
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+  margin-top: 4px;
 }
 
 .footer-top-cta {
