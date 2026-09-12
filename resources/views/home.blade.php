@@ -552,9 +552,9 @@
                     <div class="row g-4">
                         <!-- Creative 3: AIIMS Bibinagar 5 Mins -->
                         <div class="col-lg-4 col-md-6 col-12">
-                            <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative3.jpeg') }}', 'Reach AIIMS Bibinagar in 5 Minutes', '750-Bed Premier Medical Institute & Hospital')">
+                            <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('images/creatives/creative3.jpeg') }}', 'Reach AIIMS Bibinagar in 5 Minutes', '750-Bed Premier Medical Institute &amp; Hospital')">
                                 <div class="creative-img-wrap">
-                                    <img src="{{ asset('data/creatives/creative3.jpeg') }}" alt="Outdoor highway billboard showcasing 5-minute proximity to AIIMS Bibinagar medical institute" class="creative-img" loading="lazy">
+                                    <img src="{{ asset('images/creatives/creative3.jpeg') }}" alt="Outdoor highway billboard showcasing 5-minute proximity to AIIMS Bibinagar medical institute" class="creative-img" loading="lazy">
                                     <div class="creative-badge">05 MINS</div>
                                     <div class="creative-zoom-overlay">
                                         <i class="fa-solid fa-magnifying-glass-plus"></i>
@@ -570,9 +570,9 @@
 
                         <!-- Creative 2: Bibinagar MMTS 5 Mins -->
                         <div class="col-lg-4 col-md-6 col-12">
-                            <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative2.jpeg') }}', 'Reach Bibinagar MMTS in 5 Minutes', 'Direct Suburban Railway to Secunderabad & Hyderabad Central')">
+                            <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('images/creatives/creative2.jpeg') }}', 'Reach Bibinagar MMTS in 5 Minutes', 'Direct Suburban Railway to Secunderabad &amp; Hyderabad Central')">
                                 <div class="creative-img-wrap">
-                                    <img src="{{ asset('data/creatives/creative2.jpeg') }}" alt="Outdoor highway billboard highlighting 5-minute commute to Bibinagar MMTS suburban railway station" class="creative-img" loading="lazy">
+                                    <img src="{{ asset('images/creatives/creative2.jpeg') }}" alt="Outdoor highway billboard highlighting 5-minute commute to Bibinagar MMTS suburban railway station" class="creative-img" loading="lazy">
                                     <div class="creative-badge">05 MINS</div>
                                     <div class="creative-zoom-overlay">
                                         <i class="fa-solid fa-magnifying-glass-plus"></i>
@@ -588,9 +588,9 @@
 
                         <!-- Creative 1: National Highway NH-163 5 Mins -->
                         <div class="col-lg-4 col-md-6 col-12">
-                            <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative1.jpeg') }}', 'Reach National Highway NH-163 in 5 Minutes', 'HMDA Approved Layout LP No: 000085/LO/Plg/HMDA/2024 & TG RERA: P02200008537')">
+                            <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('images/creatives/creative1.jpeg') }}', 'Reach National Highway NH-163 in 5 Minutes', 'HMDA Approved Layout LP No: 000085/LO/Plg/HMDA/2024 &amp; TG RERA: P02200008537')">
                                 <div class="creative-img-wrap">
-                                    <img src="{{ asset('data/creatives/creative1.jpeg') }}" alt="Outdoor highway billboard featuring HMDA approved residential plots near NH-163 Warangal highway" class="creative-img" loading="lazy">
+                                    <img src="{{ asset('images/creatives/creative1.jpeg') }}" alt="Outdoor highway billboard featuring HMDA approved residential plots near NH-163 Warangal highway" class="creative-img" loading="lazy">
                                     <div class="creative-badge">05 MINS</div>
                                     <div class="creative-zoom-overlay">
                                         <i class="fa-solid fa-magnifying-glass-plus"></i>

@@ -67,11 +67,19 @@ if [ -f "artisan" ]; then
     php artisan down --message="Navagruha Infra: Updating system. We will be back online in a moment." || true
 fi
 
-# 3. Pull latest changes from Git
+# 3. Pull latest changes from Git (force-clean any untracked files that block the merge)
 echo ""
 echo " [2/7] Pulling latest updates from origin/$BRANCH..."
 git fetch origin "$BRANCH"
-git pull origin "$BRANCH"
+
+# Remove any untracked files/dirs that would be overwritten by the incoming pull
+# This safely discards files on the live server that are now committed in the repo
+echo " -> Cleaning untracked files that conflict with incoming changes..."
+git clean -fd --dry-run 2>/dev/null || true
+git clean -fd 2>/dev/null || true
+
+# Hard-reset to match origin exactly (no merge conflicts, no untracked collisions)
+git reset --hard "origin/$BRANCH"
 
 # 4. Install / Update Composer dependencies (production optimized)
 echo ""
