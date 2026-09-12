@@ -2559,21 +2559,31 @@ input[type="date"].modal-input {
   margin-top: 1.5rem;
 }
 
-/* Desktop Grid (min-width: 992px): Balanced 4 Columns */
-@media (min-width: 992px) {
-  .site-footer .footer-col-brand { flex: 0 0 28% !important; max-width: 28% !important; width: 28% !important; }
-  .site-footer .footer-col-links { flex: 0 0 16% !important; max-width: 16% !important; width: 16% !important; }
-  .site-footer .footer-col-venture { flex: 0 0 28% !important; max-width: 28% !important; width: 28% !important; }
-  .site-footer .footer-col-corp { flex: 0 0 28% !important; max-width: 28% !important; width: 28% !important; }
-  .site-footer .pe-lg-2 { padding-right: 1rem !important; }
+/* Bulletproof Footer Grid (Desktop: 4 Columns, Tablet: 2x2, Mobile: 1 Col) */
+.site-footer .footer-main-row {
+  display: grid !important;
+  grid-template-columns: 1.35fr 0.75fr 1.35fr 1.35fr !important;
+  gap: 36px 28px !important;
+  margin-bottom: 40px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+}
+
+.site-footer .footer-main-row > * {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-top: 0 !important;
 }
 
 /* Tablet Grid (650px to 991px): Clean 2x2 Grid */
 @media (max-width: 991px) and (min-width: 650px) {
-  .site-footer .row.g-4 > * {
-    flex: 0 0 50% !important;
-    max-width: 50% !important;
-    margin-bottom: 2rem;
+  .site-footer .footer-main-row {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 36px 28px !important;
   }
 }
 
@@ -2582,10 +2592,9 @@ input[type="date"].modal-input {
   .site-footer {
     padding-bottom: 85px !important; /* clearance for mobile sticky bar */
   }
-  .site-footer .row.g-4 > * {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-    margin-bottom: 1.75rem;
+  .site-footer .footer-main-row {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
   }
   .site-footer .text-md-start, 
   .site-footer .text-md-end { 
