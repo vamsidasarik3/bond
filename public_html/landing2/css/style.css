@@ -1019,7 +1019,7 @@ header.site-header.scrolled .brand-header-logo {
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 60px 40px;
+  padding: 85px 40px 50px;
 }
 .layout-stats-bg {
   position: absolute;
