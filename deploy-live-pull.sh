@@ -61,6 +61,9 @@ fi
 echo " Target Branch : origin/$BRANCH"
 echo ""
 
+# Always bring application back online if script exits or encounters an error
+trap 'php artisan up 2>/dev/null || true' EXIT
+
 # 2. Put application into Maintenance Mode (graceful)
 echo " [1/7] Putting application in maintenance mode..."
 if [ -f "artisan" ]; then
@@ -73,13 +76,15 @@ echo " [2/7] Pulling latest updates from origin/$BRANCH..."
 git fetch origin "$BRANCH"
 
 # Remove any untracked files/dirs that would be overwritten by the incoming pull
-# This safely discards files on the live server that are now committed in the repo
 echo " -> Cleaning untracked files that conflict with incoming changes..."
 git clean -fd --dry-run 2>/dev/null || true
 git clean -fd 2>/dev/null || true
 
 # Hard-reset to match origin exactly (no merge conflicts, no untracked collisions)
 git reset --hard "origin/$BRANCH"
+
+# CRITICAL: Ensure root .htaccess does NOT exist (HestiaCP requires .htaccess only in public_html)
+rm -f .htaccess 2>/dev/null || true
 
 # 4. Install / Update Composer dependencies (production optimized)
 echo ""
@@ -105,18 +110,22 @@ fi
 echo ""
 echo " [5/7] Ensuring storage symlink..."
 mkdir -p storage/app/public
-php artisan storage:link --force 2>/dev/null || true
+if [ ! -L "public_html/storage" ]; then
+    ln -s "$(pwd)/storage/app/public" "$(pwd)/public_html/storage" 2>/dev/null || php artisan storage:link 2>/dev/null || true
+else
+    echo " -> Storage symlink already exists."
+fi
 
 # 7. Clear & Optimize Laravel Caches for Production
 echo ""
 echo " [6/7] Building production caches (config, routes, views)..."
-php artisan config:clear
-php artisan route:clear
-php artisan view:clear
+php artisan config:clear || true
+php artisan route:clear || true
+php artisan view:clear || true
 
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+php artisan config:cache || true
+php artisan route:cache || true
+php artisan view:cache || true
 
 # Set permissions for web server
 echo " Setting file permissions on storage and bootstrap/cache..."
@@ -125,7 +134,7 @@ chmod -R 775 storage bootstrap/cache 2>/dev/null || true
 # 8. Bring Application back Online
 echo ""
 echo " [7/7] Bringing application back online..."
-php artisan up
+php artisan up || true
 
 echo ""
 echo "=========================================================="
