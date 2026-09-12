@@ -64,7 +64,7 @@ echo ""
 # 2. Put application into Maintenance Mode (graceful)
 echo " [1/7] Putting application in maintenance mode..."
 if [ -f "artisan" ]; then
-    php artisan down --message="Navagruha Infra: Updating system. We will be back online in a moment." || true
+    php artisan down || true
 fi
 
 # 3. Pull latest changes from Git (force-clean any untracked files that block the merge)
@@ -104,7 +104,8 @@ fi
 # 6. Ensure Storage Symlink
 echo ""
 echo " [5/7] Ensuring storage symlink..."
-php artisan storage:link || true
+mkdir -p storage/app/public
+php artisan storage:link --force 2>/dev/null || true
 
 # 7. Clear & Optimize Laravel Caches for Production
 echo ""
