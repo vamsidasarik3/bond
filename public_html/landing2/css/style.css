@@ -547,6 +547,29 @@ header.site-header.scrolled .brand-header-logo {
   font-size: 0.85rem;
   color: #94a3b8;
 }
+.stat-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 10px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.stat-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+.stat-highlight-item i {
+  color: var(--secondary-color);
+  font-size: 0.75rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
 
 /* ==============================================================
    3. 6-CARD INFRASTRUCTURE SHOWCASE (EXACT STAGING LOOK)
