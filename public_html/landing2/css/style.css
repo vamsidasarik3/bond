@@ -1743,11 +1743,11 @@ header.site-header.scrolled .brand-header-logo {
   margin-bottom: 50px;
 }
 .brand-footer-logo {
-  height: 74px;
+  height: 86px;
   width: auto;
-  max-width: 270px;
+  max-width: 240px;
   object-fit: contain;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .footer-col-h4 {
   font-family: var(--font-heading);
@@ -2600,17 +2600,32 @@ input[type="date"].modal-input {
   }
 }
 
+.footer-brand-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 240px;
+  width: 100%;
+}
+
 .brand-footer-logo {
-  height: 60px;
+  height: 86px;
   width: auto;
+  max-width: 240px;
+  object-fit: contain;
+  display: block;
 }
 
 .brand-tagline {
   font-family: var(--font-heading);
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
   color: var(--secondary-color, #71b644);
   font-weight: 700;
+  text-align: center;
+  width: 100%;
+  margin-top: 4px;
 }
 
 .footer-widget-title {

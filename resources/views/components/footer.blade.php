@@ -7,10 +7,12 @@
             <!-- Col 1: Brand & Identity & Approvals -->
             <div class="col-lg-3 col-md-6 col-12">
                 <div class="pe-lg-2">
-                    <a href="{{ route('home') }}" class="d-inline-block mb-3">
-                        <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha Infra Developers" class="brand-footer-logo" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
-                    </a>
-                    <div class="brand-tagline mb-3">REDEFINING REALITY</div>
+                    <div class="footer-brand-wrap mb-4">
+                        <a href="{{ route('home') }}" class="d-inline-block mb-2">
+                            <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha Infra Developers" class="brand-footer-logo" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
+                        </a>
+                        <div class="brand-tagline">REDEFINING REALITY</div>
+                    </div>
 
                     <!-- Social Icons -->
                     <div class="d-flex align-items-center gap-2 flex-wrap mb-4">
@@ -57,7 +59,7 @@
             </div>
 
             <!-- Col 3: Venture Location - RRR Prekshitha Enclave -->
-            <div class="col-lg-3 col-md-6 col-12">
+            <div class="col-lg-4 col-md-6 col-12">
                 <div class="footer-widget-title">Venture Location</div>
                 
                 <div class="footer-contact-item mb-3">
@@ -70,38 +72,6 @@
                             Near AIIMS Bibinagar, NH-163 Warangal Highway, Bibinagar, Yadadri Bhuvanagiri Dist, Telangana 508126.
                         </span>
                         <a href="https://maps.app.goo.gl/jTyRs8yxpdLZE6pd7" target="_blank" rel="noopener noreferrer" class="footer-map-btn">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span>Open in Google Maps</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="footer-contact-item mb-0">
-                    <div class="footer-contact-icon">
-                        <i class="fa-regular fa-clock"></i>
-                    </div>
-                    <div>
-                        <strong class="text-white d-block font-copperplate fs-12 mb-0.5">Site Visit Timings</strong>
-                        <span class="text-white-50 fs-12">Monday to Sunday: 9:00 AM to 6:30 PM</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Col 4: Corporate Office & Address -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="footer-widget-title">Corporate Office</div>
-                
-                <div class="footer-contact-item mb-3">
-                    <div class="footer-contact-icon">
-                        <i class="fa-solid fa-building"></i>
-                    </div>
-                    <div>
-                        <strong class="text-white d-block font-copperplate fs-12 mb-1">Corporate Headquarters</strong>
-                        <span class="text-white-50 fs-12 lh-base d-block mb-2">
-                            Plot No. 109, Shashank Towers, 1st Floor, Uppal Bhagayath, Near Nagole Metro Station, Hyderabad, Telangana 500039.
-                        </span>
-                        <a href="https://maps.app.goo.gl/nzWu5MLr211ptnJ46" target="_blank" rel="noopener noreferrer" class="footer-map-btn">
                             <i class="fa-solid fa-location-dot"></i>
                             <span>Open in Google Maps</span>
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
@@ -126,6 +96,38 @@
                     <div>
                         <strong class="text-white d-block font-copperplate fs-12 mb-0.5">Email Support</strong>
                         <a href="mailto:info@navagruha.com" class="text-white-50 text-decoration-none fs-12">info@navagruha.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Col 4: Corporate Office & Address -->
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="footer-widget-title">Corporate Office</div>
+                
+                <div class="footer-contact-item mb-3">
+                    <div class="footer-contact-icon">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div>
+                        <strong class="text-white d-block font-copperplate fs-12 mb-1">Corporate Headquarters</strong>
+                        <span class="text-white-50 fs-12 lh-base d-block mb-2">
+                            Plot No. 109, Shashank Towers, 1st Floor, Uppal Bhagayath, Near Nagole Metro Station, Hyderabad, Telangana 500039.
+                        </span>
+                        <a href="https://maps.app.goo.gl/nzWu5MLr211ptnJ46" target="_blank" rel="noopener noreferrer" class="footer-map-btn">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Open in Google Maps</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-contact-item mb-0">
+                    <div class="footer-contact-icon">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <div>
+                        <strong class="text-white d-block font-copperplate fs-12 mb-0.5">Office Timings</strong>
+                        <span class="text-white-50 fs-12">Monday to Sunday: 9:00 AM to 6:30 PM</span>
                     </div>
                 </div>
             </div>
