@@ -94,14 +94,22 @@ class PublicController extends Controller
         ]);
 
         // 3. Normalize & Persist Lead in Database
+        $rawSource = !empty($validated['source']) ? trim($validated['source']) : 'Landing page';
+        $source = str_ireplace('Landing Page 2', 'Landing page', $rawSource);
+
+        $landingPage = !empty($validated['landing_page']) ? trim($validated['landing_page']) : ($request->header('Referer') ? parse_url($request->header('Referer'), PHP_URL_PATH) : '/');
+        if ($landingPage === '/landing2/' || $landingPage === '/landing2') {
+            $landingPage = '/';
+        }
+
         $enquiry = ContactEnquiry::create([
             'name' => trim($validated['name']),
             'email' => strtolower(trim($validated['email'])),
             'phone' => trim($validated['phone']),
             'preferred_visit_date' => !empty($validated['preferred_visit_date']) ? $validated['preferred_visit_date'] : null,
             'project' => !empty($validated['project']) ? trim($validated['project']) : 'RRR Prekshitha Enclave',
-            'landing_page' => !empty($validated['landing_page']) ? trim($validated['landing_page']) : ($request->header('Referer') ? parse_url($request->header('Referer'), PHP_URL_PATH) : '/landing2/'),
-            'source' => !empty($validated['source']) ? trim($validated['source']) : 'Website',
+            'landing_page' => $landingPage,
+            'source' => $source,
             'utm_source' => $validated['utm_source'] ?? null,
             'utm_medium' => $validated['utm_medium'] ?? null,
             'utm_campaign' => $validated['utm_campaign'] ?? null,

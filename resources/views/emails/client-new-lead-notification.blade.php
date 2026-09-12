@@ -114,11 +114,11 @@
           </tr>
           <tr>
             <td class="td-label">Lead Source</td>
-            <td class="td-val">{{ $enquiry->source ?: 'Website' }}</td>
+            <td class="td-val">{{ str_ireplace('Landing Page 2', 'Landing page', $enquiry->source ?: 'Landing page') }}</td>
           </tr>
           <tr>
             <td class="td-label">Landing Page</td>
-            <td class="td-val" style="font-family: monospace; font-size: 12px;">{{ $enquiry->landing_page ?: '/landing2/' }}</td>
+            <td class="td-val" style="font-family: monospace; font-size: 12px;">{{ str_ireplace('/landing2/', '/', $enquiry->landing_page ?: '/') }}</td>
           </tr>
           @if(!empty($enquiry->utm_source))
           <tr>

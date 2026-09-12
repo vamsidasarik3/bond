@@ -87,8 +87,8 @@ class LeadSystemAuditTest extends TestCase
             'phone' => '9876501234',
             'preferred_visit_date' => null, // Optional field left empty
             'project' => 'RRR Prekshitha Enclave',
-            'landing_page' => '/landing2/',
-            'source' => 'Landing Page 2',
+            'landing_page' => '/',
+            'source' => 'Landing page',
             'utm_source' => 'google_ads',
             'utm_campaign' => 'aiims_plots',
         ]);
@@ -114,8 +114,8 @@ class LeadSystemAuditTest extends TestCase
         $this->assertEquals('9876501234', $lead->phone);
         $this->assertNull($lead->preferred_visit_date);
         $this->assertEquals('RRR Prekshitha Enclave', $lead->project);
-        $this->assertEquals('/landing2/', $lead->landing_page);
-        $this->assertEquals('Landing Page 2', $lead->source);
+        $this->assertEquals('/', $lead->landing_page);
+        $this->assertEquals('Landing page', $lead->source);
         $this->assertEquals('google_ads', $lead->utm_source);
         $this->assertEquals('aiims_plots', $lead->utm_campaign);
         $this->assertEquals('new', $lead->status);
@@ -238,7 +238,7 @@ class LeadSystemAuditTest extends TestCase
         $this->assertStringContainsString('9617699699', $rendered);
         $this->assertStringContainsString('mahesh@example.com', $rendered);
         $this->assertStringContainsString('RRR Prekshitha Enclave', $rendered);
-        $this->assertStringContainsString('Landing Page 2', $rendered);
+        $this->assertStringContainsString('Landing page', $rendered);
         $this->assertStringContainsString('facebook_lead_ad', $rendered);
         $this->assertStringContainsString('/admin/enquiries/88', $rendered);
     }

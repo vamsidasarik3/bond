@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
         preferred_visit_date: dateVal || null,
         project: document.getElementById('leadProject')?.value || 'RRR Prekshitha Enclave',
         landing_page: document.getElementById('leadLandingPage')?.value || window.location.pathname,
-        source: document.getElementById('leadSource')?.value || 'Landing Page 2',
+        source: document.getElementById('leadSource')?.value || 'Landing page',
         utm_source: urlParams.get('utm_source') || null,
         utm_medium: urlParams.get('utm_medium') || null,
         utm_campaign: urlParams.get('utm_campaign') || null,
@@ -569,37 +569,37 @@ document.addEventListener('DOMContentLoaded', () => {
       eyebrow: 'World-Class Amenities & Features',
       title: 'Enquire About Amenities',
       subtitle: 'Schedule a guided visit to tour the grand entrance arch, landscaped parks, and sports amenities.',
-      source: 'Landing Page 2 - Amenities Section Popup'
+      source: 'Landing page - Amenities Section Popup'
     },
     gallery: {
       eyebrow: 'Venture Showcase & Photos',
       title: 'Explore Prekshitha Enclave',
       subtitle: 'View high-resolution venture photos or book a personalized site tour to inspect plots in person.',
-      source: 'Landing Page 2 - Gallery Section Popup'
+      source: 'Landing page - Gallery Section Popup'
     },
     layout: {
       eyebrow: 'Sanctioned Layout & Master Plan',
       title: 'Plot Availability & Pricing',
       subtitle: 'Get instant access to sanctioned layout boundaries, East/West facing plots, and price details.',
-      source: 'Landing Page 2 - Master Plan Section Popup'
+      source: 'Landing page - Master Plan Section Popup'
     },
     location: {
       eyebrow: 'Strategic Location Matrix',
       title: 'Location & Connectivity',
       subtitle: 'Discover rapid connectivity to AIIMS Bibinagar, Warangal Highway & RRR. Plan your site visit today.',
-      source: 'Landing Page 2 - Location Section Popup'
+      source: 'Landing page - Location Section Popup'
     },
     'schedule-visit': {
       eyebrow: 'Exclusive Site Tour',
       title: 'Schedule Your Site Visit',
       subtitle: 'Select your preferred date and our property advisor will arrange comfortable site transportation.',
-      source: 'Landing Page 2 - Schedule Visit Section Popup'
+      source: 'Landing page - Schedule Visit Section Popup'
     },
     default: {
       eyebrow: 'Exclusive Site Visit & Pricing',
       title: 'Plan Your Visit',
       subtitle: 'Share your details and our property advisor will get in touch with you shortly.',
-      source: 'Landing Page 2 - Sticky Tab Popup'
+      source: 'Landing page - Sticky Tab Popup'
     }
   };
 
@@ -784,8 +784,8 @@ document.addEventListener('DOMContentLoaded', () => {
         phone: phone,
         preferred_visit_date: dateVal || null,
         project: document.getElementById('modalLeadProject')?.value || 'RRR Prekshitha Enclave',
-        landing_page: document.getElementById('modalLeadLandingPage')?.value || '/landing2/',
-        source: document.getElementById('modalLeadSource')?.value || 'Landing Page 2 - Section Navigation Popup',
+        landing_page: document.getElementById('modalLeadLandingPage')?.value || '/',
+        source: document.getElementById('modalLeadSource')?.value || 'Landing page - Section Navigation Popup',
         utm_source: urlParams.get('utm_source') || null,
         utm_medium: urlParams.get('utm_medium') || null,
         utm_campaign: urlParams.get('utm_campaign') || null,
