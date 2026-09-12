@@ -2131,10 +2131,10 @@ input[type="date"].modal-input {
 
 /* Desktop Grid (min-width: 992px): Balanced 4 Columns */
 @media (min-width: 992px) {
-  .site-footer .col-lg-3.footer-col-brand { flex: 0 0 28% !important; max-width: 28% !important; }
-  .site-footer .col-lg-2.footer-col-links { flex: 0 0 16% !important; max-width: 16% !important; }
-  .site-footer .col-lg-3.footer-col-venture { flex: 0 0 27% !important; max-width: 27% !important; }
-  .site-footer .col-lg-4.footer-col-corp { flex: 0 0 29% !important; max-width: 29% !important; }
+  .site-footer .footer-col-brand { flex: 0 0 28% !important; max-width: 28% !important; width: 28% !important; }
+  .site-footer .footer-col-links { flex: 0 0 16% !important; max-width: 16% !important; width: 16% !important; }
+  .site-footer .footer-col-venture { flex: 0 0 28% !important; max-width: 28% !important; width: 28% !important; }
+  .site-footer .footer-col-corp { flex: 0 0 28% !important; max-width: 28% !important; width: 28% !important; }
   .site-footer .pe-lg-2 { padding-right: 1rem !important; }
 }
 
