@@ -1,182 +1,1068 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navagruha Infra Developers — Client Demos & Admin Portal</title>
-    <link rel="icon" href="images/favicon.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #142533;
-            color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-        }
-        .container {
-            width: 100%;
-            max-width: 580px;
-            background: #1a3042;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 20px;
-            padding: 40px 32px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
-            text-align: center;
-        }
-        .logo {
-            max-height: 52px;
-            width: auto;
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-family: 'Copperplate', 'Copperplate Gothic Bold', 'Cinzel', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 6px;
-            letter-spacing: 0.04em;
-        }
-        p.subtitle {
-            font-size: 13px;
-            color: #94a3b8;
-            margin-bottom: 28px;
-        }
-        .demo-list {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-        .demo-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #142533;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 14px;
-            padding: 18px 20px;
-            text-decoration: none;
-            color: #ffffff;
-            transition: all 0.25s ease;
-        }
-        .demo-item:hover {
-            background: #20394e;
-            border-color: #71b644;
-            box-shadow: 0 6px 20px rgba(113, 182, 68, 0.2);
-            transform: translateY(-2px);
-        }
-        .demo-info {
-            text-align: left;
-        }
-        .demo-name {
-            font-family: 'Copperplate', 'Copperplate Gothic Bold', 'Cinzel', serif;
-            font-size: 15px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 3px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .demo-desc {
-            font-size: 12px;
-            color: #94a3b8;
-        }
-        .demo-badge {
-            font-size: 10px;
-            text-transform: uppercase;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 6px;
-            background: rgba(113, 182, 68, 0.2);
-            color: #71b644;
-            border: 1px solid rgba(113, 182, 68, 0.4);
-        }
-        .demo-btn {
-            background: #71b644;
-            color: #ffffff;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 10px 18px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            flex-shrink: 0;
-            transition: background 0.2s ease;
-        }
-        .demo-item:hover .demo-btn {
-            background: #5c9735;
-        }
-        .footer-text {
-            margin-top: 28px;
-            font-size: 12px;
-            color: #64748b;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Villa Plots in Bibinagar | RRR Prekshitha Enclave | Navagruha</title>
+  <meta name="description" content="Explore villa plots in Bibinagar at RRR Prekshitha Enclave. Offering HMDA final approved plots near AIIMS Medical University Campus, Bibinagar and RERA approved plots with premium gated community infrastructure.">
+  <meta name="keywords" content="Villa Plots in Bibinagar, Plots for Sale near AIIMS Medical University Campus, HMDA Final Approved Plots in Bibinagar, RERA Approved Plots in Bibinagar, Gated Community Plots in Bibinagar, Premium Villa Plots in Bibinagar">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://rrrprekshitha.navagruha.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Villa Plots in Bibinagar | RRR Prekshitha Enclave">
+  <meta property="og:description" content="Explore villa plots in Bibinagar at RRR Prekshitha Enclave. Offering HMDA final approved plots near AIIMS Medical University Campus, Bibinagar and RERA approved plots.">
+  <meta property="og:image" content="landing2/images/hero-avenue.png">
+  <meta property="og:url" content="https://rrrprekshitha.navagruha.com/">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://navagruha.com/wp-content/uploads/2026/07/cropped-ChatGPT-Image-Jul-2-2026-12_15_26-PM-32x32.png" type="image/png">
+
+  <!-- Font Awesome 6.5.1 (Matches staging.vkrishna.in) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Google Fonts: Cinzel (Architectural Serif / Copperplate Style) + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="landing2/css/style.css?v=3.5">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    "name": "Navagruha RRR Prekshitha Enclave",
+    "description": "17-acre HMDA & TGRERA approved residential plotted community near AIIMS Medical University Campus, Bibinagar, Hyderabad.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Near AIIMS Medical University Campus",
+      "addressLocality": "Bibinagar",
+      "addressRegion": "Telangana",
+      "postalCode": "508126",
+      "addressCountry": "IN"
+    },
+    "telephone": "+919617699699"
+  }
+  </script>
 </head>
 <body>
-    <div class="container">
-        <img src="images/navagruha-logo-white.png" alt="Navagruha Infra Developers" class="logo" onerror="this.onerror=null; this.src='images/navagruha-logo.png';">
-        <h1>Venture Portals &amp; Demos</h1>
-        <p class="subtitle">Finalized Client Brand Direction: <strong>#234159</strong> &bull; <strong>#71b644</strong> &bull; <strong>#dc3526</strong> &bull; <strong>Copperplate</strong></p>
-        
-        <div class="demo-list">
-            <!-- Finalized Demo 1 -->
-            <a href="demo1/" class="demo-item" style="border-color: #71b644; background: rgba(113, 182, 68, 0.08);">
-                <div class="demo-info">
-                    <div class="demo-name">
-                        <span>Demo 1 (Finalized Direction)</span>
-                        <span class="demo-badge">Primary Reference</span>
-                    </div>
-                    <div class="demo-desc">Demo 1 Look & Feel + Demo 3 Plot Details System</div>
-                </div>
-                <div class="demo-btn">
-                    Launch <i class="fa-solid fa-arrow-right"></i>
-                </div>
-            </a>
 
-            <!-- Demo 3 -->
-            <a href="demo3/" class="demo-item">
-                <div class="demo-info">
-                    <div class="demo-name">
-                        <span>Demo 3</span>
-                        <span class="demo-badge" style="background: rgba(35, 65, 89, 0.4); color: #93c5fd; border-color: rgba(147, 197, 253, 0.4);">Details Reference</span>
-                    </div>
-                    <div class="demo-desc">Interactive Plotted Venture Layout &amp; Details</div>
-                </div>
-                <div class="demo-btn" style="background: #234159;">
-                    Open <i class="fa-solid fa-arrow-right"></i>
-                </div>
-            </a>
+  <!-- Scroll Progress Indicator -->
+  <div class="reading-progress-bar" id="readingProgress" aria-hidden="true"></div>
 
-            <!-- Admin Portal -->
-            <a href="index.php/admin" class="demo-item" style="border-color: rgba(22, 163, 74, 0.4); background: rgba(22, 163, 74, 0.08);">
-                <div class="demo-info">
-                    <div class="demo-name" style="color: #4ade80;">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <span>Admin Portal</span>
-                    </div>
-                    <div class="demo-desc">Dashboard, Plots, Lead Enquiries &amp; Profile</div>
-                </div>
-                <div class="demo-btn" style="background: #16a34a;">
-                    Admin Login <i class="fa-solid fa-arrow-right"></i>
-                </div>
+  <!-- ==================== HEADER — NAVAGRUHA BRAND NAVIGATION ==================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="#hero" class="brand-link" aria-label="Navagruha Infra Developers">
+        <img src="landing2/images/navagruha-logo-white.png" onerror="this.onerror=null; this.src='landing2/images/logo-white.png';" alt="Navagruha Infra Developers" class="brand-header-logo" width="240" height="72">
+      </a>
+
+      <nav class="studio-nav" aria-label="Main Navigation">
+        <a href="#hero">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#masterLayoutImg">Master Plan</a>
+        <a href="#location">Location</a>
+        <a href="#amenities">Amenities</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:+919617699699" class="phone-link">
+          <i class="fa-solid fa-phone"></i>
+          <span>+91 9617 699 699</span>
+        </a>
+        <a href="#schedule-visit" class="btn-header-cta">Schedule Visit</a>
+        <button class="menu-toggle-btn" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileNav" aria-label="Mobile Navigation">
+    <div class="drawer-nav-list">
+      <a href="#hero" class="mobile-link">Home</a>
+      <a href="#gallery" class="mobile-link">Gallery</a>
+      <a href="#masterLayoutImg" class="mobile-link">Master Plan</a>
+      <a href="#location" class="mobile-link">Location</a>
+      <a href="#amenities" class="mobile-link">Amenities</a>
+      <a href="#schedule-visit" class="mobile-link">Schedule Visit</a>
+    </div>
+    <div class="drawer-ctas">
+      <a href="tel:+919617699699" class="drawer-call-btn">
+        <i class="fa-solid fa-phone me-2"></i>Call +91 9617 699 699
+      </a>
+      <a href="#schedule-visit" class="drawer-book-btn">Book a Site Visit</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ==================== 1. HERO — IDENTICAL TO STAGING.VKRISHNA.IN ==================== -->
+    <section id="hero" class="hero-staging-section">
+      <div class="hero-staging-bg" style="background-image: url('landing2/images/Lay_Out_1.png');"></div>
+      <div class="hero-navagruha-overlay"></div>
+      <div class="wm-hero-watermark">HMDA &amp; TGRERA APPROVED</div>
+
+      <div class="hero-staging-container">
+        <div class="hero-staging-content reveal">
+          <div class="hero-brand-pill mb-3">
+            <span class="text-white font-copperplate fs-11">NAVAGRUHA INFRA DEVELOPERS</span>
+          </div>
+
+          <h1 class="hero-title mb-2">
+            Residential Plots near AIIMS Medical University Campus, Bibinagar
+          </h1>
+
+          <h4 class="hero-subtitle-location mb-3">
+            <i class="fa-solid fa-location-dot me-2 text-brand-secondary"></i>Bibinagar, Hyderabad to Warangal Highway (NH-163)
+          </h4>
+
+          <p class="hero-lead mb-4">
+            A 17-acre gated community of HMDA &amp; TGRERA approved residential plots located on the Hyderabad to Warangal highway, 5 minutes from AIIMS Medical University Campus, 3 minutes from BB Nagar MMTS. Completed 30' and 40' concrete roads, underground infrastructure, 100% Vaastu, and clear titles ready for spot registration.
+          </p>
+
+          <div class="hero-actions-group">
+            <a href="#schedule-visit" class="btn-primary-brand">
+              <span>Book Site Visit <i class="fa-solid fa-arrow-right ms-2"></i></span>
             </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 2. VENTURE HIGHLIGHTS & STATS STRIP ==================== -->
+    <section class="venture-stats-band">
+      <div class="venture-stats-container reveal">
+        <div class="venture-stat-item">
+          <span class="stat-kicker">Statutory Status</span>
+          <span class="stat-number">HMDA &amp; TGRERA Approved</span>
+          <div class="d-flex align-items-center gap-2 my-1 flex-wrap">
+            <div style="height: 32px; display: inline-flex; align-items: center; background: #ffffff; border-radius: 6px; padding: 3px 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
+              <img src="landing2/images/HMDA_logo.jpg" alt="HMDA Final Approval" style="height: 24px; width: auto; object-fit: contain;">
+            </div>
+            <div style="height: 32px; display: inline-flex; align-items: center; background: #ffffff; border-radius: 6px; padding: 3px 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
+              <img src="landing2/images/rera_logo.png" alt="TG RERA Registered" style="height: 24px; width: auto; object-fit: contain;">
+            </div>
+          </div>
+          <span class="stat-desc">LP: 062715/2024 &bull; TSRERA: P02000006695</span>
+        </div>
+        <div class="venture-stat-item">
+          <span class="stat-kicker">Total Extent</span>
+          <span class="stat-number">17 Acres</span>
+          <span class="stat-desc">209 Residential Open Plots</span>
+        </div>
+        <div class="venture-stat-item">
+          <span class="stat-kicker">Plot Sizes</span>
+          <span class="stat-number">167 – 767 Sq. Yds</span>
+          <span class="stat-desc">100% Vaastu Compliance Layout</span>
+        </div>
+        <div class="venture-stat-item">
+          <span class="stat-kicker">Strategic Location</span>
+          <span class="stat-number">Bibinagar, NH-163</span>
+          <span class="stat-desc">5 Mins from AIIMS Medical University Campus</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. 6-CARD INFRASTRUCTURE GALLERY ==================== -->
+    <section id="gallery" class="showcase-section">
+      <div class="showcase-container">
+        <div class="showcase-header reveal">
+          <div>
+            <div class="subtitle-copperplate">Project Gallery</div>
+            <h2 class="showcase-h2">Constructed On-Ground Development</h2>
+          </div>
+          <a href="#layout" class="btn-secondary-brand" style="padding: 10px 22px; font-size: 0.8rem;">
+            <span>View Master Layout <i class="fa-solid fa-arrow-right ms-2"></i></span>
+          </a>
         </div>
 
-        <p class="footer-text">Navagruha Infra Developers &bull; AIIMS Bibinagar 17-Acre Venture</p>
+        <div class="gallery-showcase-grid reveal">
+          <!-- Card 1: Grand Entrance Arch using Web_03.png -->
+          <div class="gallery-showcase-item">
+            <img src="landing2/images/Web_03.png" alt="Grand Entrance Arch" loading="lazy">
+            <div class="gallery-showcase-overlay"></div>
+            <div class="gallery-showcase-content">
+              <h3 class="gallery-showcase-title">Grand Entrance Arch</h3>
+              <div class="gallery-showcase-subtitle">Architectural Gateway & Security Post</div>
+            </div>
+          </div>
+
+          <!-- Card 2: 30' & 40' CC Roads using rrr-road-1.jpg -->
+          <div class="gallery-showcase-item">
+            <img src="landing2/images/rrr-road-1.jpg" alt="30' and 40' Concrete Roads" loading="lazy">
+            <div class="gallery-showcase-overlay"></div>
+            <div class="gallery-showcase-content">
+              <h3 class="gallery-showcase-title">30' & 40' CC Roads</h3>
+              <div class="gallery-showcase-subtitle">Durable All-Weather Concrete Avenues</div>
+            </div>
+          </div>
+
+          <!-- Card 3: Layout Demarcation & Underground Utilities Dual Showcase -->
+          <div class="gallery-showcase-item utilities-dual-card" id="utilitiesDualCard" onclick="openUtilitiesModal(0)" title="Click to view full photos of Plot Demarcation Stone & Underground Utilities">
+            <div class="utilities-split-viewport">
+              <div class="utilities-pane utilities-pane-left">
+                <img src="landing2/images/utilities-stone.jpg?v=5" alt="Plot Demarcation Yellow Stone" loading="lazy">
+                <span class="utilities-lens-badge"><i class="fa-solid fa-location-dot me-1"></i> Plot Demarcation</span>
+              </div>
+              <div class="utilities-split-divider">
+                <span class="divider-indicator"><i class="fa-solid fa-arrows-left-right"></i></span>
+              </div>
+              <div class="utilities-pane utilities-pane-right">
+                <img src="landing2/images/utilities-chamber.jpg?v=5" alt="Concealed Underground Drainage Chamber Cover" loading="lazy">
+                <span class="utilities-lens-badge"><i class="fa-solid fa-circle-dot me-1"></i> Drainage Chamber</span>
+              </div>
+            </div>
+            <div class="gallery-showcase-overlay utilities-dual-overlay"></div>
+            <div class="gallery-showcase-content">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <h3 class="gallery-showcase-title">Underground Utilities</h3>
+                  <div class="gallery-showcase-subtitle">Plot Stones & Concealed Drainage Chambers</div>
+                </div>
+                <span class="utilities-zoom-btn" aria-label="Expand view"><i class="fa-solid fa-expand"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Landscaped Theme Parks -->
+          <div class="gallery-showcase-item">
+            <img src="landing2/images/layout-parks-12.jpg" alt="3 Landscaped Theme Parks" loading="lazy">
+            <div class="gallery-showcase-overlay"></div>
+            <div class="gallery-showcase-content">
+              <h3 class="gallery-showcase-title">3 Landscaped Parks</h3>
+              <div class="gallery-showcase-subtitle">Green Open Reserves &amp; Avenue Palm Plantation</div>
+            </div>
+          </div>
+
+          <!-- Card 5: Overhead Water Tank -->
+          <div class="gallery-showcase-item">
+            <img src="landing2/images/water-tank.png" alt="Overhead Water Tank" loading="lazy">
+            <div class="gallery-showcase-overlay"></div>
+            <div class="gallery-showcase-content">
+              <h3 class="gallery-showcase-title">Overhead Water Tank</h3>
+              <div class="gallery-showcase-subtitle">Reliable Gravity-Fed Potable Water Supply</div>
+            </div>
+          </div>
+
+          <!-- Card 6: Premium Compound Wall -->
+          <div class="gallery-showcase-item">
+            <img src="landing2/images/compound-wall.jpg" alt="Premium Compound Wall" loading="lazy">
+            <div class="gallery-showcase-overlay"></div>
+            <div class="gallery-showcase-content">
+              <h3 class="gallery-showcase-title">Premium Compound Wall</h3>
+              <div class="gallery-showcase-subtitle">Continuous Boundary Enclosure &amp; Avenue Frontage</div>
+            </div>
+          </div>
+
+          <!-- Card 7: Site Entrance Photo (Real Photo) -->
+          <div class="gallery-showcase-item">
+            <img src="landing2/images/entrance-site-photo.jpg" alt="RRR Prekshitha Enclave Entrance Gate — Navagruha Developers" loading="lazy">
+            <div class="gallery-showcase-overlay"></div>
+            <div class="gallery-showcase-content">
+              <h3 class="gallery-showcase-title">Entrance Gate</h3>
+              <div class="gallery-showcase-subtitle">Navagruha Developers Pvt. Ltd. — Site Entrance</div>
+            </div>
+          </div>
+
+          <!-- Card 8: Electricity with LED Street Lights (10.jpg + 11.jpg Combined) -->
+          <div class="gallery-showcase-item">
+            <img src="landing2/images/electricity-led-combined.jpg" alt="Electricity with LED Street Lights" loading="lazy">
+            <div class="gallery-showcase-overlay"></div>
+            <div class="gallery-showcase-content">
+              <h3 class="gallery-showcase-title">Electricity with LED Street Lights</h3>
+              <div class="gallery-showcase-subtitle">Illuminated Concrete Avenues &amp; Dusk Grid</div>
+            </div>
+          </div>
+
+          <!-- Card 9: Social Infra (Sky Replacement Group.jpg Zoomed) -->
+          <div class="gallery-showcase-item">
+            <img src="landing2/images/social-infra.jpg" alt="Social Infra - Clubhouse &amp; Warli Art Wall" loading="lazy" style="object-position: center center;">
+            <div class="gallery-showcase-overlay"></div>
+            <div class="gallery-showcase-content">
+              <h3 class="gallery-showcase-title">Social Infra</h3>
+              <div class="gallery-showcase-subtitle">Clubhouse, Warli Art Wall &amp; Green Spaces</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. PROJECT MASTER LAYOUT ==================== -->
+    <section id="layout" class="layout-master-section">
+      <div class="layout-master-container">
+        
+        <div class="showcase-header reveal">
+          <div>
+            <div class="subtitle-copperplate">Project Layout</div>
+            <h2 class="showcase-h2">Final Approved Layout</h2>
+            <p class="section-desc" style="color: #94a3b8; margin-top: 6px;">
+              HMDA & TG RERA Final Approved, 17-acre community with plot distribution, 30' and 40' concrete roads, and dedicated green reserves.
+            </p>
+          </div>
+          <div class="layout-pill-tag layout-pill-green">
+            <i class="fa-solid fa-check-double me-1"></i> HMDA Final LP Approved
+          </div>
+        </div>
+
+        <div class="layout-board-card reveal">
+          <div class="layout-toolbar" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
+            <div class="d-flex gap-2 flex-wrap">
+              <span class="layout-pill-tag">17 ACRES EXTENT</span>
+              <span class="layout-pill-tag">209 SANCTIONED PLOTS</span>
+              <span class="layout-pill-tag">30' & 40' CONCRETE ROADS</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+              <div style="height: 36px; display: inline-flex; align-items: center; background: #ffffff; border: 1px solid rgba(255,255,255,0.8); border-radius: 6px; padding: 3px 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
+                <img src="landing2/images/HMDA_logo.jpg" alt="HMDA Final Approval" style="height: 26px; width: auto; object-fit: contain;">
+              </div>
+              <div style="height: 36px; display: inline-flex; align-items: center; background: #ffffff; border: 1px solid rgba(255,255,255,0.8); border-radius: 6px; padding: 3px 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
+                <img src="landing2/images/rera_logo.png" alt="TG RERA Registered" style="height: 26px; width: auto; object-fit: contain;">
+              </div>
+              <span class="layout-pill-tag" style="background: rgba(214, 192, 138, 0.15); color: var(--accent-gold); border: 1px solid rgba(214, 192, 138, 0.3); font-size: 0.75rem;">
+                LP: 062715/LT/GHT/FLT/U6/HMDA/27052024 &bull; TSRERA: P02000006695
+              </span>
+            </div>
+          </div>
+
+          <div class="layout-preview-canvas" id="masterLayoutCanvas">
+            <img src="landing2/images/Lay_Out_1.png" onerror="this.onerror=null; this.src='landing2/images/master-layout-aerial.png';" alt="Navagruha RRR Prekshitha Enclave Master Layout Plan" title="Click to view full layout plan" class="layout-preview-img" id="masterLayoutImg" loading="eager">
+            <div class="layout-zoom-trigger">
+              <button type="button" class="btn-layout-modal" id="viewFullLayoutBtn">
+                <i class="fa-solid fa-expand me-2"></i>
+                <span>View Full Layout</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Spec Ledger -->
+          <div class="row g-3 mt-4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+            <div style="background: var(--dark-surface); padding: 18px; border-radius: 8px; border: 1px solid var(--dark-border);">
+              <span class="stat-kicker">Total Extent</span>
+              <h5 style="color: #fff; margin: 4px 0;">17 Acres</h5>
+              <span style="font-size: 0.8rem; color: #94a3b8;">Gated Plotted Community</span>
+            </div>
+            <div style="background: var(--dark-surface); padding: 18px; border-radius: 8px; border: 1px solid var(--dark-border);">
+              <span class="stat-kicker">Total No. of Plots</span>
+              <h5 style="color: #fff; margin: 4px 0;">209 Units</h5>
+              <span style="font-size: 0.8rem; color: #94a3b8;">167 to 767 Sq. Yards</span>
+            </div>
+            <div style="background: var(--dark-surface); padding: 18px; border-radius: 8px; border: 1px solid var(--dark-border);">
+              <span class="stat-kicker">Internal Avenues</span>
+              <h5 style="color: #fff; margin: 4px 0;">30' & 40'</h5>
+              <span style="font-size: 0.8rem; color: #94a3b8;">Concrete Roads with Kerbing</span>
+            </div>
+            <div style="background: var(--dark-surface); padding: 18px; border-radius: 8px; border: 1px solid var(--dark-border);">
+              <span class="stat-kicker">Green Reserves</span>
+              <h5 style="color: #fff; margin: 4px 0;">3 Parks</h5>
+              <span style="font-size: 0.8rem; color: #94a3b8;">Landscaping & Tree Belts</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 6. LOCATION & TRANSIT MATRIX ==================== -->
+    <section id="location" class="location-matrix-section">
+      <div class="location-matrix-container">
+        <div class="showcase-header reveal">
+          <div>
+            <div class="subtitle-copperplate">Location & Connectivity</div>
+            <h2 class="showcase-h2">Where the Project Sits</h2>
+            <p class="section-desc" style="color: #94a3b8; margin-top: 6px;">
+              Situated in Bibinagar near AIIMS Medical University Campus on the NH-163 Warangal Highway, offering direct arterial transit to Hyderabad city and key growth nodes.
+            </p>
+          </div>
+        </div>
+
+        <div class="location-matrix-grid reveal">
+          <!-- Left: Area Visual Card with lay_Out_new.png -->
+          <div class="location-visual-card">
+            <div class="location-photo-box">
+              <img src="landing2/images/lay_Out_new.png" alt="Bibinagar AIIMS Medical University Campus Corridor Avenue View" loading="lazy">
+              <div class="location-badge-pill">
+                <i class="fa-solid fa-road me-1"></i> Growth Corridor · NH-163
+              </div>
+            </div>
+            <div class="location-meta-box">
+              <h4 style="color: #fff; font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 8px;">
+                Navagruha RRR Prekshitha Enclave
+              </h4>
+              <p style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.6; margin-bottom: 16px;">
+                Near AIIMS Medical University Campus, Bibinagar, Yadadri Bhuvanagiri District, Hyderabad, Telangana 508126.
+              </p>
+              <a href="https://maps.google.com/?q=Bibinagar,+Near+AIIMS+Medical+University+Campus,+Telangana" target="_blank" rel="noopener noreferrer" class="btn-secondary-brand" style="padding: 10px 20px; font-size: 0.82rem;">
+                <i class="fa-solid fa-location-arrow me-2 text-brand-secondary"></i>
+                <span>Open in Google Maps</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Verified Travel Schedule -->
+          <div class="transit-schedule-card">
+            <div class="subtitle-copperplate" style="margin-bottom: 4px;">Verified Travel Times</div>
+            <h3 style="color: #fff; font-family: var(--font-heading); font-size: 1.35rem; margin-bottom: 20px;">
+              Key Distances & Connectivity
+            </h3>
+
+            <div class="transit-item-row">
+              <div>
+                <div class="transit-destination-name">Bibinagar Sub Registrar Office</div>
+                <div class="transit-destination-meta">Government Registration & Documentation</div>
+              </div>
+              <span class="transit-duration-badge">2 Mins</span>
+            </div>
+
+            <div class="transit-item-row">
+              <div>
+                <div class="transit-destination-name">AIIMS Medical University Campus</div>
+                <div class="transit-destination-meta">Premier National Medical University & Hospital</div>
+              </div>
+              <span class="transit-duration-badge">5 Mins</span>
+            </div>
+
+            <div class="transit-item-row">
+              <div>
+                <div class="transit-destination-name">NH-163 (Warangal Highway)</div>
+                <div class="transit-destination-meta">Direct 4-Lane Arterial Highway Access</div>
+              </div>
+              <span class="transit-duration-badge">5 Mins</span>
+            </div>
+
+            <div class="transit-item-row">
+              <div>
+                <div class="transit-destination-name">Bibinagar MMTS Railway Station</div>
+                <div class="transit-destination-meta">Suburban Commuter Rail Transit to Secunderabad</div>
+              </div>
+              <span class="transit-duration-badge">3 Mins</span>
+            </div>
+
+            <div class="transit-item-row">
+              <div>
+                <div class="transit-destination-name">Rockwoods International School</div>
+                <div class="transit-destination-meta">Reputed International School & Academy</div>
+              </div>
+              <span class="transit-duration-badge">5 Mins</span>
+            </div>
+
+            <div class="transit-item-row">
+              <div>
+                <div class="transit-destination-name">Birla Open Minds International School</div>
+                <div class="transit-destination-meta">Premier K-12 Progressive Education Campus</div>
+              </div>
+              <span class="transit-duration-badge">5 Mins</span>
+            </div>
+
+            <div class="transit-item-row">
+              <div>
+                <div class="transit-destination-name">Swarnagiri Temple</div>
+                <div class="transit-destination-meta">Major Cultural & Spiritual Landmark</div>
+              </div>
+              <span class="transit-duration-badge">10 Mins</span>
+            </div>
+
+            <div class="transit-item-row">
+              <div>
+                <div class="transit-destination-name">Outer Ring Road (ORR Exit 9)</div>
+                <div class="transit-destination-meta">Express Corridor to HITEC City & RGIA Airport</div>
+              </div>
+              <span class="transit-duration-badge">20 Mins</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 7. AMENITIES & INFRASTRUCTURE ==================== -->
+    <section id="amenities" class="amenities-brand-section">
+      <div class="amenities-brand-container">
+        
+        <div class="showcase-header reveal">
+          <div>
+            <div class="subtitle-copperplate">Amenities & Infrastructure</div>
+            <h2 class="showcase-h2">Built Around What Matters</h2>
+            <p class="section-desc" style="color: #cbd5e1; margin-top: 6px;">
+              Essential physical infrastructure is already constructed on site, giving buyers the assurance to plan and begin home construction without delay.
+            </p>
+          </div>
+        </div>
+
+        <div class="amenities-brand-grid reveal">
+          <div class="amenity-card-item">
+            <div class="amenity-icon-circle">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="amenity-card-title">24/7 Security & Compound</h3>
+            <p class="amenity-card-text">Grand entrance portal, secure perimeter compound wall, and manned 24/7 security cabin controlling access.</p>
+          </div>
+
+          <div class="amenity-card-item">
+            <div class="amenity-icon-circle">
+              <i class="fa-solid fa-road"></i>
+            </div>
+            <h3 class="amenity-card-title">Internal Concrete Roads</h3>
+            <p class="amenity-card-text">30' and 40' foot wide concrete roads with kerb stones, avenue signage, and durable all-weather surfaces.</p>
+          </div>
+
+          <div class="amenity-card-item">
+            <div class="amenity-icon-circle">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <h3 class="amenity-card-title">Street Illumination</h3>
+            <p class="amenity-card-text">Dedicated electrical distribution poles, street illumination, and complete wiring executed across every avenue.</p>
+          </div>
+
+          <div class="amenity-card-item">
+            <div class="amenity-icon-circle">
+              <i class="fa-solid fa-tree"></i>
+            </div>
+            <h3 class="amenity-card-title">Landscaped Parks</h3>
+            <p class="amenity-card-text">Shade trees lining all internal avenues and three designated, demarcated landscaped open park reserves.</p>
+          </div>
+
+          <div class="amenity-card-item">
+            <div class="amenity-icon-circle">
+              <i class="fa-solid fa-faucet-drip"></i>
+            </div>
+            <h3 class="amenity-card-title">Water Infrastructure</h3>
+            <p class="amenity-card-text">Dedicated overhead storage tank with underground distribution pipeline network connected to every plot.</p>
+          </div>
+
+          <div class="amenity-card-item">
+            <div class="amenity-icon-circle">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h3 class="amenity-card-title">Electrical Network</h3>
+            <p class="amenity-card-text">Dedicated electrical transformer stations, distribution cables, and power connections ready for home building.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 7B. PROJECT AERIAL PANORAMA SECTION ==================== -->
+    <section id="aerial-panorama" class="aerial-panoramic-section">
+      <div class="aerial-panoramic-container">
+        <div class="showcase-header reveal">
+          <div>
+            <div class="subtitle-copperplate">Aerial Site Perspective</div>
+            <h2 class="showcase-h2">17-Acre Plotted Community Panorama</h2>
+            <p class="section-desc" style="color: #cbd5e1; margin-top: 6px;">
+              Bird's-eye view of RRR Prekshitha Enclave showcasing all-weather concrete avenues, demarcated villa plots, overhead storage reservoir, and continuous perimeter compound wall.
+            </p>
+          </div>
+          <div class="d-flex gap-2 flex-wrap">
+            <span class="layout-pill-tag layout-pill-green"><i class="fa-solid fa-camera me-1"></i> Actual Site Drone View</span>
+          </div>
+        </div>
+
+        <div class="aerial-panorama-card reveal">
+          <div class="aerial-image-wrapper">
+            <img src="landing2/images/aerial-overview-08.jpg" alt="RRR Prekshitha Enclave 17-Acre Aerial Drone Panorama" loading="lazy">
+            <div class="aerial-badge-overlay">
+              <span class="aerial-feature-pill"><i class="fa-solid fa-archway me-1" style="color: var(--accent-gold);"></i> Grand Entrance</span>
+              <span class="aerial-feature-pill"><i class="fa-solid fa-road me-1" style="color: var(--accent-gold);"></i> 40' Central Spine</span>
+              <span class="aerial-feature-pill"><i class="fa-solid fa-faucet me-1" style="color: var(--accent-gold);"></i> Potable Water Tank</span>
+              <span class="aerial-feature-pill"><i class="fa-solid fa-shield-halved me-1" style="color: var(--accent-gold);"></i> Continuous Compound</span>
+            </div>
+          </div>
+          <div class="aerial-card-footer">
+            <div class="aerial-stat-block">
+              <span class="stat-number">17</span>
+              <span class="stat-label">Total Acres</span>
+            </div>
+            <div class="aerial-stat-block">
+              <span class="stat-number">209</span>
+              <span class="stat-label">Sanctioned Plots</span>
+            </div>
+            <div class="aerial-stat-block">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">On-Ground Ready</span>
+            </div>
+            <div class="aerial-cta-block">
+              <a href="#schedule-visit" class="btn-primary-brand" style="padding: 12px 24px; font-size: 0.85rem;">
+                <span>Book a Site Visit <i class="fa-solid fa-arrow-right ms-2"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 8. SCHEDULE VISIT / GUIDED TOUR CTA BANNER ==================== -->
+    <section id="schedule-visit" class="site-tour-section">
+      <div class="site-tour-container">
+        
+        <div class="tour-card-banner reveal">
+          <div class="tour-text-content" style="max-width: 100%; width: 100%;">
+            <div class="subtitle-copperplate">Experience It In Person</div>
+            <h2 class="tour-h3">Come See the Project for Yourself</h2>
+            <p class="tour-p">
+              Walk the 17-acre layout, inspect the concrete roads and demarcated plots, and review title documents with our advisory team.
+            </p>
+            
+            <form id="siteVisitForm" class="mt-4" novalidate>
+              <!-- Anti-spam Honeypot -->
+              <input type="text" name="website_hp" id="website_hp" style="display:none !important;" tabindex="-1" autocomplete="off">
+              <!-- Hidden Lead Metadata -->
+              <input type="hidden" name="project" id="leadProject" value="RRR Prekshitha Enclave">
+              <input type="hidden" name="landing_page" id="leadLandingPage" value="/">
+              <input type="hidden" name="source" id="leadSource" value="Landing Page">
+
+              <div class="site-visit-form-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px;">
+                <div style="display: flex; flex-direction: column;">
+                  <label for="visitorName" style="display: flex; align-items: flex-end; min-height: 22px; font-size: 0.78rem; font-family: var(--font-heading); color: #cbd5e1; margin-bottom: 6px;">FULL NAME <span style="color: #ef4444; margin-left: 2px;">*</span></label>
+                  <input type="text" id="visitorName" name="name" placeholder="Your full name" required minlength="2" style="width: 100%; height: 48px; box-sizing: border-box; padding: 10px 16px; background: rgba(20, 37, 51, 0.85); border: 1px solid var(--dark-border); border-radius: 8px; color: #fff; font-family: var(--font-sans); outline: none;">
+                  <span class="field-error" id="nameError" style="display: none; color: #ef4444; font-size: 0.75rem; margin-top: 4px;">Please enter your full name (at least 2 characters)</span>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                  <label for="visitorEmail" style="display: flex; align-items: flex-end; min-height: 22px; font-size: 0.78rem; font-family: var(--font-heading); color: #cbd5e1; margin-bottom: 6px;">EMAIL ADDRESS <span style="color: #ef4444; margin-left: 2px;">*</span></label>
+                  <input type="email" id="visitorEmail" name="email" placeholder="name@example.com" required style="width: 100%; height: 48px; box-sizing: border-box; padding: 10px 16px; background: rgba(20, 37, 51, 0.85); border: 1px solid var(--dark-border); border-radius: 8px; color: #fff; font-family: var(--font-sans); outline: none;">
+                  <span class="field-error" id="emailError" style="display: none; color: #ef4444; font-size: 0.75rem; margin-top: 4px;">Please enter a valid email address</span>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                  <label for="visitorPhone" style="display: flex; align-items: flex-end; min-height: 22px; font-size: 0.78rem; font-family: var(--font-heading); color: #cbd5e1; margin-bottom: 6px;">MOBILE NUMBER <span style="color: #ef4444; margin-left: 2px;">*</span></label>
+                  <input type="tel" id="visitorPhone" name="phone" placeholder="10-digit mobile number" required pattern="[0-9+\s-]{10,15}" style="width: 100%; height: 48px; box-sizing: border-box; padding: 10px 16px; background: rgba(20, 37, 51, 0.85); border: 1px solid var(--dark-border); border-radius: 8px; color: #fff; font-family: var(--font-sans); outline: none;">
+                  <span class="field-error" id="phoneError" style="display: none; color: #ef4444; font-size: 0.75rem; margin-top: 4px;">Please enter a valid 10-digit mobile number</span>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                  <label for="visitorDate" style="display: flex; align-items: flex-end; min-height: 22px; font-size: 0.78rem; font-family: var(--font-heading); color: #cbd5e1; margin-bottom: 6px;">VISIT DATE / SLOT <span style="color: #94a3b8; font-size: 0.72rem; font-weight: normal; margin-left: 4px;">(Optional)</span></label>
+                  <input type="date" id="visitorDate" name="preferred_visit_date" style="width: 100%; height: 48px; box-sizing: border-box; padding: 10px 16px; background: rgba(20, 37, 51, 0.85); border: 1px solid var(--dark-border); border-radius: 8px; color: #fff; font-family: var(--font-sans); outline: none; color-scheme: dark;">
+                  <span class="field-error" id="dateError" style="display: none; color: #ef4444; font-size: 0.75rem; margin-top: 4px;">Please choose today or an upcoming date</span>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center gap-3 flex-wrap">
+                <button type="submit" class="btn-primary-brand" id="submitVisitBtn" style="padding: 14px 34px;">
+                  <span>Schedule Free Site Visit</span>
+                  <i class="fa-solid fa-arrow-right ms-2"></i>
+                </button>
+
+                <a href="https://wa.me/919617699699?text=Hello%2C%20I%20am%20interested%20in%20Navagruha%20RRR%20Prekshitha%20Enclave%20plots%20near%20AIIMS%20Medical%20University%20Campus%2C%20Bibinagar.%20Please%20share%20the%20details." class="btn-secondary-brand" target="_blank" rel="noopener noreferrer" style="padding: 14px 26px;">
+                  <i class="fa-brands fa-whatsapp me-2" style="color: #25D366; font-size: 1.1rem;"></i>
+                  <span>WhatsApp Us</span>
+                </a>
+
+                <a href="tel:+919617699699" class="btn-secondary-brand" style="padding: 14px 26px;">
+                  <i class="fa-solid fa-phone me-2 text-brand-secondary"></i>
+                  <span>+91 9617 699 699</span>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container pt-5 pb-4">
+      
+      <!-- Main 4-Column Footer Grid -->
+      <div class="row g-4 justify-content-between mb-5">
+        
+        <!-- Col 1: Brand & Identity & Approvals -->
+        <div class="col-lg-3 col-md-6 col-12 footer-col-brand">
+          <div class="pe-lg-2">
+            <a href="/" class="d-inline-block mb-3">
+              <img src="landing2/images/navagruha-logo-white.png" alt="Navagruha Infra Developers" class="brand-footer-logo" onerror="this.onerror=null; this.src='landing2/images/navagruha-logo.png';">
+            </a>
+            <div class="brand-tagline mb-3">REDEFINING REALITY</div>
+
+            <!-- Social Icons -->
+            <div class="d-flex align-items-center flex-wrap mb-4" style="gap: 6px !important;">
+              <a href="https://www.facebook.com/profile.php?id=61576325499836" target="_blank" rel="noopener noreferrer" class="footer-social-btn facebook" aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/navagruha_infra_developers/" target="_blank" rel="noopener noreferrer" class="footer-social-btn instagram" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://www.youtube.com/@Navagruha" target="_blank" rel="noopener noreferrer" class="footer-social-btn youtube" aria-label="YouTube" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer" class="footer-social-btn linkedin" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://x.com/navagruha61767" target="_blank" rel="noopener noreferrer" class="footer-social-btn twitter" aria-label="Twitter / X" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="https://wa.me/919617699699" target="_blank" rel="noopener noreferrer" class="footer-social-btn whatsapp" aria-label="WhatsApp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+
+            <!-- Government Approval Logos -->
+            <div class="footer-approvals-box pt-1">
+              <div class="d-flex align-items-center gap-2 flex-wrap">
+                <div style="height: 52px; display: inline-flex; align-items: center; background: #ffffff; border: 1px solid rgba(255,255,255,0.9); border-radius: 8px; padding: 6px 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                  <img src="landing2/images/HMDA_logo.jpg" alt="HMDA Approved" title="HMDA Approved" style="height: 40px; width: auto; object-fit: contain;">
+                </div>
+                <div style="height: 52px; display: inline-flex; align-items: center; background: #ffffff; border: 1px solid rgba(255,255,255,0.9); border-radius: 8px; padding: 6px 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                  <img src="landing2/images/rera_logo.png" alt="TG RERA Registered" title="TG RERA Registered" style="height: 40px; width: auto; object-fit: contain;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links Navigation -->
+        <div class="col-lg-2 col-md-6 col-12 footer-col-links">
+          <div class="footer-widget-title">Quick Links</div>
+          <ul class="footer-link-list">
+            <li><a href="#hero"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+            <li><a href="#gallery"><i class="fa-solid fa-chevron-right"></i> Gallery</a></li>
+            <li><a href="#masterLayoutImg"><i class="fa-solid fa-chevron-right"></i> Master Plan</a></li>
+            <li><a href="#location"><i class="fa-solid fa-chevron-right"></i> Location</a></li>
+            <li><a href="#amenities"><i class="fa-solid fa-chevron-right"></i> Amenities</a></li>
+            <li><a href="#schedule-visit"><i class="fa-solid fa-chevron-right"></i> Schedule Visit</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Venture Location - RRR Prekshitha Enclave -->
+        <div class="col-lg-3 col-md-6 col-12 footer-col-venture">
+          <div class="footer-widget-title">Venture Location</div>
+          
+          <div class="footer-contact-item mb-3">
+            <div class="footer-contact-icon">
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <div>
+              <strong class="text-white d-block font-copperplate fs-12 mb-1">RRR Prekshitha Enclave</strong>
+              <span class="text-white-50 fs-12 lh-base d-block mb-2">
+                Near AIIMS Medical University Campus, NH-163 Warangal Highway, Bibinagar, Yadadri Bhuvanagiri Dist, Telangana 508126.
+              </span>
+              <a href="https://maps.app.goo.gl/jTyRs8yxpdLZE6pd7" target="_blank" rel="noopener noreferrer" class="footer-map-btn">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Open in Google Maps</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-contact-item mb-0">
+            <div class="footer-contact-icon">
+              <i class="fa-regular fa-clock"></i>
+            </div>
+            <div>
+              <strong class="text-white d-block font-copperplate fs-12 mb-0.5">Timings</strong>
+              <span class="text-white-50 fs-12">Monday to Sunday: 9:00 AM to 6:30 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 4: Corporate Office & Address -->
+        <div class="col-lg-4 col-md-6 col-12 footer-col-corp">
+          <div class="footer-widget-title">Corporate Office</div>
+          
+          <div class="footer-contact-item mb-3">
+            <div class="footer-contact-icon">
+              <i class="fa-solid fa-building"></i>
+            </div>
+            <div>
+              <strong class="text-white d-block font-copperplate fs-12 mb-1">Corporate Headquarters</strong>
+              <span class="text-white-50 fs-12 lh-base d-block mb-2">
+                Plot No. 109, Shashank Towers, 1st Floor, Uppal Bhagayath, Near Nagole Metro Station, Hyderabad, Telangana 500039.
+              </span>
+              <a href="https://maps.app.goo.gl/nzWu5MLr211ptnJ46" target="_blank" rel="noopener noreferrer" class="footer-map-btn">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Open in Google Maps</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-contact-item mb-2">
+            <div class="footer-contact-icon">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div>
+              <strong class="text-white d-block font-copperplate fs-12 mb-0.5">Direct Inquiries</strong>
+              <a href="tel:+919617699699" class="text-white fw-bold text-decoration-none fs-13">+91 9617 699 699</a>
+            </div>
+          </div>
+
+          <div class="footer-contact-item mb-0">
+            <div class="footer-contact-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <strong class="text-white d-block font-copperplate fs-12 mb-0.5">Email Support</strong>
+              <a href="mailto:info@navagruha.com" class="text-white-50 text-decoration-none fs-12">info@navagruha.com</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
+
+    <!-- 3. Bottom Subfooter Bar -->
+    <div class="subfooter-bar">
+      <div class="container">
+        <div class="row align-items-center g-2">
+          <div class="col-md-6 text-center text-md-start font-copperplate">
+            &copy; 2026 NAVAGRUHA INFRA DEVELOPERS. All rights reserved.
+          </div>
+          <div class="col-md-6 text-center text-md-end text-white-50 fs-11">
+            HMDA Final Sanction, Telangana RERA Certified
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Master Layout -->
+  <div class="layout-lightbox" id="layoutModal" role="dialog" aria-modal="true" aria-label="Master Layout Viewer">
+    <div class="lightbox-content-frame">
+      <button class="lightbox-dismiss-btn" id="closeModalBtn" aria-label="Close Lightbox">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <img src="landing2/images/Lay_Out_1.png" alt="Navagruha Master Layout Fullscreen Plan">
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notice" id="toastMessage" role="status" aria-live="polite">
+    <span class="toast-check">✓</span>
+    <span class="toast-text" id="toastText">Your visit request has been recorded.</span>
+  </div>
+
+  <!-- Floating WhatsApp Widget (Matches staging.vkrishna.in) -->
+  <a href="https://wa.me/919617699699?text=Hello%2C%20I%20am%20interested%20in%20Navagruha%20RRR%20Prekshitha%20Enclave%20plots%20near%20AIIMS%20Medical%20University%20Campus%2C%20Bibinagar.%20Please%20share%20the%20details." class="whatsapp-float-pill" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp fa-lg"></i>
+    <span>Chat with us</span>
+  </a>
+
+  <!-- ==============================================================
+       STICKY RIGHT-SIDE ENQUIRY TAB & LUXURY POPUP MODAL
+       ============================================================== -->
+  <!-- Sticky Vertical Enquiry Tab (Desktop & Mobile) -->
+  <button type="button" class="sticky-enquiry-tab" id="stickyEnquiryTab" aria-label="Open Enquiry Form" aria-haspopup="dialog" aria-controls="enquiryModalWrapper">
+    <i class="fa-solid fa-calendar-check tab-icon" aria-hidden="true"></i>
+    <span class="tab-text">ENQUIRE NOW</span>
+  </button>
+
+  <!-- Modal Backdrop -->
+  <div class="enquiry-modal-backdrop" id="enquiryModalBackdrop" aria-hidden="true"></div>
+
+  <!-- Modal Dialog Wrapper -->
+  <div class="enquiry-modal-wrapper" id="enquiryModalWrapper" role="dialog" aria-modal="true" aria-labelledby="modalHeadingTitle" aria-describedby="modalSupportingText">
+    <div class="enquiry-modal-card" id="enquiryModalCard">
+      <!-- Floating Luxury Bubble Particles (Key Animation Requirement) -->
+      <div class="modal-bubbles-container" id="modalBubblesContainer" aria-hidden="true">
+        <span class="modal-bubble b1"></span>
+        <span class="modal-bubble b2"></span>
+        <span class="modal-bubble b3"></span>
+        <span class="modal-bubble b4"></span>
+        <span class="modal-bubble b5"></span>
+        <span class="modal-bubble b6"></span>
+        <span class="modal-bubble b7"></span>
+        <span class="modal-bubble b8"></span>
+        <span class="modal-bubble b9"></span>
+        <span class="modal-bubble b10"></span>
+        <span class="modal-bubble b11"></span>
+        <span class="modal-bubble b12"></span>
+      </div>
+
+      <!-- Close Button -->
+      <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close enquiry popup">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="modal-header-content">
+        <div class="modal-eyebrow">
+          <span class="gold-dot"></span>
+          <span>Exclusive Site Visit &amp; Pricing</span>
+        </div>
+        <h2 class="modal-title" id="modalHeadingTitle">Plan Your Visit</h2>
+        <p class="modal-subtitle" id="modalSupportingText">
+          Share your details and our team will get in touch with you shortly.
+        </p>
+      </div>
+
+      <!-- Modal Form Container -->
+      <div id="modalFormContainer">
+        <form id="popupEnquiryForm" novalidate>
+          <!-- Anti-spam Honeypot -->
+          <input type="text" name="website_hp" id="modal_website_hp" style="display:none !important;" tabindex="-1" autocomplete="off">
+          
+          <!-- Hidden Lead Metadata -->
+          <input type="hidden" name="project" id="modalLeadProject" value="RRR Prekshitha Enclave">
+          <input type="hidden" name="landing_page" id="modalLeadLandingPage" value="/">
+          <input type="hidden" name="source" id="modalLeadSource" value="Section Navigation Popup">
+
+          <div class="modal-fields-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; align-items: start;">
+            <!-- Full Name -->
+            <div class="modal-field-group" style="display: flex; flex-direction: column; justify-content: flex-start;">
+              <label for="modalVisitorName" class="modal-field-label" style="display: flex; align-items: center; justify-content: space-between; height: 22px; min-height: 22px; max-height: 22px; line-height: 22px; margin-bottom: 6px; white-space: nowrap;">
+                <span>Full Name <span class="req-star">*</span></span>
+              </label>
+              <input type="text" id="modalVisitorName" name="name" class="modal-input" placeholder="Your full name" required minlength="2" autocomplete="name" style="width: 100%; height: 46px; min-height: 46px; max-height: 46px; box-sizing: border-box; line-height: 24px; padding: 10px 14px; margin: 0;">
+              <span class="modal-field-error" id="modalNameError">Please enter your full name (at least 2 characters)</span>
+            </div>
+
+            <!-- Email Address -->
+            <div class="modal-field-group" style="display: flex; flex-direction: column; justify-content: flex-start;">
+              <label for="modalVisitorEmail" class="modal-field-label" style="display: flex; align-items: center; justify-content: space-between; height: 22px; min-height: 22px; max-height: 22px; line-height: 22px; margin-bottom: 6px; white-space: nowrap;">
+                <span>Email Address <span class="req-star">*</span></span>
+              </label>
+              <input type="email" id="modalVisitorEmail" name="email" class="modal-input" placeholder="name@example.com" required autocomplete="email" style="width: 100%; height: 46px; min-height: 46px; max-height: 46px; box-sizing: border-box; line-height: 24px; padding: 10px 14px; margin: 0;">
+              <span class="modal-field-error" id="modalEmailError">Please enter a valid email address</span>
+            </div>
+
+            <!-- Mobile / Phone No. -->
+            <div class="modal-field-group" style="display: flex; flex-direction: column; justify-content: flex-start;">
+              <label for="modalVisitorPhone" class="modal-field-label" style="display: flex; align-items: center; justify-content: space-between; height: 22px; min-height: 22px; max-height: 22px; line-height: 22px; margin-bottom: 6px; white-space: nowrap;">
+                <span>Phone No. <span class="req-star">*</span></span>
+              </label>
+              <input type="tel" id="modalVisitorPhone" name="phone" class="modal-input" placeholder="10-digit mobile number" required pattern="[0-9+\s-]{10,15}" autocomplete="tel" style="width: 100%; height: 46px; min-height: 46px; max-height: 46px; box-sizing: border-box; line-height: 24px; padding: 10px 14px; margin: 0;">
+              <span class="modal-field-error" id="modalPhoneError">Please enter a valid 10-digit mobile number</span>
+            </div>
+
+            <!-- Visit Slot (Optional) -->
+            <div class="modal-field-group" style="display: flex; flex-direction: column; justify-content: flex-start;">
+              <label for="modalVisitorDate" class="modal-field-label" style="display: flex; align-items: center; justify-content: space-between; height: 22px; min-height: 22px; max-height: 22px; line-height: 22px; margin-bottom: 6px; white-space: nowrap;">
+                <span>Visit Slot <span class="opt-label">(Optional)</span></span>
+              </label>
+              <input type="date" id="modalVisitorDate" name="preferred_visit_date" class="modal-input date-input" style="width: 100%; height: 46px; min-height: 46px; max-height: 46px; box-sizing: border-box; line-height: 24px; padding: 10px 14px; margin: 0; color-scheme: dark;">
+              <span class="modal-field-error" id="modalDateError">Please choose today or an upcoming date</span>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="modal-actions-box">
+            <button type="submit" class="btn-primary-brand modal-submit-btn" id="modalSubmitBtn">
+              <span>Schedule a Site Visit</span>
+              <i class="fa-solid fa-arrow-right ms-2" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <!-- Direct Phone & WhatsApp Fallback -->
+          <div class="modal-quick-connect">
+            <span>Direct Inquiry Support</span>
+            <div class="quick-connect-links">
+              <a href="tel:+919617699699" class="quick-call-link">
+                <i class="fa-solid fa-phone me-1"></i> +91 9617 699 699
+              </a>
+              <span class="dot-divider">•</span>
+              <a href="https://wa.me/919617699699?text=Hello%2C%20I%20am%20interested%20in%20Navagruha%20RRR%20Prekshitha%20Enclave%20plots%20near%20AIIMS%20Medical%20University%20Campus%2C%20Bibinagar.%20Please%20share%20the%20details." class="quick-wa-link" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp me-1"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- In-Modal Success Card -->
+      <div id="modalSuccessContainer" style="display: none;">
+        <div class="modal-success-card">
+          <div class="success-icon-badge">
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+          </div>
+          <h3 class="success-heading">Thank You!</h3>
+          <div class="success-lead-pill" id="modalSuccessLeadPill">REF: #L-XXXX</div>
+          <p class="success-message" id="modalSuccessMsg">
+            Your enquiry has been received successfully. Our team will contact you shortly.
+          </p>
+          <div class="success-date-note" id="modalSuccessDateNote" style="display: none;">
+            Your preferred site visit date has also been noted. Our team will contact you to confirm availability.
+          </div>
+          <div class="mt-3">
+            <button type="button" class="btn-secondary-brand" id="modalSuccessCloseBtn" style="padding: 10px 24px; width: 100%; justify-content: center;">
+              <span>Close Window</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Sticky Bar -->
+  <aside class="mobile-sticky-bar" aria-label="Quick Mobile Actions">
+    <a href="tel:+919617699699" class="mobile-action-item call-action">
+      <i class="fa-solid fa-phone"></i>
+      <span>Call</span>
+    </a>
+    <a href="https://wa.me/919617699699?text=Hello%2C%20I%20am%20interested%20in%20Navagruha%20RRR%20Prekshitha%20Enclave%20plots%20near%20AIIMS%20Medical%20University%20Campus%2C%20Bibinagar.%20Please%20share%20the%20details." class="mobile-action-item wa-action" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span>WhatsApp</span>
+    </a>
+    <button type="button" class="mobile-action-item book-action" id="mobileBarEnquireBtn" style="background: none; border: none; font-family: inherit; font-size: inherit; cursor: pointer;">
+      <span>Book Visit</span>
+    </button>
+  </aside>
+
+  <!-- ==================== UNDERGROUND UTILITIES DUAL LIGHTBOX MODAL ==================== -->
+  <div class="utilities-lightbox-modal" id="utilitiesModal" aria-hidden="true" role="dialog">
+    <div class="utilities-modal-backdrop" id="utilitiesModalBackdrop" onclick="closeUtilitiesModal()"></div>
+    <div class="utilities-modal-dialog">
+      <div class="utilities-modal-header">
+        <div class="d-flex align-items-center gap-2">
+          <span class="modal-gold-badge"><i class="fa-solid fa-shield-check me-1"></i> Physical Verification</span>
+          <h4 class="utilities-modal-title">Underground Utilities & Plot Demarcation</h4>
+        </div>
+        <button type="button" class="utilities-modal-close" onclick="closeUtilitiesModal()" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="utilities-modal-body">
+        <div class="utilities-modal-grid">
+          <!-- Item 1: Yellow Stone -->
+          <div class="utilities-modal-item">
+            <div class="utilities-modal-img-wrap">
+              <img src="landing2/images/utilities-stone-full.jpg?v=5" alt="Plot Demarcation Yellow Stone" id="modalStoneImg">
+              <span class="utilities-img-tag"><i class="fa-solid fa-location-pin me-1"></i> Plot Demarcation</span>
+            </div>
+            <div class="utilities-modal-info">
+              <h5>Plot Boundary Marker</h5>
+              <p>Every plot at RRR Prekshitha Enclave is clearly demarcated with bright yellow numbered boundary stones, manicured concrete avenue kerbing, and landscaped plantation.</p>
+            </div>
+          </div>
+
+          <!-- Item 2: Circled Chamber Cover -->
+          <div class="utilities-modal-item">
+            <div class="utilities-modal-img-wrap">
+              <img src="landing2/images/utilities-chamber-full.jpg?v=5" alt="Concealed Underground Drainage Chamber Cover" id="modalChamberImg">
+              <span class="utilities-img-tag"><i class="fa-solid fa-circle-notch me-1"></i> Heavy-Duty Chamber (BALAJI MD40)</span>
+            </div>
+            <div class="utilities-modal-info">
+              <h5>Concealed Drainage Chamber · BALAJI MD40</h5>
+              <p>Heavy-duty circular concrete inspection chamber cover with anti-slip honeycomb pattern and dual lifting hooks, seamlessly integrated into the road paving for long-term durability.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="utilities-modal-footer">
+        <span class="text-white-50 small"><i class="fa-solid fa-info-circle me-1"></i> Actual unedited photographs captured directly on site at Bibinagar.</span>
+        <a href="#schedule-visit" class="btn-primary-brand" onclick="closeUtilitiesModal()" style="padding: 8px 20px; font-size: 0.8rem;">
+          <span>Schedule Free Site Inspection</span> <i class="fa-solid fa-arrow-right ms-1"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openUtilitiesModal(initialIndex) {
+      var modal = document.getElementById('utilitiesModal');
+      if (modal) {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeUtilitiesModal() {
+      var modal = document.getElementById('utilitiesModal');
+      if (modal) {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeUtilitiesModal();
+    });
+  </script>
+
+  <script src="landing2/js/main.js?v=5.0"></script>
 </body>
 </html>

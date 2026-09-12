@@ -17,10 +17,13 @@ DirectoryIndex index.html index.php
     RewriteCond %{HTTP:x-xsrf-token} .
     RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
 
-    # If index.html exists at root, serve it directly (landing page mode)
-    RewriteCond %{REQUEST_URI} ^/?$
-    RewriteCond %{DOCUMENT_ROOT}/index.html -f
+    # If index.html exists in this directory, serve it directly (landing page mode)
+    RewriteCond %{REQUEST_URI} ^/?$ [OR]
+    RewriteCond %{REQUEST_URI} ^/public_html/?$
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond index.html -f
     RewriteRule ^ index.html [L]
+
 
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d

@@ -23,42 +23,8 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-// Public Frontend — Serve Landing Page directly at root (No redirect to /landing2/)
-Route::get('/', function () {
-    $path = public_path('landing2/index.html');
-    if (file_exists($path)) {
-        $html = file_get_contents($path);
-        // Prefix relative assets with /landing2/ so all styles, scripts and images load seamlessly at root /
-        $html = str_replace(
-            [
-                '="images/',
-                "='images/",
-                'content="images/',
-                "url('images/",
-                'url("images/',
-                'url(images/',
-                '="css/',
-                '="js/',
-                'https://navagruha.com/landing2/',
-            ],
-            [
-                '="/landing2/images/',
-                "='/landing2/images/",
-                'content="/landing2/images/',
-                "url('/landing2/images/",
-                'url("/landing2/images/',
-                'url(/landing2/images/',
-                '="/landing2/css/',
-                '="/landing2/js/',
-                'https://rrrprekshitha.navagruha.com/',
-            ],
-            $html
-        );
-        return response($html)->header('Content-Type', 'text/html; charset=UTF-8');
-    }
-
-    return app(HomeController::class)->index();
-})->name('home');
+// Public Frontend Laravel + Blade Routes
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Main Web Application Home (preserved at /app)
 Route::get('/app', [HomeController::class, 'index'])->name('home.app');
