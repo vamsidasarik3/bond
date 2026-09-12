@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="landing2/css/style.css?v=3.5">
+  <link rel="stylesheet" href="landing2/css/style.css?v=3.6">
 
   <script type="application/ld+json">
   {
@@ -349,13 +349,159 @@
           </div>
 
           <div class="layout-preview-canvas" id="masterLayoutCanvas">
-            <img src="landing2/images/Lay_Out_1.png" onerror="this.onerror=null; this.src='landing2/images/master-layout-aerial.png';" alt="Navagruha RRR Prekshitha Enclave Master Layout Plan" title="Click to view full layout plan" class="layout-preview-img" id="masterLayoutImg" loading="eager">
-            <div class="layout-zoom-trigger">
-              <button type="button" class="btn-layout-modal" id="viewFullLayoutBtn">
-                <i class="fa-solid fa-expand me-2"></i>
-                <span>View Full Layout</span>
+            
+            <!-- Carousel Top Toggle Switch Tabs -->
+            <div class="layout-carousel-tabs">
+              <button type="button" class="layout-tab-btn is-active" id="tabSlide1" onclick="switchLayoutSlide(0)">
+                <i class="fa-solid fa-map me-1"></i> Approved Master Plan
+              </button>
+              <button type="button" class="layout-tab-btn" id="tabSlide2" onclick="switchLayoutSlide(1)">
+                <i class="fa-solid fa-chart-pie me-1"></i> Plot Availability &amp; Statistics
               </button>
             </div>
+
+            <!-- Carousel Track -->
+            <div class="layout-carousel-container" id="layoutCarousel">
+              <div class="layout-carousel-track" id="layoutCarouselTrack">
+                
+                <!-- SLIDE 1: Approved Master Layout Plan (Original Image Preserved) -->
+                <div class="layout-slide is-active" id="layoutSlide1">
+                  <img src="landing2/images/Lay_Out_1.png" onerror="this.onerror=null; this.src='landing2/images/master-layout-aerial.png';" alt="Navagruha RRR Prekshitha Enclave Master Layout Plan" title="Click to view full layout plan" class="layout-preview-img" id="masterLayoutImg" loading="eager">
+                  <div class="layout-zoom-trigger">
+                    <button type="button" class="btn-layout-modal" id="viewFullLayoutBtn">
+                      <i class="fa-solid fa-expand me-2"></i>
+                      <span>View Full Layout</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- SLIDE 2: Second Layout Image as Background with Live Plot Statistics & Content on Foreground -->
+                <div class="layout-slide" id="layoutSlide2">
+                  <div class="layout-stats-slide-box">
+                    <div class="layout-stats-bg" style="background-image: url('landing2/images/lay_out_aerial_stats.png');"></div>
+                    <div class="layout-stats-overlay"></div>
+                    
+                    <div class="layout-stats-content">
+                      <!-- Header -->
+                      <div class="layout-stats-header">
+                        <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
+                          <span class="badge-live-pulse"><span class="pulse-dot"></span> LIVE PLOT INVENTORY</span>
+                          <span class="badge-phase">17-ACRE SANCTIONED TOWNSHIP</span>
+                        </div>
+                        <h3 class="layout-stats-title">Plot Availability &amp; Inventory Status</h3>
+                        <p class="layout-stats-lead">
+                          Live inventory breakdown for RRR Prekshitha Enclave near AIIMS Medical University Campus, Bibinagar. Choose your ideal East, West or North-facing villa plot before current phase closes.
+                        </p>
+                      </div>
+
+                      <!-- Statistics Cards Grid (Available+Reserved vs Sold) -->
+                      <div class="layout-stats-grid">
+                        <!-- Card 1: Available + Reserved Combined -->
+                        <div class="stat-card stat-card-available">
+                          <div class="stat-card-icon"><i class="fa-solid fa-tags"></i></div>
+                          <div class="stat-card-body">
+                            <div class="stat-card-kicker">AVAILABLE FOR BOOKING</div>
+                            <div class="stat-card-num-row">
+                              <span class="stat-card-num" id="statAvailableCombined">125</span>
+                              <span class="stat-card-unit">Plots</span>
+                            </div>
+                            <div class="stat-card-breakdown">
+                              <span>106 Available</span> &bull; <span>19 Reserved</span>
+                            </div>
+                            <div class="stat-card-status-badge available-badge">
+                              <i class="fa-solid fa-circle-check me-1"></i> Spot Registration Ready
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Card 2: Sold Out Plots -->
+                        <div class="stat-card stat-card-sold">
+                          <div class="stat-card-icon"><i class="fa-solid fa-handshake"></i></div>
+                          <div class="stat-card-body">
+                            <div class="stat-card-kicker">SOLD OUT PLOTS</div>
+                            <div class="stat-card-num-row">
+                              <span class="stat-card-num" id="statSoldTotal">33</span>
+                              <span class="stat-card-unit">Plots</span>
+                            </div>
+                            <div class="stat-card-breakdown">
+                              <span>Registered &amp; Boundary Marked</span>
+                            </div>
+                            <div class="stat-card-status-badge sold-badge">
+                              <i class="fa-solid fa-lock me-1"></i> Handed Over to Owners
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Card 3: Total Layout Sanction -->
+                        <div class="stat-card stat-card-total">
+                          <div class="stat-card-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                          <div class="stat-card-body">
+                            <div class="stat-card-kicker">TOTAL SANCTIONED PLOTS</div>
+                            <div class="stat-card-num-row">
+                              <span class="stat-card-num" id="statGrandTotal">158</span>
+                              <span class="stat-card-unit">Units</span>
+                            </div>
+                            <div class="stat-card-breakdown">
+                              <span>209 Total Master Community</span>
+                            </div>
+                            <div class="stat-card-status-badge total-badge">
+                              <i class="fa-solid fa-shield-check me-1"></i> 100% Vaastu Compliant
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Visual Distribution Progress Bar -->
+                      <div class="layout-progress-wrap">
+                        <div class="layout-progress-labels">
+                          <span><strong style="color: #4ade80;">79% Available &amp; Reserved</strong> (<span id="progressAvailText">125</span> Plots Ready for Booking)</span>
+                          <span><strong style="color: #f87171;">21% Sold Out</strong> (<span id="progressSoldText">33</span> Plots)</span>
+                        </div>
+                        <div class="layout-progress-bar">
+                          <div class="progress-fill-available" id="progressFillAvail" style="width: 79%;"></div>
+                          <div class="progress-fill-sold" id="progressFillSold" style="width: 21%;"></div>
+                        </div>
+                      </div>
+
+                      <!-- Foreground Content & Action CTAs -->
+                      <div class="layout-stats-footer">
+                        <div class="layout-feature-pills">
+                          <span><i class="fa-solid fa-check text-brand-secondary me-1"></i> Sizes: 167 to 767 Sq. Yds</span>
+                          <span><i class="fa-solid fa-check text-brand-secondary me-1"></i> Bank Loans Approved</span>
+                          <span><i class="fa-solid fa-check text-brand-secondary me-1"></i> 30' &amp; 40' Concrete Roads</span>
+                        </div>
+                        <div class="layout-cta-group">
+                          <button type="button" class="btn-primary-brand" onclick="openEnquiryModal('manual', 'layout-stats')">
+                            <span>Check Available Plot Numbers</span>
+                            <i class="fa-solid fa-arrow-right ms-2"></i>
+                          </button>
+                          <a href="#schedule-visit" class="btn-secondary-brand">
+                            <span>Schedule Free Site Inspection</span>
+                          </a>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Carousel Navigation Arrows -->
+            <button type="button" class="layout-carousel-nav prev-nav" id="layoutCarouselPrev" onclick="stepLayoutSlide(-1)" aria-label="Previous Slide">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button type="button" class="layout-carousel-nav next-nav" id="layoutCarouselNext" onclick="stepLayoutSlide(1)" aria-label="Next Slide">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <!-- Carousel Dots Indicators -->
+            <div class="layout-carousel-dots">
+              <span class="carousel-dot is-active" id="dotSlide1" onclick="switchLayoutSlide(0)"></span>
+              <span class="carousel-dot" id="dotSlide2" onclick="switchLayoutSlide(1)"></span>
+            </div>
+
           </div>
 
           <!-- Spec Ledger -->
@@ -815,12 +961,15 @@
     <!-- 3. Bottom Subfooter Bar -->
     <div class="subfooter-bar">
       <div class="container">
-        <div class="row align-items-center g-2">
-          <div class="col-md-6 text-center text-md-start font-copperplate">
+        <div class="row align-items-center justify-content-between g-2">
+          <div class="col-lg-5 col-md-12 text-center text-lg-start font-copperplate">
             &copy; 2026 NAVAGRUHA INFRA DEVELOPERS. All rights reserved.
           </div>
-          <div class="col-md-6 text-center text-md-end text-white-50 fs-11">
-            HMDA Final Sanction, Telangana RERA Certified
+          <div class="col-lg-3 col-md-6 text-center text-white-50">
+            HMDA Final Sanction &bull; Telangana RERA Certified
+          </div>
+          <div class="col-lg-4 col-md-6 text-center text-lg-end text-white-50">
+            Designed and Developed by <a href="https://www.unickspace.in/" target="_blank" rel="noopener noreferrer" class="unickspace-credit-link">UnickSpace</a>
           </div>
         </div>
       </div>
@@ -1083,6 +1232,6 @@
     });
   </script>
 
-  <script src="landing2/js/main.js?v=5.0"></script>
+  <script src="landing2/js/main.js?v=5.1"></script>
 </body>
 </html>

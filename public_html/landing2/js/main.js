@@ -206,6 +206,116 @@ document.addEventListener('DOMContentLoaded', () => {
     dragging = false;
   });
 
+  // --- 4B. LAYOUT CAROUSEL & LIVE PLOT INVENTORY STATS ---
+  let currentLayoutSlide = 0;
+  const layoutSlideEls = [document.getElementById('layoutSlide1'), document.getElementById('layoutSlide2')];
+  const layoutTabEls = [document.getElementById('tabSlide1'), document.getElementById('tabSlide2')];
+  const layoutDotEls = [document.getElementById('dotSlide1'), document.getElementById('dotSlide2')];
+
+  window.switchLayoutSlide = function(index) {
+    if (index < 0 || index >= 2) return;
+    currentLayoutSlide = index;
+
+    layoutSlideEls.forEach((slide, idx) => {
+      if (slide) {
+        if (idx === index) {
+          slide.classList.add('is-active');
+        } else {
+          slide.classList.remove('is-active');
+        }
+      }
+    });
+
+    layoutTabEls.forEach((tab, idx) => {
+      if (tab) {
+        if (idx === index) {
+          tab.classList.add('is-active');
+        } else {
+          tab.classList.remove('is-active');
+        }
+      }
+    });
+
+    layoutDotEls.forEach((dot, idx) => {
+      if (dot) {
+        if (idx === index) {
+          dot.classList.add('is-active');
+        } else {
+          dot.classList.remove('is-active');
+        }
+      }
+    });
+  };
+
+  window.stepLayoutSlide = function(step) {
+    let nextIndex = currentLayoutSlide + step;
+    if (nextIndex < 0) nextIndex = 1;
+    if (nextIndex > 1) nextIndex = 0;
+    window.switchLayoutSlide(nextIndex);
+  };
+
+  // Keyboard navigation when user is over layout section
+  const layoutSection = document.getElementById('layout');
+  if (layoutSection) {
+    layoutSection.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') window.stepLayoutSlide(-1);
+      if (e.key === 'ArrowRight') window.stepLayoutSlide(1);
+    });
+  }
+
+  // Live plot availability inventory statistics updater
+  async function loadLivePlotStatistics() {
+    try {
+      const res = await fetch('/api/plots', {
+        headers: { 'Accept': 'application/json' }
+      });
+      if (!res.ok) return;
+      const data = await res.json();
+      const plots = Array.isArray(data) ? data : (data.data || []);
+      if (!plots.length) return;
+
+      let available = 0;
+      let reserved = 0;
+      let sold = 0;
+
+      plots.forEach(p => {
+        const s = (p.status || '').toLowerCase();
+        if (s === 'available') available++;
+        else if (s === 'reserved' || s === 'hold') reserved++;
+        else if (s === 'sold' || s === 'registered' || s === 'booked') sold++;
+      });
+
+      const total = plots.length;
+      const combined = available + reserved;
+
+      if (combined > 0 || sold > 0) {
+        const availEl = document.getElementById('statAvailableCombined');
+        const soldEl = document.getElementById('statSoldTotal');
+        const grandEl = document.getElementById('statGrandTotal');
+        const progressAvailText = document.getElementById('progressAvailText');
+        const progressSoldText = document.getElementById('progressSoldText');
+        const progressFillAvail = document.getElementById('progressFillAvail');
+        const progressFillSold = document.getElementById('progressFillSold');
+
+        if (availEl) availEl.textContent = combined;
+        if (soldEl) soldEl.textContent = sold;
+        if (grandEl) grandEl.textContent = total;
+
+        const availPct = Math.round((combined / total) * 100);
+        const soldPct = 100 - availPct;
+
+        if (progressAvailText) progressAvailText.textContent = combined;
+        if (progressSoldText) progressSoldText.textContent = sold;
+        if (progressFillAvail) progressFillAvail.style.width = availPct + '%';
+        if (progressFillSold) progressFillSold.style.width = soldPct + '%';
+      }
+    } catch (e) {
+      console.warn('Live plots stats fallback to default HTML values:', e);
+    }
+  }
+
+  loadLivePlotStatistics();
+
   // --- 5. VISIT FORM VALIDATION & REAL API LEAD SUBMISSION ---
   const siteVisitForm = document.getElementById('siteVisitForm');
   const visitorName = document.getElementById('visitorName');
