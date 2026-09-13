@@ -29,62 +29,111 @@
 
 @push('styles')
 <style>
-/* ── Interactive Plots Glimpse Section ── */
+/* ── Interactive Plots Glimpse Section Enhanced High Contrast ── */
+#interactive-plots {
+    background-color: #0c1824 !important;
+}
+.glimpse-section-subtitle {
+    color: #71b644 !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.2px !important;
+    text-transform: uppercase !important;
+    font-family: var(--font-copperplate, 'Cinzel', serif) !important;
+}
+.glimpse-section-desc {
+    color: #cbd5e1 !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+}
+.glimpse-stat-card {
+    background: #142533 !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    text-align: center !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3) !important;
+}
+.glimpse-stat-num {
+    font-size: 32px !important;
+    font-weight: 800 !important;
+    font-family: var(--font-copperplate, 'Cinzel', serif) !important;
+    line-height: 1.1 !important;
+    margin-bottom: 4px !important;
+}
+.glimpse-stat-label {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    font-family: var(--font-copperplate, 'Cinzel', serif) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+.glimpse-panel-card {
+    background: #142533 !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    border-radius: 16px !important;
+    padding: 24px !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35) !important;
+}
 .interactive-plot-card {
-    background: rgba(14, 26, 36, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 16px;
-    transition: all 0.3s ease;
+    background: #1a3042 !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    transition: all 0.3s ease !important;
 }
 .interactive-plot-card:hover {
-    border-color: rgba(113, 182, 68, 0.5);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+    border-color: #71b644 !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45) !important;
 }
 .plot-number-pill {
-    font-family: var(--font-copperplate, 'Cinzel', serif);
-    font-size: 14px;
-    font-weight: 700;
-    color: #ffffff;
-    letter-spacing: 0.5px;
+    font-family: var(--font-copperplate, 'Cinzel', serif) !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    letter-spacing: 0.5px !important;
 }
 .plot-specs-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
 }
 .plot-spec-item {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 6px 10px;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    background: rgba(12, 24, 36, 0.6) !important;
+    padding: 7px 10px !important;
+    border-radius: 6px !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 .plot-spec-label {
-    display: block;
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    display: block !important;
+    font-size: 10px !important;
+    color: #94a3b8 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    font-weight: 700 !important;
 }
 .plot-spec-val {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
+    display: block !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
 }
 .master-preview-media {
     height: 240px;
     position: relative;
+    border-radius: 12px;
+    overflow: hidden;
 }
 .master-preview-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(10, 20, 29, 0.65);
+    background: rgba(10, 20, 29, 0.6);
     backdrop-filter: blur(2px);
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.85;
+    opacity: 0.9;
     transition: all 0.3s ease;
 }
 .master-preview-media:hover .master-preview-overlay {
@@ -95,32 +144,44 @@
     position: absolute;
     bottom: 12px;
     left: 12px;
-    background: rgba(13, 27, 39, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(13, 27, 39, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: #ffffff;
-    font-size: 11px;
+    font-size: 12px;
     font-family: var(--font-copperplate, serif);
-    padding: 4px 10px;
+    font-weight: 600;
+    padding: 5px 12px;
     border-radius: 20px;
     z-index: 2;
 }
 .quick-pill-filter {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 11px;
-    font-family: var(--font-copperplate, serif);
-    padding: 4px 12px;
-    border-radius: 20px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    color: #f1f5f9 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    font-family: var(--font-copperplate, serif) !important;
+    padding: 5px 14px !important;
+    border-radius: 20px !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
 }
 .quick-pill-filter:hover {
-    background: #71b644;
-    color: #0d1f2d;
-    border-color: #71b644;
+    background: #71b644 !important;
+    color: #0d1f2d !important;
+    border-color: #71b644 !important;
+}
+.glimpse-link-green {
+    color: #71b644 !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+}
+.glimpse-link-green:hover {
+    color: #88cb5d !important;
+    text-decoration: underline !important;
 }
 </style>
 @endpush
@@ -798,15 +859,15 @@
     </section>
 
     {{-- 7. Glimpse of Interactive Plots & Master Layout Section --}}
-    <section id="interactive-plots" class="bg-brand-primary text-light py-80 border-top border-white-10">
+    <section id="interactive-plots" class="text-light py-80 border-top border-white-10">
         <div class="container">
             <div class="row mb-4 g-4 align-items-end justify-content-between">
                 <div class="col-lg-8">
-                    <div class="subtitle text-brand-secondary font-copperplate mb-1">
+                    <div class="glimpse-section-subtitle mb-1">
                         <i class="fa-solid fa-shapes me-1"></i> Interactive Plots Inventory
                     </div>
                     <h2 class="fs-36 text-white font-copperplate mb-2">Master Layout &amp; Interactive Plots</h2>
-                    <p class="text-white-50 fs-15 mb-0">
+                    <p class="glimpse-section-desc mb-0">
                         Experience the authentic 158-plot HMDA layout (LP No: 000022/LO/Plg/HMDA/2023) at RRR Prekshitha Enclave. Browse available inventory, inspect plot orientations, view exact dimensions, and reserve your plot with clear marketable titles.
                     </p>
                 </div>
@@ -820,27 +881,27 @@
             {{-- Live Plot Counters Strip --}}
             <div class="row g-3 mb-4" id="homePlotsSummaryStrip">
                 <div class="col-6 col-md-3">
-                    <div class="p-3 rounded-3 bg-brand-card border border-white-10 text-center">
-                        <div class="fs-28 fw-700 text-white font-copperplate home-animated-counter" data-counter-target="{{ $plotCounts['total'] ?? 158 }}">0</div>
-                        <div class="fs-12 text-white-50 font-copperplate">Total Plots</div>
+                    <div class="glimpse-stat-card">
+                        <div class="glimpse-stat-num text-white home-animated-counter" data-counter-target="{{ $plotCounts['total'] ?? 158 }}">0</div>
+                        <div class="glimpse-stat-label" style="color: #e2e8f0;">Total Plots</div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="p-3 rounded-3 bg-brand-card border border-white-10 text-center">
-                        <div class="fs-28 fw-700 font-copperplate home-animated-counter" style="color: #71b644;" data-counter-target="{{ $plotCounts['available'] ?? 106 }}">0</div>
-                        <div class="fs-12 font-copperplate" style="color: rgba(113, 182, 68, 0.85);"><i class="fa-solid fa-circle-dot me-1 text-success"></i> Available</div>
+                    <div class="glimpse-stat-card">
+                        <div class="glimpse-stat-num home-animated-counter" style="color: #4ade80 !important;" data-counter-target="{{ $plotCounts['available'] ?? 106 }}">0</div>
+                        <div class="glimpse-stat-label" style="color: #86efac !important;"><i class="fa-solid fa-circle-dot me-1 text-success"></i> Available</div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="p-3 rounded-3 bg-brand-card border border-white-10 text-center">
-                        <div class="fs-28 fw-700 font-copperplate home-animated-counter" style="color: #f59e0b;" data-counter-target="{{ $plotCounts['reserved'] ?? 19 }}">0</div>
-                        <div class="fs-12 font-copperplate" style="color: rgba(245, 158, 11, 0.85);">Reserved</div>
+                    <div class="glimpse-stat-card">
+                        <div class="glimpse-stat-num home-animated-counter" style="color: #fbbf24 !important;" data-counter-target="{{ $plotCounts['reserved'] ?? 19 }}">0</div>
+                        <div class="glimpse-stat-label" style="color: #fde047 !important;">Reserved</div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="p-3 rounded-3 bg-brand-card border border-white-10 text-center">
-                        <div class="fs-28 fw-700 font-copperplate home-animated-counter" style="color: #dc3526;" data-counter-target="{{ $plotCounts['sold'] ?? 33 }}">0</div>
-                        <div class="fs-12 font-copperplate" style="color: rgba(220, 53, 38, 0.85);">Sold</div>
+                    <div class="glimpse-stat-card">
+                        <div class="glimpse-stat-num home-animated-counter" style="color: #f87171 !important;" data-counter-target="{{ $plotCounts['sold'] ?? 33 }}">0</div>
+                        <div class="glimpse-stat-label" style="color: #fca5a5 !important;">Sold</div>
                     </div>
                 </div>
             </div>
@@ -849,18 +910,18 @@
             <div class="row g-4 align-items-stretch">
                 {{-- Left: Master Layout Interactive Preview Card --}}
                 <div class="col-lg-5 col-12">
-                    <div class="plot-master-preview-card h-100 d-flex flex-column justify-content-between p-4 rounded-4 bg-brand-card border border-white-10 position-relative overflow-hidden">
+                    <div class="glimpse-panel-card h-100 d-flex flex-column justify-content-between position-relative overflow-hidden">
                         <div>
-                            <div class="d-flex align-items-center justify-content-between mb-3">
-                                <span class="badge bg-brand-primary border border-brand-primary text-brand-secondary font-copperplate fs-11 px-2.5 py-1 rounded-pill">
+                            <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+                                <span class="badge" style="background: rgba(113, 182, 68, 0.2); border: 1px solid rgba(113, 182, 68, 0.45); color: #86efac; font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 20px;">
                                     <i class="fa-solid fa-certificate me-1"></i> LP: 000022/LO/Plg/HMDA/2023
                                 </span>
-                                <span class="badge bg-dark text-white-50 border border-white-10 font-copperplate fs-11 px-2.5 py-1 rounded-pill">
+                                <span class="badge" style="background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.22); color: #f8fafc; font-size: 11px; font-weight: 600; padding: 6px 12px; border-radius: 20px;">
                                     17-Acre Master Plan
                                 </span>
                             </div>
-                            <h3 class="fs-20 text-white font-copperplate mb-2">Master Layout Blueprint</h3>
-                            <p class="text-white-50 fs-13 mb-3">
+                            <h3 class="fs-22 text-white font-copperplate mb-2">Master Layout Blueprint</h3>
+                            <p class="glimpse-section-desc fs-14 mb-3">
                                 Access the live interactive blueprint map with sector navigation, plot dimensions, facing filters, and real-time status tracking.
                             </p>
                         </div>
@@ -879,10 +940,10 @@
                         </div>
 
                         <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pt-2 border-top border-white-10">
-                            <a href="{{ asset('venture/docs/RRR PREKSHITHA ENCLAVE LAYOUT.pdf') }}" target="_blank" rel="noopener" class="text-white-50 fs-12 text-decoration-none hover-white">
+                            <a href="{{ asset('venture/docs/RRR PREKSHITHA ENCLAVE LAYOUT.pdf') }}" target="_blank" rel="noopener" class="text-white-50 fs-13 text-decoration-none hover-white">
                                 <i class="fa-solid fa-file-pdf text-danger me-1"></i> Official Blueprint PDF
                             </a>
-                            <a href="{{ route('plots.index') }}" class="text-brand-secondary fs-12 font-copperplate text-decoration-none fw-600">
+                            <a href="{{ route('plots.index') }}" class="glimpse-link-green fs-13 font-copperplate">
                                 View Interactive Board &rarr;
                             </a>
                         </div>
@@ -891,27 +952,30 @@
 
                 {{-- Right: Available Plots Glimpse Grid --}}
                 <div class="col-lg-7 col-12">
-                    <div class="p-4 rounded-4 bg-brand-card border border-white-10 h-100 d-flex flex-column justify-content-between">
+                    <div class="glimpse-panel-card h-100 d-flex flex-column justify-content-between">
                         <div>
                             <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
                                 <div>
-                                    <span class="subtitle text-brand-secondary font-copperplate fs-12">Quick Plot Showcase</span>
-                                    <h3 class="fs-20 text-white font-copperplate mb-0">Featured Available Plots</h3>
+                                    <div class="glimpse-section-subtitle fs-12 mb-1">Quick Plot Showcase</div>
+                                    <h3 class="fs-22 text-white font-copperplate mb-0">Featured Available Plots</h3>
                                 </div>
-                                <a href="{{ route('plots.index') }}" class="text-brand-secondary fs-12 font-copperplate text-decoration-none">
+                                <a href="{{ route('plots.index') }}" class="glimpse-link-green fs-13 font-copperplate">
                                     View All {{ $plotCounts['available'] ?? 106 }} Plots &rarr;
                                 </a>
                             </div>
 
                             <div class="row g-3">
                                 @forelse($plots as $plot)
+                                    @php
+                                        $cleanPlotNum = Str::startsWith(strtoupper($plot['number']), 'PLOT') ? $plot['number'] : 'Plot #' . $plot['number'];
+                                    @endphp
                                     <div class="col-md-6 col-12">
                                         <div class="interactive-plot-card">
                                             <div class="d-flex align-items-center justify-content-between mb-2">
                                                 <span class="plot-number-pill">
-                                                    Plot #{{ $plot['number'] }}
+                                                    {{ $cleanPlotNum }}
                                                 </span>
-                                                <span class="badge bg-success bg-opacity-20 text-success border border-success border-opacity-30 fs-10 px-2 py-0.5 rounded-pill">
+                                                <span class="badge" style="background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.45); font-weight: 700; font-size: 11px; padding: 4px 10px; border-radius: 20px;">
                                                     <i class="fa-solid fa-circle-dot me-1"></i> Available
                                                 </span>
                                             </div>
@@ -919,27 +983,27 @@
                                             <div class="plot-specs-grid mb-2">
                                                 <div class="plot-spec-item">
                                                     <span class="plot-spec-label">Area</span>
-                                                    <span class="plot-spec-val text-white">{{ round($plot['size_sq_yards']) }} Sq. Yds</span>
+                                                    <span class="plot-spec-val">{{ round($plot['size_sq_yards']) }} Sq. Yds</span>
                                                 </div>
                                                 <div class="plot-spec-item">
                                                     <span class="plot-spec-label">Facing</span>
-                                                    <span class="plot-spec-val text-white">{{ $plot['facing'] ?? 'East' }}</span>
+                                                    <span class="plot-spec-val">{{ $plot['facing'] ?? 'East' }}</span>
                                                 </div>
                                                 <div class="plot-spec-item">
                                                     <span class="plot-spec-label">Dimensions</span>
-                                                    <span class="plot-spec-val text-white">{{ $plot['dimensions'] ?? "36' × 50'" }}</span>
+                                                    <span class="plot-spec-val">{{ $plot['dimensions'] ?? "36' × 50'" }}</span>
                                                 </div>
                                                 <div class="plot-spec-item">
                                                     <span class="plot-spec-label">Road</span>
-                                                    <span class="plot-spec-val text-white">{{ $plot['road_width'] ?? '40 Ft Road' }}</span>
+                                                    <span class="plot-spec-val">{{ $plot['road_width'] ?? '40 Ft Road' }}</span>
                                                 </div>
                                             </div>
 
                                             <div class="d-flex align-items-center justify-content-between pt-2 border-top border-white-10">
-                                                <span class="text-white-50 fs-11">
-                                                    <i class="fa-solid fa-compass text-brand-secondary me-1"></i> 100% Vaastu
+                                                <span style="color: #4ade80; font-size: 12px; font-weight: 600;">
+                                                    <i class="fa-solid fa-compass me-1 text-success"></i> 100% Vaastu
                                                 </span>
-                                                <a href="{{ route('plots.show', $plot['number']) }}" class="text-brand-secondary fs-11 font-copperplate text-decoration-none">
+                                                <a href="{{ route('plots.show', $plot['number']) }}" class="glimpse-link-green fs-12 font-copperplate">
                                                     Details &rarr;
                                                 </a>
                                             </div>
@@ -958,15 +1022,15 @@
                         {{-- Quick Filter Pills linking to interactive board --}}
                         <div class="mt-4 pt-3 border-top border-white-10">
                             <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
-                                <div class="d-flex align-items-center flex-wrap gap-1.5">
-                                    <span class="fs-11 text-white-50 font-copperplate me-1">Filter By:</span>
+                                <div class="d-flex align-items-center flex-wrap gap-2">
+                                    <span class="fs-12 font-copperplate me-1" style="color: #e2e8f0; font-weight: 700;">Filter By:</span>
                                     <a href="{{ route('plots.index') }}" class="quick-pill-filter">All Available</a>
                                     <a href="{{ route('plots.index') }}" class="quick-pill-filter">East Facing</a>
                                     <a href="{{ route('plots.index') }}" class="quick-pill-filter">North Facing</a>
                                     <a href="{{ route('plots.index') }}" class="quick-pill-filter">40' Boulevard</a>
                                 </div>
-                                <a href="{{ route('plots.index') }}" class="btn btn-sm btn-outline-brand font-copperplate fs-11 px-3 py-1.5 rounded-pill">
-                                    <span>Explore Interactive Board &rarr;</span>
+                                <a href="{{ route('plots.index') }}" class="btn-main font-copperplate fs-12 px-3 py-1.5 rounded-pill">
+                                    <span>Explore Board &rarr;</span>
                                 </a>
                             </div>
                         </div>
