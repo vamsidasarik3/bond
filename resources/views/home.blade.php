@@ -153,26 +153,31 @@
         <div class="gradient-edge-bottom"></div>
     </section>
 
-    {{-- 2. 6-Card Visual Showcase Section (Authentic 3D Renders & Master Plan) --}}
+    {{-- 2. Visual Showcase Gallery (Constructed On-Ground Development) --}}
     <section id="project" class="bg-brand-primary py-60 border-bottom border-white-10">
         <div class="container">
-            <div class="row mb-4">
-                <div class="col-12">
-                    <div class="subtitle text-brand-secondary font-copperplate mb-1">Project Renders</div>
-                    <h2 class="fs-32 text-white font-copperplate mb-0">Community Infrastructure and Site Renders</h2>
+            <div class="row mb-4 align-items-end justify-content-between">
+                <div class="col-lg-8">
+                    <div class="subtitle text-brand-secondary font-copperplate mb-1">Project Gallery</div>
+                    <h2 class="fs-32 text-white font-copperplate mb-0">Constructed On-Ground Development</h2>
+                </div>
+                <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                    <a href="#layout" class="btn-secondary-brand px-3 py-2 fs-13">
+                        <span>View Master Layout <i class="fa-solid fa-arrow-right ms-2"></i></span>
+                    </a>
                 </div>
             </div>
 
             <div class="row g-4">
                 
-                {{-- Item 1: Grand Entrance Arch --}}
+                {{-- Card 1: Grand Entrance Arch using Web_03.png --}}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(0)">
-                        <img src="{{ asset('images/projects/rrr-prekshitha/entrance-arch-grand.webp') }}" alt="Grand entrance arch with security cabin at Navagruha plotted community">
+                        <img src="{{ asset('landing2/images/Web_03.png') }}" alt="Grand Entrance Arch" loading="lazy">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
                             <h3 class="gallery-showcase-title">Grand Entrance Arch</h3>
-                            <div class="gallery-showcase-subtitle">24/7 Security Cabin &amp; Boom Barrier</div>
+                            <div class="gallery-showcase-subtitle">Architectural Gateway &amp; Security Post</div>
                         </div>
                         <div class="gallery-showcase-hover-btn">
                             <span><i class="fa-solid fa-expand me-1"></i> View Entrance</span>
@@ -180,14 +185,14 @@
                     </div>
                 </div>
 
-                {{-- Item 2: 30ft & 40ft CC Roads --}}
+                {{-- Card 2: 30' & 40' CC Roads using rrr-road-1.jpg --}}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(1)">
-                        <img src="{{ asset('images/projects/rrr-prekshitha/concrete-boulevard-40ft.webp') }}" alt="30-foot and 40-foot heavy-duty concrete roads in residential venture">
+                        <img src="{{ asset('landing2/images/rrr-road-1.jpg') }}" alt="30' and 40' Concrete Roads" loading="lazy">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
                             <h3 class="gallery-showcase-title">30' &amp; 40' CC Roads</h3>
-                            <div class="gallery-showcase-subtitle">Heavy-Duty Concrete Avenues</div>
+                            <div class="gallery-showcase-subtitle">Durable All-Weather Concrete Avenues</div>
                         </div>
                         <div class="gallery-showcase-hover-btn">
                             <span><i class="fa-solid fa-expand me-1"></i> View Roads</span>
@@ -195,14 +200,43 @@
                     </div>
                 </div>
 
-                {{-- Item 3: 3 Landscaped Parks & Play Area --}}
+                {{-- Card 3: Layout Demarcation & Underground Utilities Dual Showcase --}}
                 <div class="col-lg-4 col-md-6 col-12">
-                    <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(2)">
-                        <img src="{{ asset('images/projects/rrr-prekshitha/layout-parks-broad-view.webp') }}" alt="Three landscaped parks and children play area in gated community layout">
+                    <div class="gallery-showcase-item utilities-dual-card" id="utilitiesDualCard" onclick="openUtilitiesModal(0)" title="Click to view full photos of Plot Demarcation Stone &amp; Underground Utilities" role="button" tabindex="0">
+                        <div class="utilities-split-viewport">
+                            <div class="utilities-pane utilities-pane-left">
+                                <img src="{{ asset('landing2/images/utilities-stone.jpg?v=5') }}" alt="Plot Demarcation Yellow Stone" loading="lazy">
+                                <span class="utilities-lens-badge"><i class="fa-solid fa-location-dot me-1"></i> Plot Demarcation</span>
+                            </div>
+                            <div class="utilities-split-divider">
+                                <span class="divider-indicator"><i class="fa-solid fa-arrows-left-right"></i></span>
+                            </div>
+                            <div class="utilities-pane utilities-pane-right">
+                                <img src="{{ asset('landing2/images/utilities-chamber.jpg?v=5') }}" alt="Concealed Underground Drainage Chamber Cover" loading="lazy">
+                                <span class="utilities-lens-badge"><i class="fa-solid fa-circle-dot me-1"></i> Drainage Chamber</span>
+                            </div>
+                        </div>
+                        <div class="gallery-showcase-overlay utilities-dual-overlay"></div>
+                        <div class="gallery-showcase-content">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <h3 class="gallery-showcase-title">Underground Utilities</h3>
+                                    <div class="gallery-showcase-subtitle">Concealed Drainage Chambers &amp; Infrastructure</div>
+                                </div>
+                                <span class="utilities-zoom-btn" aria-label="Expand view"><i class="fa-solid fa-expand"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Card 4: Landscaped Theme Parks using layout-parks-12.jpg --}}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(3)">
+                        <img src="{{ asset('landing2/images/layout-parks-12.jpg') }}" alt="3 Landscaped Theme Parks" loading="lazy">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
-                            <h3 class="gallery-showcase-title">3 Landscaped Theme Parks</h3>
-                            <div class="gallery-showcase-subtitle">Children's Play Area &amp; Walking Tracks</div>
+                            <h3 class="gallery-showcase-title">3 Landscaped Parks</h3>
+                            <div class="gallery-showcase-subtitle">Green Open Reserves &amp; Avenue Palm Plantation</div>
                         </div>
                         <div class="gallery-showcase-hover-btn">
                             <span><i class="fa-solid fa-expand me-1"></i> View Greenery</span>
@@ -210,47 +244,77 @@
                     </div>
                 </div>
 
-                {{-- Item 4: Overhead Water Tank --}}
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(3)">
-                        <img src="{{ asset('images/projects/rrr-prekshitha/overhead-water-tank.webp') }}" alt="Overhead water tank and pipeline infrastructure for residential plots">
-                        <div class="gallery-showcase-overlay"></div>
-                        <div class="gallery-showcase-content">
-                            <h3 class="gallery-showcase-title">Overhead Water Storage</h3>
-                            <div class="gallery-showcase-subtitle">Pressurized Water Supply to Each Plot</div>
-                        </div>
-                        <div class="gallery-showcase-hover-btn">
-                            <span><i class="fa-solid fa-expand me-1"></i> View Water Infra</span>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Item 5: Pedestrian Walkways & Greenery --}}
+                {{-- Card 5: Overhead Water Tank using water-tank.png --}}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(4)">
-                        <img src="{{ asset('images/Walk_33.png') }}" alt="Avenue plantations, paved pedestrian walkways and modern street lighting">
+                        <img src="{{ asset('landing2/images/water-tank.png') }}" alt="Overhead Water Tank" loading="lazy">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
-                            <h3 class="gallery-showcase-title">Avenue Plantations &amp; Walkways</h3>
-                            <div class="gallery-showcase-subtitle">Curb Stones &amp; Modern Street Lighting</div>
+                            <h3 class="gallery-showcase-title">Overhead Water Tank</h3>
+                            <div class="gallery-showcase-subtitle">Reliable Gravity-Fed Potable Water Supply</div>
                         </div>
                         <div class="gallery-showcase-hover-btn">
-                            <span><i class="fa-solid fa-expand me-1"></i> View Pathways</span>
+                            <span><i class="fa-solid fa-expand me-1"></i> View Water Tank</span>
                         </div>
                     </div>
                 </div>
 
-                {{-- Item 6: Aerial Master View --}}
+                {{-- Card 6: Premium Compound Wall using compound-wall.jpg --}}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(5)">
-                        <img src="{{ asset('images/projects/rrr-prekshitha/master-layout-aerial.webp') }}" alt="17-acre HMDA approved master layout aerial view near AIIMS Bibinagar">
+                        <img src="{{ asset('landing2/images/compound-wall.jpg') }}" alt="Premium Compound Wall" loading="lazy">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
-                            <h3 class="gallery-showcase-title">17 Acre Master Layout</h3>
-                            <div class="gallery-showcase-subtitle">HMDA LP No. 000085/LO/Plg/HMDA/2024</div>
+                            <h3 class="gallery-showcase-title">Premium Compound Wall</h3>
+                            <div class="gallery-showcase-subtitle">Continuous Boundary Enclosure &amp; Avenue Frontage</div>
                         </div>
                         <div class="gallery-showcase-hover-btn">
-                            <span><i class="fa-solid fa-expand me-1"></i> View Master Plan</span>
+                            <span><i class="fa-solid fa-expand me-1"></i> View Compound Wall</span>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Card 7: Social Infrastructure using social-infra.jpg --}}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(6)">
+                        <img src="{{ asset('landing2/images/social-infra.jpg') }}" alt="Social Infrastructure — On-Site Project Office, Visitor Parking &amp; Green Spaces" loading="lazy" style="object-position: center center;">
+                        <div class="gallery-showcase-overlay"></div>
+                        <div class="gallery-showcase-content">
+                            <h3 class="gallery-showcase-title">Social Infrastructure</h3>
+                            <div class="gallery-showcase-subtitle">On-Site Project Office, Visitor Parking &amp; Landscaped Greens</div>
+                        </div>
+                        <div class="gallery-showcase-hover-btn">
+                            <span><i class="fa-solid fa-expand me-1"></i> View Social Infra</span>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Card 8: Electricity with LED Street Lights using electricity-led-combined.jpg --}}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(7)">
+                        <img src="{{ asset('landing2/images/electricity-led-combined.jpg') }}" alt="Electricity with LED Street Lights" loading="lazy">
+                        <div class="gallery-showcase-overlay"></div>
+                        <div class="gallery-showcase-content">
+                            <h3 class="gallery-showcase-title">Electricity with LED Street Lights</h3>
+                            <div class="gallery-showcase-subtitle">Illuminated Concrete Avenues &amp; Dusk Grid</div>
+                        </div>
+                        <div class="gallery-showcase-hover-btn">
+                            <span><i class="fa-solid fa-expand me-1"></i> View Lighting</span>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Card 9: 100 Feet Road & Connectivity using entrance-site-photo.jpg --}}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(8)">
+                        <img src="{{ asset('landing2/images/entrance-site-photo.jpg') }}" alt="100 Feet Master Plan Road Connected to Entrance &amp; Warangal Highway" loading="lazy">
+                        <div class="gallery-showcase-overlay"></div>
+                        <div class="gallery-showcase-content">
+                            <h3 class="gallery-showcase-title">100' Road &amp; Connectivity</h3>
+                            <div class="gallery-showcase-subtitle">Direct 100 Feet Master Plan Road Connecting to Entrance &amp; Highway</div>
+                        </div>
+                        <div class="gallery-showcase-hover-btn">
+                            <span><i class="fa-solid fa-expand me-1"></i> View 100' Road</span>
                         </div>
                     </div>
                 </div>
@@ -688,7 +752,7 @@
             <div class="showcase-modal-header">
                 <div>
                     <div class="showcase-modal-title" id="showcaseModalTitle">Grand Entrance Arch</div>
-                    <div class="showcase-modal-subtitle" id="showcaseModalSubtitle">Entire Site Compound Wall &amp; 24/7 Security Cabin</div>
+                    <div class="showcase-modal-subtitle" id="showcaseModalSubtitle">Architectural Gateway &amp; Security Post</div>
                 </div>
                 <button class="showcase-modal-close" onclick="closeShowcaseModal(event)" aria-label="Close modal">
                     <i class="fa-solid fa-xmark"></i>
@@ -706,41 +770,107 @@
         </div>
     </div>
 
+    <!-- Underground Utilities Dual Lightbox Modal -->
+    <div class="utilities-lightbox-modal" id="utilitiesModal" aria-hidden="true" role="dialog">
+        <div class="utilities-modal-backdrop" id="utilitiesModalBackdrop" onclick="closeUtilitiesModal()"></div>
+        <div class="utilities-modal-dialog">
+            <div class="utilities-modal-header">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="modal-gold-badge"><i class="fa-solid fa-shield-halved me-1"></i> Physical Verification</span>
+                    <h4 class="utilities-modal-title">Underground Utilities &amp; Plot Demarcation</h4>
+                </div>
+                <button type="button" class="utilities-modal-close" onclick="closeUtilitiesModal()" aria-label="Close modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="utilities-modal-body">
+                <div class="utilities-modal-grid">
+                    <!-- Item 1: Yellow Boundary Marker -->
+                    <div class="utilities-modal-item">
+                        <div class="utilities-modal-img-wrap">
+                            <img src="{{ asset('landing2/images/utilities-stone-full.jpg?v=5') }}" alt="Plot Demarcation Yellow Marker" id="modalStoneImg">
+                            <span class="utilities-img-tag"><i class="fa-solid fa-location-pin me-1"></i> Plot Demarcation</span>
+                        </div>
+                        <div class="utilities-modal-info">
+                            <h5>Plot Boundary Marker</h5>
+                            <p>Every plot at RRR Prekshitha Enclave is clearly demarcated with bright yellow numbered boundary markers, manicured concrete avenue kerbing, and landscaped plantation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Circled Chamber Cover -->
+                    <div class="utilities-modal-item">
+                        <div class="utilities-modal-img-wrap">
+                            <img src="{{ asset('landing2/images/utilities-chamber-full.jpg?v=5') }}" alt="Concealed Underground Drainage Chamber Cover" id="modalChamberImg">
+                            <span class="utilities-img-tag"><i class="fa-solid fa-circle-notch me-1"></i> Heavy-Duty Chamber (BALAJI MD40)</span>
+                        </div>
+                        <div class="utilities-modal-info">
+                            <h5>Concealed Drainage Chamber · BALAJI MD40</h5>
+                            <p>Heavy-duty circular concrete inspection chamber cover with anti-slip honeycomb pattern and dual lifting hooks, seamlessly integrated into the road paving for long-term durability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="utilities-modal-footer">
+                <span class="text-white-50 small"><i class="fa-solid fa-info-circle me-1"></i> Actual unedited photographs captured directly on site at Bibinagar.</span>
+                <button type="button" class="btn-primary-brand" onclick="closeUtilitiesModal(); document.querySelector('#contact, #enquire, #schedule-visit')?.scrollIntoView({behavior:'smooth'});" style="padding: 8px 20px; font-size: 0.8rem; border: none; cursor: pointer;">
+                    <span>Schedule Free Site Inspection</span> <i class="fa-solid fa-arrow-right ms-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @push('scripts')
 <script>
-    // ── 3D Render Showcase Lightbox Modal ──
+    // ── Infrastructure Gallery Lightbox Modal ──
     const showcaseGallery = [
         {
-            src: "{{ asset('images/projects/rrr-prekshitha/entrance-arch-grand.webp') }}",
+            src: "{{ asset('landing2/images/Web_03.png') }}",
             title: "Grand Entrance Arch",
-            subtitle: "Entire Site Compound Wall & 24/7 Security Cabin"
+            subtitle: "Architectural Gateway &amp; Security Post"
         },
         {
-            src: "{{ asset('images/projects/rrr-prekshitha/concrete-boulevard-40ft.webp') }}",
-            title: "30' & 40' CC Roads",
-            subtitle: "Heavy-Duty M-25 Grade Concrete Avenues"
+            src: "{{ asset('landing2/images/rrr-road-1.jpg') }}",
+            title: "30' &amp; 40' CC Roads",
+            subtitle: "Durable All-Weather Concrete Avenues"
         },
         {
-            src: "{{ asset('images/projects/rrr-prekshitha/layout-parks-broad-view.webp') }}",
-            title: "3 Landscaped Theme Parks",
-            subtitle: "Children's Play Area & Walking Tracks"
+            src: "{{ asset('landing2/images/utilities-chamber-full.jpg?v=5') }}",
+            title: "Underground Utilities",
+            subtitle: "Concealed Drainage Chambers &amp; Infrastructure"
         },
         {
-            src: "{{ asset('images/projects/rrr-prekshitha/overhead-water-tank.webp') }}",
-            title: "Overhead Water Storage",
-            subtitle: "Pressurized 24/7 Water Supply Network"
+            src: "{{ asset('landing2/images/layout-parks-12.jpg') }}",
+            title: "3 Landscaped Parks",
+            subtitle: "Green Open Reserves &amp; Avenue Palm Plantation"
         },
         {
-            src: "{{ asset('images/Walk_33.png') }}",
-            title: "Avenue Plantations & Walkways",
-            subtitle: "Curb Stones & Modern LED Street Lighting"
+            src: "{{ asset('landing2/images/water-tank.png') }}",
+            title: "Overhead Water Tank",
+            subtitle: "Reliable Gravity-Fed Potable Water Supply"
         },
         {
-            src: "{{ asset('images/projects/rrr-prekshitha/master-layout-aerial.webp') }}",
-            title: "17 Acre Master Layout",
-            subtitle: "HMDA Final Sanction, LP No. 000085/LO/Plg/HMDA/2024"
+            src: "{{ asset('landing2/images/compound-wall.jpg') }}",
+            title: "Premium Compound Wall",
+            subtitle: "Continuous Boundary Enclosure &amp; Avenue Frontage"
+        },
+        {
+            src: "{{ asset('landing2/images/social-infra.jpg') }}",
+            title: "Social Infrastructure",
+            subtitle: "On-Site Project Office, Visitor Parking &amp; Landscaped Greens"
+        },
+        {
+            src: "{{ asset('landing2/images/electricity-led-combined.jpg') }}",
+            title: "Electricity with LED Street Lights",
+            subtitle: "Illuminated Concrete Avenues &amp; Dusk Grid"
+        },
+        {
+            src: "{{ asset('landing2/images/entrance-site-photo.jpg') }}",
+            title: "100' Road &amp; Connectivity",
+            subtitle: "Direct 100 Feet Master Plan Road Connecting to Entrance &amp; Highway"
         }
     ];
 
@@ -787,6 +917,25 @@
         }
     }
 
+    // ── Utilities Modal ──
+    function openUtilitiesModal(initialIndex) {
+        var modal = document.getElementById('utilitiesModal');
+        if (modal) {
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeUtilitiesModal() {
+        var modal = document.getElementById('utilitiesModal');
+        if (modal) {
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+    }
+
     // ── Video Reel Modal ──
     function openReelModal(videoUrl, title) {
         const overlay = document.getElementById('reelModalOverlay');
@@ -825,6 +974,7 @@
 
         if (e.key === 'Escape') {
             closeShowcaseModal();
+            closeUtilitiesModal();
             closeReelModal();
         } else if (isShowcaseOpen && e.key === 'ArrowLeft') {
             navigateShowcase(-1);
