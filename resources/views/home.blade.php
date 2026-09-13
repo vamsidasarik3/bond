@@ -763,18 +763,18 @@
 
                     <div class="transit-item-row">
                         <div>
-                            <div class="transit-destination-name">Birla Open Minds International School</div>
-                            <div class="transit-destination-meta">Premier K-12 Progressive Education Campus</div>
-                        </div>
-                        <span class="transit-duration-badge">4 Mins</span>
-                    </div>
-
-                    <div class="transit-item-row">
-                        <div>
                             <div class="transit-destination-name">AIIMS Medical University Campus</div>
                             <div class="transit-destination-meta">Premier National Medical University &amp; Hospital</div>
                         </div>
                         <span class="transit-duration-badge">5 Mins</span>
+                    </div>
+
+                    <div class="transit-item-row">
+                        <div>
+                            <div class="transit-destination-name">Birla Open Minds International School</div>
+                            <div class="transit-destination-meta">Premier K-12 Progressive Education Campus</div>
+                        </div>
+                        <span class="transit-duration-badge">6 Mins</span>
                     </div>
 
                     <div class="transit-item-row">
