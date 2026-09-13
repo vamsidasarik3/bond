@@ -51,11 +51,11 @@
                                     </h1>
 
                                     <div class="hero-subtitle-location mb-3">
-                                        <i class="fa-solid fa-location-dot me-2 text-brand-secondary"></i>Residential Plots near AIIMS Bibinagar, Hyderabad to Warangal Highway (NH-163)
+                                        <i class="fa-solid fa-location-dot me-2 text-brand-secondary"></i>Residential Plots near AIIMS Medical University Campus, Hyderabad to Warangal Highway (NH-163)
                                     </div>
                                     
                                     <p class="hero-lead mb-4">
-                                        A 17-acre gated community of HMDA-approved residential plots located on the Hyderabad to Warangal highway, five minutes from AIIMS Bibinagar.
+                                        A 17-acre gated community of HMDA-approved residential plots located on the Hyderabad to Warangal highway, five minutes from AIIMS Medical University Campus.
                                     </p>
                                     
                                     <div class="d-flex flex-wrap gap-3">
@@ -387,7 +387,7 @@
                 <div class="col-lg-8">
                     <h2 class="fs-36 text-white font-copperplate mb-0">Venture Reels</h2>
                     <p class="text-white-50 fs-14 mt-2 mb-0">
-                        Watch official high-definition venture walkthroughs and short video reels showing actual on-ground development at AIIMS Bibinagar.
+                        Watch official high-definition venture walkthroughs and short video reels showing actual on-ground development near AIIMS Medical University Campus.
                     </p>
                 </div>
                 <div class="col-lg-4 text-lg-end mt-2 mt-lg-0">
@@ -413,7 +413,7 @@
                             <i class="fa-solid fa-camera me-1 text-brand-secondary"></i> On-Ground 4K Tour
                         </span>
                         <span class="video-chapter-pill">
-                            <i class="fa-solid fa-location-arrow me-1 text-brand-secondary"></i> AIIMS Bibinagar (5 Min)
+                            <i class="fa-solid fa-location-arrow me-1 text-brand-secondary"></i> AIIMS Medical University Campus (5 Min)
                         </span>
                         <span class="video-chapter-pill">
                             <i class="fa-solid fa-certificate me-1 text-brand-secondary"></i> HMDA Final Approved
@@ -457,8 +457,8 @@
 
                         {{-- Row 1 - Video 3 --}}
                         <div class="col-4">
-                            <div class="reel-card" onclick="openReelModal('{{ asset('venture/videos/REEL3.mp4') }}', 'AIIMS Bibinagar Location & Highway Connectivity')">
-                                <img src="{{ asset('images/projects/rrr-prekshitha/avenue-plantation-walkway.webp') }}" alt="AIIMS Bibinagar growth corridor location highlights video" class="reel-card-poster">
+                            <div class="reel-card" onclick="openReelModal('{{ asset('venture/videos/REEL3.mp4') }}', 'AIIMS Medical University Campus Location & Highway Connectivity')">
+                                <img src="{{ asset('images/projects/rrr-prekshitha/avenue-plantation-walkway.webp') }}" alt="AIIMS Medical University Campus growth corridor location highlights video" class="reel-card-poster">
                                 <div class="reel-card-gradient"></div>
                                 <div class="reel-card-content text-center">
                                     <div class="reel-play-btn mx-auto">
@@ -636,34 +636,22 @@
                 </div>
             </div>
 
-                <!-- Highway Corridor Billboard Campaign -->
+                <!-- Location Highlights Visuals -->
                 <div class="mt-5 pt-4 border-top border-white-10">
-                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4">
-                        <div>
-                            <div class="subtitle text-brand-secondary font-copperplate mb-1">Official Corridor Campaign</div>
-                            <h3 class="fs-28 text-white font-copperplate mb-0">Highway Outdoor Billboards</h3>
-                        </div>
-                        <div>
-                            <a href="{{ route('location') }}" class="btn-outline-brand font-copperplate fs-12 px-3 py-1.5 rounded-pill">
-                                <span>Explore Full Corridor &rarr;</span>
-                            </a>
-                        </div>
-                    </div>
-
                     <div class="row g-4">
-                        <!-- Creative 3: AIIMS Bibinagar 5 Mins -->
+                        <!-- Creative 3: AIIMS Medical University Campus 5 Mins -->
                         <div class="col-lg-4 col-md-6 col-12">
-                            <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('images/creatives/creative3.jpeg') }}', 'Reach AIIMS Bibinagar in 5 Minutes', '750-Bed Premier Medical Institute &amp; Hospital')">
+                            <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('images/creatives/creative3.jpeg') }}', 'Reach AIIMS Medical University Campus in 5 Minutes', '750-Bed Premier Medical Institute &amp; Hospital')">
                                 <div class="creative-img-wrap">
-                                    <img src="{{ asset('images/creatives/creative3.jpeg') }}" alt="Outdoor highway billboard showcasing 5-minute proximity to AIIMS Bibinagar medical institute" class="creative-img" loading="lazy">
+                                    <img src="{{ asset('images/creatives/creative3.jpeg') }}" alt="Location visual showcasing 5-minute proximity to AIIMS Medical University Campus" class="creative-img" loading="lazy">
                                     <div class="creative-badge">05 MINS</div>
                                     <div class="creative-zoom-overlay">
                                         <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                        <span>Click to Inspect Billboard</span>
+                                        <span>Click to View</span>
                                     </div>
                                 </div>
                                 <div class="creative-caption">
-                                    <h4 class="fs-16 text-white font-copperplate mb-1">AIIMS Bibinagar</h4>
+                                    <h4 class="fs-16 text-white font-copperplate mb-1">AIIMS Medical University Campus</h4>
                                     <p class="text-white-50 fs-12 mb-0">750-Bed Central Hospital &bull; 5 Mins Away</p>
                                 </div>
                             </div>
@@ -673,11 +661,11 @@
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('images/creatives/creative2.jpeg') }}', 'Reach Bibinagar MMTS in 5 Minutes', 'Direct Suburban Railway to Secunderabad &amp; Hyderabad Central')">
                                 <div class="creative-img-wrap">
-                                    <img src="{{ asset('images/creatives/creative2.jpeg') }}" alt="Outdoor highway billboard highlighting 5-minute commute to Bibinagar MMTS suburban railway station" class="creative-img" loading="lazy">
+                                    <img src="{{ asset('images/creatives/creative2.jpeg') }}" alt="Location visual highlighting 5-minute commute to Bibinagar MMTS suburban railway station" class="creative-img" loading="lazy">
                                     <div class="creative-badge">05 MINS</div>
                                     <div class="creative-zoom-overlay">
                                         <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                        <span>Click to Inspect Billboard</span>
+                                        <span>Click to View</span>
                                     </div>
                                 </div>
                                 <div class="creative-caption">
@@ -691,11 +679,11 @@
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('images/creatives/creative1.jpeg') }}', 'Reach National Highway NH-163 in 5 Minutes', 'HMDA Approved Layout LP No: 000085/LO/Plg/HMDA/2024 &amp; TG RERA: P02200008537')">
                                 <div class="creative-img-wrap">
-                                    <img src="{{ asset('images/creatives/creative1.jpeg') }}" alt="Outdoor highway billboard featuring HMDA approved residential plots near NH-163 Warangal highway" class="creative-img" loading="lazy">
+                                    <img src="{{ asset('images/creatives/creative1.jpeg') }}" alt="Location visual featuring HMDA approved residential plots near NH-163 Warangal highway" class="creative-img" loading="lazy">
                                     <div class="creative-badge">05 MINS</div>
                                     <div class="creative-zoom-overlay">
                                         <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                        <span>Click to Inspect Billboard</span>
+                                        <span>Click to View</span>
                                     </div>
                                 </div>
                                 <div class="creative-caption">

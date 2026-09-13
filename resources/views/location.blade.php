@@ -107,10 +107,10 @@
                 <div class="row g-4">
                     <div class="col-md-4 col-12">
                         <div class="gallery-showcase-item">
-                            <img src="{{ asset('venture/landmarks/Aiims Bibinagar.jpg') }}" alt="AIIMS Bibinagar Super Specialty Hospital">
+                            <img src="{{ asset('venture/landmarks/Aiims Bibinagar.jpg') }}" alt="AIIMS Medical University Campus Super Specialty Hospital">
                             <div class="gallery-showcase-overlay"></div>
                             <div class="gallery-showcase-content">
-                                <h4 class="gallery-showcase-title">AIIMS Bibinagar</h4>
+                                <h4 class="gallery-showcase-title">AIIMS Medical University Campus</h4>
                                 <div class="gallery-showcase-subtitle">750-Bed Hospital, 5 Minutes Away</div>
                             </div>
                         </div>
@@ -138,40 +138,40 @@
                 </div>
             </div>
 
-            <!-- Official Highway Billboard & Connectivity Campaign -->
+            <!-- Highway Connectivity & Location Showcase -->
             <div class="mb-5">
                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
                     <div>
-                        <div class="subtitle text-brand-secondary font-copperplate mb-1">Active Outdoor Campaign</div>
+                        <div class="subtitle text-brand-secondary font-copperplate mb-1">Highway Growth Corridor</div>
                         <h2 class="fs-28 text-white font-copperplate mb-0">
-                            Official Highway Corridor Billboards
+                            Location Highlights &amp; Connectivity
                         </h2>
                     </div>
                     <div>
                         <span class="badge bg-brand-primary bg-opacity-30 border border-brand-primary border-opacity-40 text-brand-secondary font-copperplate fs-12 px-3 py-2 rounded-pill">
-                            <i class="fa-solid fa-bullhorn me-1"></i> NH-163 Outdoor Campaign
+                            <i class="fa-solid fa-location-dot me-1"></i> NH-163 Growth Corridor
                         </span>
                     </div>
                 </div>
                 <p class="text-white-50 fs-14 mb-4">
-                    Active highway hoardings on the Hyderabad to Warangal growth corridor demonstrating verified proximity to AIIMS, Bibinagar MMTS, and NH-163. Click any billboard to inspect high-resolution details and official approval numbers.
+                    Key connectivity visual guides along the Hyderabad to Warangal growth corridor demonstrating verified proximity to AIIMS Medical University Campus, Bibinagar MMTS, and NH-163. Click any visual to inspect details and official layout approvals.
                 </p>
 
                 <div class="row g-4">
-                    <!-- Creative 3: AIIMS Bibinagar 5 Mins -->
+                    <!-- Creative 3: AIIMS Medical University Campus 5 Mins -->
                     <div class="col-lg-4 col-md-6 col-12">
-                        <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative3.jpeg') }}', 'Reach AIIMS Bibinagar in 5 Minutes', 'Premier 750-Bed Central Medical Institute & Hospital Corridor')">
+                        <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative3.jpeg') }}', 'Reach AIIMS Medical University Campus in 5 Minutes', 'Premier 750-Bed Central Medical Institute & Hospital Corridor')">
                             <div class="creative-img-wrap">
-                                <img src="{{ asset('data/creatives/creative3.jpeg') }}" alt="Plots Near AIIMS Bibinagar — AIIMS Bibinagar Corridor Billboard" class="creative-img" loading="lazy">
+                                <img src="{{ asset('data/creatives/creative3.jpeg') }}" alt="Plots Near AIIMS Medical University Campus — Proximity Showcase" class="creative-img" loading="lazy">
                                 <div class="creative-badge">05 MINS</div>
                                 <div class="creative-zoom-overlay">
                                     <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                    <span>Click to View Full Billboard</span>
+                                    <span>Click to View</span>
                                 </div>
                             </div>
                             <div class="creative-caption">
                                 <div class="d-flex align-items-center justify-content-between mb-1">
-                                    <h4 class="fs-16 text-white font-copperplate mb-0">AIIMS Bibinagar</h4>
+                                    <h4 class="fs-16 text-white font-copperplate mb-0">AIIMS Medical University Campus</h4>
                                     <span class="badge bg-dark text-brand-secondary font-copperplate fs-10 px-2 py-0.5 rounded border border-white-10">5 Mins Away</span>
                                 </div>
                                 <div class="text-white-50 fs-12">
@@ -183,13 +183,13 @@
 
                     <!-- Creative 2: Bibinagar MMTS 5 Mins -->
                     <div class="col-lg-4 col-md-6 col-12">
-                        <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative2.jpeg') }}', 'Reach Bibinagar MMTS in 5 Minutes', 'Rapid Suburban Rail Transit to Secunderabad & Hyderabad Central')">
+                        <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative2.jpeg') }}', 'Reach Bibinagar MMTS in 5 Minutes', 'Rapid Suburban Rail Transit to Secunderabad & Hospital Central')">
                             <div class="creative-img-wrap">
-                                <img src="{{ asset('data/creatives/creative2.jpeg') }}" alt="Investment Plots in Bibinagar — Bibinagar MMTS Station Billboard" class="creative-img" loading="lazy">
+                                <img src="{{ asset('data/creatives/creative2.jpeg') }}" alt="Investment Plots in Bibinagar — Bibinagar MMTS Station Showcase" class="creative-img" loading="lazy">
                                 <div class="creative-badge">05 MINS</div>
                                 <div class="creative-zoom-overlay">
                                     <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                    <span>Click to View Full Billboard</span>
+                                    <span>Click to View</span>
                                 </div>
                             </div>
                             <div class="creative-caption">
@@ -208,11 +208,11 @@
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative1.jpeg') }}', 'Reach National Highway NH-163 in 5 Minutes', 'HMDA Approved Layout LP No: 000085/LO/Plg/HMDA/2024 & TG RERA: P02200008537')">
                             <div class="creative-img-wrap">
-                                <img src="{{ asset('data/creatives/creative1.jpeg') }}" alt="Villa Plots Near AIIMS Bibinagar — NH-163 National Highway Billboard" class="creative-img" loading="lazy">
+                                <img src="{{ asset('data/creatives/creative1.jpeg') }}" alt="Villa Plots Near AIIMS Medical University Campus — NH-163 National Highway Showcase" class="creative-img" loading="lazy">
                                 <div class="creative-badge">05 MINS</div>
                                 <div class="creative-zoom-overlay">
                                     <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                    <span>Click to View Full Billboard</span>
+                                    <span>Click to View</span>
                                 </div>
                             </div>
                             <div class="creative-caption">
