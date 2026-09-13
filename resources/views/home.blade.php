@@ -464,68 +464,113 @@
             <div class="row mb-4 g-4 align-items-center justify-content-between">
                 <div class="col-lg-8">
                     <div class="subtitle text-brand-secondary font-copperplate">Location Highlights</div>
-                    <h2 class="fs-36 text-white font-copperplate">Location and Commute Times</h2>
+                    <h2 class="fs-36 text-white font-copperplate">Where the Project Sits</h2>
+                    <p class="text-white-50 fs-15 mt-2 mb-0">
+                        Situated in Bibinagar near AIIMS Medical University Campus on the NH-163 Warangal Highway, offering direct arterial transit to Hyderabad city and key growth nodes.
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="{{ route('location') }}" class="btn-outline-brand font-copperplate fs-12 px-3 py-2 rounded-pill">
+                        <span>Explore Full Corridor &rarr;</span>
+                    </a>
                 </div>
             </div>
 
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-12">
-                    <div class="de-tab">
-                        <ul class="d-tab-nav mb-4 border-bottom pb-4 d-flex">
-                            <li class="active-tab font-copperplate">All Key Locations</li>
-                            <li class="font-copperplate">Transit &amp; Highways</li>
-                            <li class="font-copperplate">Institutes &amp; IT</li>
-                            <li class="font-copperplate">Heritage &amp; Spiritual</li>
-                        </ul>
-
-                        <div class="d-tab-content">
-                            <div class="row g-3">
-                                <div class="col-lg-4 col-md-6 col-12">
-                                    <div class="location-feature-card">
-                                        <div class="location-time-badge">05 MINS</div>
-                                        <h3 class="fs-16 text-white font-copperplate mb-1">AIIMS Bibinagar</h3>
-                                        <p class="text-white-50 fs-12 mb-0">750-Bed Premier Central Medical Institute</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-12">
-                                    <div class="location-feature-card">
-                                        <div class="location-time-badge">05 MINS</div>
-                                        <h3 class="fs-16 text-white font-copperplate mb-1">NH-163 Warangal Highway</h3>
-                                        <p class="text-white-50 fs-12 mb-0">6-Lane Industrial Growth Corridor</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-12">
-                                    <div class="location-feature-card">
-                                        <div class="location-time-badge">05 MINS</div>
-                                        <h3 class="fs-16 text-white font-copperplate mb-1">Bibinagar MMTS Station</h3>
-                                        <p class="text-white-50 fs-12 mb-0">Direct Suburban Rail to Secunderabad</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-12">
-                                    <div class="location-feature-card">
-                                        <div class="location-time-badge">15 MINS</div>
-                                        <h3 class="fs-16 text-white font-copperplate mb-1">ORR Exit 9 (Ghatkesar)</h3>
-                                        <p class="text-white-50 fs-12 mb-0">Expressway Access to Hyderabad City</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-12">
-                                    <div class="location-feature-card">
-                                        <div class="location-time-badge">20 MINS</div>
-                                        <h3 class="fs-16 text-white font-copperplate mb-1">Infosys Pocharam SEZ</h3>
-                                        <p class="text-white-50 fs-12 mb-0">Major IT Hub with 25,000+ Engineers</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-12">
-                                    <div class="location-feature-card">
-                                        <div class="location-time-badge">20 MINS</div>
-                                        <h3 class="fs-16 text-white font-copperplate mb-1">Yadadri Temple Shrine</h3>
-                                        <p class="text-white-50 fs-12 mb-0">Historic Spiritual and Cultural Landmark</p>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="location-matrix-grid">
+                <!-- Left: Area Visual Card with lay_Out_new.png -->
+                <div class="location-visual-card">
+                    <div class="location-photo-box">
+                        <img src="{{ asset('landing2/images/lay_Out_new.png') }}" alt="Bibinagar AIIMS Medical University Campus Corridor Avenue View" loading="lazy">
+                        <div class="location-badge-pill">
+                            <i class="fa-solid fa-road me-1"></i> Growth Corridor · NH-163
                         </div>
                     </div>
+                    <div class="location-meta-box">
+                        <h4 class="text-white font-copperplate fs-20 mb-2">
+                            Navagruha RRR Prekshitha Enclave
+                        </h4>
+                        <p class="text-white-50 fs-14 lh-base mb-3">
+                            Near AIIMS Medical University Campus, Bibinagar, Yadadri Bhuvanagiri District, Hyderabad, Telangana 508126.
+                        </p>
+                        <a href="https://maps.google.com/?q=Bibinagar,+Near+AIIMS+Medical+University+Campus,+Telangana" target="_blank" rel="noopener noreferrer" class="btn-secondary-brand px-3 py-2 fs-13">
+                            <i class="fa-solid fa-location-arrow me-2 text-brand-secondary"></i>
+                            <span>Open in Google Maps</span>
+                        </a>
+                    </div>
                 </div>
+
+                <!-- Right: Verified Travel Schedule -->
+                <div class="transit-schedule-card">
+                    <div class="subtitle text-brand-secondary font-copperplate mb-1 fs-12">Verified Travel Times</div>
+                    <h3 class="text-white font-copperplate fs-22 mb-3">
+                        Key Distances &amp; Connectivity
+                    </h3>
+
+                    <div class="transit-item-row">
+                        <div>
+                            <div class="transit-destination-name">Bibinagar Sub Registrar Office</div>
+                            <div class="transit-destination-meta">Government Registration &amp; Documentation</div>
+                        </div>
+                        <span class="transit-duration-badge">2 Mins</span>
+                    </div>
+
+                    <div class="transit-item-row">
+                        <div>
+                            <div class="transit-destination-name">AIIMS Medical University Campus</div>
+                            <div class="transit-destination-meta">Premier National Medical University &amp; Hospital</div>
+                        </div>
+                        <span class="transit-duration-badge">5 Mins</span>
+                    </div>
+
+                    <div class="transit-item-row">
+                        <div>
+                            <div class="transit-destination-name">NH-163 (Warangal Highway)</div>
+                            <div class="transit-destination-meta">Direct 4-Lane Arterial Highway Access</div>
+                        </div>
+                        <span class="transit-duration-badge">5 Mins</span>
+                    </div>
+
+                    <div class="transit-item-row">
+                        <div>
+                            <div class="transit-destination-name">Bibinagar MMTS Railway Station</div>
+                            <div class="transit-destination-meta">Suburban Commuter Rail Transit to Secunderabad</div>
+                        </div>
+                        <span class="transit-duration-badge">3 Mins</span>
+                    </div>
+
+                    <div class="transit-item-row">
+                        <div>
+                            <div class="transit-destination-name">Rockwoods International School</div>
+                            <div class="transit-destination-meta">Reputed International School &amp; Academy</div>
+                        </div>
+                        <span class="transit-duration-badge">5 Mins</span>
+                    </div>
+
+                    <div class="transit-item-row">
+                        <div>
+                            <div class="transit-destination-name">Birla Open Minds International School</div>
+                            <div class="transit-destination-meta">Premier K-12 Progressive Education Campus</div>
+                        </div>
+                        <span class="transit-duration-badge">5 Mins</span>
+                    </div>
+
+                    <div class="transit-item-row">
+                        <div>
+                            <div class="transit-destination-name">Swarnagiri Temple</div>
+                            <div class="transit-destination-meta">Major Cultural &amp; Spiritual Landmark</div>
+                        </div>
+                        <span class="transit-duration-badge">10 Mins</span>
+                    </div>
+
+                    <div class="transit-item-row">
+                        <div>
+                            <div class="transit-destination-name">Outer Ring Road (ORR Exit 9)</div>
+                            <div class="transit-destination-meta">Express Corridor to HITEC City &amp; RGIA Airport</div>
+                        </div>
+                        <span class="transit-duration-badge">20 Mins</span>
+                    </div>
+                </div>
+            </div>
 
                 <!-- Highway Corridor Billboard Campaign -->
                 <div class="mt-5 pt-4 border-top border-white-10">

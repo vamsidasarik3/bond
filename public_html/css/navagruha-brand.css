@@ -1437,6 +1437,128 @@ button.btn-main:hover,
   transform: translateY(-2px);
 }
 
+/* LOCATION MATRIX & TRANSIT SCHEDULE (MATCHING LANDING PAGE) */
+.location-matrix-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 36px;
+  align-items: start;
+}
+
+@media (max-width: 991px) {
+  .location-matrix-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.location-visual-card {
+  background: var(--dark-surface-card, #132431);
+  border: 1px solid var(--dark-border, rgba(255, 255, 255, 0.1));
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.location-photo-box {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.location-photo-box img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.location-badge-pill {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(20, 37, 51, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-family: var(--font-heading, "Cinzel", serif);
+  font-size: 0.74rem;
+  color: var(--secondary-color, #71b644);
+}
+
+.location-meta-box {
+  padding: 20px 8px 8px;
+}
+
+.transit-schedule-card {
+  background: var(--dark-surface-card, #132431);
+  border: 1px solid var(--dark-border, rgba(255, 255, 255, 0.1));
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.transit-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 16px;
+}
+
+.transit-item-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.transit-destination-name {
+  font-family: var(--font-heading, "Cinzel", serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.transit-destination-meta {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.transit-duration-badge {
+  font-family: var(--font-heading, "Cinzel", serif);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--secondary-color, #71b644);
+  background: rgba(113, 182, 68, 0.12);
+  border: 1px solid rgba(113, 182, 68, 0.35);
+  padding: 5px 14px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.btn-secondary-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: #1a3042;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff !important;
+  font-family: var(--font-heading, "Cinzel", serif);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-secondary-brand:hover {
+  background: #234159;
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+  color: #ffffff !important;
+}
+
 /* LOCATION TABS */
 .de-tab .d-tab-nav {
   display: flex;

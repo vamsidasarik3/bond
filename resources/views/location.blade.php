@@ -81,7 +81,7 @@
                     <div class="stat-metric-card p-3">
                         <i class="fa-solid fa-route text-brand-secondary fs-24"></i>
                         <div>
-                            <div class="stat-metric-title fs-16">15 Mins</div>
+                            <div class="stat-metric-title fs-16">20 Mins</div>
                             <div class="stat-metric-subtitle fs-11">ORR Exit 9 (Ghatkesar)</div>
                         </div>
                     </div>
