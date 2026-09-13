@@ -22,6 +22,13 @@
         </div>
     @endif
 
+    @if(session('error'))
+        <div class="mb-5 p-3.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-semibold flex items-center gap-2.5">
+            <i class="fa-solid fa-triangle-exclamation text-sm"></i>
+            <span>{{ session('error') }}</span>
+        </div>
+    @endif
+
     @if($errors->any())
         <div class="mb-5 p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs font-semibold flex items-center gap-2.5">
             <i class="fa-solid fa-circle-exclamation text-sm"></i>
@@ -95,4 +102,13 @@
     </div>
 
 </div>
+
+<script>
+    // If the page is restored from browser back-forward cache (bfcache), force a reload to get a fresh CSRF token
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    });
+</script>
 @endsection
