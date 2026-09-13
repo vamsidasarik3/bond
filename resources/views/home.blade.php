@@ -156,18 +156,10 @@
     {{-- 2. 6-Card Visual Showcase Section (Authentic 3D Renders & Master Plan) --}}
     <section id="project" class="bg-brand-primary py-60 border-bottom border-white-10">
         <div class="container">
-            <div class="row mb-4 align-items-end justify-content-between">
-                <div class="col-lg-8">
+            <div class="row mb-4">
+                <div class="col-12">
                     <div class="subtitle text-brand-secondary font-copperplate mb-1">Project Renders</div>
                     <h2 class="fs-32 text-white font-copperplate mb-0">Community Infrastructure and Site Renders</h2>
-                </div>
-                <div class="col-lg-4 text-lg-end mt-2 mt-lg-0 d-flex gap-2 justify-content-lg-end">
-                    <a href="{{ route('projects') }}" class="btn-outline-brand font-copperplate fs-12 px-3 py-2 rounded-pill">
-                        <span>Our Projects &rarr;</span>
-                    </a>
-                    <a href="{{ route('amenities') }}" class="btn-outline-brand font-copperplate fs-12 px-3 py-2 rounded-pill">
-                        <span>All Amenities &rarr;</span>
-                    </a>
                 </div>
             </div>
 
