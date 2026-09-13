@@ -101,21 +101,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function openViewer() {
+  function openViewer(imageSrc) {
     if (layoutModal) {
+      if (typeof imageSrc === 'string') {
+        const modalImg = layoutModal.querySelector('img');
+        if (modalImg) modalImg.src = imageSrc;
+      }
       layoutModal.classList.add('is-active');
       document.body.style.overflow = 'hidden';
       resetViewer();
     }
   }
+  window.openViewer = openViewer;
 
   function closeViewer() {
     if (layoutModal) {
       layoutModal.classList.remove('is-active');
       document.body.style.overflow = '';
       resetViewer();
+      const modalImg = layoutModal.querySelector('img');
+      if (modalImg) modalImg.src = 'landing2/images/Lay_Out_1.png';
     }
   }
+  window.closeViewer = closeViewer;
 
   function zoomIn() {
     if (scale < 3.0) {
@@ -208,12 +216,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- 4B. LAYOUT CAROUSEL & LIVE PLOT INVENTORY STATS ---
   let currentLayoutSlide = 0;
-  const layoutSlideEls = [document.getElementById('layoutSlide1'), document.getElementById('layoutSlide2')];
-  const layoutTabEls = [document.getElementById('tabSlide1'), document.getElementById('tabSlide2')];
-  const layoutDotEls = [document.getElementById('dotSlide1'), document.getElementById('dotSlide2')];
+  const layoutSlideEls = [
+    document.getElementById('layoutSlide1'),
+    document.getElementById('layoutSlide2'),
+    document.getElementById('layoutSlide3')
+  ];
+  const layoutTabEls = [
+    document.getElementById('tabSlide1'),
+    document.getElementById('tabSlide2'),
+    document.getElementById('tabSlide3')
+  ];
+  const layoutDotEls = [
+    document.getElementById('dotSlide1'),
+    document.getElementById('dotSlide2'),
+    document.getElementById('dotSlide3')
+  ];
 
   window.switchLayoutSlide = function(index) {
-    if (index < 0 || index >= 2) return;
+    if (index < 0 || index >= layoutSlideEls.length) return;
     currentLayoutSlide = index;
 
     layoutSlideEls.forEach((slide, idx) => {
@@ -245,13 +265,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
+
+    const brochureQuickActions = document.getElementById('brochureQuickActions');
+    if (brochureQuickActions) {
+      brochureQuickActions.style.display = (index === 0) ? 'inline-flex' : 'none';
+    }
   };
 
   window.stepLayoutSlide = function(step) {
     let nextIndex = currentLayoutSlide + step;
-    if (nextIndex < 0) nextIndex = 1;
-    if (nextIndex > 1) nextIndex = 0;
+    if (nextIndex < 0) nextIndex = layoutSlideEls.length - 1;
+    if (nextIndex >= layoutSlideEls.length) nextIndex = 0;
     window.switchLayoutSlide(nextIndex);
+  };
+
+  window.switchBrochureView = function(view) {
+    const panePdf = document.getElementById('brochurePanePdf');
+    const panePg1 = document.getElementById('brochurePanePg1');
+    const panePg2 = document.getElementById('brochurePanePg2');
+    const btnPdf = document.getElementById('btnBrochurePdf');
+    const btnPg1 = document.getElementById('btnBrochurePg1');
+    const btnPg2 = document.getElementById('btnBrochurePg2');
+
+    [panePdf, panePg1, panePg2].forEach(p => p?.classList.remove('is-active'));
+    [btnPdf, btnPg1, btnPg2].forEach(b => b?.classList.remove('is-active'));
+
+    if (view === 'pdf') {
+      panePdf?.classList.add('is-active');
+      btnPdf?.classList.add('is-active');
+    } else if (view === 'pg1') {
+      panePg1?.classList.add('is-active');
+      btnPg1?.classList.add('is-active');
+    } else if (view === 'pg2') {
+      panePg2?.classList.add('is-active');
+      btnPg2?.classList.add('is-active');
+    }
   };
 
   // Keyboard navigation when user is over layout section

@@ -1383,6 +1383,195 @@ header.site-header.scrolled .brand-header-logo {
   }
 }
 
+/* ==============================================================
+   BROCHURE CAROUSEL SLIDE & TOPBAR STYLING
+   ============================================================== */
+.layout-carousel-topbar {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  pointer-events: none;
+}
+.layout-carousel-tabs,
+.brochure-quick-actions {
+  pointer-events: auto;
+}
+.layout-carousel-tabs {
+  position: relative;
+  top: auto;
+  left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 4px;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+.brochure-quick-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.brochure-carousel-slide {
+  position: relative;
+  width: 100%;
+  background: #080d16;
+  padding-top: 76px;
+  display: flex;
+  flex-direction: column;
+}
+.brochure-view-pills {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.92);
+  padding: 3px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  gap: 2px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+}
+.brochure-view-btn {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  font-family: var(--font-heading);
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 6px 13px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+.brochure-view-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+.brochure-view-btn.is-active {
+  background: var(--primary-color);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(113, 182, 68, 0.35);
+}
+.btn-brochure-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-family: var(--font-heading);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(15, 23, 42, 0.92);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+}
+.btn-brochure-action:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.btn-brochure-download {
+  background: linear-gradient(135deg, rgba(113, 182, 68, 0.85) 0%, rgba(92, 151, 53, 0.95) 100%);
+  border-color: rgba(113, 182, 68, 0.8);
+  color: #ffffff;
+}
+.btn-brochure-download:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #ffffff;
+  box-shadow: 0 3px 12px rgba(113, 182, 68, 0.5);
+}
+.brochure-carousel-body {
+  position: relative;
+  width: 100%;
+  height: 660px;
+  min-height: 520px;
+  max-height: 80vh;
+  background: #080d16;
+  overflow: hidden;
+}
+.brochure-pane {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.brochure-pane.is-active {
+  display: block;
+}
+.brochure-pdf-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  background: #0b1320;
+}
+.brochure-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #080d16;
+  overflow: auto;
+  padding: 16px;
+}
+.brochure-img-view {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease;
+}
+.brochure-img-view:hover {
+  transform: scale(1.01);
+}
+@media (max-width: 991px) {
+  .layout-carousel-topbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 12px;
+    background: rgba(15, 23, 42, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .layout-carousel-tabs {
+    width: 100%;
+    justify-content: center;
+  }
+  .brochure-quick-actions {
+    width: 100%;
+    justify-content: center;
+  }
+  .brochure-carousel-slide {
+    padding-top: 0;
+  }
+  .brochure-carousel-body {
+    height: 480px;
+  }
+}
 
 /* Lightbox Modal */
 .layout-lightbox {
