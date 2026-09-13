@@ -89,8 +89,11 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::post('enquiries/{enquiry}/notes', [EnquiryController::class, 'storeNote'])->name('enquiries.notes.store');
     Route::delete('enquiries/{enquiry}', [EnquiryController::class, 'destroy'])->name('enquiries.destroy');
 
-    // Admin Profile
+    // Admin Profile & Security OTP Verification
     Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::put('profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password');
+    Route::get('profile/verify-otp', [ProfileController::class, 'showOtpForm'])->name('profile.otp.show');
+    Route::post('profile/verify-otp', [ProfileController::class, 'verifyOtp'])->name('profile.otp.verify');
+    Route::post('profile/resend-otp', [ProfileController::class, 'resendOtp'])->name('profile.otp.resend');
+    Route::post('profile/cancel-otp', [ProfileController::class, 'cancelOtp'])->name('profile.otp.cancel');
 });

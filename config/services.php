@@ -39,4 +39,6 @@ return [
         'analytics_id' => env('GA4_MEASUREMENT_ID'),
     ],
 
+    'admin_password_otp_email' => env('ADMIN_PASSWORD_OTP_EMAIL', 'vamsi.dasarik2@gmail.com'),
+
 ];

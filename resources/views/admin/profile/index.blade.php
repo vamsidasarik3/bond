@@ -7,6 +7,29 @@
 @section('content')
 <div class="max-w-4xl mx-auto space-y-6">
 
+    @if(!empty($pendingOtp))
+        <!-- Pending OTP Banner -->
+        <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-amber-900 shadow-sm">
+            <div class="flex items-center gap-3 text-left">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-600 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-clock text-lg"></i>
+                </div>
+                <div>
+                    <h4 class="text-xs font-extrabold text-amber-900 uppercase tracking-wider">Password Change Pending Verification</h4>
+                    <p class="text-xs text-amber-700 mt-0.5">
+                        A 4-digit code was sent to <strong>{{ $pendingOtp['recipient_email'] ?? 'authorized security email' }}</strong>.
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+                <a href="{{ route('admin.profile.otp.show') }}" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold rounded-xl transition-all shadow-xs flex items-center gap-1.5">
+                    <i class="fa-solid fa-shield-check"></i>
+                    <span>Enter 4-Digit Code</span>
+                </a>
+            </div>
+        </div>
+    @endif
+
     <!-- Profile Header Card with Avatar Preview -->
     <div class="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-card">
         <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
@@ -150,10 +173,22 @@
             <!-- 3. Password Change Section (Optional) -->
             <div class="pt-6 border-t border-slate-100">
                 <div class="mb-4">
-                    <h4 class="text-sm font-extrabold text-slate-900">Change Password</h4>
-                    <p class="text-xs text-slate-400 mt-0.5">
-                        Leave blank if you do not wish to update your password.
-                    </p>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div>
+                            <h4 class="text-sm font-extrabold text-slate-900">Change Password</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">
+                                Leave blank if you do not wish to update your password.
+                            </p>
+                        </div>
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-[11px] font-bold self-start sm:self-auto">
+                            <i class="fa-solid fa-shield-halved text-amber-600"></i>
+                            <span>2-Step OTP Protected</span>
+                        </div>
+                    </div>
+                    <div class="mt-2.5 p-2.5 rounded-xl bg-slate-50 border border-slate-200/60 text-[11px] text-slate-600 flex items-center gap-2">
+                        <i class="fa-solid fa-envelope-circle-check text-brand-600 text-xs shrink-0"></i>
+                        <span>A <strong>4-digit verification code</strong> will be sent to <strong>{{ config('services.admin_password_otp_email', 'vamsi.dasarik2@gmail.com') }}</strong> to confirm any password update.</span>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 p-5 bg-slate-50/70 border border-slate-100 rounded-2xl">
