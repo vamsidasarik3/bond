@@ -218,18 +218,15 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentLayoutSlide = 0;
   const layoutSlideEls = [
     document.getElementById('layoutSlide1'),
-    document.getElementById('layoutSlide2'),
-    document.getElementById('layoutSlide3')
+    document.getElementById('layoutSlide2')
   ];
   const layoutTabEls = [
     document.getElementById('tabSlide1'),
-    document.getElementById('tabSlide2'),
-    document.getElementById('tabSlide3')
+    document.getElementById('tabSlide2')
   ];
   const layoutDotEls = [
     document.getElementById('dotSlide1'),
-    document.getElementById('dotSlide2'),
-    document.getElementById('dotSlide3')
+    document.getElementById('dotSlide2')
   ];
 
   window.switchLayoutSlide = function(index) {
@@ -265,11 +262,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
-
-    const brochureQuickActions = document.getElementById('brochureQuickActions');
-    if (brochureQuickActions) {
-      brochureQuickActions.style.display = (index === 0) ? 'inline-flex' : 'none';
-    }
   };
 
   window.stepLayoutSlide = function(step) {
@@ -279,28 +271,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.switchLayoutSlide(nextIndex);
   };
 
-  window.switchBrochureView = function(view) {
-    const panePdf = document.getElementById('brochurePanePdf');
-    const panePg1 = document.getElementById('brochurePanePg1');
-    const panePg2 = document.getElementById('brochurePanePg2');
-    const btnPdf = document.getElementById('btnBrochurePdf');
-    const btnPg1 = document.getElementById('btnBrochurePg1');
-    const btnPg2 = document.getElementById('btnBrochurePg2');
-
-    [panePdf, panePg1, panePg2].forEach(p => p?.classList.remove('is-active'));
-    [btnPdf, btnPg1, btnPg2].forEach(b => b?.classList.remove('is-active'));
-
-    if (view === 'pdf') {
-      panePdf?.classList.add('is-active');
-      btnPdf?.classList.add('is-active');
-    } else if (view === 'pg1') {
-      panePg1?.classList.add('is-active');
-      btnPg1?.classList.add('is-active');
-    } else if (view === 'pg2') {
-      panePg2?.classList.add('is-active');
-      btnPg2?.classList.add('is-active');
-    }
-  };
 
   // Keyboard navigation when user is over layout section
   const layoutSection = document.getElementById('layout');

@@ -128,6 +128,14 @@
             <a href="#schedule-visit" class="btn-primary-brand">
               <span>Book Site Visit <i class="fa-solid fa-arrow-right ms-2"></i></span>
             </a>
+            <a href="images/RRR_PREKSHITHA_ENCLAVE_BROCHURE.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary-brand">
+              <i class="fa-solid fa-file-pdf text-danger me-2"></i>
+              <span>View Brochure (PDF)</span>
+            </a>
+            <a href="images/RRR_PREKSHITHA_ENCLAVE_BROCHURE.pdf" download="RRR_PREKSHITHA_ENCLAVE_BROCHURE.pdf" class="btn-secondary-brand" title="Download Brochure PDF">
+              <i class="fa-solid fa-download text-brand-secondary me-2"></i>
+              <span>Download</span>
+            </a>
           </div>
         </div>
       </div>
@@ -321,11 +329,21 @@
             <div class="subtitle-copperplate">Project Layout</div>
             <h2 class="showcase-h2">Final Approved Layout</h2>
             <p class="section-desc" style="color: #94a3b8; margin-top: 6px;">
-              HMDA & TG RERA Final Approved, 17-acre community with plot distribution, 30' and 40' concrete roads, and dedicated green reserves.
+              HMDA &amp; TG RERA Final Approved, 17-acre community with plot distribution, 30' and 40' concrete roads, and dedicated green reserves.
             </p>
           </div>
-          <div class="layout-pill-tag layout-pill-green">
-            <i class="fa-solid fa-check-double me-1"></i> HMDA Final LP Approved
+          <div class="d-flex align-items-center gap-2 flex-wrap">
+            <a href="images/RRR_PREKSHITHA_ENCLAVE_BROCHURE.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary-brand" style="padding: 10px 18px; font-size: 0.8rem;">
+              <i class="fa-solid fa-file-pdf text-danger me-2"></i>
+              <span>View Brochure (PDF)</span>
+            </a>
+            <a href="images/RRR_PREKSHITHA_ENCLAVE_BROCHURE.pdf" download="RRR_PREKSHITHA_ENCLAVE_BROCHURE.pdf" class="btn-secondary-brand" style="padding: 10px 18px; font-size: 0.8rem;">
+              <i class="fa-solid fa-download text-brand-secondary me-2"></i>
+              <span>Download Brochure</span>
+            </a>
+            <div class="layout-pill-tag layout-pill-green">
+              <i class="fa-solid fa-check-double me-1"></i> HMDA Final LP Approved
+            </div>
           </div>
         </div>
 
@@ -351,40 +369,27 @@
 
           <div class="layout-preview-canvas" id="masterLayoutCanvas">
             
-            <!-- Top Bar: Tabs on left + Brochure Actions on right -->
+            <!-- Top Bar: Tabs on left + Direct Brochure Action on right -->
             <div class="layout-carousel-topbar">
               <div class="layout-carousel-tabs">
                 <button type="button" class="layout-tab-btn is-active" id="tabSlide1" onclick="switchLayoutSlide(0)">
-                  <i class="fa-solid fa-file-pdf me-1 text-danger"></i> Brochure
-                </button>
-                <button type="button" class="layout-tab-btn" id="tabSlide2" onclick="switchLayoutSlide(1)">
                   <i class="fa-solid fa-map me-1 text-brand-secondary"></i> Approved Master Plan
                 </button>
-                <button type="button" class="layout-tab-btn" id="tabSlide3" onclick="switchLayoutSlide(2)">
-                  <i class="fa-solid fa-chart-pie me-1 text-warning"></i> Plot Availability Stats
+                <button type="button" class="layout-tab-btn" id="tabSlide2" onclick="switchLayoutSlide(1)">
+                  <i class="fa-solid fa-chart-pie me-1 text-warning"></i> Plot Availability &amp; Statistics
                 </button>
               </div>
 
-              <!-- Brochure Quick View & Actions (visible on Brochure tab) -->
-              <div class="brochure-quick-actions" id="brochureQuickActions">
-                <div class="brochure-view-pills" id="brochureViewPills">
-                  <button type="button" class="brochure-view-btn is-active" id="btnBrochurePdf" onclick="switchBrochureView('pdf')">
-                    <i class="fa-solid fa-book-open me-1"></i> PDF
-                  </button>
-                  <button type="button" class="brochure-view-btn" id="btnBrochurePg1" onclick="switchBrochureView('pg1')">
-                    Page 1
-                  </button>
-                  <button type="button" class="brochure-view-btn" id="btnBrochurePg2" onclick="switchBrochureView('pg2')">
-                    Page 2
-                  </button>
-                </div>
+              <!-- Direct Brochure PDF Links -->
+              <div class="brochure-quick-actions">
+                <a href="images/RRR_PREKSHITHA_ENCLAVE_BROCHURE.pdf" target="_blank" rel="noopener noreferrer" class="btn-brochure-action" title="Open Brochure in New Tab">
+                  <i class="fa-solid fa-file-pdf text-danger me-1"></i>
+                  <span>Brochure PDF</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square ms-1" style="font-size: 0.65rem;"></i>
+                </a>
                 <a href="images/RRR_PREKSHITHA_ENCLAVE_BROCHURE.pdf" download="RRR_PREKSHITHA_ENCLAVE_BROCHURE.pdf" class="btn-brochure-action btn-brochure-download" title="Download Official Brochure PDF">
                   <i class="fa-solid fa-download me-1"></i>
-                  <span>Download PDF</span>
-                </a>
-                <a href="images/RRR_PREKSHITHA_ENCLAVE_BROCHURE.pdf" target="_blank" rel="noopener noreferrer" class="btn-brochure-action" title="Open Brochure in Full Screen">
-                  <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>
-                  <span>Full Screen</span>
+                  <span>Download</span>
                 </a>
               </div>
             </div>
@@ -393,47 +398,8 @@
             <div class="layout-carousel-container" id="layoutCarousel">
               <div class="layout-carousel-track" id="layoutCarouselTrack">
                 
-                <!-- SLIDE 1: Official Project Brochure (PDF Viewer & High-Res Pages) -->
+                <!-- SLIDE 1: Approved Master Layout Plan (Original Image Preserved) -->
                 <div class="layout-slide is-active" id="layoutSlide1">
-                  <div class="brochure-carousel-slide">
-                    <!-- Viewer Panes -->
-                    <div class="brochure-carousel-body">
-                      <!-- 1. PDF Embed View (Active by default) -->
-                      <div class="brochure-pane is-active" id="brochurePanePdf">
-                        <iframe src="images/RRR_PREKSHITHA_ENCLAVE_BROCHURE.pdf#toolbar=1&navpanes=0&view=FitH" class="brochure-pdf-frame" title="RRR Prekshitha Enclave Official Brochure PDF"></iframe>
-                      </div>
-
-                      <!-- 2. High-Res Image View Page 1 -->
-                      <div class="brochure-pane" id="brochurePanePg1">
-                        <div class="brochure-img-wrap">
-                          <img src="landing2/images/brochure_page_1.jpg" alt="RRR Prekshitha Enclave Brochure - Page 1" class="brochure-img-view" onclick="openViewer('landing2/images/brochure_page_1.jpg')" loading="lazy">
-                          <div class="layout-zoom-trigger">
-                            <button type="button" class="btn-layout-modal" onclick="openViewer('landing2/images/brochure_page_1.jpg')">
-                              <i class="fa-solid fa-expand me-2"></i>
-                              <span>Zoom Page 1</span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- 3. High-Res Image View Page 2 -->
-                      <div class="brochure-pane" id="brochurePanePg2">
-                        <div class="brochure-img-wrap">
-                          <img src="landing2/images/brochure_page_2.jpg" alt="RRR Prekshitha Enclave Brochure - Page 2" class="brochure-img-view" onclick="openViewer('landing2/images/brochure_page_2.jpg')" loading="lazy">
-                          <div class="layout-zoom-trigger">
-                            <button type="button" class="btn-layout-modal" onclick="openViewer('landing2/images/brochure_page_2.jpg')">
-                              <i class="fa-solid fa-expand me-2"></i>
-                              <span>Zoom Page 2</span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- SLIDE 2: Approved Master Layout Plan (Original Image Preserved) -->
-                <div class="layout-slide" id="layoutSlide2">
                   <img src="landing2/images/Lay_Out_1.png" onerror="this.onerror=null; this.src='landing2/images/master-layout-aerial.png';" alt="Navagruha RRR Prekshitha Enclave Master Layout Plan" title="Click to view full layout plan" class="layout-preview-img" id="masterLayoutImg" loading="eager">
                   <div class="layout-zoom-trigger">
                     <button type="button" class="btn-layout-modal" id="viewFullLayoutBtn">
@@ -443,8 +409,8 @@
                   </div>
                 </div>
 
-                <!-- SLIDE 3: Second Layout Image as Background with Live Plot Statistics & Content on Foreground -->
-                <div class="layout-slide" id="layoutSlide3">
+                <!-- SLIDE 2: Second Layout Image as Background with Live Plot Statistics & Content on Foreground -->
+                <div class="layout-slide" id="layoutSlide2">
                   <div class="layout-stats-slide-box">
                     <div class="layout-stats-bg" style="background-image: url('landing2/images/lay_out_aerial_stats.png');"></div>
                     <div class="layout-stats-overlay"></div>
@@ -564,7 +530,6 @@
             <div class="layout-carousel-dots">
               <span class="carousel-dot is-active" id="dotSlide1" onclick="switchLayoutSlide(0)"></span>
               <span class="carousel-dot" id="dotSlide2" onclick="switchLayoutSlide(1)"></span>
-              <span class="carousel-dot" id="dotSlide3" onclick="switchLayoutSlide(2)"></span>
             </div>
 
           </div>
