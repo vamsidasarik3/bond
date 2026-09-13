@@ -944,6 +944,65 @@ header.site-header.scrolled .brand-header-logo {
   border: 1px solid rgba(113, 182, 68, 0.4);
 }
 
+.layout-toolbar-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.layout-toolbar-approvals {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.approval-badge-wrap {
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+  padding: 3px 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+.approval-badge-wrap img {
+  height: 26px;
+  width: auto;
+  object-fit: contain;
+}
+.layout-pill-lp {
+  background: rgba(214, 192, 138, 0.15);
+  color: var(--accent-gold);
+  border: 1px solid rgba(214, 192, 138, 0.3);
+  font-size: 0.75rem;
+}
+
+/* Spec Ledger Grid */
+.layout-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.layout-spec-item {
+  background: var(--dark-surface);
+  padding: 18px;
+  border-radius: 8px;
+  border: 1px solid var(--dark-border);
+  display: flex;
+  flex-direction: column;
+}
+.layout-spec-item h5 {
+  color: #ffffff;
+  margin: 4px 0;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+.layout-spec-item span:last-child {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
 .layout-preview-canvas {
   position: relative;
   border-radius: var(--radius-md);
@@ -1363,25 +1422,6 @@ header.site-header.scrolled .brand-header-logo {
   width: 42px;
 }
 
-@media (max-width: 991px) {
-  .layout-stats-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .layout-stats-slide-box {
-    padding: 70px 20px 30px;
-    min-height: auto;
-  }
-  .layout-carousel-tabs {
-    left: 14px;
-    right: 14px;
-    justify-content: center;
-    top: 14px;
-  }
-  .prev-nav, .next-nav {
-    display: none;
-  }
-}
 
 /* ==============================================================
    BROCHURE CAROUSEL SLIDE & TOPBAR STYLING
@@ -1547,7 +1587,28 @@ header.site-header.scrolled .brand-header-logo {
 .brochure-img-view:hover {
   transform: scale(1.01);
 }
+/* ==============================================================
+   MASTER LAYOUT RESPONSIVE (TABLET & MOBILE)
+   ============================================================== */
 @media (max-width: 991px) {
+  .layout-master-section {
+    padding: 60px 0;
+  }
+  .layout-board-card {
+    padding: 20px;
+  }
+  .layout-spec-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .layout-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .layout-stats-slide-box {
+    padding: 60px 20px 30px;
+    min-height: auto;
+  }
   .layout-carousel-topbar {
     position: relative;
     top: 0;
@@ -1556,6 +1617,7 @@ header.site-header.scrolled .brand-header-logo {
     padding: 12px;
     background: rgba(15, 23, 42, 0.95);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 10px;
   }
   .layout-carousel-tabs {
     width: 100%;
@@ -1565,11 +1627,276 @@ header.site-header.scrolled .brand-header-logo {
     width: 100%;
     justify-content: center;
   }
-  .brochure-carousel-slide {
-    padding-top: 0;
+  .prev-nav, .next-nav {
+    display: none;
   }
-  .brochure-carousel-body {
-    height: 480px;
+}
+
+@media (max-width: 768px) {
+  .layout-master-section {
+    padding: 40px 0;
+  }
+  .layout-master-container {
+    padding: 0 12px;
+  }
+  .layout-master-section .showcase-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .layout-master-section .showcase-header > div:first-child {
+    width: 100%;
+  }
+  .layout-master-section .showcase-header > div:last-child {
+    width: 100%;
+  }
+  .layout-master-section .showcase-header .btn-secondary-brand {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+  .layout-board-card {
+    padding: 12px 10px;
+    border-radius: 12px;
+  }
+  .layout-toolbar {
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    gap: 8px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .layout-toolbar-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: flex-start;
+  }
+  .layout-toolbar-approvals {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    justify-content: flex-start;
+  }
+  .layout-pill-tag {
+    font-size: 0.68rem;
+    padding: 4px 10px;
+  }
+  .layout-pill-lp {
+    width: 100%;
+    font-size: 0.65rem;
+    padding: 6px 8px;
+    text-align: center;
+    word-break: break-all;
+    line-height: 1.35;
+  }
+  .approval-badge-wrap {
+    height: 32px;
+    padding: 2px 8px;
+  }
+  .approval-badge-wrap img {
+    height: 22px;
+  }
+  .layout-preview-canvas {
+    border-radius: 10px;
+  }
+  .layout-carousel-topbar {
+    padding: 8px 8px 10px;
+    gap: 8px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .layout-carousel-tabs {
+    display: flex;
+    width: 100%;
+    gap: 4px;
+    padding: 3px;
+    border-radius: 10px;
+    background: rgba(8, 17, 25, 0.85);
+  }
+  .layout-tab-btn {
+    flex: 1 1 0;
+    padding: 8px 4px;
+    font-size: 0.72rem;
+    text-align: center;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 8px;
+    white-space: normal;
+    line-height: 1.25;
+  }
+  .layout-tab-btn i {
+    font-size: 0.7rem;
+    margin-right: 4px !important;
+  }
+  .brochure-quick-actions {
+    width: 100%;
+    display: flex;
+  }
+  .brochure-quick-actions .btn-brochure-action {
+    width: 100%;
+    justify-content: center;
+    padding: 8px 12px;
+    font-size: 0.76rem;
+    border-radius: 8px;
+  }
+
+  /* Slide 1: Master Plan Blueprint Full View on Mobile */
+  .layout-preview-img {
+    min-height: auto;
+    max-height: none;
+    height: auto;
+    object-fit: contain;
+    background: #080f1a;
+    width: 100%;
+    display: block;
+  }
+  .layout-zoom-trigger {
+    bottom: 8px;
+    right: 8px;
+  }
+  .btn-layout-modal {
+    padding: 7px 12px;
+    font-size: 0.7rem;
+    gap: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Slide 2: Plot Availability & Statistics Mobile View */
+  .layout-stats-slide-box {
+    padding: 16px 12px 30px;
+    min-height: auto;
+  }
+  .layout-stats-content {
+    gap: 12px;
+  }
+  .layout-stats-title {
+    font-size: 1.2rem;
+    line-height: 1.25;
+    margin: 4px 0 6px;
+  }
+  .layout-stats-lead {
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+  .layout-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .stat-card {
+    padding: 12px 14px;
+    gap: 10px;
+    border-radius: 10px;
+  }
+  .stat-card-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+  }
+  .stat-card-num {
+    font-size: 1.5rem;
+  }
+  .stat-card-kicker {
+    font-size: 0.65rem;
+  }
+  .stat-card-breakdown {
+    font-size: 0.72rem;
+  }
+  .stat-card-status-badge {
+    font-size: 0.68rem;
+    padding: 2px 6px;
+    line-height: 1.2;
+  }
+  .layout-progress-wrap {
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+  .layout-progress-labels {
+    font-size: 0.72rem;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .layout-stats-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding-top: 4px;
+  }
+  .layout-feature-pills {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .layout-feature-pills span {
+    font-size: 0.76rem;
+  }
+  .layout-cta-group {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  .layout-cta-group button,
+  .layout-cta-group a {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.82rem;
+    padding: 10px 14px;
+    text-align: center;
+  }
+
+  /* Spec Ledger on Mobile */
+  .layout-spec-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .layout-spec-item {
+    padding: 12px 10px;
+    border-radius: 8px;
+  }
+  .layout-spec-item .stat-kicker {
+    font-size: 0.65rem;
+  }
+  .layout-spec-item h5 {
+    font-size: 1.05rem;
+    margin: 2px 0;
+  }
+  .layout-spec-item span:last-child {
+    font-size: 0.72rem;
+    line-height: 1.3;
+  }
+
+  /* Carousel Dots */
+  .layout-carousel-dots {
+    bottom: 8px;
+    gap: 5px;
+  }
+  .carousel-dot {
+    width: 18px;
+    height: 5px;
+  }
+  .carousel-dot.is-active {
+    width: 28px;
+  }
+}
+
+@media (max-width: 420px) {
+  .layout-spec-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .layout-carousel-tabs {
+    flex-direction: column;
+    border-radius: 8px;
+  }
+  .layout-tab-btn {
+    width: 100%;
+    padding: 7px 8px;
   }
 }
 
