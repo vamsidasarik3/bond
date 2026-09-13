@@ -299,14 +299,14 @@ $stClass = [
         <div class="row g-3 align-items-center justify-content-between">
             <div class="col-md-8">
                 <div class="subtitle text-brand-secondary font-copperplate mb-2">
-                    <i class="fa-solid fa-circle-dot me-1 text-success"></i> Live Plot Availability, AIIMS Bibinagar
+                    <i class="fa-solid fa-circle-dot me-1 text-success"></i> Live Plot Availability, AIIMS Medical University Campus
                 </div>
                 <h1 class="fs-48 text-white font-copperplate lh-1-1 mb-2">RRR Prekshitha Enclave</h1>
                 <p class="text-white-50 fs-15 mb-0 leading-relaxed">
                     @if($availableCount > 0)
-                        Discover <span class="animated-counter fw-700 text-white font-copperplate" data-counter-target="{{ $availableCount }}">{{ $availableCount }}</span> thoughtfully planned residential plots at RRR Prekshitha Enclave, a HMDA final approved and RERA certified development near AIIMS Bibinagar.
+                        Discover <span class="animated-counter fw-700 text-white font-copperplate" data-counter-target="{{ $availableCount }}">0</span> thoughtfully planned residential plots at RRR Prekshitha Enclave, a HMDA final approved and RERA certified development near AIIMS Medical University Campus.
                     @else
-                        Discover planned residential plots at RRR Prekshitha Enclave, a HMDA final approved and RERA certified development near AIIMS Bibinagar.
+                        Discover planned residential plots at RRR Prekshitha Enclave, a HMDA final approved and RERA certified development near AIIMS Medical University Campus.
                     @endif
                     <br>
                     <span class="fs-13 text-white-50">HMDA Approval: LP No: <strong class="text-white">000022/LO/Plg/HMDA/2023</strong></span>
@@ -1242,21 +1242,27 @@ $stClass = [
     var plotsBaseUrl = "{{ url('/plots') }}";
 
     /* ─────────────────────────────────────────────────────
-       COUNTER ANIMATION
+       COUNTER ANIMATION (Smooth, slow count-up from 0)
     ───────────────────────────────────────────────────── */
     function animateCounter(el, target, dur, delay) {
         if (!el) return;
         var finalVal = parseInt(target, 10) || 0;
-        dur = dur || 1300; delay = delay || 0;
+        dur = dur || 2400; 
+        delay = delay || 0;
+        el.textContent = '0';
+        
         setTimeout(function () {
             var t0 = null;
             (function step(ts) {
                 if (!t0) t0 = ts;
                 var p = Math.min((ts - t0) / dur, 1);
-                var e = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
-                el.textContent = Math.round(finalVal * e).toLocaleString('en-IN');
-                if (p < 1) { requestAnimationFrame(step); }
-                else {
+                // Ease-out quad gives a steady, readable rolling count from 0 with a gentle finish
+                var e = 1 - (1 - p) * (1 - p);
+                var currentVal = Math.round(finalVal * e);
+                el.textContent = currentVal.toLocaleString('en-IN');
+                if (p < 1) { 
+                    requestAnimationFrame(step); 
+                } else {
                     el.textContent = finalVal.toLocaleString('en-IN');
                     el.classList.add('counter-pop');
                     setTimeout(function () { el.classList.remove('counter-pop'); }, 450);
@@ -1268,19 +1274,26 @@ $stClass = [
     function initCounters() {
         var els = document.querySelectorAll('.animated-counter[data-counter-target]');
         if (!els.length) return;
+        els.forEach(function (el) { el.textContent = '0'; });
+
         if ('IntersectionObserver' in window) {
             var io = new IntersectionObserver(function (entries, obs) {
                 entries.forEach(function (en) {
                     if (en.isIntersecting) {
                         var el = en.target;
-                        animateCounter(el, el.dataset.counterTarget, 1300, parseInt(el.dataset.counterDelay || '0', 10));
-                        obs.unobserve(el);
+                        if (!el.dataset.counterStarted) {
+                            el.dataset.counterStarted = 'true';
+                            animateCounter(el, el.dataset.counterTarget, 2400, parseInt(el.dataset.counterDelay || '0', 10));
+                            obs.unobserve(el);
+                        }
                     }
                 });
-            }, { threshold: 0.15 });
+            }, { threshold: 0.1 });
             els.forEach(function (c) { io.observe(c); });
         } else {
-            els.forEach(function (el) { animateCounter(el, el.dataset.counterTarget, 1300, parseInt(el.dataset.counterDelay || '0', 10)); });
+            els.forEach(function (el) { 
+                animateCounter(el, el.dataset.counterTarget, 2400, parseInt(el.dataset.counterDelay || '0', 10)); 
+            });
         }
     }
     if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initCounters); }

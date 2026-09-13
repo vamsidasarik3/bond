@@ -44,6 +44,13 @@ class HomeController extends Controller
             return $data;
         })->all();
 
-        return view('home', compact('plots', 'isUnlocked'));
+        $plotCounts = [
+            'total'     => Plot::count(),
+            'available' => Plot::available()->count(),
+            'reserved'  => Plot::reserved()->count(),
+            'sold'      => Plot::sold()->count(),
+        ];
+
+        return view('home', compact('plots', 'isUnlocked', 'plotCounts'));
     }
 }

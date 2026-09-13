@@ -27,6 +27,104 @@
 </script>
 @endsection
 
+@push('styles')
+<style>
+/* ── Interactive Plots Glimpse Section ── */
+.interactive-plot-card {
+    background: rgba(14, 26, 36, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.3s ease;
+}
+.interactive-plot-card:hover {
+    border-color: rgba(113, 182, 68, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+.plot-number-pill {
+    font-family: var(--font-copperplate, 'Cinzel', serif);
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+.plot-specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+.plot-spec-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+.plot-spec-label {
+    display: block;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.plot-spec-val {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+}
+.master-preview-media {
+    height: 240px;
+    position: relative;
+}
+.master-preview-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 20, 29, 0.65);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+}
+.master-preview-media:hover .master-preview-overlay {
+    opacity: 1;
+    background: rgba(10, 20, 29, 0.35);
+}
+.master-preview-chip {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(13, 27, 39, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-size: 11px;
+    font-family: var(--font-copperplate, serif);
+    padding: 4px 10px;
+    border-radius: 20px;
+    z-index: 2;
+}
+.quick-pill-filter {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 11px;
+    font-family: var(--font-copperplate, serif);
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+.quick-pill-filter:hover {
+    background: #71b644;
+    color: #0d1f2d;
+    border-color: #71b644;
+}
+</style>
+@endpush
+
 @section('content')
 
     {{-- 1. Hero Section (Demo 1 Luxury Swiper Slider with Authentic 3D Renders & NAVAGRUHA Branding) --}}
@@ -699,6 +797,185 @@
         </div>
     </section>
 
+    {{-- 7. Glimpse of Interactive Plots & Master Layout Section --}}
+    <section id="interactive-plots" class="bg-brand-primary text-light py-80 border-top border-white-10">
+        <div class="container">
+            <div class="row mb-4 g-4 align-items-end justify-content-between">
+                <div class="col-lg-8">
+                    <div class="subtitle text-brand-secondary font-copperplate mb-1">
+                        <i class="fa-solid fa-shapes me-1"></i> Interactive Plots Inventory
+                    </div>
+                    <h2 class="fs-36 text-white font-copperplate mb-2">Master Layout &amp; Interactive Plots</h2>
+                    <p class="text-white-50 fs-15 mb-0">
+                        Experience the authentic 158-plot HMDA layout (LP No: 000022/LO/Plg/HMDA/2023) at RRR Prekshitha Enclave. Browse available inventory, inspect plot orientations, view exact dimensions, and reserve your plot with clear marketable titles.
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="{{ route('plots.index') }}" class="btn-main px-4 py-2.5">
+                        <span>Launch Full 158-Plot Board &rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            {{-- Live Plot Counters Strip --}}
+            <div class="row g-3 mb-4" id="homePlotsSummaryStrip">
+                <div class="col-6 col-md-3">
+                    <div class="p-3 rounded-3 bg-brand-card border border-white-10 text-center">
+                        <div class="fs-28 fw-700 text-white font-copperplate home-animated-counter" data-counter-target="{{ $plotCounts['total'] ?? 158 }}">0</div>
+                        <div class="fs-12 text-white-50 font-copperplate">Total Plots</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-3 rounded-3 bg-brand-card border border-white-10 text-center">
+                        <div class="fs-28 fw-700 font-copperplate home-animated-counter" style="color: #71b644;" data-counter-target="{{ $plotCounts['available'] ?? 106 }}">0</div>
+                        <div class="fs-12 font-copperplate" style="color: rgba(113, 182, 68, 0.85);"><i class="fa-solid fa-circle-dot me-1 text-success"></i> Available</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-3 rounded-3 bg-brand-card border border-white-10 text-center">
+                        <div class="fs-28 fw-700 font-copperplate home-animated-counter" style="color: #f59e0b;" data-counter-target="{{ $plotCounts['reserved'] ?? 19 }}">0</div>
+                        <div class="fs-12 font-copperplate" style="color: rgba(245, 158, 11, 0.85);">Reserved</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-3 rounded-3 bg-brand-card border border-white-10 text-center">
+                        <div class="fs-28 fw-700 font-copperplate home-animated-counter" style="color: #dc3526;" data-counter-target="{{ $plotCounts['sold'] ?? 33 }}">0</div>
+                        <div class="fs-12 font-copperplate" style="color: rgba(220, 53, 38, 0.85);">Sold</div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- 2-Column Glimpse --}}
+            <div class="row g-4 align-items-stretch">
+                {{-- Left: Master Layout Interactive Preview Card --}}
+                <div class="col-lg-5 col-12">
+                    <div class="plot-master-preview-card h-100 d-flex flex-column justify-content-between p-4 rounded-4 bg-brand-card border border-white-10 position-relative overflow-hidden">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <span class="badge bg-brand-primary border border-brand-primary text-brand-secondary font-copperplate fs-11 px-2.5 py-1 rounded-pill">
+                                    <i class="fa-solid fa-certificate me-1"></i> LP: 000022/LO/Plg/HMDA/2023
+                                </span>
+                                <span class="badge bg-dark text-white-50 border border-white-10 font-copperplate fs-11 px-2.5 py-1 rounded-pill">
+                                    17-Acre Master Plan
+                                </span>
+                            </div>
+                            <h3 class="fs-20 text-white font-copperplate mb-2">Master Layout Blueprint</h3>
+                            <p class="text-white-50 fs-13 mb-3">
+                                Access the live interactive blueprint map with sector navigation, plot dimensions, facing filters, and real-time status tracking.
+                            </p>
+                        </div>
+
+                        <div class="master-preview-media position-relative rounded-3 overflow-hidden border border-white-10 mb-3">
+                            <img src="{{ asset('images/projects/rrr-prekshitha/master-layout-aerial.webp') }}" alt="RRR Prekshitha Enclave 17-Acre Master Layout Aerial Blueprint" class="w-100 h-100 object-fit-cover">
+                            <div class="master-preview-overlay">
+                                <a href="{{ route('plots.index') }}" class="btn-main font-copperplate fs-12 px-3 py-2">
+                                    <i class="fa-solid fa-magnifying-glass-plus me-1"></i>
+                                    <span>Open Interactive Layout &rarr;</span>
+                                </a>
+                            </div>
+                            <div class="master-preview-chip">
+                                <i class="fa-solid fa-layer-group me-1 text-brand-secondary"></i> 158 Total Authentic Plots
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pt-2 border-top border-white-10">
+                            <a href="{{ asset('venture/docs/RRR PREKSHITHA ENCLAVE LAYOUT.pdf') }}" target="_blank" rel="noopener" class="text-white-50 fs-12 text-decoration-none hover-white">
+                                <i class="fa-solid fa-file-pdf text-danger me-1"></i> Official Blueprint PDF
+                            </a>
+                            <a href="{{ route('plots.index') }}" class="text-brand-secondary fs-12 font-copperplate text-decoration-none fw-600">
+                                View Interactive Board &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Right: Available Plots Glimpse Grid --}}
+                <div class="col-lg-7 col-12">
+                    <div class="p-4 rounded-4 bg-brand-card border border-white-10 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                                <div>
+                                    <span class="subtitle text-brand-secondary font-copperplate fs-12">Quick Plot Showcase</span>
+                                    <h3 class="fs-20 text-white font-copperplate mb-0">Featured Available Plots</h3>
+                                </div>
+                                <a href="{{ route('plots.index') }}" class="text-brand-secondary fs-12 font-copperplate text-decoration-none">
+                                    View All {{ $plotCounts['available'] ?? 106 }} Plots &rarr;
+                                </a>
+                            </div>
+
+                            <div class="row g-3">
+                                @forelse($plots as $plot)
+                                    <div class="col-md-6 col-12">
+                                        <div class="interactive-plot-card">
+                                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                                <span class="plot-number-pill">
+                                                    Plot #{{ $plot['number'] }}
+                                                </span>
+                                                <span class="badge bg-success bg-opacity-20 text-success border border-success border-opacity-30 fs-10 px-2 py-0.5 rounded-pill">
+                                                    <i class="fa-solid fa-circle-dot me-1"></i> Available
+                                                </span>
+                                            </div>
+
+                                            <div class="plot-specs-grid mb-2">
+                                                <div class="plot-spec-item">
+                                                    <span class="plot-spec-label">Area</span>
+                                                    <span class="plot-spec-val text-white">{{ round($plot['size_sq_yards']) }} Sq. Yds</span>
+                                                </div>
+                                                <div class="plot-spec-item">
+                                                    <span class="plot-spec-label">Facing</span>
+                                                    <span class="plot-spec-val text-white">{{ $plot['facing'] ?? 'East' }}</span>
+                                                </div>
+                                                <div class="plot-spec-item">
+                                                    <span class="plot-spec-label">Dimensions</span>
+                                                    <span class="plot-spec-val text-white">{{ $plot['dimensions'] ?? "36' × 50'" }}</span>
+                                                </div>
+                                                <div class="plot-spec-item">
+                                                    <span class="plot-spec-label">Road</span>
+                                                    <span class="plot-spec-val text-white">{{ $plot['road_width'] ?? '40 Ft Road' }}</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-flex align-items-center justify-content-between pt-2 border-top border-white-10">
+                                                <span class="text-white-50 fs-11">
+                                                    <i class="fa-solid fa-compass text-brand-secondary me-1"></i> 100% Vaastu
+                                                </span>
+                                                <a href="{{ route('plots.show', $plot['number']) }}" class="text-brand-secondary fs-11 font-copperplate text-decoration-none">
+                                                    Details &rarr;
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @empty
+                                    <div class="col-12">
+                                        <div class="text-center py-4 text-white-50 fs-14">
+                                            Plot inventory is live and available on the interactive board.
+                                        </div>
+                                    </div>
+                                @endforelse
+                            </div>
+                        </div>
+
+                        {{-- Quick Filter Pills linking to interactive board --}}
+                        <div class="mt-4 pt-3 border-top border-white-10">
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                <div class="d-flex align-items-center flex-wrap gap-1.5">
+                                    <span class="fs-11 text-white-50 font-copperplate me-1">Filter By:</span>
+                                    <a href="{{ route('plots.index') }}" class="quick-pill-filter">All Available</a>
+                                    <a href="{{ route('plots.index') }}" class="quick-pill-filter">East Facing</a>
+                                    <a href="{{ route('plots.index') }}" class="quick-pill-filter">North Facing</a>
+                                    <a href="{{ route('plots.index') }}" class="quick-pill-filter">40' Boulevard</a>
+                                </div>
+                                <a href="{{ route('plots.index') }}" class="btn btn-sm btn-outline-brand font-copperplate fs-11 px-3 py-1.5 rounded-pill">
+                                    <span>Explore Interactive Board &rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- 8. Guided Site Tour CTA Banner --}}
     <section class="bg-brand-dark text-light py-80">
         <div class="container">
@@ -970,5 +1247,60 @@
             navigateShowcase(1);
         }
     });
+
+    // ── Interactive Plots Inventory Counter Animation ──
+    function animateHomeCounter(el, target, dur, delay) {
+        if (!el) return;
+        var finalVal = parseInt(target, 10) || 0;
+        dur = dur || 2400;
+        delay = delay || 0;
+        el.textContent = '0';
+        setTimeout(function () {
+            var t0 = null;
+            (function step(ts) {
+                if (!t0) t0 = ts;
+                var p = Math.min((ts - t0) / dur, 1);
+                var e = 1 - (1 - p) * (1 - p);
+                var currentVal = Math.round(finalVal * e);
+                el.textContent = currentVal.toLocaleString('en-IN');
+                if (p < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    el.textContent = finalVal.toLocaleString('en-IN');
+                }
+            })(performance.now());
+        }, delay);
+    }
+
+    function initHomeCounters() {
+        var els = document.querySelectorAll('.home-animated-counter[data-counter-target]');
+        if (!els.length) return;
+        els.forEach(function (el) { el.textContent = '0'; });
+
+        if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (entries, obs) {
+                entries.forEach(function (en) {
+                    if (en.isIntersecting) {
+                        var el = en.target;
+                        if (!el.dataset.counterStarted) {
+                            el.dataset.counterStarted = 'true';
+                            animateHomeCounter(el, el.dataset.counterTarget, 2400, 100);
+                            obs.unobserve(el);
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+            els.forEach(function (c) { io.observe(c); });
+        } else {
+            els.forEach(function (el) {
+                animateHomeCounter(el, el.dataset.counterTarget, 2400, 100);
+            });
+        }
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHomeCounters);
+    } else {
+        initHomeCounters();
+    }
 </script>
 @endpush
