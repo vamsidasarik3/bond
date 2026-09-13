@@ -72,7 +72,7 @@
                     <div class="stat-metric-card p-3">
                         <i class="fa-solid fa-road text-brand-secondary fs-24"></i>
                         <div>
-                            <div class="stat-metric-title fs-16">05 Mins</div>
+                            <div class="stat-metric-title fs-16">03 Mins</div>
                             <div class="stat-metric-subtitle fs-11">NH-163 Expressway</div>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                             <div class="gallery-showcase-overlay"></div>
                             <div class="gallery-showcase-content">
                                 <h4 class="gallery-showcase-title">NH-163 Expressway</h4>
-                                <div class="gallery-showcase-subtitle">6-Lane Highway Corridor, 5 Minutes Away</div>
+                                <div class="gallery-showcase-subtitle">6-Lane Highway Corridor, 3 Minutes Away</div>
                             </div>
                         </div>
                     </div>
@@ -218,7 +218,7 @@
                             <div class="creative-caption">
                                 <div class="d-flex align-items-center justify-content-between mb-1">
                                     <h4 class="fs-16 text-white font-copperplate mb-0">NH-163 Growth Corridor</h4>
-                                    <span class="badge bg-dark text-brand-secondary font-copperplate fs-10 px-2 py-0.5 rounded border border-white-10">5 Mins Away</span>
+                                    <span class="badge bg-dark text-brand-secondary font-copperplate fs-10 px-2 py-0.5 rounded border border-white-10">3 Mins Away</span>
                                 </div>
                                 <div class="text-white-50 fs-12">
                                     6-lane industrial highway corridor facing proposed 100-ft road with spot registration and bank loan approvals.

@@ -82,7 +82,7 @@ class InvestorGuideController extends Controller
             [
                 'name'     => 'Bibinagar Junction Railway Station',
                 'distance' => '3.0 Km',
-                'time'     => '05 Mins',
+                'time'     => '03 Mins',
                 'icon'     => 'fa-train-subway',
                 'desc'     => 'Suburban railway junction with direct suburban services connecting to Secunderabad and Kazipet.',
                 'image'    => asset('venture/landmarks/MMTS BIBINAGAR.jpg'),

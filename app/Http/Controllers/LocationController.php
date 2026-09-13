@@ -32,7 +32,7 @@ class LocationController extends Controller
                 [
                     'name' => 'National Highway NH-163 (Hyd-Warangal 6-Lane)',
                     'distance' => '1.5 Km',
-                    'time' => '05 Mins',
+                    'time' => '03 Mins',
                     'icon' => 'fa-road',
                     'desc' => 'Major 6-lane economic and logistics corridor connecting Hyderabad to Warangal.',
                 ],
