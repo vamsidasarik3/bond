@@ -755,12 +755,12 @@
                             </div>
                         </div>
 
-                        <!-- Creative 2: Bibinagar MMTS 5 Mins -->
+                        <!-- Creative 2: Bibinagar MMTS 3 Mins -->
                         <div class="col-lg-4 col-md-6 col-12">
-                            <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('images/creatives/creative2.jpeg') }}', 'Reach Bibinagar MMTS in 5 Minutes', 'Direct Suburban Railway to Secunderabad &amp; Hyderabad Central')">
+                            <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('images/creatives/creative2.jpeg') }}', 'Reach Bibinagar MMTS in 3 Minutes', 'Direct Suburban Railway to Secunderabad &amp; Hyderabad Central')">
                                 <div class="creative-img-wrap">
-                                    <img src="{{ asset('images/creatives/creative2.jpeg') }}" alt="Location visual highlighting 5-minute commute to Bibinagar MMTS suburban railway station" class="creative-img" loading="lazy">
-                                    <div class="creative-badge">05 MINS</div>
+                                    <img src="{{ asset('images/creatives/creative2.jpeg') }}" alt="Location visual highlighting 3-minute commute to Bibinagar MMTS suburban railway station" class="creative-img" loading="lazy">
+                                    <div class="creative-badge">03 MINS</div>
                                     <div class="creative-zoom-overlay">
                                         <i class="fa-solid fa-magnifying-glass-plus"></i>
                                         <span>Click to View</span>
@@ -768,7 +768,7 @@
                                 </div>
                                 <div class="creative-caption">
                                     <h4 class="fs-16 text-white font-copperplate mb-1">Bibinagar MMTS Station</h4>
-                                    <p class="text-white-50 fs-12 mb-0">Direct Suburban Rail Transit &bull; 5 Mins Away</p>
+                                    <p class="text-white-50 fs-12 mb-0">Direct Suburban Rail Transit &bull; 3 Mins Away</p>
                                 </div>
                             </div>
                         </div>

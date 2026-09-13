@@ -172,7 +172,7 @@
                                 </div>
                                 <div class="col-md-6 col-12 d-flex align-items-center gap-2">
                                     <i class="fa-solid fa-train text-brand-secondary flex-shrink-0"></i>
-                                    <span><strong>05 Mins:</strong> Bibinagar MMTS Railway Station</span>
+                                    <span><strong>03 Mins:</strong> Bibinagar MMTS Railway Station</span>
                                 </div>
                                 <div class="col-md-6 col-12 d-flex align-items-center gap-2">
                                     <i class="fa-solid fa-route text-brand-secondary flex-shrink-0"></i>

@@ -131,7 +131,7 @@
                             <div class="gallery-showcase-overlay"></div>
                             <div class="gallery-showcase-content">
                                 <h4 class="gallery-showcase-title">Bibinagar MMTS Railway</h4>
-                                <div class="gallery-showcase-subtitle">Suburban Rail Station, 5 Minutes Away</div>
+                                <div class="gallery-showcase-subtitle">Suburban Rail Station, 3 Minutes Away</div>
                             </div>
                         </div>
                     </div>
@@ -181,12 +181,12 @@
                         </div>
                     </div>
 
-                    <!-- Creative 2: Bibinagar MMTS 5 Mins -->
+                    <!-- Creative 2: Bibinagar MMTS 3 Mins -->
                     <div class="col-lg-4 col-md-6 col-12">
-                        <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative2.jpeg') }}', 'Reach Bibinagar MMTS in 5 Minutes', 'Rapid Suburban Rail Transit to Secunderabad & Hospital Central')">
+                        <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('data/creatives/creative2.jpeg') }}', 'Reach Bibinagar MMTS in 3 Minutes', 'Rapid Suburban Rail Transit to Secunderabad & Hospital Central')">
                             <div class="creative-img-wrap">
                                 <img src="{{ asset('data/creatives/creative2.jpeg') }}" alt="Investment Plots in Bibinagar — Bibinagar MMTS Station Showcase" class="creative-img" loading="lazy">
-                                <div class="creative-badge">05 MINS</div>
+                                <div class="creative-badge">03 MINS</div>
                                 <div class="creative-zoom-overlay">
                                     <i class="fa-solid fa-magnifying-glass-plus"></i>
                                     <span>Click to View</span>
@@ -195,7 +195,7 @@
                             <div class="creative-caption">
                                 <div class="d-flex align-items-center justify-content-between mb-1">
                                     <h4 class="fs-16 text-white font-copperplate mb-0">Bibinagar MMTS Station</h4>
-                                    <span class="badge bg-dark text-brand-secondary font-copperplate fs-10 px-2 py-0.5 rounded border border-white-10">5 Mins Away</span>
+                                    <span class="badge bg-dark text-brand-secondary font-copperplate fs-10 px-2 py-0.5 rounded border border-white-10">3 Mins Away</span>
                                 </div>
                                 <div class="text-white-50 fs-12">
                                     Direct suburban commuter railway line connecting daily passengers seamlessly to Secunderabad junction.
