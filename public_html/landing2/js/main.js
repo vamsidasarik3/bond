@@ -596,29 +596,44 @@ document.addEventListener('DOMContentLoaded', () => {
             navigationPopupTimer = null;
           }
 
-          // Trigger popup smoothly after smooth scroll arrives at the requested section
+          // Trigger popup smoothly after 6 seconds delay once arrived at the requested section
           navigationPopupTimer = setTimeout(() => {
             isNavigatingViaClick = false;
             lastTriggeredSection = normTarget;
             openEnquiryModal('navigation', normTarget);
-          }, 500);
+          }, 6000);
         } else if (normTarget === 'hero') {
           lastTriggeredSection = 'hero';
           if (navigationPopupTimer) clearTimeout(navigationPopupTimer);
+          if (scrollTriggerDebounce) {
+            clearTimeout(scrollTriggerDebounce);
+            scrollTriggerDebounce = null;
+          }
         }
       }
     });
   });
 
-  // Handle scroll detection: Trigger popup automatically when scrolling into a new section
+  // Handle scroll detection: Trigger popup automatically with 6 seconds delay when scrolling into sections
+  const AUTO_POPUP_DELAY_MS = 6000;
+
   function checkScrollSectionTrigger() {
-    // Suppress scroll trigger if navigating via click, modal already open, lead submitted, or closed within 1400ms
+    // Suppress scroll trigger if navigating via click, modal already open, lead submitted, or closed within 6s cooldown
     if (isNavigatingViaClick) return;
     if (hasSubmittedLeadSuccessfully) return;
     if (typeof isModalOpen === 'function' && isModalOpen()) return;
     const enquiryModalWrapperEl = document.getElementById('enquiryModalWrapper');
     if (enquiryModalWrapperEl && enquiryModalWrapperEl.classList.contains('is-open')) return;
-    if (Date.now() - lastModalCloseTimestamp < 1400) return;
+    if (Date.now() - lastModalCloseTimestamp < AUTO_POPUP_DELAY_MS) return;
+
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollY < 120) {
+      if (scrollTriggerDebounce) {
+        clearTimeout(scrollTriggerDebounce);
+        scrollTriggerDebounce = null;
+      }
+      return;
+    }
 
     const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
     let detectedSectionId = null;
@@ -636,31 +651,45 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // If user scrolled into a new major section, trigger popup after a brief dwell pause
+    if (!detectedSectionId) {
+      detectedSectionId = 'gallery';
+    }
+
+    // If user scrolled into a major section, wait 6 seconds delay before displaying the popup
     if (detectedSectionId && detectedSectionId !== lastTriggeredSection) {
-      if (scrollTriggerDebounce) clearTimeout(scrollTriggerDebounce);
+      if (!scrollTriggerDebounce) {
+        scrollTriggerDebounce = setTimeout(() => {
+          scrollTriggerDebounce = null;
 
-      scrollTriggerDebounce = setTimeout(() => {
-        // Re-check conditions before opening
-        const currentWrapper = document.getElementById('enquiryModalWrapper');
-        if (currentWrapper && currentWrapper.classList.contains('is-open')) return;
-        if (Date.now() - lastModalCloseTimestamp < 1400) return;
+          // Re-check conditions before opening
+          const currentWrapper = document.getElementById('enquiryModalWrapper');
+          if (currentWrapper && currentWrapper.classList.contains('is-open')) return;
+          if (Date.now() - lastModalCloseTimestamp < AUTO_POPUP_DELAY_MS) return;
+          if (hasSubmittedLeadSuccessfully) return;
 
-        const targetEl = document.getElementById(detectedSectionId);
-        if (targetEl) {
-          const r = targetEl.getBoundingClientRect();
-          if (r.top <= viewportHeight * 0.65 && r.bottom >= viewportHeight * 0.15) {
-            lastTriggeredSection = detectedSectionId;
-            openEnquiryModal('scroll', detectedSectionId);
+          // Detect active section when 6 seconds timer fires
+          let activeSectionId = detectedSectionId;
+          const currentViewportHeight = window.innerHeight || document.documentElement.clientHeight;
+          for (const secId of majorSectionIds) {
+            const el = document.getElementById(secId);
+            if (!el) continue;
+            const r = el.getBoundingClientRect();
+            if (r.top <= currentViewportHeight * 0.70 && r.bottom >= currentViewportHeight * 0.15) {
+              activeSectionId = secId;
+              break;
+            }
           }
-        }
-      }, 420);
+
+          lastTriggeredSection = activeSectionId;
+          openEnquiryModal('scroll', activeSectionId);
+        }, AUTO_POPUP_DELAY_MS);
+      }
     }
   }
 
   window.addEventListener('scroll', checkScrollSectionTrigger, { passive: true });
 
-  // Handle browser back/forward navigation hash changes
+  // Handle browser back/forward navigation hash changes (6 seconds delay)
   window.addEventListener('hashchange', () => {
     const newSection = normalizeSectionId(window.location.hash);
     if (newSection && newSection !== 'hero') {
@@ -671,11 +700,11 @@ document.addEventListener('DOMContentLoaded', () => {
       lastTriggeredSection = newSection;
       setTimeout(() => {
         openEnquiryModal('navigation', newSection);
-      }, 450);
+      }, AUTO_POPUP_DELAY_MS);
     }
   });
 
-  // Handle direct hash on initial page load (e.g. #amenities, #gallery)
+  // Handle direct hash on initial page load (6 seconds delay)
   const initialHash = normalizeSectionId(window.location.hash);
   if (initialHash && initialHash !== 'hero') {
     setTimeout(() => {
@@ -685,7 +714,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       lastTriggeredSection = initialHash;
       openEnquiryModal('navigation', initialHash);
-    }, 700);
+    }, AUTO_POPUP_DELAY_MS);
   }
 
   // ==============================================================

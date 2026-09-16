@@ -344,17 +344,17 @@
                     </div>
                 </div>
 
-                {{-- Card 2: 30' & 40' CC Roads using rrr-road-1.jpg --}}
+                {{-- Card 2: Premium Compound Wall using compound-wall.jpg --}}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(1)">
-                        <img src="{{ asset('landing2/images/rrr-road-1.jpg') }}" alt="30' and 40' Concrete Roads" loading="lazy">
+                        <img src="{{ asset('landing2/images/compound-wall.jpg') }}?v=2" alt="Premium Compound Wall" loading="lazy">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
-                            <h3 class="gallery-showcase-title">30' &amp; 40' CC Roads</h3>
-                            <div class="gallery-showcase-subtitle">Durable All-Weather Concrete Avenues</div>
+                            <h3 class="gallery-showcase-title">Premium Compound Wall</h3>
+                            <div class="gallery-showcase-subtitle">Continuous Boundary Enclosure &amp; Avenue Frontage</div>
                         </div>
                         <div class="gallery-showcase-hover-btn">
-                            <span><i class="fa-solid fa-expand me-1"></i> View Roads</span>
+                            <span><i class="fa-solid fa-expand me-1"></i> View Compound Wall</span>
                         </div>
                     </div>
                 </div>
@@ -418,17 +418,17 @@
                     </div>
                 </div>
 
-                {{-- Card 6: Premium Compound Wall using compound-wall.jpg --}}
+                {{-- Card 6: 30 & 40 feet using rrr-road-1.jpg --}}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(5)">
-                        <img src="{{ asset('landing2/images/compound-wall.jpg') }}?v=2" alt="Premium Compound Wall" loading="lazy">
+                        <img src="{{ asset('landing2/images/rrr-road-1.jpg') }}" alt="30 &amp; 40 feet Concrete Roads" loading="lazy">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
-                            <h3 class="gallery-showcase-title">Premium Compound Wall</h3>
-                            <div class="gallery-showcase-subtitle">Continuous Boundary Enclosure &amp; Avenue Frontage</div>
+                            <h3 class="gallery-showcase-title">30 &amp; 40 feet</h3>
+                            <div class="gallery-showcase-subtitle">Durable All-Weather Concrete Avenues</div>
                         </div>
                         <div class="gallery-showcase-hover-btn">
-                            <span><i class="fa-solid fa-expand me-1"></i> View Compound Wall</span>
+                            <span><i class="fa-solid fa-expand me-1"></i> View Roads</span>
                         </div>
                     </div>
                 </div>
@@ -1162,9 +1162,9 @@
             subtitle: "Architectural Gateway &amp; Security Post"
         },
         {
-            src: "{{ asset('landing2/images/rrr-road-1.jpg') }}",
-            title: "30' &amp; 40' CC Roads",
-            subtitle: "Durable All-Weather Concrete Avenues"
+            src: "{{ asset('landing2/images/compound-wall.jpg') }}?v=2",
+            title: "Premium Compound Wall",
+            subtitle: "Continuous Boundary Enclosure &amp; Avenue Frontage"
         },
         {
             src: "{{ asset('landing2/images/utilities-chamber-full.jpg?v=5') }}",
@@ -1182,9 +1182,9 @@
             subtitle: "Reliable Gravity-Fed Potable Water Supply"
         },
         {
-            src: "{{ asset('landing2/images/compound-wall.jpg') }}",
-            title: "Premium Compound Wall",
-            subtitle: "Continuous Boundary Enclosure &amp; Avenue Frontage"
+            src: "{{ asset('landing2/images/rrr-road-1.jpg') }}",
+            title: "30 &amp; 40 feet",
+            subtitle: "Durable All-Weather Concrete Avenues"
         },
         {
             src: "{{ asset('landing2/images/social-infra.jpg') }}",
