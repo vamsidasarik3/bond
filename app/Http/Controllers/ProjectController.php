@@ -74,7 +74,7 @@ class ProjectController extends Controller
                 'road_widths' => "30' & 40'",
                 'road_widths_sub' => 'M-25 Concrete Avenues',
                 'vaastu' => '100%',
-                'vaastu_sub' => 'East & West Facing Grid',
+                'vaastu_sub' => 'East, West or North Facing Grid',
                 'plot_sizes' => '167, 200, 220, 267 & 500 Sq. Yards',
                 'approvals' => 'HMDA Final Sanction (LP No. 062715/2024) & TSRERA Registered',
                 'launch_year' => '2024 to 2026 Active Launch',

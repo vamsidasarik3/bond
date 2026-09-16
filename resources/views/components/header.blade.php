@@ -8,7 +8,7 @@
                     <div class="de-flex-col">
                         <div id="logo">
                             <a href="{{ route('home') }}" class="d-inline-flex align-items-center">
-                                <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha Infra Developers" class="brand-header-logo" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
+                                <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha Infra Developers Pvt Ltd" class="brand-header-logo" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
                             </a>
                         </div>
                     </div>

@@ -8,8 +8,8 @@
     
     <!-- Drawer Header: Brand Logo & Close Button -->
     <div class="mobile-nav-header">
-        <a href="{{ route('home') }}" class="mobile-nav-brand d-inline-flex align-items-center" aria-label="Navagruha Infra Developers Home">
-            <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha Infra Developers" class="mobile-nav-logo-img" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
+        <a href="{{ route('home') }}" class="mobile-nav-brand d-inline-flex align-items-center" aria-label="Navagruha Infra Developers Pvt Ltd Home">
+            <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha Infra Developers Pvt Ltd" class="mobile-nav-logo-img" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
         </a>
         <button type="button" id="mobileNavClose" class="mobile-nav-close-btn" aria-label="Close navigation menu">
             <i class="fa-solid fa-xmark"></i>

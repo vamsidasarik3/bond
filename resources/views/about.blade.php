@@ -781,7 +781,7 @@
                 </h2>
 
                 <p class="text-white-50 fs-15 leading-relaxed mb-3">
-                    At Navagruha Infra Developers, we believe that a residential plot is more than just a piece of land, it is the foundation for your future, your family’s aspirations, and long term financial growth. As a trusted real estate developer in Hyderabad, we are committed to creating premium plotted developments and well planned gated communities in high potential growth corridors with strong infrastructure, connectivity, and investment prospects.
+                    At Navagruha Infra Developers Pvt Ltd, we believe that a residential plot is more than just a piece of land, it is the foundation for your future, your family’s aspirations, and long term financial growth. As a trusted real estate developer in Hyderabad, we are committed to creating premium plotted developments and well planned gated communities in high potential growth corridors with strong infrastructure, connectivity, and investment prospects.
                 </p>
                 <p class="text-white-50 fs-15 leading-relaxed mb-3">
                     Our projects are developed in strategically selected locations that offer excellent accessibility, future appreciation potential, and a balanced lifestyle. Guided by HMDA planning standards and TSRERA compliance, we ensure every development meets the highest standards of quality, transparency, and legal integrity.

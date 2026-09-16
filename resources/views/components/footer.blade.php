@@ -9,7 +9,7 @@
                 <div class="pe-lg-2">
                     <div class="footer-brand-wrap mb-4">
                         <a href="{{ route('home') }}" class="d-inline-block mb-2">
-                            <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha Infra Developers" class="brand-footer-logo" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
+                            <img src="{{ asset('images/navagruha-logo-white.png') }}" alt="Navagruha Infra Developers Pvt Ltd" class="brand-footer-logo" onerror="this.onerror=null; this.src='{{ asset('images/navagruha-logo.png') }}';">
                         </a>
                         <div class="brand-tagline">REDEFINING REALITY</div>
                     </div>
@@ -64,7 +64,7 @@
                     <div>
                         <strong class="text-white d-block font-copperplate fs-12 mb-1">RRR Prekshitha Enclave</strong>
                         <span class="text-white-50 fs-12 lh-base d-block mb-2">
-                            Near AIIMS Medical University Campus, NH-163 Warangal Highway, Bibinagar, Yadadri Bhuvanagiri Dist, Telangana 508126.
+                            Near AIIMS Medical University, NH-163 Warangal Highway, Bibinagar, Yadadri Bhuvanagiri Dist, Telangana 508126.
                         </span>
                         <a href="https://maps.app.goo.gl/jTyRs8yxpdLZE6pd7" target="_blank" rel="noopener noreferrer" class="footer-map-btn">
                             <i class="fa-solid fa-location-dot"></i>
@@ -104,7 +104,7 @@
                         <i class="fa-solid fa-building"></i>
                     </div>
                     <div>
-                        <strong class="text-white d-block font-copperplate fs-12 mb-1">Corporate Headquarters</strong>
+                        <strong class="text-white d-block font-copperplate fs-12 mb-1">Office Address</strong>
                         <span class="text-white-50 fs-12 lh-base d-block mb-2">
                             Plot No. 109, Shashank Towers, 1st Floor, Uppal Bhagayath, Near Nagole Metro Station, Hyderabad, Telangana 500039.
                         </span>
@@ -136,7 +136,7 @@
         <div class="container">
             <div class="row align-items-center g-2">
                 <div class="col-lg-4 col-12 text-center text-lg-start font-copperplate">
-                    &copy; {{ date('Y') }} NAVAGRUHA INFRA DEVELOPERS. All rights reserved.
+                    &copy; {{ date('Y') }} NAVAGRUHA INFRA DEVELOPERS PVT LTD. All rights reserved.
                 </div>
                 <div class="col-lg-4 col-12 text-center text-white-50">
                     Designed and Developed by <a href="https://www.unickspace.in/" target="_blank" rel="noopener noreferrer" class="unickspace-credit-link">UnickSpace</a>

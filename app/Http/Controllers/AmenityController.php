@@ -70,7 +70,7 @@ class AmenityController extends Controller
                 [
                     'icon' => 'fa-compass',
                     'title' => '100% Vaastu Compliance',
-                    'desc' => 'Layout strictly planned according to authentic Vaastu principles with East and West facing options.',
+                    'desc' => 'Layout strictly planned according to authentic Vaastu principles with East, West and North facing options.',
                 ],
                 [
                     'icon' => 'fa-building-columns',
