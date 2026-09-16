@@ -32,10 +32,10 @@
     <div class="container">
       
       <!-- Alert Header -->
-      <div class="header">
-        <div class="tag">New Website Lead Received</div>
-        <h1>{{ $enquiry->name }}</h1>
-        <p>Project: <strong>{{ $enquiry->project ?: 'RRR Prekshitha Enclave' }}</strong> • Received on {{ ($enquiry->created_at ? $enquiry->created_at->copy()->timezone('Asia/Kolkata') : now('Asia/Kolkata'))->format('d-m-Y, h:i A') }} IST</p>
+      <div class="header" style="background-color: #0f172a; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 32px; border-bottom: 4px solid #3b82f6;">
+        <div class="tag" style="display: inline-block; background-color: #dbeafe; color: #1d4ed8; padding: 5px 12px; border-radius: 9999px; font-size: 11px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 12px;">New Website Lead Received</div>
+        <h1 style="margin: 0 0 6px; font-size: 24px; font-weight: 800; color: #ffffff !important; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">{{ $enquiry->name }}</h1>
+        <p style="margin: 0; font-size: 13px; color: #cbd5e1 !important; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">Project: <strong style="color: #ffffff;">{{ $enquiry->project ?: 'RRR Prekshitha Enclave' }}</strong> • Received on {{ ($enquiry->created_at ? $enquiry->created_at->copy()->timezone('Asia/Kolkata') : now('Asia/Kolkata'))->format('d-m-Y, h:i A') }} IST</p>
       </div>
 
       <!-- Content -->
@@ -158,8 +158,8 @@
       </div>
 
       <!-- Footer -->
-      <div class="footer">
-        Navagruha Real Estate CRM System • Automated Lead Alert
+      <div class="footer" style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 20px 32px; text-align: center; font-size: 12px; color: #64748b;">
+        <strong>NAVAGRUHA INFRA DEVELOPERS PVT LTD.</strong> • Real Estate CRM System • Automated Lead Alert
       </div>
 
     </div>

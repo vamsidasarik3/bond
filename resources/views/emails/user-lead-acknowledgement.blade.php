@@ -8,9 +8,9 @@
     body { margin: 0; padding: 0; background-color: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1e293b; }
     .wrapper { width: 100%; table-layout: fixed; background-color: #f1f5f9; padding: 40px 0; }
     .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05); }
-    .header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 36px 32px; text-align: center; color: #ffffff; }
-    .header h1 { margin: 0 0 8px; font-size: 22px; font-weight: 700; letter-spacing: 0.5px; color: #f8fafc; }
-    .header p { margin: 0; font-size: 13px; color: #94a3b8; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
+    .header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); background-color: #0f172a; padding: 36px 32px; text-align: center; color: #ffffff; }
+    .header h1 { margin: 0 0 8px; font-size: 21px; font-weight: 800; letter-spacing: 0.8px; color: #ffffff !important; text-transform: uppercase; }
+    .header p { margin: 0; font-size: 13px; color: #c5a880 !important; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; }
     .body { padding: 32px; }
     .lead-badge { display: inline-block; background-color: #e0f2fe; color: #0369a1; padding: 6px 14px; border-radius: 9999px; font-size: 12px; font-weight: 700; margin-bottom: 20px; }
     .greeting { font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 12px; }
@@ -32,9 +32,13 @@
     <div class="container">
       
       <!-- Brand Header -->
-      <div class="header">
-        <h1>NAVAGRUHA INFRA DEVELOPERS</h1>
-        <p>{{ $enquiry->project ?: 'RRR Prekshitha Enclave, AIIMS Bibinagar' }}</p>
+      <div class="header" style="background-color: #0f172a; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 36px 32px; text-align: center; color: #ffffff;">
+        <h1 style="margin: 0 0 8px; font-size: 21px; font-weight: 800; letter-spacing: 0.8px; color: #ffffff !important; text-align: center; text-transform: uppercase; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+          NAVAGRUHA INFRA DEVELOPERS PVT LTD.
+        </h1>
+        <p style="margin: 0; font-size: 13px; color: #c5a880 !important; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 700; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+          {{ $enquiry->project ?: 'RRR Prekshitha Enclave, AIIMS Bibinagar' }}
+        </p>
       </div>
 
       <!-- Main Body -->
@@ -114,16 +118,30 @@
         <p class="content-p" style="margin-bottom: 0; color: #334155; font-weight: 600;">
           Warm regards,<br>
           Customer Relations Team<br>
-          Navagruha Infra Developers
+          <strong style="color: #0f172a;">Navagruha Infra Developers Pvt Ltd</strong>
         </p>
 
       </div>
 
       <!-- Footer -->
-      <div class="footer">
-        <p style="margin: 0 0 6px;"><strong>Navagruha Infra Developers</strong></p>
-        <p style="margin: 0 0 10px;">Near AIIMS 750-Bed Hospital, NH-163 Warangal Expressway, Bibinagar, Telangana 508126</p>
-        <p style="margin: 0;">Phone: +91 9617 699 699 | Email: <a href="mailto:info@navagruha.com">info@navagruha.com</a></p>
+      <div class="footer" style="background-color: #0f172a; padding: 28px 32px; text-align: center; color: #94a3b8; font-size: 12px; line-height: 1.6;">
+        <p style="margin: 0 0 12px; color: #ffffff; font-size: 14px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase;">
+          NAVAGRUHA INFRA DEVELOPERS PVT LTD.
+        </p>
+
+        <!-- Office Address -->
+        <div style="margin: 0 0 16px; padding: 12px 16px; background-color: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px;">
+          <p style="margin: 0 0 4px; color: #e2b774; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Office Address</p>
+          <p style="margin: 0; color: #e2e8f0; font-size: 12px; line-height: 1.55;">
+            Plot No. 109, Shashank Towers, 1st Floor, Uppal Bhagayath, Near Nagole Metro Station, Hyderabad, Telangana 500039.
+          </p>
+        </div>
+
+        <p style="margin: 0; color: #94a3b8; font-size: 12px;">
+          Phone: <a href="tel:+919617699699" style="color: #38bdf8; text-decoration: none; font-weight: 600;">+91 9617 699 699</a> &nbsp;|&nbsp; 
+          Email: <a href="mailto:info@navagruha.com" style="color: #38bdf8; text-decoration: none; font-weight: 600;">info@navagruha.com</a> &nbsp;|&nbsp;
+          Web: <a href="https://www.navagruha.com" style="color: #38bdf8; text-decoration: none; font-weight: 600;">www.navagruha.com</a>
+        </p>
       </div>
 
     </div>
