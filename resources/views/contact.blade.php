@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Navagruha Infra Developers — Contact Us')
-@section('meta_description', 'Contact Navagruha Infra Developers in Hyderabad. Connect with our real estate developers in Hyderabad for site visits and enquiries regarding plots for sale in Hyderabad.')
+@section('title', 'Navagruha Infra Developers — Contact Us | Plots for Sale in Hyderabad')
+@section('meta_description', 'Contact Navagruha Infra Developers, premier real estate developers in Hyderabad. Connect with Navagruha Hyderabad for site visits and enquiries on plots for sale in Hyderabad.')
 @section('meta_keywords', 'Navagruha Infra Developers, Real Estate Developers in Hyderabad, Plots for Sale in Hyderabad, Navagruha Hyderabad')
 @section('canonical_url', route('contact'))
 

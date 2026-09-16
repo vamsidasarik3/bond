@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Plots Near AIIMS Bibinagar — Location & Connectivity | Navagruha')
-@section('meta_description', 'Explore plots near AIIMS Bibinagar along the NH-163 Warangal Highway corridor. High-growth villa plots near AIIMS Bibinagar, residential plots, and investment plots in Bibinagar.')
+@section('title', 'Plots Near AIIMS Bibinagar — Villa & Residential Plots | Navagruha')
+@section('meta_description', 'Explore verified plots near AIIMS Bibinagar along the NH-163 Warangal Highway. Offering villa plots near AIIMS Bibinagar, residential plots near AIIMS Bibinagar, and investment plots in Bibinagar.')
 @section('meta_keywords', 'Plots Near AIIMS Bibinagar, Villa Plots Near AIIMS Bibinagar, Residential Plots Near AIIMS Bibinagar, Investment Plots in Bibinagar')
 @section('canonical_url', route('location'))
 

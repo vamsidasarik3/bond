@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Plots for Sale in Hyderabad | Navagruha Infra')
-@section('meta_description', 'Explore HMDA-approved plots for sale in Hyderabad with Navagruha. Discover gated community, residential and villa plots in high-growth locations with transparent documentation.')
-@section('og_title', 'Plots for Sale in Hyderabad | Navagruha Infra')
-@section('og_description', 'Explore HMDA-approved plots for sale in Hyderabad with Navagruha. Discover gated community, residential and villa plots in high-growth locations with transparent documentation.')
+@section('title', 'Plots for Sale in Hyderabad — Open, Villa & Residential Plots | Navagruha')
+@section('meta_description', 'Explore verified plots for sale in Hyderabad by Navagruha Infra Developers. Discover open plots in Hyderabad, villa plots in Hyderabad, and residential plots in Hyderabad within gated community plots.')
+@section('og_title', 'Plots for Sale in Hyderabad — Open, Villa & Residential Plots | Navagruha')
+@section('og_description', 'Explore verified plots for sale in Hyderabad by Navagruha Infra Developers. Discover open plots in Hyderabad, villa plots in Hyderabad, and residential plots in Hyderabad within gated community plots.')
 @section('meta_keywords', 'Plots for Sale in Hyderabad, Open Plots in Hyderabad, Villa Plots in Hyderabad, Residential Plots in Hyderabad, Gated Community Plots in Hyderabad')
 @section('canonical_url', route('home'))
 

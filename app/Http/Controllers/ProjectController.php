@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Plot;
-use Illuminate\Http\Request;
-
 class ProjectController extends Controller
 {
     /**
@@ -26,7 +23,7 @@ class ProjectController extends Controller
         $allProjects = $this->getProjects();
         $project = collect($allProjects)->firstWhere('id', $slug);
 
-        if (!$project) {
+        if (! $project) {
             abort(404);
         }
 
@@ -39,7 +36,7 @@ class ProjectController extends Controller
             ],
             'rrr-prekshitha-enclave' => [
                 'title' => 'Villa Plots in Bibinagar — Navagruha Prekshitha Enclave',
-                'meta_description' => 'Explore villa plots in Bibinagar at RRR Prekshitha Enclave near AIIMS Bibinagar. Offering plots for sale in AIIMS Bibinagar, HMDA final approved plots in AIIMS Bibinagar, and RERA approved plots in AIIMS Bibinagar.',
+                'meta_description' => 'Explore premium villa plots in Bibinagar at RRR Prekshitha Enclave. Offering plots for sale in AIIMS Bibinagar, HMDA final approved plots in AIIMS Bibinagar, RERA approved plots in AIIMS Bibinagar, and gated community plots in AIIMS Bibinagar.',
                 'meta_keywords' => 'Villa Plots in Bibinagar, Plots for Sale in AIIMS Bibinagar, HMDA Final Approved Plots in AIIMS Bibinagar, RERA Approved Plots in AIIMS Bibinagar, Gated Community Plots in AIIMS Bibinagar, Premium Villa Plots in AIIMS Bibinagar',
                 'canonical' => route('projects.show', 'rrr-prekshitha-enclave'),
             ],

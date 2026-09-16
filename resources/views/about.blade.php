@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Real Estate Developers in Hyderabad: Navagruha Infra Developers')
-@section('meta_description', 'Navagruha Infra Developers is one of the trusted real estate developers in Hyderabad. As a leading real estate company in Hyderabad and plot developers in Hyderabad, we build HMDA and TSRERA approved communities.')
+@section('title', 'Real Estate Developers in Hyderabad — Navagruha Infra Developers')
+@section('meta_description', 'Navagruha Infra Developers is one of the premier real estate developers in Hyderabad. As trusted property developers, real estate company, and plot developers in Hyderabad, we deliver HMDA and TSRERA approved communities.')
 @section('meta_keywords', 'Real Estate Developers in Hyderabad, Property Developers in Hyderabad, Real Estate Company in Hyderabad, Plot Developers in Hyderabad')
 @section('canonical_url', route('about'))
 
