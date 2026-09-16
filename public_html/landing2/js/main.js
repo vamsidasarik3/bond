@@ -347,7 +347,44 @@ document.addEventListener('DOMContentLoaded', () => {
   const toastMessage = document.getElementById('toastMessage');
   const toastText = document.getElementById('toastText');
 
-  if (visitorDate) {
+  function parseToIsoDate(dateVal) {
+    if (!dateVal) return null;
+    const parts = dateVal.trim().split('-');
+    if (parts.length === 3) {
+      if (parts[0].length === 4) {
+        return dateVal.trim();
+      }
+      if (parts[2].length === 4) {
+        return `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
+      }
+    }
+    return dateVal.trim();
+  }
+
+  function formatToDisplayDate(dateVal) {
+    if (!dateVal) return '';
+    const parts = dateVal.trim().split('-');
+    if (parts.length === 3) {
+      if (parts[0].length === 4) {
+        return `${parts[2].padStart(2, '0')}-${parts[1].padStart(2, '0')}-${parts[0]}`;
+      }
+      if (parts[2].length === 4) {
+        return `${parts[0].padStart(2, '0')}-${parts[1].padStart(2, '0')}-${parts[2]}`;
+      }
+    }
+    return dateVal.trim();
+  }
+
+  // Initialize Flatpickr for DD-MM-YYYY format
+  if (typeof flatpickr !== 'undefined') {
+    const flatpickrConfig = {
+      dateFormat: 'd-m-Y',
+      minDate: 'today',
+      disableMobile: true,
+      allowInput: true
+    };
+    if (visitorDate) flatpickr(visitorDate, flatpickrConfig);
+  } else if (visitorDate) {
     visitorDate.min = new Date().toISOString().split('T')[0];
   }
 
@@ -406,9 +443,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Preferred Date (Optional, but if supplied must not be past)
     const dateVal = visitorDate?.value || '';
-    if (dateVal) {
-      const today = new Date().toISOString().split('T')[0];
-      if (dateVal < today) {
+    const isoDateVal = parseToIsoDate(dateVal);
+    if (isoDateVal) {
+      const today = new Date();
+      const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+      if (isoDateVal < todayStr) {
         if (dateError) {
           dateError.textContent = 'Please choose today or an upcoming date';
           dateError.style.display = 'block';
@@ -437,7 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
         name: name,
         email: email,
         phone: phone,
-        preferred_visit_date: dateVal || null,
+        preferred_visit_date: isoDateVal || null,
         project: document.getElementById('leadProject')?.value || 'RRR Prekshitha Enclave',
         landing_page: document.getElementById('leadLandingPage')?.value || window.location.pathname,
         source: document.getElementById('leadSource')?.value || 'Landing page',
@@ -674,8 +713,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalSuccessLeadPill = document.getElementById('modalSuccessLeadPill');
   const modalSuccessDateNote = document.getElementById('modalSuccessDateNote');
 
-  // Restrict date input to today or future
-  if (modalVisitorDate) {
+  // Restrict date input to today or future with DD-MM-YYYY format
+  if (typeof flatpickr !== 'undefined') {
+    if (modalVisitorDate) {
+      flatpickr(modalVisitorDate, {
+        dateFormat: 'd-m-Y',
+        minDate: 'today',
+        disableMobile: true,
+        allowInput: true
+      });
+    }
+  } else if (modalVisitorDate) {
     modalVisitorDate.min = new Date().toISOString().split('T')[0];
   }
 
@@ -881,9 +929,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Preferred Site Visit Date (Optional, but if filled cannot be in the past)
     const dateVal = modalVisitorDate?.value || '';
-    if (dateVal) {
-      const todayStr = new Date().toISOString().split('T')[0];
-      if (dateVal < todayStr) {
+    const isoDateVal = parseToIsoDate(dateVal);
+    if (isoDateVal) {
+      const today = new Date();
+      const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+      if (isoDateVal < todayStr) {
         if (modalDateError) {
           modalDateError.textContent = 'Please choose today or an upcoming date';
           modalDateError.style.display = 'block';
@@ -910,7 +960,7 @@ document.addEventListener('DOMContentLoaded', () => {
         name: name,
         email: email,
         phone: phone,
-        preferred_visit_date: dateVal || null,
+        preferred_visit_date: isoDateVal || null,
         project: document.getElementById('modalLeadProject')?.value || 'RRR Prekshitha Enclave',
         landing_page: document.getElementById('modalLeadLandingPage')?.value || '/',
         source: document.getElementById('modalLeadSource')?.value || 'Landing page - Section Navigation Popup',
@@ -941,18 +991,13 @@ document.addEventListener('DOMContentLoaded', () => {
           if (modalSuccessContainer) modalSuccessContainer.style.display = 'block';
 
           if (modalSuccessLeadPill) {
-            modalSuccessLeadPill.textContent = `REF: #${data.lead_number || 'L-CONFIRMED'}`;
+            modalSuccessLeadPill.style.display = 'none';
           }
 
           if (modalSuccessDateNote) {
             if (dateVal) {
-              const parts = dateVal.split('-');
-              let dateFormatted = dateVal;
-              if (parts.length === 3) {
-                const dObj = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
-                dateFormatted = dObj.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
-              }
-              modalSuccessDateNote.textContent = `Your preferred site visit date (${dateFormatted}) has also been noted. Our team will contact you to confirm availability.`;
+              const displayDate = formatToDisplayDate(dateVal);
+              modalSuccessDateNote.textContent = `Your preferred site visit date (${displayDate}) has also been noted. Our team will contact you to confirm availability.`;
               modalSuccessDateNote.style.display = 'block';
             } else {
               modalSuccessDateNote.style.display = 'none';

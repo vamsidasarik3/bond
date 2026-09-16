@@ -446,6 +446,35 @@ header.site-header.scrolled .brand-header-logo {
   margin-bottom: 36px;
 }
 
+.hero-highlights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.hero-highlights-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.hero-highlights-list .check-icon-wrap {
+  height: 1.5em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-highlights-list .check-icon-wrap i {
+  font-size: 0.95rem;
+  line-height: 1;
+  display: block;
+}
+
 /* Hero CTA Button Strip */
 .hero-actions-group {
   display: flex;
@@ -3097,3 +3126,49 @@ input[type="date"].modal-input {
     font-size: 1.3rem;
   }
 }
+
+/* Flatpickr Modal & Theme Integration */
+.flatpickr-calendar {
+  z-index: 100005 !important;
+  background: #142533 !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6) !important;
+  border-radius: 12px !important;
+  font-family: var(--font-sans) !important;
+  overflow: hidden;
+}
+.flatpickr-calendar .flatpickr-months {
+  background: #0f1d28 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 6px 0;
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-current-month input.cur-year {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+span.flatpickr-weekday {
+  color: #94a3b8 !important;
+  font-weight: 600 !important;
+}
+.flatpickr-day {
+  color: #e2e8f0 !important;
+  border-radius: 6px !important;
+}
+.flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange {
+  background: #71b644 !important;
+  border-color: #71b644 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+.flatpickr-day:hover {
+  background: rgba(113, 182, 68, 0.3) !important;
+  border-color: rgba(113, 182, 68, 0.5) !important;
+}
+.flatpickr-day.today {
+  border-color: #d6c08a !important;
+}
+.flatpickr-day.flatpickr-disabled, .flatpickr-day.flatpickr-disabled:hover {
+  color: #475569 !important;
+}
+

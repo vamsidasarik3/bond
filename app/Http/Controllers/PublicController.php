@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\ContactEnquiry;
 use App\Models\Plot;
+use App\Services\LeadNotificationService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PublicController extends Controller
 {
@@ -94,20 +97,29 @@ class PublicController extends Controller
         ]);
 
         // 3. Normalize & Persist Lead in Database
-        $rawSource = !empty($validated['source']) ? trim($validated['source']) : 'Landing page';
+        $rawSource = ! empty($validated['source']) ? trim($validated['source']) : 'Landing page';
         $source = str_ireplace('Landing Page 2', 'Landing page', $rawSource);
 
-        $landingPage = !empty($validated['landing_page']) ? trim($validated['landing_page']) : ($request->header('Referer') ? parse_url($request->header('Referer'), PHP_URL_PATH) : '/');
+        $landingPage = ! empty($validated['landing_page']) ? trim($validated['landing_page']) : ($request->header('Referer') ? parse_url($request->header('Referer'), PHP_URL_PATH) : '/');
         if ($landingPage === '/landing2/' || $landingPage === '/landing2') {
             $landingPage = '/';
+        }
+
+        $visitDate = null;
+        if (! empty($validated['preferred_visit_date'])) {
+            try {
+                $visitDate = Carbon::parse($validated['preferred_visit_date'])->format('Y-m-d');
+            } catch (\Exception $e) {
+                $visitDate = null;
+            }
         }
 
         $enquiry = ContactEnquiry::create([
             'name' => trim($validated['name']),
             'email' => strtolower(trim($validated['email'])),
             'phone' => trim($validated['phone']),
-            'preferred_visit_date' => !empty($validated['preferred_visit_date']) ? $validated['preferred_visit_date'] : null,
-            'project' => !empty($validated['project']) ? trim($validated['project']) : 'RRR Prekshitha Enclave',
+            'preferred_visit_date' => $visitDate,
+            'project' => ! empty($validated['project']) ? trim($validated['project']) : 'RRR Prekshitha Enclave',
             'landing_page' => $landingPage,
             'source' => $source,
             'utm_source' => $validated['utm_source'] ?? null,
@@ -122,9 +134,9 @@ class PublicController extends Controller
 
         // 4. Fail-Safe Email Notifications
         try {
-            app(\App\Services\LeadNotificationService::class)->sendLeadNotifications($enquiry);
+            app(LeadNotificationService::class)->sendLeadNotifications($enquiry);
         } catch (\Throwable $e) {
-            \Illuminate\Support\Facades\Log::error('PublicController: Notification service error: ' . $e->getMessage());
+            Log::error('PublicController: Notification service error: '.$e->getMessage());
         }
 
         // 5. Response

@@ -57,6 +57,10 @@
           <div class="summary-title">Your Submission Summary</div>
           <table class="detail-table">
             <tr>
+              <td class="detail-label">Submission Time (IST)</td>
+              <td class="detail-value">{{ ($enquiry->created_at ? $enquiry->created_at->copy()->timezone('Asia/Kolkata') : now('Asia/Kolkata'))->format('d-m-Y, h:i A') }} IST</td>
+            </tr>
+            <tr>
               <td class="detail-label">Full Name</td>
               <td class="detail-value">{{ $enquiry->name }}</td>
             </tr>
@@ -80,7 +84,7 @@
             <tr>
               <td class="detail-label">Requested Visit Date</td>
               <td class="detail-value" style="color: #0284c7;">
-                {{ $enquiry->preferred_visit_date->format('l, d F Y') }}
+                {{ $enquiry->preferred_visit_date->format('d-m-Y (l)') }}
               </td>
             </tr>
             @endif
@@ -97,7 +101,7 @@
         <div class="notice-box">
           <strong>Important Information:</strong> 
           @if(!empty($enquiry->preferred_visit_date))
-            You have indicated a preferred visit date for <strong>{{ $enquiry->preferred_visit_date->format('d M Y') }}</strong>. Please note that our property relations team will call you shortly on <strong>{{ $enquiry->phone }}</strong> to confirm the exact visit time slot and coordinate transportation arrangements if needed.
+            You have indicated a preferred visit date for <strong>{{ $enquiry->preferred_visit_date->format('d-m-Y') }}</strong>. Please note that our property relations team will call you shortly on <strong>{{ $enquiry->phone }}</strong> to confirm the exact visit time slot and coordinate transportation arrangements if needed.
           @else
             Our property relations coordinator will call you shortly on <strong>{{ $enquiry->phone }}</strong> to assist you with layout brochures, pricing details, and schedule a convenient site visit.
           @endif

@@ -421,7 +421,7 @@
                 {{-- Card 6: Premium Compound Wall using compound-wall.jpg --}}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(5)">
-                        <img src="{{ asset('landing2/images/compound-wall.jpg') }}" alt="Premium Compound Wall" loading="lazy">
+                        <img src="{{ asset('landing2/images/compound-wall.jpg') }}?v=2" alt="Premium Compound Wall" loading="lazy">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
                             <h3 class="gallery-showcase-title">Premium Compound Wall</h3>
@@ -700,10 +700,10 @@
             </div>
 
             <div class="location-matrix-grid">
-                <!-- Left: Area Visual Card with lay_Out_new.png -->
+                <!-- Left: Area Visual Card with Lay_Out_1.png (Venture Image) -->
                 <div class="location-visual-card">
                     <div class="location-photo-box">
-                        <img src="{{ asset('landing2/images/lay_Out_new.png') }}" alt="Bibinagar AIIMS Medical University Campus Corridor Avenue View" loading="lazy">
+                        <img src="{{ asset('landing2/images/Lay_Out_1.png') }}" alt="Navagruha RRR Prekshitha Enclave Venture Aerial Master Layout View" loading="lazy">
                         <div class="location-badge-pill">
                             <i class="fa-solid fa-road me-1"></i> Growth Corridor · NH-163
                         </div>

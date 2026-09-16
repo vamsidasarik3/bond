@@ -101,21 +101,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function openViewer() {
+  function openViewer(imageSrc) {
     if (layoutModal) {
+      if (typeof imageSrc === 'string') {
+        const modalImg = layoutModal.querySelector('img');
+        if (modalImg) modalImg.src = imageSrc;
+      }
       layoutModal.classList.add('is-active');
       document.body.style.overflow = 'hidden';
       resetViewer();
     }
   }
+  window.openViewer = openViewer;
 
   function closeViewer() {
     if (layoutModal) {
       layoutModal.classList.remove('is-active');
       document.body.style.overflow = '';
       resetViewer();
+      const modalImg = layoutModal.querySelector('img');
+      if (modalImg) modalImg.src = 'landing2/images/Lay_Out_1.png';
     }
   }
+  window.closeViewer = closeViewer;
 
   function zoomIn() {
     if (scale < 3.0) {
@@ -206,6 +214,126 @@ document.addEventListener('DOMContentLoaded', () => {
     dragging = false;
   });
 
+  // --- 4B. LAYOUT CAROUSEL & LIVE PLOT INVENTORY STATS ---
+  let currentLayoutSlide = 0;
+  const layoutSlideEls = [
+    document.getElementById('layoutSlide1'),
+    document.getElementById('layoutSlide2')
+  ];
+  const layoutTabEls = [
+    document.getElementById('tabSlide1'),
+    document.getElementById('tabSlide2')
+  ];
+  const layoutDotEls = [
+    document.getElementById('dotSlide1'),
+    document.getElementById('dotSlide2')
+  ];
+
+  window.switchLayoutSlide = function(index) {
+    if (index < 0 || index >= layoutSlideEls.length) return;
+    currentLayoutSlide = index;
+
+    layoutSlideEls.forEach((slide, idx) => {
+      if (slide) {
+        if (idx === index) {
+          slide.classList.add('is-active');
+        } else {
+          slide.classList.remove('is-active');
+        }
+      }
+    });
+
+    layoutTabEls.forEach((tab, idx) => {
+      if (tab) {
+        if (idx === index) {
+          tab.classList.add('is-active');
+        } else {
+          tab.classList.remove('is-active');
+        }
+      }
+    });
+
+    layoutDotEls.forEach((dot, idx) => {
+      if (dot) {
+        if (idx === index) {
+          dot.classList.add('is-active');
+        } else {
+          dot.classList.remove('is-active');
+        }
+      }
+    });
+  };
+
+  window.stepLayoutSlide = function(step) {
+    let nextIndex = currentLayoutSlide + step;
+    if (nextIndex < 0) nextIndex = layoutSlideEls.length - 1;
+    if (nextIndex >= layoutSlideEls.length) nextIndex = 0;
+    window.switchLayoutSlide(nextIndex);
+  };
+
+
+  // Keyboard navigation when user is over layout section
+  const layoutSection = document.getElementById('layout');
+  if (layoutSection) {
+    layoutSection.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') window.stepLayoutSlide(-1);
+      if (e.key === 'ArrowRight') window.stepLayoutSlide(1);
+    });
+  }
+
+  // Live plot availability inventory statistics updater
+  async function loadLivePlotStatistics() {
+    try {
+      const res = await fetch('/api/plots', {
+        headers: { 'Accept': 'application/json' }
+      });
+      if (!res.ok) return;
+      const data = await res.json();
+      const plots = Array.isArray(data) ? data : (data.data || []);
+      if (!plots.length) return;
+
+      let available = 0;
+      let reserved = 0;
+      let sold = 0;
+
+      plots.forEach(p => {
+        const s = (p.status || '').toLowerCase();
+        if (s === 'available') available++;
+        else if (s === 'reserved' || s === 'hold') reserved++;
+        else if (s === 'sold' || s === 'registered' || s === 'booked') sold++;
+      });
+
+      const total = plots.length;
+      const combined = available + reserved;
+
+      if (combined > 0 || sold > 0) {
+        const availEl = document.getElementById('statAvailableCombined');
+        const soldEl = document.getElementById('statSoldTotal');
+        const grandEl = document.getElementById('statGrandTotal');
+        const progressAvailText = document.getElementById('progressAvailText');
+        const progressSoldText = document.getElementById('progressSoldText');
+        const progressFillAvail = document.getElementById('progressFillAvail');
+        const progressFillSold = document.getElementById('progressFillSold');
+
+        if (availEl) availEl.textContent = combined;
+        if (soldEl) soldEl.textContent = sold;
+        if (grandEl) grandEl.textContent = total;
+
+        const availPct = Math.round((combined / total) * 100);
+        const soldPct = 100 - availPct;
+
+        if (progressAvailText) progressAvailText.textContent = combined;
+        if (progressSoldText) progressSoldText.textContent = sold;
+        if (progressFillAvail) progressFillAvail.style.width = availPct + '%';
+        if (progressFillSold) progressFillSold.style.width = soldPct + '%';
+      }
+    } catch (e) {
+      console.warn('Live plots stats fallback to default HTML values:', e);
+    }
+  }
+
+  loadLivePlotStatistics();
+
   // --- 5. VISIT FORM VALIDATION & REAL API LEAD SUBMISSION ---
   const siteVisitForm = document.getElementById('siteVisitForm');
   const visitorName = document.getElementById('visitorName');
@@ -219,7 +347,44 @@ document.addEventListener('DOMContentLoaded', () => {
   const toastMessage = document.getElementById('toastMessage');
   const toastText = document.getElementById('toastText');
 
-  if (visitorDate) {
+  function parseToIsoDate(dateVal) {
+    if (!dateVal) return null;
+    const parts = dateVal.trim().split('-');
+    if (parts.length === 3) {
+      if (parts[0].length === 4) {
+        return dateVal.trim();
+      }
+      if (parts[2].length === 4) {
+        return `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
+      }
+    }
+    return dateVal.trim();
+  }
+
+  function formatToDisplayDate(dateVal) {
+    if (!dateVal) return '';
+    const parts = dateVal.trim().split('-');
+    if (parts.length === 3) {
+      if (parts[0].length === 4) {
+        return `${parts[2].padStart(2, '0')}-${parts[1].padStart(2, '0')}-${parts[0]}`;
+      }
+      if (parts[2].length === 4) {
+        return `${parts[0].padStart(2, '0')}-${parts[1].padStart(2, '0')}-${parts[2]}`;
+      }
+    }
+    return dateVal.trim();
+  }
+
+  // Initialize Flatpickr for DD-MM-YYYY format
+  if (typeof flatpickr !== 'undefined') {
+    const flatpickrConfig = {
+      dateFormat: 'd-m-Y',
+      minDate: 'today',
+      disableMobile: true,
+      allowInput: true
+    };
+    if (visitorDate) flatpickr(visitorDate, flatpickrConfig);
+  } else if (visitorDate) {
     visitorDate.min = new Date().toISOString().split('T')[0];
   }
 
@@ -278,9 +443,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Preferred Date (Optional, but if supplied must not be past)
     const dateVal = visitorDate?.value || '';
-    if (dateVal) {
-      const today = new Date().toISOString().split('T')[0];
-      if (dateVal < today) {
+    const isoDateVal = parseToIsoDate(dateVal);
+    if (isoDateVal) {
+      const today = new Date();
+      const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+      if (isoDateVal < todayStr) {
         if (dateError) {
           dateError.textContent = 'Please choose today or an upcoming date';
           dateError.style.display = 'block';
@@ -309,10 +476,10 @@ document.addEventListener('DOMContentLoaded', () => {
         name: name,
         email: email,
         phone: phone,
-        preferred_visit_date: dateVal || null,
+        preferred_visit_date: isoDateVal || null,
         project: document.getElementById('leadProject')?.value || 'RRR Prekshitha Enclave',
         landing_page: document.getElementById('leadLandingPage')?.value || window.location.pathname,
-        source: document.getElementById('leadSource')?.value || 'Landing Page 2',
+        source: document.getElementById('leadSource')?.value || 'Landing page',
         utm_source: urlParams.get('utm_source') || null,
         utm_medium: urlParams.get('utm_medium') || null,
         utm_campaign: urlParams.get('utm_campaign') || null,
@@ -546,8 +713,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalSuccessLeadPill = document.getElementById('modalSuccessLeadPill');
   const modalSuccessDateNote = document.getElementById('modalSuccessDateNote');
 
-  // Restrict date input to today or future
-  if (modalVisitorDate) {
+  // Restrict date input to today or future with DD-MM-YYYY format
+  if (typeof flatpickr !== 'undefined') {
+    if (modalVisitorDate) {
+      flatpickr(modalVisitorDate, {
+        dateFormat: 'd-m-Y',
+        minDate: 'today',
+        disableMobile: true,
+        allowInput: true
+      });
+    }
+  } else if (modalVisitorDate) {
     modalVisitorDate.min = new Date().toISOString().split('T')[0];
   }
 
@@ -569,37 +745,37 @@ document.addEventListener('DOMContentLoaded', () => {
       eyebrow: 'World-Class Amenities & Features',
       title: 'Enquire About Amenities',
       subtitle: 'Schedule a guided visit to tour the grand entrance arch, landscaped parks, and sports amenities.',
-      source: 'Landing Page 2 - Amenities Section Popup'
+      source: 'Landing page - Amenities Section Popup'
     },
     gallery: {
       eyebrow: 'Venture Showcase & Photos',
       title: 'Explore Prekshitha Enclave',
       subtitle: 'View high-resolution venture photos or book a personalized site tour to inspect plots in person.',
-      source: 'Landing Page 2 - Gallery Section Popup'
+      source: 'Landing page - Gallery Section Popup'
     },
     layout: {
       eyebrow: 'Sanctioned Layout & Master Plan',
       title: 'Plot Availability & Pricing',
       subtitle: 'Get instant access to sanctioned layout boundaries, East/West facing plots, and price details.',
-      source: 'Landing Page 2 - Master Plan Section Popup'
+      source: 'Landing page - Master Plan Section Popup'
     },
     location: {
       eyebrow: 'Strategic Location Matrix',
       title: 'Location & Connectivity',
       subtitle: 'Discover rapid connectivity to AIIMS Bibinagar, Warangal Highway & RRR. Plan your site visit today.',
-      source: 'Landing Page 2 - Location Section Popup'
+      source: 'Landing page - Location Section Popup'
     },
     'schedule-visit': {
       eyebrow: 'Exclusive Site Tour',
       title: 'Schedule Your Site Visit',
       subtitle: 'Select your preferred date and our property advisor will arrange comfortable site transportation.',
-      source: 'Landing Page 2 - Schedule Visit Section Popup'
+      source: 'Landing page - Schedule Visit Section Popup'
     },
     default: {
       eyebrow: 'Exclusive Site Visit & Pricing',
       title: 'Plan Your Visit',
       subtitle: 'Share your details and our property advisor will get in touch with you shortly.',
-      source: 'Landing Page 2 - Sticky Tab Popup'
+      source: 'Landing page - Sticky Tab Popup'
     }
   };
 
@@ -753,9 +929,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Preferred Site Visit Date (Optional, but if filled cannot be in the past)
     const dateVal = modalVisitorDate?.value || '';
-    if (dateVal) {
-      const todayStr = new Date().toISOString().split('T')[0];
-      if (dateVal < todayStr) {
+    const isoDateVal = parseToIsoDate(dateVal);
+    if (isoDateVal) {
+      const today = new Date();
+      const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+      if (isoDateVal < todayStr) {
         if (modalDateError) {
           modalDateError.textContent = 'Please choose today or an upcoming date';
           modalDateError.style.display = 'block';
@@ -782,10 +960,10 @@ document.addEventListener('DOMContentLoaded', () => {
         name: name,
         email: email,
         phone: phone,
-        preferred_visit_date: dateVal || null,
+        preferred_visit_date: isoDateVal || null,
         project: document.getElementById('modalLeadProject')?.value || 'RRR Prekshitha Enclave',
-        landing_page: document.getElementById('modalLeadLandingPage')?.value || '/landing2/',
-        source: document.getElementById('modalLeadSource')?.value || 'Landing Page 2 - Section Navigation Popup',
+        landing_page: document.getElementById('modalLeadLandingPage')?.value || '/',
+        source: document.getElementById('modalLeadSource')?.value || 'Landing page - Section Navigation Popup',
         utm_source: urlParams.get('utm_source') || null,
         utm_medium: urlParams.get('utm_medium') || null,
         utm_campaign: urlParams.get('utm_campaign') || null,
@@ -813,18 +991,13 @@ document.addEventListener('DOMContentLoaded', () => {
           if (modalSuccessContainer) modalSuccessContainer.style.display = 'block';
 
           if (modalSuccessLeadPill) {
-            modalSuccessLeadPill.textContent = `REF: #${data.lead_number || 'L-CONFIRMED'}`;
+            modalSuccessLeadPill.style.display = 'none';
           }
 
           if (modalSuccessDateNote) {
             if (dateVal) {
-              const parts = dateVal.split('-');
-              let dateFormatted = dateVal;
-              if (parts.length === 3) {
-                const dObj = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
-                dateFormatted = dObj.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
-              }
-              modalSuccessDateNote.textContent = `Your preferred site visit date (${dateFormatted}) has also been noted. Our team will contact you to confirm availability.`;
+              const displayDate = formatToDisplayDate(dateVal);
+              modalSuccessDateNote.textContent = `Your preferred site visit date (${displayDate}) has also been noted. Our team will contact you to confirm availability.`;
               modalSuccessDateNote.style.display = 'block';
             } else {
               modalSuccessDateNote.style.display = 'none';

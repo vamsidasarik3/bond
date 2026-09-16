@@ -27,7 +27,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=5.1">
+  <link rel="stylesheet" href="css/flatpickr.min.css">
+  <link rel="stylesheet" href="css/flatpickr-dark.min.css">
+  <link rel="stylesheet" href="css/style.css?v=5.2">
 
   <script type="application/ld+json">
   {
@@ -120,9 +122,30 @@
             <i class="fa-solid fa-location-dot me-2 text-brand-secondary"></i>Bibinagar, Hyderabad to Warangal Highway (NH-163)
           </h4>
 
-          <p class="hero-lead mb-4">
-            Located in Bibinagar, very close to Warangal Highway (NH-163) &amp; AIIMS Medical University Campus. Bibinagar MMTS &ndash; 3 mins, AIIMS &ndash; 5 mins, Rockwoods International School &ndash; 4 mins, Birla Open Minds International School &ndash; 6 mins. Completed all developments in layout &amp; getting Final Approved LP Number, clear title, 100% Vaastu, ready to construct, and bank loan facility.
-          </p>
+          <div class="hero-lead mb-4">
+            <h3 class="hero-tagline text-white fw-bold mb-2" style="font-size: 1.25rem; font-family: var(--font-heading); letter-spacing: 0.02em;">Build Your Dream Home in Bibinagar!</h3>
+            <p class="text-slate-200 mb-4" style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px !important;">Strategically located near Warangal Highway (NH-163) and AIIMS Medical University, this premium project combines convenience with peace of mind.</p>
+            <ul class="hero-highlights-list list-unstyled mb-0" style="display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem; line-height: 1.5;">
+              <li style="display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;">
+                <span class="check-icon-wrap" style="height: 1.5em; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i class="fa-solid fa-circle-check text-brand-secondary" style="font-size: 0.95rem; line-height: 1; display: block;"></i>
+                </span>
+                <span style="line-height: 1.5;"><strong class="text-white">Unbeatable Proximity :</strong> 3 mins to Bibinagar MMTS | 5 mins to AIIMS Campus | 4–6 mins to top international schools (Rockwoods &amp; Birla Open Minds).</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;">
+                <span class="check-icon-wrap" style="height: 1.5em; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i class="fa-solid fa-circle-check text-brand-secondary" style="font-size: 0.95rem; line-height: 1; display: block;"></i>
+                </span>
+                <span style="line-height: 1.5;"><strong class="text-white">Fully Developed &amp; Ready to Build :</strong> Final approved layout with 100% clear titles. 100% Vaastu Compliance</span>
+              </li>
+              <li style="display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;">
+                <span class="check-icon-wrap" style="height: 1.5em; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i class="fa-solid fa-circle-check text-brand-secondary" style="font-size: 0.95rem; line-height: 1; display: block;"></i>
+                </span>
+                <span style="line-height: 1.5;"><strong class="text-white">Hassle-Free Financing :</strong> Bank loan available</span>
+              </li>
+            </ul>
+          </div>
 
           <div class="hero-actions-group">
             <a href="#schedule-visit" class="btn-primary-brand">
@@ -275,7 +298,7 @@
 
           <!-- Card 6: Premium Compound Wall -->
           <div class="gallery-showcase-item">
-            <img src="images/compound-wall.jpg" alt="Premium Compound Wall" loading="lazy">
+            <img src="images/compound-wall.jpg?v=2" alt="Premium Compound Wall" loading="lazy">
             <div class="gallery-showcase-overlay"></div>
             <div class="gallery-showcase-content">
               <h3 class="gallery-showcase-title">Premium Compound Wall</h3>
@@ -561,10 +584,10 @@
         </div>
 
         <div class="location-matrix-grid reveal">
-          <!-- Left: Area Visual Card with lay_Out_new.png -->
+          <!-- Left: Area Visual Card with Lay_Out_1.png (Venture Image) -->
           <div class="location-visual-card">
             <div class="location-photo-box">
-              <img src="images/lay_Out_new.png" alt="Bibinagar AIIMS Medical University Campus Corridor Avenue View" loading="lazy">
+              <img src="images/Lay_Out_1.png" alt="Navagruha RRR Prekshitha Enclave Venture Aerial Master Layout View" loading="lazy">
               <div class="location-badge-pill">
                 <i class="fa-solid fa-road me-1"></i> Growth Corridor · NH-163
               </div>
@@ -813,7 +836,7 @@
                 </div>
                 <div style="display: flex; flex-direction: column;">
                   <label for="visitorDate" style="display: flex; align-items: flex-end; min-height: 22px; font-size: 0.78rem; font-family: var(--font-heading); color: #cbd5e1; margin-bottom: 6px;">VISIT DATE / SLOT <span style="color: #94a3b8; font-size: 0.72rem; font-weight: normal; margin-left: 4px;">(Optional)</span></label>
-                  <input type="date" id="visitorDate" name="preferred_visit_date" style="width: 100%; height: 48px; box-sizing: border-box; padding: 10px 16px; background: rgba(20, 37, 51, 0.85); border: 1px solid var(--dark-border); border-radius: 8px; color: #fff; font-family: var(--font-sans); outline: none; color-scheme: dark;">
+                  <input type="text" id="visitorDate" name="preferred_visit_date" class="custom-flatpickr" placeholder="DD-MM-YYYY" readonly style="width: 100%; height: 48px; box-sizing: border-box; padding: 10px 16px; background: rgba(20, 37, 51, 0.85); border: 1px solid var(--dark-border); border-radius: 8px; color: #fff; font-family: var(--font-sans); outline: none; cursor: pointer;">
                   <span class="field-error" id="dateError" style="display: none; color: #ef4444; font-size: 0.75rem; margin-top: 4px;">Please choose today or an upcoming date</span>
                 </div>
               </div>
@@ -1105,7 +1128,7 @@
               <label for="modalVisitorDate" class="modal-field-label" style="display: flex; align-items: center; justify-content: space-between; height: 22px; min-height: 22px; max-height: 22px; line-height: 22px; margin-bottom: 6px; white-space: nowrap;">
                 <span>Visit Slot <span class="opt-label">(Optional)</span></span>
               </label>
-              <input type="date" id="modalVisitorDate" name="preferred_visit_date" class="modal-input date-input" style="width: 100%; height: 46px; min-height: 46px; max-height: 46px; box-sizing: border-box; line-height: 24px; padding: 10px 14px; margin: 0; color-scheme: dark;">
+              <input type="text" id="modalVisitorDate" name="preferred_visit_date" class="modal-input date-input custom-flatpickr" placeholder="DD-MM-YYYY" readonly style="width: 100%; height: 46px; min-height: 46px; max-height: 46px; box-sizing: border-box; line-height: 24px; padding: 10px 14px; margin: 0; cursor: pointer; background: rgba(20, 37, 51, 0.85); color: #ffffff;">
               <span class="modal-field-error" id="modalDateError">Please choose today or an upcoming date</span>
             </div>
           </div>
@@ -1141,7 +1164,6 @@
             <i class="fa-solid fa-check" aria-hidden="true"></i>
           </div>
           <h3 class="success-heading">Thank You!</h3>
-          <div class="success-lead-pill" id="modalSuccessLeadPill">REF: #L-XXXX</div>
           <p class="success-message" id="modalSuccessMsg">
             Your enquiry has been received successfully. Our team will contact you shortly.
           </p>
@@ -1247,6 +1269,7 @@
     });
   </script>
 
-  <script src="js/main.js?v=5.1"></script>
+  <script src="js/flatpickr.min.js"></script>
+  <script src="js/main.js?v=5.2"></script>
 </body>
 </html>

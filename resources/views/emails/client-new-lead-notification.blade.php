@@ -35,7 +35,7 @@
       <div class="header">
         <div class="tag">New Website Lead Received</div>
         <h1>{{ $enquiry->name }}</h1>
-        <p>Project: <strong>{{ $enquiry->project ?: 'RRR Prekshitha Enclave' }}</strong> • Received on {{ $enquiry->created_at ? $enquiry->created_at->format('d M Y, h:i A') : date('d M Y, h:i A') }}</p>
+        <p>Project: <strong>{{ $enquiry->project ?: 'RRR Prekshitha Enclave' }}</strong> • Received on {{ ($enquiry->created_at ? $enquiry->created_at->copy()->timezone('Asia/Kolkata') : now('Asia/Kolkata'))->format('d-m-Y, h:i A') }} IST</p>
       </div>
 
       <!-- Content -->
@@ -68,6 +68,10 @@
             <th colspan="2">Customer Contact Information</th>
           </tr>
           <tr>
+            <td class="td-label">Received At (IST)</td>
+            <td class="td-val">{{ ($enquiry->created_at ? $enquiry->created_at->copy()->timezone('Asia/Kolkata') : now('Asia/Kolkata'))->format('d-m-Y, h:i A') }} IST</td>
+          </tr>
+          <tr>
             <td class="td-label">Full Name</td>
             <td class="td-val">{{ $enquiry->name }}</td>
           </tr>
@@ -91,7 +95,7 @@
           <tr>
             <td class="td-label">Requested Visit Date</td>
             <td class="td-val" style="color: #7c3aed;">
-              {{ $enquiry->preferred_visit_date->format('l, d F Y') }}
+              {{ $enquiry->preferred_visit_date->format('d-m-Y (l)') }}
             </td>
           </tr>
           @endif
