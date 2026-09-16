@@ -210,11 +210,11 @@
                                     </h1>
 
                                     <div class="hero-subtitle-location mb-3">
-                                        <i class="fa-solid fa-location-dot me-2 text-brand-secondary"></i>Residential Plots near AIIMS Medical University Campus, Hyderabad to Warangal Highway (NH-163)
+                                        <i class="fa-solid fa-location-dot me-2 text-brand-secondary"></i>Residential Plots near AIIMS Medical University, Hyderabad to Warangal Highway (NH-163)
                                     </div>
                                     
                                     <p class="hero-lead mb-4">
-                                        A 17-acre gated community of HMDA-approved residential plots located on the Hyderabad to Warangal highway, five minutes from AIIMS Medical University Campus.
+                                        A 17-acre gated community of HMDA-approved residential plots located on the Hyderabad to Warangal highway, five minutes from AIIMS Medical University.
                                     </p>
                                     
                                     <div class="d-flex flex-wrap gap-3">
@@ -249,7 +249,7 @@
                                     </div>
 
                                     <div class="hero-subtitle-location mb-3">
-                                        <i class="fa-solid fa-road me-2 text-brand-secondary"></i>30' &amp; 40' M-25 Grade Concrete Roads
+                                        <i class="fa-solid fa-road me-2 text-brand-secondary"></i>30 &amp; 40 feet M-25 Grade Concrete Roads
                                     </div>
                                     
                                     <p class="hero-lead mb-4">
@@ -510,7 +510,7 @@
                         <div class="d-flex align-items-center justify-content-center mb-3 rounded-3 overflow-hidden" style="height: 140px; background: #0c1620;">
                             <img src="{{ asset('images/projects/rrr-prekshitha/concrete-boulevard-40ft.webp') }}" alt="Wide 30-foot and 40-foot cement concrete avenues inside plotted development" class="w-100 h-100 object-fit-cover">
                         </div>
-                        <h3 class="fs-18 text-white font-copperplate mb-2">30' &amp; 40' CC Roads</h3>
+                        <h3 class="fs-18 text-white font-copperplate mb-2">30 &amp; 40 feet</h3>
                         <p class="text-white-50 fs-13 mb-0">Heavy-duty M-25 grade concrete roads built with kerbing and pedestrian pathways.</p>
                     </div>
                 </div>
@@ -546,7 +546,7 @@
                 <div class="col-lg-8">
                     <h2 class="fs-36 text-white font-copperplate mb-0">Venture Reels</h2>
                     <p class="text-white-50 fs-14 mt-2 mb-0">
-                        Watch official high-definition venture walkthroughs and short video reels showing actual on-ground development near AIIMS Medical University Campus.
+                        Watch official high-definition venture walkthroughs and short video reels showing actual on-ground development near AIIMS Medical University.
                     </p>
                 </div>
                 <div class="col-lg-4 text-lg-end mt-2 mt-lg-0">
@@ -572,7 +572,7 @@
                             <i class="fa-solid fa-camera me-1 text-brand-secondary"></i> On-Ground 4K Tour
                         </span>
                         <span class="video-chapter-pill">
-                            <i class="fa-solid fa-location-arrow me-1 text-brand-secondary"></i> AIIMS Medical University Campus (5 Min)
+                            <i class="fa-solid fa-location-arrow me-1 text-brand-secondary"></i> AIIMS Medical University (5 Min)
                         </span>
                         <span class="video-chapter-pill">
                             <i class="fa-solid fa-certificate me-1 text-brand-secondary"></i> HMDA Final Approved
@@ -616,8 +616,8 @@
 
                         {{-- Row 1 - Video 3 --}}
                         <div class="col-4">
-                            <div class="reel-card" onclick="openReelModal('{{ asset('venture/videos/REEL3.mp4') }}', 'AIIMS Medical University Campus Location & Highway Connectivity')">
-                                <img src="{{ asset('images/projects/rrr-prekshitha/avenue-plantation-walkway.webp') }}" alt="AIIMS Medical University Campus growth corridor location highlights video" class="reel-card-poster">
+                            <div class="reel-card" onclick="openReelModal('{{ asset('venture/videos/REEL3.mp4') }}', 'AIIMS Medical University Location & Highway Connectivity')">
+                                <img src="{{ asset('images/projects/rrr-prekshitha/avenue-plantation-walkway.webp') }}" alt="AIIMS Medical University growth corridor location highlights video" class="reel-card-poster">
                                 <div class="reel-card-gradient"></div>
                                 <div class="reel-card-content text-center">
                                     <div class="reel-play-btn mx-auto">
@@ -689,7 +689,7 @@
                     <div class="subtitle text-brand-secondary font-copperplate">Location Highlights</div>
                     <h2 class="fs-36 text-white font-copperplate">Where the Project Sits</h2>
                     <p class="text-white-50 fs-15 mt-2 mb-0">
-                        Situated in Bibinagar near AIIMS Medical University Campus on the NH-163 Warangal Highway, offering direct arterial transit to Hyderabad city and key growth nodes.
+                        Situated in Bibinagar near AIIMS Medical University on the NH-163 Warangal Highway, offering direct arterial transit to Hyderabad city and key growth nodes.
                     </p>
                 </div>
                 <div class="col-lg-4 text-lg-end">
@@ -713,9 +713,9 @@
                             Navagruha RRR Prekshitha Enclave
                         </h4>
                         <p class="text-white-50 fs-14 lh-base mb-3">
-                            Near AIIMS Medical University Campus, Bibinagar, Yadadri Bhuvanagiri District, Hyderabad, Telangana 508126.
+                            Near AIIMS Medical University, Bibinagar, Yadadri Bhuvanagiri District, Hyderabad, Telangana 508126.
                         </p>
-                        <a href="https://maps.google.com/?q=Bibinagar,+Near+AIIMS+Medical+University+Campus,+Telangana" target="_blank" rel="noopener noreferrer" class="btn-secondary-brand px-3 py-2 fs-13">
+                        <a href="https://maps.google.com/?q=Bibinagar,+Near+AIIMS+Medical+University,+Telangana" target="_blank" rel="noopener noreferrer" class="btn-secondary-brand px-3 py-2 fs-13">
                             <i class="fa-solid fa-location-arrow me-2 text-brand-secondary"></i>
                             <span>Open in Google Maps</span>
                         </a>
@@ -763,7 +763,7 @@
 
                     <div class="transit-item-row">
                         <div>
-                            <div class="transit-destination-name">AIIMS Medical University Campus</div>
+                            <div class="transit-destination-name">AIIMS Medical University</div>
                             <div class="transit-destination-meta">Premier National Medical University &amp; Hospital</div>
                         </div>
                         <span class="transit-duration-badge">5 Mins</span>
@@ -798,11 +798,11 @@
                 <!-- Location Highlights Visuals -->
                 <div class="mt-5 pt-4 border-top border-white-10">
                     <div class="row g-4">
-                        <!-- Creative 3: AIIMS Medical University Campus 5 Mins -->
+                        <!-- Creative 3: AIIMS Medical University 5 Mins -->
                         <div class="col-lg-4 col-md-6 col-12">
-                            <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('images/creatives/creative3.jpeg') }}', 'Reach AIIMS Medical University Campus in 5 Minutes', '750-Bed Premier Medical Institute &amp; Hospital')">
+                            <div class="creative-billboard-card" onclick="openCreativeModal('{{ asset('images/creatives/creative3.jpeg') }}', 'Reach AIIMS Medical University in 5 Minutes', '750-Bed Premier Medical Institute &amp; Hospital')">
                                 <div class="creative-img-wrap">
-                                    <img src="{{ asset('images/creatives/creative3.jpeg') }}" alt="Location visual showcasing 5-minute proximity to AIIMS Medical University Campus" class="creative-img" loading="lazy">
+                                    <img src="{{ asset('images/creatives/creative3.jpeg') }}" alt="Location visual showcasing 5-minute proximity to AIIMS Medical University" class="creative-img" loading="lazy">
                                     <div class="creative-badge">05 MINS</div>
                                     <div class="creative-zoom-overlay">
                                         <i class="fa-solid fa-magnifying-glass-plus"></i>
@@ -810,7 +810,7 @@
                                     </div>
                                 </div>
                                 <div class="creative-caption">
-                                    <h4 class="fs-16 text-white font-copperplate mb-1">AIIMS Medical University Campus</h4>
+                                    <h4 class="fs-16 text-white font-copperplate mb-1">AIIMS Medical University</h4>
                                     <p class="text-white-50 fs-12 mb-0">750-Bed Central Hospital &bull; 5 Mins Away</p>
                                 </div>
                             </div>
