@@ -704,9 +704,6 @@
                 <div class="location-visual-card">
                     <div class="location-photo-box">
                         <img src="{{ asset('landing2/images/Lay_Out_1.png') }}" alt="Navagruha RRR Prekshitha Enclave Venture Aerial Master Layout View" loading="lazy">
-                        <div class="location-badge-pill">
-                            <i class="fa-solid fa-road me-1"></i> Growth Corridor · NH-163
-                        </div>
                     </div>
                     <div class="location-meta-box">
                         <h4 class="text-white font-copperplate fs-20 mb-2">
@@ -715,7 +712,7 @@
                         <p class="text-white-50 fs-14 lh-base mb-3">
                             Near AIIMS Medical University, Bibinagar, Yadadri Bhuvanagiri District, Hyderabad, Telangana 508126.
                         </p>
-                        <a href="https://maps.google.com/?q=Bibinagar,+Near+AIIMS+Medical+University,+Telangana" target="_blank" rel="noopener noreferrer" class="btn-secondary-brand px-3 py-2 fs-13">
+                        <a href="https://maps.app.goo.gl/jTyRs8yxpdLZE6pd7" target="_blank" rel="noopener noreferrer" class="btn-secondary-brand px-3 py-2 fs-13">
                             <i class="fa-solid fa-location-arrow me-2 text-brand-secondary"></i>
                             <span>Open in Google Maps</span>
                         </a>
