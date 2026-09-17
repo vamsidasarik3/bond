@@ -359,7 +359,22 @@
                     </div>
                 </div>
 
-                {{-- Card 3: Layout Demarcation & Underground Utilities Dual Showcase --}}
+                {{-- Card 3: 30 & 40 feet using rrr-road-1.jpg --}}
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(2)">
+                        <img src="{{ asset('landing2/images/rrr-road-1.jpg') }}" alt="30 &amp; 40 feet Concrete Roads" loading="lazy">
+                        <div class="gallery-showcase-overlay"></div>
+                        <div class="gallery-showcase-content">
+                            <h3 class="gallery-showcase-title">30 &amp; 40 feet</h3>
+                            <div class="gallery-showcase-subtitle">Durable All-Weather Concrete Avenues</div>
+                        </div>
+                        <div class="gallery-showcase-hover-btn">
+                            <span><i class="fa-solid fa-expand me-1"></i> View Roads</span>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Card 4: Layout Demarcation & Underground Utilities Dual Showcase --}}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="gallery-showcase-item utilities-dual-card" id="utilitiesDualCard" onclick="openUtilitiesModal(0)" title="Click to view full photos of Plot Demarcation Stone &amp; Underground Utilities" role="button" tabindex="0">
                         <div class="utilities-split-viewport">
@@ -388,9 +403,9 @@
                     </div>
                 </div>
 
-                {{-- Card 4: Landscaped Theme Parks using layout-parks-12.jpg --}}
+                {{-- Card 5: Landscaped Theme Parks using layout-parks-12.jpg --}}
                 <div class="col-lg-4 col-md-6 col-12">
-                    <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(3)">
+                    <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(4)">
                         <img src="{{ asset('landing2/images/layout-parks-12.jpg') }}" alt="3 Landscaped Theme Parks" loading="lazy">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
@@ -403,9 +418,9 @@
                     </div>
                 </div>
 
-                {{-- Card 5: Overhead Water Tank using water-tank.png --}}
+                {{-- Card 6: Overhead Water Tank using water-tank.png --}}
                 <div class="col-lg-4 col-md-6 col-12">
-                    <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(4)">
+                    <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(5)">
                         <img src="{{ asset('landing2/images/water-tank.png') }}" alt="Overhead Water Tank" loading="lazy">
                         <div class="gallery-showcase-overlay"></div>
                         <div class="gallery-showcase-content">
@@ -414,21 +429,6 @@
                         </div>
                         <div class="gallery-showcase-hover-btn">
                             <span><i class="fa-solid fa-expand me-1"></i> View Water Tank</span>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Card 6: 30 & 40 feet using rrr-road-1.jpg --}}
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="gallery-showcase-item" role="button" tabindex="0" onclick="openShowcaseModal(5)">
-                        <img src="{{ asset('landing2/images/rrr-road-1.jpg') }}" alt="30 &amp; 40 feet Concrete Roads" loading="lazy">
-                        <div class="gallery-showcase-overlay"></div>
-                        <div class="gallery-showcase-content">
-                            <h3 class="gallery-showcase-title">30 &amp; 40 feet</h3>
-                            <div class="gallery-showcase-subtitle">Durable All-Weather Concrete Avenues</div>
-                        </div>
-                        <div class="gallery-showcase-hover-btn">
-                            <span><i class="fa-solid fa-expand me-1"></i> View Roads</span>
                         </div>
                     </div>
                 </div>
@@ -1164,6 +1164,11 @@
             subtitle: "Continuous Boundary Enclosure &amp; Avenue Frontage"
         },
         {
+            src: "{{ asset('landing2/images/rrr-road-1.jpg') }}",
+            title: "30 &amp; 40 feet",
+            subtitle: "Durable All-Weather Concrete Avenues"
+        },
+        {
             src: "{{ asset('landing2/images/utilities-chamber-full.jpg?v=5') }}",
             title: "Underground Utilities",
             subtitle: "Concealed Drainage Chambers &amp; Infrastructure"
@@ -1177,11 +1182,6 @@
             src: "{{ asset('landing2/images/water-tank.png') }}",
             title: "Overhead Water Tank",
             subtitle: "Reliable Gravity-Fed Potable Water Supply"
-        },
-        {
-            src: "{{ asset('landing2/images/rrr-road-1.jpg') }}",
-            title: "30 &amp; 40 feet",
-            subtitle: "Durable All-Weather Concrete Avenues"
         },
         {
             src: "{{ asset('landing2/images/social-infra.jpg') }}",
