@@ -9,6 +9,61 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
+/* ==============================================================
+   COPPERPLATE WEBFONT (@font-face)
+   Guarantees identical rendering across Windows, Android & iOS
+   ============================================================== */
+@font-face {
+  font-family: 'Copperplate';
+  src: local('Copperplate'),
+       local('Copperplate Gothic Bold'),
+       url('../fonts/CopperplateCC-Bold.otf') format('opentype'),
+       url('../fonts/CopperplateCC-Bold.ttf') format('truetype');
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Copperplate';
+  src: local('Copperplate'),
+       local('Copperplate Gothic Bold'),
+       url('../fonts/CopperplateCC-Heavy.otf') format('opentype'),
+       url('../fonts/CopperplateCC-Heavy.ttf') format('truetype');
+  font-weight: 800 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Copperplate';
+  src: local('Copperplate-Light'),
+       local('Copperplate Gothic Light'),
+       url('../fonts/CopperplateCC-Bold.otf') format('opentype'),
+       url('../fonts/CopperplateCC-Bold.ttf') format('truetype');
+  font-weight: 300 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Copperplate CC';
+  src: url('../fonts/CopperplateCC-Bold.otf') format('opentype'),
+       url('../fonts/CopperplateCC-Bold.ttf') format('truetype');
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Copperplate CC';
+  src: url('../fonts/CopperplateCC-Heavy.otf') format('opentype'),
+       url('../fonts/CopperplateCC-Heavy.ttf') format('truetype');
+  font-weight: 800 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --primary-color: #234159;
   --primary-color-rgb: 35, 65, 89;
@@ -30,9 +85,10 @@
   --dark-border: rgba(255, 255, 255, 0.12);
   --dark-border-light: rgba(255, 255, 255, 0.18);
 
-  --font-heading: 'Copperplate', 'Copperplate Gothic Bold', 'Copperplate Gothic Light', 'Cinzel', serif;
-  --font-brand: 'Copperplate', 'Copperplate Gothic Bold', 'Cinzel', serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Copperplate', 'Copperplate CC', 'Copperplate Gothic Bold', 'Copperplate Gothic Light', 'Cinzel', serif;
+  --font-brand: 'Copperplate', 'Copperplate CC', 'Copperplate Gothic Bold', 'Cinzel', serif;
+  --font-copperplate: 'Copperplate', 'Copperplate CC', 'Copperplate Gothic Bold', 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
   --container-max: 1260px;
   --container-pad: 48px;
@@ -56,6 +112,8 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -4111,10 +4169,91 @@ span.flatpickr-weekday {
   background: rgba(113, 182, 68, 0.3) !important;
   border-color: rgba(113, 182, 68, 0.5) !important;
 }
-.flatpickr-day.today {
-  border-color: #d6c08a !important;
-}
 .flatpickr-day.flatpickr-disabled, .flatpickr-day.flatpickr-disabled:hover {
   color: #475569 !important;
 }
 
+/* ==============================================================
+   CROSS-PLATFORM MOBILE RESPONSIVE TYPOGRAPHY (ANDROID & IOS)
+   Guarantees proportional scaling and identical rendering
+   ============================================================== */
+.font-copperplate,
+.subtitle-copperplate,
+.section-title {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  /* Headings fluid scaling on Android & iOS */
+  h1, .hero-title {
+    font-size: clamp(26px, 7.5vw, 36px) !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.03em !important;
+  }
+  h2, .showcase-h2, .fs-36 {
+    font-size: clamp(22px, 6vw, 28px) !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.03em !important;
+  }
+  .fs-32 {
+    font-size: clamp(20px, 5.5vw, 26px) !important;
+    line-height: 1.28 !important;
+  }
+  .fs-28 {
+    font-size: clamp(18px, 5vw, 22px) !important;
+    line-height: 1.3 !important;
+  }
+  .fs-24 {
+    font-size: clamp(16px, 4.5vw, 20px) !important;
+  }
+  .fs-20 {
+    font-size: clamp(15px, 4vw, 18px) !important;
+  }
+
+  /* Gallery section card typography on mobile */
+  .gallery-showcase-title {
+    font-size: 15px !important;
+    letter-spacing: 0.03em !important;
+    line-height: 1.25 !important;
+  }
+  .gallery-showcase-subtitle {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+  .subtitle,
+  .subtitle-copperplate {
+    font-size: 12px !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  /* Stat numbers and badges on mobile */
+  .stat-number,
+  .glimpse-stat-num {
+    font-size: clamp(24px, 6vw, 30px) !important;
+  }
+  .glimpse-stat-label {
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  h1, .hero-title {
+    font-size: clamp(22px, 7vw, 28px) !important;
+  }
+  h2, .showcase-h2, .fs-36 {
+    font-size: clamp(19px, 5.5vw, 24px) !important;
+  }
+  .fs-32 {
+    font-size: clamp(18px, 5vw, 22px) !important;
+  }
+  .gallery-showcase-content {
+    padding: 16px 12px !important;
+  }
+  .gallery-showcase-title {
+    font-size: 14px !important;
+  }
+  .gallery-showcase-subtitle {
+    font-size: 11px !important;
+  }
+}
